@@ -3,12 +3,16 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "nodemon ./bin/www",
+    "test": "echo 'Error, there are no tests to run.'",
+    "something_different": "echo 'everything'"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "^4.16.4",
-    "morgan": "~1.9.1"
+    "mocha": "^9.2.0",
+    "morgan": "~1.9.1",
+    "nodemon": "^2.0.15"
   }
 }
