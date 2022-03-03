@@ -1,0 +1,7 @@
+.navMenu {
+    background-color: rgba(0, 0, 0, 0.733);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 2em;
+}

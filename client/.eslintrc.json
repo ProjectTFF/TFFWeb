@@ -20,6 +20,10 @@
     "rules": {
         "linebreak-style": 0,
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-        "indent": "off"
+        "indent": "off",
+        "import/prefer-default-export": "off",
+        "padded-blocks": "off",
+        "react/function-component-definition": "off",
+        "react/prop-types": "off"
     }
 }
