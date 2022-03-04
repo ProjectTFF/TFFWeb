@@ -1,4 +1,4 @@
-# Here we define the image for the serve (/backend). 
+# Here we define the image for the client (/frontend). 
 
 
 # Specifiy the node version with a tag
