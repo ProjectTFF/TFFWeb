@@ -1,17 +1,17 @@
 .btn {
+    background-color: #00000000;
     transition: transform 0.3s ease;
     border: none;
     position: fixed;
     top: 0.3em;
+    z-index: 10;
 }
 
 .btn--right {
-    background-color: blueviolet;
     right: 0.3em;
 }
 
 .btn--left {
-    background-color: crimson;
     left: 0.3em;
 }
 

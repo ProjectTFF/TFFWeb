@@ -1,7 +1,33 @@
 .navMenu {
-    background-color: rgba(0, 0, 0, 0.733);
+    background-color: #444C56E6;
     position: absolute;
+    z-index: 5;
     top: 0;
     left: 0;
-    right: 2em;
+    right: 0;
+    bottom: 0;
+}
+
+.nav-link {
+    color: white;
+    position: static;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    transform: translateX(0.2em);
+}
+
+ul {
+    position: relative;
+    background-color: #00000000;
+    list-style-type: none;
+    margin: 5em 5em 0 5em;
+    padding: 0;
+}
+
+
+.arrow {
+    position: absolute;
+    right: 0;
 }

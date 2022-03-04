@@ -1,0 +1,11 @@
+.home {
+    background: url("../Images/HomeBackground.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: 0;
+ }

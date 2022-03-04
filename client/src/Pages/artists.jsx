@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Artists() {
   return (
-    <div className="home">
+    <div className="artists">
       <Link to="/artists/artist_1">
         <h1>This is an artist</h1>
         <p>
