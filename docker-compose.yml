@@ -1,0 +1,67 @@
+# This docker-compose.yml builds and runs the 3 containers (later called services) that are
+# - Client (React)
+# - Server (Express)
+# - Database (PostgreSQL)
+
+version: "1"
+
+# Define 
+services:
+
+  # Here we set the docker instructions for client
+  client:
+    container_name: tff_go_client
+    image: tff_go_client
+    
+    build:
+      dockerfile: Dockerfile
+      context: ./client
+
+    ports:
+      - "3000:3000"
+    
+
+  # Here we set the docker instructions for server.
+  # This includes setting environment variables for database.
+  server:
+    container_name: tff_go_server
+    image: tff_go_server
+
+    build:
+      dockerfile: Dockerfile
+      context: ./server
+
+    ports:
+      - '3001:3001'
+
+    environment:
+    - PG_USER=ClownFish
+    - PG_PASSWORD=ClownMan
+    - PG_DATABASE=tffgodb
+    - PGHOST=db # Name of the service
+    
+    depends_on:
+    - db
+
+  # Here we set the docker instructions for database
+  db:
+    container_name: db
+    image: postgres:12
+
+    ports: 
+    - '5432:5432'
+
+    environment:
+      - POSTGRES_USER=ClownFish
+      - POSTGRES_PASSWORD=ClownMan
+      - POSTGRES_DB=tffgodb
+
+  # As the container is virtualized, it has no percistent data storages.
+  # Here we map a folder from host's file system to containers file system.
+  # We also set the init script to be run when the container is created.
+    volumes: 
+      - pg_data:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/create_tables.sql
+
+volumes:
+  pg_data: {}
