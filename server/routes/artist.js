@@ -21,7 +21,6 @@ router.get('/', function(req, res, next) {
 
 router.get('/:artistid', function(req, res, next) {
     //const artistid = req.params.artistid;
-
     artistController.artist_info_by_id(req, res, next);
 })
 
