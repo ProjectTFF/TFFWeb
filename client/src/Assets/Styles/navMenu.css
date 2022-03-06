@@ -8,17 +8,17 @@
     bottom: 0;
 }
 
-.nav-link {
+.navMenu .nav-link {
     color: white;
     position: static;
     text-decoration: none;
 }
 
-.nav-link:hover {
+.navMenu .nav-link:hover {
     transform: translateX(0.2em);
 }
 
-ul {
+.navMenu ul {
     position: relative;
     background-color: #00000000;
     list-style-type: none;
@@ -27,7 +27,7 @@ ul {
 }
 
 
-.arrow {
+.navMenu .arrow {
     position: absolute;
     right: 0;
 }
