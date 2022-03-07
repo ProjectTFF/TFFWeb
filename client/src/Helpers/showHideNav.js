@@ -17,7 +17,7 @@ function ShowHideNav() {
         <NavMenu changeState={changeState} />
       </div>
     ) : (
-      <div>
+      <div className="topgradient">
         <Button
           buttonStyle="btn--left"
           onClick={changeState}
