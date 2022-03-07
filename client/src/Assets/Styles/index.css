@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Zilla+Slab:wght@300;400;500;600&display=swap');
+
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  font-size: 62.5%;
+}
+
+*,
+:after,
+:before {
+  box-sizing: inherit;
+}
+
+* {
+  max-height: 1000000px;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #17191b;
+  color: #fff;
+  font: 1.4rem/1.5 Poppins, Arial, Helvetica, sans-serif;
+  min-width: 32rem;
+  margin: 0;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: top;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6,
+.h {
+  margin: 0 0 1rem;
+}
+
+a {
+  color: #00d1ff;
+  transition: color 0.3s ease-in-out;
+}
+a,
+a:focus,
+a:hover {
+  text-decoration: none;
+}
+
+p {
+  margin: 0 0 2rem;
+}

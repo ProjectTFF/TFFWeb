@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ShowHideNav from './Helpers/showHideNav';
+import './Assets/Styles/index.css';
 
 import {
   ArtistPage,
