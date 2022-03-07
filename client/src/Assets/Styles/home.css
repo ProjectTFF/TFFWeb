@@ -1,11 +1,106 @@
-.home {
-    background: url("../Images/HomeBackground.svg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    position: fixed;
-    z-index: 0;
- }
+.dashboard-banner {
+  background: url('../Images/HomeBackground.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  min-height: 100vh;
+}
+
+.dashboard-banner:before {
+  background: linear-gradient(180deg, transparent 37.6%, #000);
+  bottom: 0;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+}
+
+.dashboard-content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  font-family: Zilla Slab, Times New Roman, Times, Baskerville, Georgia, serif;
+  justify-content: flex-end;
+  padding: 0 2rem 5rem;
+  position: relative;
+  width: 100%;
+}
+
+@media screen and (min-width: 43rem) {
+  .dashboard-content {
+    padding-left: 4rem;
+  }
+}
+.dashboard-content span {
+  display: block;
+}
+.dashboard-content span.top-text {
+  font-size: 3rem;
+  font-weight: 300;
+  line-height: 1.133;
+  margin-bottom: 1rem;
+}
+.dashboard-content span.meta-text {
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 1.222;
+}
+.dashboard-content h1 {
+  font-size: 4.8rem;
+  font-weight: 500;
+  line-height: 1.083;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.info-text-holder {
+  padding: 8rem 2rem 1rem;
+  position: relative;
+}
+.info-text-holder:before {
+  background: linear-gradient(180deg, transparent 37.6%, rgba(0, 0, 0, 0.531) 72.38%, #000);
+  bottom: 0;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  transform: matrix(1, 0, 0, -1, 0, 0);
+  z-index: -1;
+}
+.info-text-holder .info-text-block {
+  font-size: 1.8rem;
+  font-weight: 300;
+  line-height: 1.5;
+  margin: 0 auto;
+  max-width: 35.6rem;
+  text-align: center;
+}
+
+.main-container {
+  padding: 0 2rem;
+}
+
+.artist-section {
+  padding-bottom: 1rem;
+}
+
+.artist-card-row {
+  display: flex;
+  margin: 0 -0.5rem 3.5rem;
+  overflow-x: auto;
+}
+.artist-card-row .artist-card-col {
+  padding: 0 0.5rem 1rem;
+  text-align: center;
+}
+.artist-card-row .artist-card-block {
+  width: 10.5rem;
+  display: block;
+}

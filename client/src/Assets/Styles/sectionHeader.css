@@ -1,0 +1,42 @@
+.section-title-block {
+  align-items: center;
+  border-bottom: 0.1rem solid hsla(0, 0%, 100%, 0.5);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  padding-bottom: 0.5rem;
+}
+
+.section-title-block h2 {
+  font-size: 1.4rem;
+  font-weight: 300;
+  line-height: 1.642;
+  margin: 0;
+  width: 70%;
+}
+
+@media screen and (min-width: 43rem) {
+  .section-title-block h2 {
+    font-size: 1.8rem;
+    line-height: 1.5;
+  }
+}
+
+.section-title-block h2:only-child {
+  width: 100%;
+}
+
+.section-title-block .link-wrap a {
+  display: inline-block;
+  padding: 0 2.5rem 0 0;
+  position: relative;
+}
+
+.section-title-block .link-wrap a .MuiSvgIcon-root {
+  font-size: 2rem;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}

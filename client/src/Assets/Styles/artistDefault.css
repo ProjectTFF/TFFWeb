@@ -1,0 +1,56 @@
+.artist-section {
+  padding-bottom: 1rem;
+}
+
+.artist-row {
+  display: flex;
+  margin: 0 -0.5rem 3.5rem;
+  /* overflow-x: auto; */
+}
+.artist-row .artist-info-col {
+  padding: 0 0.5rem 1rem;
+  text-align: center;
+}
+.artist-row .artist-info-block {
+  width: 10.5rem;
+  display: block;
+  text-align: center;
+}
+.artist-row .img-wrap {
+  border-radius: 100%;
+  display: block;
+  height: 8.1rem;
+  width: 8.1rem;
+  padding: 0.2rem;
+  background: linear-gradient(90deg, #54ccf2 0%, #7d54f2 100%);
+  margin: 0 auto 2rem;
+}
+.artist-row .img-wrap img {
+  border-radius: 100%;
+  width: 100%;
+}
+
+.artist-info-block span {
+  display: block;
+}
+
+.artist-info-block .artist-role {
+  font-size: 1rem;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.artist-info-block .artist-name {
+  font-family: Zilla Slab, Times New Roman, Times, Baskerville, Georgia, serif;
+  font-size: 1.8rem;
+  line-height: 1.111;
+  color: #fff;
+}
+
+.artist-info-block .artist-address {
+  font-family: Zilla Slab, Times New Roman, Times, Baskerville, Georgia, serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  line-height: 1.333;
+  color: rgba(255, 255, 255, 0.7);
+}

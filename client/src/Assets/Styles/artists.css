@@ -1,57 +1,56 @@
 .artists h1 {
-    color: white;
+  color: white;
 }
 
 .artists {
-    background: rgb(44, 44, 44);
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    position: fixed;
-    z-index: 0;
- }
+  background: rgb(44, 44, 44);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 0;
+}
 
- .artists .artist {
-    text-decoration: none;
-    text-align: center;
-
+.artists .artist {
+  text-decoration: none;
+  text-align: center;
 }
 
 .artists .artist img {
-    background: linear-gradient(to right, #59bee6, rgb(148, 29, 228));
-    padding: 0.15em;
-    border-radius: 50%;
+  background: linear-gradient(to right, #59bee6, rgb(148, 29, 228));
+  padding: 0.15em;
+  border-radius: 50%;
 }
 
 .artists .artist .role {
-    color: #59bee6;
-    margin-top: 0.75em;
-    margin-bottom: 0.75em;
-    text-transform: uppercase;
-    font-size: 0.8em;
+  color: #59bee6;
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+  text-transform: uppercase;
+  font-size: 0.8em;
 }
 
 .artists .artist .name {
-    color: white;
-    font-size: 1.25em;
-    margin: 0 1em 0 1em;
+  color: white;
+  font-size: 1.25em;
+  margin: 0 1em 0 1em;
 }
 
 .artists .artist .place {
-    margin-top: 0.25em;
-    color: grey;
-    margin-bottom: 1em;
+  margin-top: 0.25em;
+  color: grey;
+  margin-bottom: 1em;
 }
 
 .artists ul {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .artists li {
-    width: 33%;
-    display:inline-block;
+  width: 33%;
+  display: inline-block;
 }
