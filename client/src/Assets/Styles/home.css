@@ -30,6 +30,8 @@
   padding: 0 2rem 5rem;
   position: relative;
   width: 100%;
+  max-width: 122rem;
+  margin: 0 auto;
 }
 
 @media screen and (min-width: 43rem) {

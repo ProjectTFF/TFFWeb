@@ -63,3 +63,21 @@ a:hover {
 p {
   margin: 0 0 2rem;
 }
+
+.wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.container {
+  max-width: 122rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.container:after {
+  content: '';
+  display: block;
+  clear: both;
+}

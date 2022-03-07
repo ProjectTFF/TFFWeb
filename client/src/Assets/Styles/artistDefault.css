@@ -5,7 +5,7 @@
 .artist-row {
   display: flex;
   margin: 0 -0.5rem 3.5rem;
-  /* overflow-x: auto; */
+  overflow-x: auto;
 }
 .artist-row .artist-info-col {
   padding: 0 0.5rem 1rem;

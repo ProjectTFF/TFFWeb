@@ -14,7 +14,7 @@ import '../Assets/Styles/home.css';
 function Home() {
 
   return (
-    <>
+    <div className="wrapper">
       <div className="dashboard-banner">
         <div className="dashboard-content">
           <span className="top-text">Tampere Flute Fest</span>
@@ -23,15 +23,17 @@ function Home() {
         </div>
       </div>
       <div className="info-text-holder">
-        <div className="info-text-block">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit. Faucibus justo, gravida sem viverra.
-          </p>
-          <DefaultButton />
+        <div className="container">
+          <div className="info-text-block">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur
+              adipiscing elit. Faucibus justo, gravida sem viverra.
+            </p>
+            <DefaultButton />
+          </div>
         </div>
       </div>
-      <div className="main-container">
+      <div className="container">
         <div className="artist-section">
           <SectionHeader
             sectionTitle="Artists performing"
@@ -96,7 +98,7 @@ function Home() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
