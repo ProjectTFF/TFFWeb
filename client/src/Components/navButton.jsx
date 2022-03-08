@@ -2,8 +2,8 @@ import React from 'react';
 import '../Assets/Styles/navButton.css';
 
 const STYLES = [
-    'btn--right',
-    'btn--left',
+    'menu--close',
+    'menu--open',
 ];
 
 export const Button = ({
@@ -18,7 +18,7 @@ export const Button = ({
 
     return (
       <button
-        className={`btn ${checkStyle}`}
+        className={`menu-btn ${checkStyle}`}
         onClick={onClick}
         type="button"
       >

@@ -13,7 +13,7 @@ import '../Assets/Styles/home.css';
 
 function Home() {
   return (
-    <div className="wrapper">
+    <>
       <div className="dashboard-banner">
         <div className="dashboard-content">
           <span className="top-text">Tampere Flute Fest</span>
@@ -45,7 +45,7 @@ function Home() {
                 artistImage={artistObj.artistPicture}
                 artistRole={artistObj.artistRole}
                 artistName={artistObj.artistName}
-                artistPlace={artistObj.artistPlace}
+                artistAddress={artistObj.artistPlace}
               />
             ))}
           </div>
@@ -92,12 +92,13 @@ function Home() {
               <ThumbnailCard
                 key={cardObj.id}
                 cardImage={cardObj.thumbnailImage}
+                videoId={cardObj.videoId}
               />
             ))}
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

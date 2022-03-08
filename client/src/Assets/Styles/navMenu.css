@@ -1,32 +1,49 @@
-.navMenu {
-  background-color: #444c56e6;
-  position: absolute;
-  z-index: 5;
-  top: 0;
+.nav-drop {
+  background: rgba(68, 76, 84, 0.9);
+  position: fixed;
   left: 0;
-  right: 0;
+  width: 36rem;
   bottom: 0;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
 }
 
-.navMenu .nav-link {
-  color: white;
-  position: static;
-  text-decoration: none;
+.navMenu {
+  padding: 1.7rem 2rem 3rem;
 }
 
-.navMenu .nav-link:hover {
-  transform: translateX(0.2em);
+.navbar {
+  padding: 7rem 3rem 0;
 }
 
-.navMenu ul {
-  position: relative;
-  background-color: #00000000;
-  list-style-type: none;
-  margin: 5em 5em 0 5em;
+.navbar ul {
+  list-style: none;
   padding: 0;
+  margin: 0;
+  font-size: 1.8rem;
+  line-height: 1.222;
+  font-family: Zilla Slab, Times New Roman, Times, Baskerville, Georgia, serif;
 }
 
-.navMenu .arrow {
+.navbar ul li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 2rem 0;
+}
+
+.navbar ul li .nav-link {
+  color: #fff;
+  display: block;
+  position: relative;
+  padding-right: 2rem;
+}
+
+.navbar ul li .nav-link .css-i4bv87-MuiSvgIcon-root {
   position: absolute;
   right: 0;
+  top: 0;
+  font-size: 2.2rem;
+  line-height: 1;
 }

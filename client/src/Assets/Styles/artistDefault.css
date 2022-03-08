@@ -92,6 +92,10 @@
   .artist-info-block .artist-name {
     font-size: 2rem;
   }
+
+  .artist-info-block .artist-address {
+    font-size: 1.6rem;
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -103,5 +107,9 @@
   .artist-row .img-wrap {
     width: 18rem;
     height: 18rem;
+  }
+
+  .artist-info-block .artist-address {
+    font-size: 1.8rem;
   }
 }

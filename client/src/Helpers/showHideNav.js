@@ -11,26 +11,28 @@ function ShowHideNav() {
   const changeState = () => { setShow(!show); };
 
   return (
-    show
+    <div className="header-holder">
+      {show
     ? (
-      <div>
+      <div className="nav-drop">
         <NavMenu changeState={changeState} />
       </div>
     ) : (
-      <div className="topgradient">
+      <div className="nav-opener">
         <Button
-          buttonStyle="btn--left"
+          buttonStyle="menu--open"
           onClick={changeState}
         >
           <img src={OpenBurger} alt="Nav Open" />
         </Button>
-
-        <a className="bookmark" href="https://tampereflutefest.com/festival-2022/">
-          BOOKMARK
-        </a>
       </div>
-    )
+    )}
+      <a className="bookmark" href="https://tampereflutefest.com/festival-2022/">
+        BOOKMARK
+      </a>
+    </div>
   );
+
 }
 
 export default ShowHideNav;
