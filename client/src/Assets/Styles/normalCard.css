@@ -1,0 +1,44 @@
+.events-section {
+  padding-bottom: 3.5rem;
+}
+
+.card-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -1rem;
+}
+.card-row .card-col {
+  padding: 0 1rem 2rem;
+  width: 50%;
+}
+.card-row .img-wrap {
+  display: block;
+  height: 0;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+  padding-top: 62.032%;
+  position: relative;
+  width: 100%;
+}
+.card-row .img-wrap img {
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+.card-row h2 {
+  font-family: Zilla Slab, Times New Roman, Times, Baskerville, Georgia, serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.222;
+  margin: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .card-row h2 {
+    font-size: 2rem;
+  }
+}

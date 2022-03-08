@@ -1,0 +1,107 @@
+.artist-section {
+  padding-bottom: 1rem;
+}
+
+.artist-row {
+  display: flex;
+  margin: 0 -0.5rem 3.5rem;
+  overflow-x: auto;
+}
+
+.artist-row .artist-info-col {
+  padding: 0 0.5rem 1rem;
+}
+
+.artist-row .artist-info-block {
+  width: 10.5rem;
+  display: block;
+  text-align: center;
+}
+.artist-row .img-wrap {
+  border-radius: 100%;
+  display: block;
+  height: 8.1rem;
+  width: 8.1rem;
+  padding: 0.2rem;
+  background: linear-gradient(90deg, #54ccf2 0%, #7d54f2 100%);
+  margin: 0 auto 2rem;
+}
+.artist-row .img-wrap img {
+  border-radius: 100%;
+  width: 100%;
+}
+
+.artist-info-block span {
+  display: block;
+}
+
+.artist-info-block .artist-role {
+  font-size: 1rem;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.artist-info-block .artist-name {
+  font-family: Zilla Slab, Times New Roman, Times, Baskerville, Georgia, serif;
+  font-size: 1.8rem;
+  line-height: 1.111;
+  color: #fff;
+}
+
+.artist-info-block .artist-address {
+  font-family: Zilla Slab, Times New Roman, Times, Baskerville, Georgia, serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  line-height: 1.333;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+@media screen and (min-width: 490px) {
+  .artist-row {
+    flex-wrap: wrap;
+    overflow: visible;
+    justify-content: space-between;
+  }
+
+  .artist-row .artist-info-col {
+    max-width: 15rem;
+    min-width: 15rem;
+    padding-bottom: 2rem;
+  }
+
+  .artist-row .artist-info-block {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .artist-row .artist-info-col {
+    max-width: 18rem;
+    min-width: 18rem;
+  }
+
+  .artist-row .img-wrap {
+    width: 15rem;
+    height: 15rem;
+  }
+
+  .artist-info-block .artist-role {
+    font-size: 1.5rem;
+  }
+
+  .artist-info-block .artist-name {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .artist-row .artist-info-col {
+    max-width: 20rem;
+    min-width: 20rem;
+  }
+
+  .artist-row .img-wrap {
+    width: 18rem;
+    height: 18rem;
+  }
+}
