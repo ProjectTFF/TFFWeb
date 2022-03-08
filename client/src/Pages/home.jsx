@@ -58,7 +58,7 @@ function Home() {
           <div className="program-card-row">
             {ProgramCardObject.slice(0, 4).map((cardObj) => (
               <ProgramCard
-                key={cardObj.programTitle}
+                key={cardObj.id}
                 cardImage={cardObj.programImage}
                 cardName={cardObj.programName}
                 cardTitle={cardObj.programTitle}
@@ -90,7 +90,7 @@ function Home() {
           <div className="thumbnail-row">
             {ThumbnailCardObject.slice(0, 4).map((cardObj) => (
               <ThumbnailCard
-                key={cardObj.thumbnailImage}
+                key={cardObj.id}
                 cardImage={cardObj.thumbnailImage}
               />
             ))}
