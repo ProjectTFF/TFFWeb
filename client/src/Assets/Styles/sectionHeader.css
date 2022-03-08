@@ -16,13 +16,6 @@
   width: 70%;
 }
 
-@media screen and (min-width: 43rem) {
-  .section-title-block h2 {
-    font-size: 1.8rem;
-    line-height: 1.5;
-  }
-}
-
 .section-title-block h2:only-child {
   width: 100%;
 }
@@ -39,4 +32,17 @@
   right: 0;
   top: 50%;
   transform: translateY(-50%);
+}
+
+@media screen and (min-width: 430px) {
+  .section-title-block h2 {
+    font-size: 1.8rem;
+    line-height: 1.5;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .section-title-block h2 {
+    font-size: 2.2rem;
+  }
 }

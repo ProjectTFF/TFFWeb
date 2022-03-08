@@ -12,7 +12,6 @@ import { homeArtistObject } from '../Helpers/homeArtistMap';
 import '../Assets/Styles/home.css';
 
 function Home() {
-
   return (
     <div className="wrapper">
       <div className="dashboard-banner">
@@ -57,7 +56,7 @@ function Home() {
             showAll
           />
           <div className="program-card-row">
-            {ProgramCardObject.map((cardObj) => (
+            {ProgramCardObject.slice(0, 4).map((cardObj) => (
               <ProgramCard
                 key={cardObj.programTitle}
                 cardImage={cardObj.programImage}
@@ -89,7 +88,7 @@ function Home() {
             showAll={false}
           />
           <div className="thumbnail-row">
-            {ThumbnailCardObject.map((cardObj) => (
+            {ThumbnailCardObject.slice(0, 4).map((cardObj) => (
               <ThumbnailCard
                 key={cardObj.thumbnailImage}
                 cardImage={cardObj.thumbnailImage}

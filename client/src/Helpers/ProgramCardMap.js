@@ -20,9 +20,4 @@ export const ProgramCardObject = [
       programName: 'Jenny Villanen',
       programTitle: 'Lorem ipsum dolor',
    },
-   {
-      programImage: require('../Assets/Images/img03.jpg'),
-      programName: 'Jenny Villanen',
-      programTitle: 'Lorem ipsum dolor',
-   },
 ];

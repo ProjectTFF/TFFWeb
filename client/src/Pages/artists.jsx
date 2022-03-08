@@ -1,5 +1,7 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { Artist } from '../Components/artist';
+import Arrow from '../Assets/Images/Arrow.svg';
 import imageMap from '../Helpers/artistsMap';
 
 import '../Assets/Styles/artists.css';
@@ -41,15 +43,14 @@ function Artists() {
             artistPicture={imageMap.Sebastian}
           />
         </li>
-        <li>
-          <Artist
-            artistName="Sebastian Jacot"
-            artistPlace="Tampere, FI"
-            artistRole="Alto Flute"
-            artistPicture={imageMap.Sebastian}
-          />
-        </li>
       </ul>
+
+      <div className="bottom-gradient">
+        <NavLink className="nav-link" to="/tickets_and_streaming">
+          Buy tickets
+          <img className="arrow" src={Arrow} alt=">" />
+        </NavLink>
+      </div>
     </div>
   );
 }

@@ -34,11 +34,6 @@
   margin: 0 auto;
 }
 
-@media screen and (min-width: 43rem) {
-  .dashboard-content {
-    padding-left: 4rem;
-  }
-}
 .dashboard-content span {
   display: block;
 }
@@ -85,24 +80,18 @@
   text-align: center;
 }
 
-.main-container {
+/* .main-container {
   padding: 0 2rem;
+} */
+
+@media screen and (min-width: 430px) {
+  .dashboard-content {
+    padding-left: 4rem;
+  }
 }
 
-.artist-section {
-  padding-bottom: 1rem;
-}
-
-.artist-card-row {
-  display: flex;
-  margin: 0 -0.5rem 3.5rem;
-  overflow-x: auto;
-}
-.artist-card-row .artist-card-col {
-  padding: 0 0.5rem 1rem;
-  text-align: center;
-}
-.artist-card-row .artist-card-block {
-  width: 10.5rem;
-  display: block;
+@media screen and (min-width: 768px) {
+  .info-text-holder .info-text-block {
+    max-width: 45rem;
+  }
 }

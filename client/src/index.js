@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './Assets/Styles/index.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ShowHideNav from './Helpers/showHideNav';
+// import './Assets/Styles/index.css';
 
 import {
   ArtistPage, Artists, Contest, Contribute, Home, Programme, Tickets, Venue,

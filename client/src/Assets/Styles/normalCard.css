@@ -36,3 +36,9 @@
   line-height: 1.222;
   margin: 0;
 }
+
+@media screen and (min-width: 768px) {
+  .card-row h2 {
+    font-size: 2rem;
+  }
+}
