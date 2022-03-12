@@ -6,3 +6,4 @@ export { default as Programme } from './programme';
 export { default as Tickets } from './tickets';
 export { default as Artists } from './artists';
 export { default as ArtistPage } from './artistPage';
+export { default as ProgramDetail } from './programDetail';

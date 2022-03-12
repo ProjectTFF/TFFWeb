@@ -32,6 +32,7 @@
   width: 100%;
   max-width: 122rem;
   margin: 0 auto;
+  /* z-index: 1; */
 }
 
 .dashboard-content span {

@@ -19,53 +19,62 @@ export const NavMenu = ({
       <img src={CloseBurger} alt="Nav Close" />
     </Button>
     <nav className="navbar">
-      <ul>
-        <li>
+      <ul className="navbar-nav">
+        <li className="nav-item">
           <NavLink className="nav-link" to="/" onClick={changeState}>
             Home
             <ChevronRightIcon />
           </NavLink>
         </li>
-        <li>
+        <li className="nav-item">
           <NavLink className="nav-link" to="/artists" onClick={changeState}>
             Artists
             <ChevronRightIcon />
           </NavLink>
         </li>
-        <li>
+        <li className="nav-item">
           <NavLink className="nav-link" to="/programme" onClick={changeState}>
             Programme
             <ChevronRightIcon />
           </NavLink>
         </li>
-        <li>
+        <li className="nav-item">
           <NavLink className="nav-link" to="/venue" onClick={changeState}>
             Venue
             <ChevronRightIcon />
           </NavLink>
         </li>
-        <li>
+        <li className="nav-item">
           <NavLink className="nav-link" to="/tickets_and_streaming" onClick={changeState}>
             Tickets and streaming
             <ChevronRightIcon />
           </NavLink>
         </li>
-        <li>
+        <li className="nav-item">
           <NavLink className="nav-link" to="/contest" onClick={changeState}>
             Contest for artists
             <ChevronRightIcon />
           </NavLink>
         </li>
 
-        <li>
+        <li className="nav-item">
           <NavLink className="nav-link" to="/contribute" onClick={changeState}>
             Contribute to the festival
             <ChevronRightIcon />
           </NavLink>
         </li>
       </ul>
-
     </nav>
-
+    <div className="language-select">
+      <ul>
+        <li>
+          <a href="#url">Select Language</a>
+          <ul className="language-list">
+            <li><a href="#url">FI</a></li>
+            <li><a href="#url">EN</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
   </div>
 );

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { NavMenu } from '../Components/navMenu';
 import { Button } from '../Components/navButton';
@@ -10,14 +10,16 @@ function ShowHideNav() {
 
   const changeState = () => { setShow(!show); };
 
+  useEffect(() => {
+    if (show) {
+      document.body.classList.add('nav-active');
+    } else {
+      document.body.classList.remove('nav-active');
+    }
+  }, [show]);
+
   return (
     <div className="header-holder">
-      {show
-    ? (
-      <div className="nav-drop">
-        <NavMenu changeState={changeState} />
-      </div>
-    ) : (
       <div className="nav-opener">
         <Button
           buttonStyle="menu--open"
@@ -26,7 +28,9 @@ function ShowHideNav() {
           <img src={OpenBurger} alt="Nav Open" />
         </Button>
       </div>
-    )}
+      <div className={show ? 'nav-drop-active nav-drop' : 'nav-drop'}>
+        <NavMenu changeState={changeState} />
+      </div>
       <a className="bookmark" href="https://tampereflutefest.com/festival-2022/">
         BOOKMARK
       </a>

@@ -4,7 +4,7 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 2;
+  z-index: 1;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -25,6 +25,10 @@
   z-index: -1;
 }
 
+.header-holder + main {
+  padding-top: 16rem;
+}
+
 .bookmark {
   font-size: 1.3rem;
   line-height: 1.23;
@@ -32,6 +36,10 @@
   color: #fff;
   display: inline-block;
   margin-left: auto;
+}
+
+.bookmark:hover {
+  color: #00d1ff;
 }
 
 .nav-opener {
