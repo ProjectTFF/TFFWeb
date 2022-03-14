@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Zilla+Slab:wght@300;400;500;600&display=swap');
+@import '../../../node_modules/react-modal-video/css/modal-video.css';
 
 html {
   -ms-text-size-adjust: 100%;
@@ -26,6 +27,10 @@ body {
   font: 1.4rem/1.5 Poppins, Arial, Helvetica, sans-serif;
   min-width: 32rem;
   margin: 0;
+}
+
+body.nav-active {
+  overflow: hidden;
 }
 
 img {
@@ -74,10 +79,18 @@ p {
   max-width: 122rem;
   margin: 0 auto;
   padding: 0 2rem;
+  /* position: relative; */
+  /* z-index: 1; */
 }
 
 .container:after {
   content: '';
   display: block;
   clear: both;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }

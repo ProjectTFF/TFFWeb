@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .navMenu {
   background-color: #444c56e6;
   position: fixed;
@@ -5,27 +6,122 @@
   left: 0;
   bottom: 0;
   right: 60%;
+=======
+.nav-drop {
+  background: rgba(68, 76, 84, 0.9);
+  position: fixed;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  transition: transform 0.3s ease-in-out, visibility 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transform: translateX(-100%);
+  opacity: 0;
+  visibility: hidden;
+>>>>>>> develop
 }
 
-.navMenu .nav-link {
-  color: white;
-  position: static;
-  text-decoration: none;
+.nav-drop-active.nav-drop {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(0);
 }
 
-.navMenu .nav-link:hover {
-  transform: translateX(0.2em);
+.navMenu {
+  padding: 1.7rem 2rem 3rem;
 }
 
+<<<<<<< HEAD
 .navMenu ul {
   position: relative;
   background-color: #00000000;
   list-style-type: none;
   margin: 5rem 0 0 0;
-  padding: 0;
+=======
+.navbar {
+  padding: 7rem 3rem 0;
 }
 
-.navMenu .arrow {
+.navbar ul {
+  /* list-style: none;
+>>>>>>> develop
+  padding: 0;
+  margin: 0; */
+  font-size: 1.8rem;
+  line-height: 1.222;
+  font-family: Zilla Slab, Times New Roman, Times, Baskerville, Georgia, serif;
+}
+
+.navbar ul li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 2rem 0;
+}
+
+.navbar ul li .nav-link {
+  color: #fff;
+  display: block;
+  position: relative;
+  padding-right: 2rem;
+}
+
+.navbar ul li .nav-link:hover {
+  color: #00d1ff;
+}
+
+.navbar ul li .nav-link .css-i4bv87-MuiSvgIcon-root {
   position: absolute;
+<<<<<<< HEAD
   right: -1rem;
 }
+=======
+  right: 0;
+  top: 0;
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.language-select {
+  padding: 2.5rem 3rem 0;
+  line-height: 1.285;
+}
+
+/* .language-select ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+} */
+
+.language-select ul li {
+  position: relative;
+}
+
+.language-select ul a {
+  color: #fff;
+}
+
+.language-list {
+  margin-top: 0.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.language-list li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.language-list li a {
+  display: block;
+  padding: 0.5rem;
+}
+
+.language-list li a:hover {
+  color: #00d1ff;
+}
+
+@media screen and (min-width: 430px) {
+  .nav-drop {
+    width: 36rem;
+  }
+}
+>>>>>>> develop

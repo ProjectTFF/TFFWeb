@@ -1,0 +1,13 @@
+.sponsors-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+  margin: 0 -1.5rem;
+  padding-bottom: 4rem;
+}
+
+.sponsors-list li {
+  padding: 0 1.5rem;
+  margin-bottom: 3rem;
+}

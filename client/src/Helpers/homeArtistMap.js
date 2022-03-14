@@ -1,41 +1,41 @@
-import Astrid from '../Assets/Images/Artists/Astrid.svg';
-import Fabian from '../Assets/Images/Artists/Fabian.svg';
-import Sebastian from '../Assets/Images/Artists/Sebastian.svg';
-import Annaleena from '../Assets/Images/Artists/Annaleena.svg';
-
-export const homeArtistObject = [
+/* eslint-disable global-require */
+export const HomeArtistObject = [
    {
+      id: 1,
       artistName: 'Annaleena Jämsä',
       artistPlace: 'Tampere, FI',
       artistRole: 'Alto Flute',
-      artistPicture: Annaleena,
+      artistPicture: require('../Assets/Images/Artists/artist1.jpg'),
    },
 
    {
+      id: 2,
       artistName: 'Astrid Bjelland',
       artistPlace: 'Tampere, FI',
       artistRole: 'Eb Soprano Flute',
-      artistPicture: Astrid,
+      artistPicture: require('../Assets/Images/Artists/artist2.jpg'),
    },
 
    {
+      id: 3,
       artistName: 'Fabian Egger',
       artistPlace: 'Tampere, FI',
       artistRole: 'Bass Flute',
-      artistPicture: Fabian,
+      artistPicture: require('../Assets/Images/Artists/artist1.jpg'),
    },
 
    {
+      id: 4,
       artistName: 'Sebastian Jacot',
       artistPlace: 'Tampere, FI',
       artistRole: 'Alto Flute',
-      artistPicture: Sebastian,
+      artistPicture: require('../Assets/Images/Artists/artist2.jpg'),
    },
-
    {
+      id: 5,
       artistName: 'Sebastian Jacot',
       artistPlace: 'Tampere, FI',
       artistRole: 'Alto Flute',
-      artistPicture: Sebastian,
+      artistPicture: require('../Assets/Images/Artists/artist2.jpg'),
    },
 ];
