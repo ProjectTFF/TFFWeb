@@ -11,25 +11,35 @@ function ShowHideNav() {
   const changeState = () => { setShow(!show); };
 
   return (
-    show
-    ? (
-      <div>
-        <NavMenu changeState={changeState} />
-      </div>
-    ) : (
-      <div className="topgradient">
+    <div className="topgradient">
+      {
+      show
+      ? (
+        <div>
+          <NavMenu changeState={changeState} />
+          <button
+            className="quit-menu-button"
+            type="button"
+            onClick={changeState}
+          >
+            .
+          </button>
+        </div>
+      ) : (
         <Button
           buttonStyle="btn--left"
           onClick={changeState}
         >
           <img src={OpenBurger} alt="Nav Open" />
         </Button>
+      )
+      }
 
-        <a className="bookmark" href="https://tampereflutefest.com/festival-2022/">
-          BOOKMARK
-        </a>
-      </div>
-    )
+      <a className="bookmark" href="https://tampereflutefest.com/festival-2022/">
+        BOOKMARK
+      </a>
+    </div>
+
   );
 }
 

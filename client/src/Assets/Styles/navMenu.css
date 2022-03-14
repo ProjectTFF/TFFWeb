@@ -1,11 +1,10 @@
 .navMenu {
   background-color: #444c56e6;
-  position: absolute;
-  z-index: 5;
+  position: fixed;
   top: 0;
   left: 0;
-  right: 0;
   bottom: 0;
+  right: 60%;
 }
 
 .navMenu .nav-link {
@@ -22,11 +21,11 @@
   position: relative;
   background-color: #00000000;
   list-style-type: none;
-  margin: 5em 5em 0 5em;
+  margin: 5rem 0 0 0;
   padding: 0;
 }
 
 .navMenu .arrow {
   position: absolute;
-  right: 0;
+  right: -1rem;
 }

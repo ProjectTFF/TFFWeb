@@ -4,11 +4,10 @@
   border: none;
   position: fixed;
   top: 0.3em;
-  z-index: 10;
 }
 
 .btn--right {
-  right: 0.3em;
+  right: 60%;
 }
 
 .btn--left {
