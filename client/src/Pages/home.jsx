@@ -9,7 +9,7 @@ import SponsorDetail from '../Components/sponsorDetail';
 import { CardObject } from '../Helpers/NormalCardImageMap';
 import { ThumbnailCardObject } from '../Helpers/ThumbnailCardImageMap';
 import { ProgramCardObject } from '../Helpers/ProgramCardMap';
-import { HomeArtistObject } from '../Helpers/HomeArtistMap';
+import { HomeArtistObject } from '../Helpers/homeArtistMap';
 import { SponsorCollection } from '../Helpers/sponsorMap';
 import '../Assets/Styles/home.css';
 import { getLengthOfLongestArray } from '../Helpers/arrayHelpers';

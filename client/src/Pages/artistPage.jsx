@@ -9,7 +9,7 @@ import ArtistCollection from '../Components/artistDefault';
 import { ThumbnailCardObject } from '../Helpers/ThumbnailCardImageMap';
 import SectionHeader from '../Components/sectionHeader';
 import artistsMap from '../Helpers/artistsMap';
-import { homeArtistObject } from '../Helpers/homeArtistMap';
+import { HomeArtistObject } from '../Helpers/homeArtistMap';
 
 import '../Assets/Styles/artistPage.css';
 
@@ -109,10 +109,11 @@ function ArtistPage() {
           <SectionHeader
             sectionTitle="See all artists"
             showAll
+            pageLink="artists"
           />
 
           <div className="artist-row">
-            {homeArtistObject.splice(0, 4).map((artistObj) => (
+            {HomeArtistObject.splice(0, 4).map((artistObj) => (
               <ArtistCollection
                 key={artistObj.artistName}
                 artistImage={artistObj.artistPicture}

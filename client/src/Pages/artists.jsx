@@ -1,6 +1,6 @@
 import React from 'react';
 import ArtistCollection from '../Components/artistDefault';
-import { homeArtistObject } from '../Helpers/homeArtistMap';
+import { HomeArtistObject } from '../Helpers/homeArtistMap';
 import DefaultButton from '../Components/defaultButton';
 
 import '../Assets/Styles/artists.css';
@@ -10,7 +10,7 @@ function Artists() {
     <div className="artists">
       <h1>Artists</h1>
       <div className="artist-row">
-        {homeArtistObject.splice(0, 4).map((artistObj) => (
+        {HomeArtistObject.splice(0, 4).map((artistObj) => (
           <ArtistCollection
             key={artistObj.artistName}
             artistImage={artistObj.artistPicture}

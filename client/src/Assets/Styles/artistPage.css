@@ -23,7 +23,8 @@
 .artist .all-artists-top {
     position: absolute;
     left: 2.5rem;
-    top: 1rem;
+    z-index: 2;
+    top: 3rem;
     color: white;
 }
 
