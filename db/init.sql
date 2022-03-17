@@ -1,14 +1,145 @@
+--tables
 
+CREATE TABLE IF NOT EXISTS artist (
+    artistid SERIAL,
+    firstname VARCHAR(25) NOT NULL,
+    lastname VARCHAR(25) NOT NULL,
+    biography_eng VARCHAR(30),
+    biography_fin VARCHAR(30),
+    PRIMARY KEY (artistid)
+    );
 
-CREATE TABLE test_artist_data (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(100),
-    description VARCHAR(2000)
+CREATE TABLE IF NOT EXISTS links (
+    linkid SERIAL,
+    website VARCHAR(50),
+    facebook VARCHAR(50),
+    youtube VARCHAR(100),
+    instagram VARCHAR(50),
+    spotify VARCHAR(100),
+    artistid INT NOT NULL,
+    PRIMARY KEY (linkid, artistid),
+    FOREIGN KEY (artistid) REFERENCES artist
+ );
+
+CREATE TABLE IF NOT EXISTS photos (
+    photoid SERIAL,
+    artistid INT NOT NULL,
+    photoref VARCHAR(25),
+    PRIMARY KEY (artistid, photoref),
+    FOREIGN KEY (artistid) REFERENCES artist
 );
 
-INSERT INTO test_artist_data
-    (name, description )
-    VALUES
-        ('Fabian Egger', 'At the young age of 14, Fabian Egger is quickly establishing himself as one of the youngest flute virtuosos of his time. Fabian began to play the flute at the age of five under the tutelage of his parents who are both flutist. He later went on to study at the Pre-College of the Mozarteum Salzburg with Britta Bauer and in 2020 was admitted at the Hochschule für Musik und Tanz München, under grounds of artistic merit, as the youngest student ever admitted into the studio of world renowned flutists Prof. Andrea Lieberknecht. Fabian is a prize winner in several international competitions including the German Flute Society’s competition, International Concorso Zampetti, La Côte Flûte Festival Junior Competition and the Severino Gazzelloni Competition, to name a few. In 2021, Fabian was awarded First Prize in the Tampere Flute Fest Young Artist Competition Category B. He has appeared as a soloist with several orchestras included the Salzburg Chamber Soloists, Mitteldeutsches Kammerorchester, Philharmonie Bad Reichenhall and Orchestre de Chambre de Genève. Fabian also enjoys composing. Some of his recordings have been broadcasted on Germany’s BR Radio.'),
-        ('Sebastian Jacot', 'Sébastian Jacot is currently working as Principal Flutist of the Gewandhaus Orchestra. A unique artist of his genre, Jacot has been described as “a flute rock star”, after affirming himself as one of the most brilliant flutists of his generation for winning first prizes in the most regarded flute competitions in the world including the Kobe International Flute Competition in 2013, the Carl Nielsen International Flute Competition in 2014, and the ARD Music Competition in 2015. Jacot has performed as a soloist with the Bayerische Rundfunk Symphony Orchestra, Munich Chamber Orchestra, Georgian Chamber Orchestra Ingolstadt, Orchestre de Chambre de Genève, Kansai Philharmonic Orchestra, Thai Philharmonic Orchestra, Kobe City Chamber Orchestra, Deutsche Staatsphilharmonie Mannheim, Gstaad Menuhin Academy Orchestra, and Osnabruck Theater Orchestra. He has also worked as Principal Flutists with the Budapest Festival Orchestra and the Berliner Philharmonic. A significant part of his life is dedicated to teaching. In 2020, he took a teaching position at the University of the Arts Bremen. Jacot plays a rare wooden Haynes from 1999 and a 14k Parmenon.'),
-        ('Jenny Villanen', 'Jenny Villanen has held the Solo Piccolo position in the Helsinki Philharmonic Orchestra since 2007. Prior to that she held a position in the Guards Band of Finland. In addition to her permanent roles, Villanen has been in demand as a deputy in orchestras across Finland, including at the Finnish National Opera & Ballet, the Finnish Radio Symphony Orchestra, the Turku Philharmonic Orchestra, the Tampere Philharmonic Orchestra, the Savonlinna Opera Festival Orchestra, Tapiola Sinfonietta and Kymi Sinfonietta. Villanen has premiered numerous works by Finnish composers as both a soloist and chamber musician. She also enjoys playing a diverse range of music, especially with her Duo 2Clazz! and Quartet 4Clazz!.');
+CREATE TABLE IF NOT EXISTS composition (
+    compositionid SERIAL,
+    compositionname VARCHAR(50) NOT NULL,
+    composer VARCHAR(50),
+    compositioninfo_eng VARCHAR(25),
+    compositioninfo_fin VARCHAR(25),
+    PRIMARY KEY (compositionid)
+);
+
+CREATE TABLE IF NOT EXISTS venue (
+    venueid SERIAL,
+    venuename VARCHAR(30),
+    venueaddress VARCHAR(50),
+    venuecity VARCHAR(20),
+    venuezipcode NUMERIC(5),
+    venueinfo_eng VARCHAR(20),
+    venueinfo_fin VARCHAR(20),
+    PRIMARY KEY (venueid)
+);
+
+CREATE TABLE IF NOT EXISTS concert (
+    concertid SERIAL,
+    concertname VARCHAR(50),
+    concertdate DATE NOT NULL,
+    consertstarttime TIME NOT NULL,
+    concertinfo_eng VARCHAR(20),
+    concertinfo_fin VARCHAR(20),
+    venueid INT NOT NULL,
+    PRIMARY KEY (concertid),
+    FOREIGN KEY (venueid) REFERENCES venue
+);
+
+CREATE TABLE IF NOT EXISTS programme (
+    concertid INT NOT NULL,
+    artistid INT NOT NULL,
+    compositionid INT NOT NULL,
+    performanceorder INT NOT NULL,
+    PRIMARY KEY (concertid, artistid, compositionid, performanceorder),
+    FOREIGN key (concertid) REFERENCES concert,
+    FOREIGN KEY (artistid) REFERENCES artist,
+    FOREIGN KEY (compositionid) REFERENCES composition
+);
+
+--artists actual data
+
+INSERT INTO ARTIST (artistid, firstname, lastname, biography_eng, biography_fin) 
+VALUES 
+    (default, 'Astrid', 'Bjelland', 'astridbelland_eng', 'astridbelland_fin'),
+    (default, 'Fabian', 'Egger', 'fabianegger_eng', 'fabianegger_fin'),
+    (default, 'Sébastian', 'Jacot', 'sebastianjacot_eng', 'sebastianjacot_fin'),
+    (default, 'Annaleena', 'Jämsä', 'annaleenajamsa_eng', 'annaleenajamsa_fin'),
+    (default, 'Johanna', 'Kärkkäinen', 'johannakarkkainen_eng', 'johannakarkkainen_fin'),
+    (default, 'Alexis', 'Roman', 'alexisroman_eng', 'alexisroman_fin'),
+    (default, 'Beatriz', 'Macias', 'beatrizmacias_eng', 'beatrizmacias_fin'),
+    (default, 'Jenny', 'Villanen', 'jennyvillanen_eng', 'jennyvillanen_fin'),
+    (default, 'Malla','Vivolin', 'mallavivolin_eng', 'mallavivolin_fin');
+
+--artist links actual data
+
+/*artist should have an entry here even if there is not a single link to 
+prevent confusion about were they left out intentionally or by accident
+*/
+
+INSERT INTO links (linkid, website, facebook, youtube, instagram, spotify, artistid)
+VALUES
+    (default, NULL, 'https://www.facebook.com/astrid.bjelland', 'https://www.youtube.com/user/Oeyliv', 'https://www.instagram.com/astridbjel/', NULL, 1),
+    (default, NULL, NULL, NULL, NULL, NULL, 2),
+    (default, 'https://www.sebastianjacot.com/', 'https://www.facebook.com/sebastian.jacot', 'https://www.youtube.com/user/MrSbas1208', 'https://www.instagram.com/jacotsebastian/', 'https://open.spotify.com/artist/4eCf3HTuUFAdvm7a4fu9MB', 3),
+    (default, NULL, 'https://www.facebook.com/annaleena.puhto', NULL, 'https://www.instagram.com/annaleenamaaria/', NULL, 4),
+    (default, 'https://www.johannakarkkainen.com/en/', 'https://www.facebook.com/JohannakarkkainenArtist/', 'https://www.youtube.com/watch?v=RI2z95Z-R_M', 'https://www.instagram.com/johannak_artist/', NULL, 5),
+    (default, NULL, 'https://www.facebook.com/alexis.roman.5011', 'https://www.youtube.com/channel/UCijDgzHwxGfWyV-CAr-KGGA', 'https://www.instagram.com/alexis_roman_flutist/', 'https://open.spotify.com/artist/2YeDwmQ2hRVzNtGfMe78zp', 6),
+    (default, 'www.beatrizmacias.com', 'https://www.facebook.com/beatriz.macias.58152/', 'https://www.youtube.com/channel/UCeCGeIztVZ-UNr_NXhox1hQ', 'https://www.instagram.com/beatrizmaciasflutist/', NULL, 7),
+    (default, NULL,'https://www.facebook.com/jenny.villanen' , NULL, 'https://www.instagram.com/jennyvillanen/', NULL, 8),
+    (default, 'https://www.mallavivolin.com/', 'https://www.facebook.com/kuutiomeduusa', 'https://www.youtube.com/watch?v=BC1lpARg04w','https://www.instagram.com/jumihiutale/', NULL , 9);
+
+--venues actual data
+
+INSERT INTO VENUE (venueid, venuename, venueaddress, venuecity, venuezipcode, venueinfo_eng, venueinfo_fin)
+VALUES
+    (default, 'Tampere-Talo','Yliopistonkatu 55', 'Tampere', '33101', 'tamperetaloinfo_eng', 'tamperetaloinfo_fin');
+
+--compositions dummy data
+
+INSERT INTO composition (compositionid, compositionname, composer, compositioninfo_eng, compositioninfo_fin)
+VALUES
+    (default, 'Composition1', 'composer1', 'composition1_eng', 'composition1_fin'),
+    (default, 'Composition2', 'composer2', 'composition2_eng', 'composition2_fin'),
+    (default, 'Composition3', 'composer3', 'composition3_eng', 'composition3_fin');
+
+--concerts dummy data
+
+INSERT INTO concert (concertid, concertname, concertdate, consertstarttime, concertinfo_eng, concertinfo_fin, venueid)
+VALUES
+    (default, 'Concert1', '2022-03-20', '19:00', 'concert1info_eng', 'concert1info_fin', 1),
+    (default, 'Concert2', '2022-03-24', '18:30', 'concert2info_eng', 'concert2info_fin', 1),
+    (default, 'Concert3', '2022-03-22', '19:15', 'concert3info_eng', 'concert3info_fin', 1),
+    (default, 'Concert4', '2022-05-10', '14:00', 'concert4info_eng', 'concert4info_fin', 1);
+
+-- programme dummy data
+
+INSERT INTO programme (concertid, artistid, compositionid, performanceorder)
+VALUES
+    (1, 2, 1, 1),
+    (1, 4, 3, 2),
+    (1, 3, 3, 2),
+    (1, 5, 2, 3),
+
+    (2, 1, 1, 1),
+    (2, 1, 2, 2),
+    (2, 3, 3, 3),
+
+    (3, 1, 1, 1),
+    (3, 2, 3, 2),
+    (3, 3, 2, 3);
