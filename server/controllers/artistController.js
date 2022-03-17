@@ -1,4 +1,4 @@
-var artist_table = [
+/*var artist_table = [
     {
         artist_id : 1,
          name : "Rihanna",
@@ -23,18 +23,17 @@ var artist_table = [
         some_field1 : "asdasd",
         some_field2 : "asfgd"
     },
-]
+]*/
+require('dotenv').config();
 
-const { Client } = require('pg');
-const client = new Client(
-    {
-        user: 'ClownFish',
-        host: 'db',
-        database: 'tffgodb',
-        password: 'ClownMan',
-        port: 5432,
-    }
-);
+const { Pool } = require('pg');
+const pool = new Pool({
+    user: process.env.PGUSER,
+    host: process.env.PGHOST,
+    database: process.env.PGDATABASE,
+    password: process.env.PGPASSWORD,
+    port: process.env.PGPORT,
+  });
 
 exports.artist_info_by_id = function (req, res, next) {
     const artistid = req.params.artistid;
@@ -43,7 +42,7 @@ exports.artist_info_by_id = function (req, res, next) {
         return obj.artist_id === parseInt(artistid);
     });*/
 
-    client.query('SELECT * FROM test_artist_data WHERE id = $1', artistid, (err, result) => {
+    pool.query('SELECT * FROM test_artist_data WHERE id = $1', artistid, (err, result) => {
         if (err) {
           return next(err);
         }
