@@ -6,7 +6,8 @@
     "start": "node ./bin/www",
     "start_dev": "nodemon ./bin/www",
     "test": "echo 'Error, there are no tests to run.'",
-    "lint": "eslint"
+    "lint": "eslint",
+    "migrate": "node ./bin/migrate.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

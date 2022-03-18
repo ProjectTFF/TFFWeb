@@ -13,6 +13,7 @@ const sequelize = new Sequelize(process.env.PGDATABASE || 'WrongDb',
                                     }
                                 });
 
+// Here is a model for 'artist' table, which defines the column data types.
 const Artist = sequelize.define('artist', {
         artistid: {
             type: Sequelize.INTEGER,
@@ -29,16 +30,18 @@ const Artist = sequelize.define('artist', {
         },
         biography_eng: {
             type: Sequelize.STRING,
-            allowNull: true
+            allowNull: false
         },
         biography_fin: {
             type: Sequelize.STRING,
-            allowNull: true
+            allowNull: false
         }
     },
-    {timestamps: false}
+    {timestamps: false,
+    freezeTableName: true,}
 );
 
+// Here we export the Artist model definition for use outside this file.
 module.exports = {
     sequelize: sequelize,
     Artist: Artist

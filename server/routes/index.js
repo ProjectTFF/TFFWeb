@@ -16,7 +16,7 @@ router.get('/', function(req, res, next) {
 
 /* Testing route for https request */
 router.get('/test_route', function(req, res, next) {
-  res.json({message: "Hello from the server!"});
+  res.json({message: "Hello from the server!" + process.env.PGUSER});
 })
 
 module.exports = router;
