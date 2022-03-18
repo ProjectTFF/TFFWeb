@@ -6,14 +6,31 @@ The project uses React.js as frontend and Node.js (Express) as backend. Both are
 
 - Node.js and Node package manager (npm) (install latest [here](https://nodejs.org/en/)).
 - [Git](https://git-scm.com/downloads)
+- [Docker](https://www.docker.com/)
 
-### Installing the project for local development
+### Cloning the project files
 
 Clone the repository with
 
 ```
 git clone https://github.com/ProjectTFF/TFFWeb.git {folder}
 ```
+
+# Running the application with Docker
+
+The docker-compose.yml hold the information for building the three servers into three separate containers. Build and start the containers with a single command:
+
+```
+docker-compose up --build
+```
+
+Then the containers can be shutdown with
+
+```
+docker-compose down
+```
+
+# Running the servers separately
 
 ### Starting the React.js frontend server
 
