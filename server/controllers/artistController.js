@@ -24,16 +24,8 @@
         some_field2 : "asfgd"
     },
 ]*/
-require('dotenv').config();
-
-const { Pool } = require('pg');
-const pool = new Pool({
-    user: process.env.PGUSER,
-    host: process.env.PGHOST,
-    database: process.env.PGDATABASE,
-    password: process.env.PGPASSWORD,
-    port: process.env.PGPORT,
-  });
+// require('dotenv').config();
+const db = require('../db/database');
 
 exports.artist_info_by_id = function (req, res, next) {
     const artistid = req.params.artistid;
@@ -42,10 +34,13 @@ exports.artist_info_by_id = function (req, res, next) {
         return obj.artist_id === parseInt(artistid);
     });*/
 
-    pool.query('SELECT * FROM test_artist_data WHERE id = $1', artistid, (err, result) => {
-        if (err) {
-          return next(err);
-        }
-        return res.json(result.rows[0]);
-      });
+    // Querying is done with Sequalise's built-in functions: Finding every column by primary key
+    db.Test_artist_data.findByPk(artistid)
+        .then( artist => {
+            res.status(200).send(JSON.stringify(artist));
+        })
+        .catch( err => {
+            res.status(500).send(JSON.stringify(err));
+        })
+
 }

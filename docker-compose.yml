@@ -3,7 +3,7 @@
 # - Server (Express)
 # - Database (PostgreSQL)
 
-version: "1"
+version: "2"
 
 # Define 
 services:
@@ -11,7 +11,7 @@ services:
   # Here we set the docker instructions for client
   client:
     container_name: tff_go_client
-    image: tff_go_client
+    image: tff_go_client:latest
     
     build:
       dockerfile: Dockerfile
@@ -25,7 +25,7 @@ services:
   # This includes setting environment variables for database.
   server:
     container_name: tff_go_server
-    image: tff_go_server
+    image: tff_go_server:latest
 
     build:
       dockerfile: Dockerfile
@@ -38,7 +38,8 @@ services:
     - PG_USER=ClownFish
     - PG_PASSWORD=ClownMan
     - PG_DATABASE=tffgodb
-    - PGHOST=db # Name of the service
+    - PG_HOST=db # Name of the service
+    - PG_PORT=5432 # Port for connecting to the psql database 
     
     depends_on:
     - db
