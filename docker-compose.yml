@@ -11,7 +11,7 @@ services:
   # Here we set the docker instructions for client
   client:
     container_name: tff_go_client
-    image: tff_go_client
+    image: tff_go_client:latest
     
     build:
       dockerfile: Dockerfile
@@ -25,20 +25,17 @@ services:
   # This includes setting environment variables for database.
   server:
     container_name: tff_go_server
-    image: tff_go_server
+    image: tff_go_server:latest
 
     build:
       dockerfile: Dockerfile
       context: ./server
 
+    env_file:
+      - ./server/.env
+
     ports:
       - '3001:3001'
-
-    environment:
-    - PG_USER=ClownFish
-    - PG_PASSWORD=ClownMan
-    - PG_DATABASE=tffgodb
-    - PGHOST=db # Name of the service
     
     depends_on:
     - db
