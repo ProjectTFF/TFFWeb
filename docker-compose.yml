@@ -31,15 +31,11 @@ services:
       dockerfile: Dockerfile
       context: ./server
 
+    env_file:
+      - ./server/.env
+
     ports:
       - '3001:3001'
-
-    environment:
-    - PG_USER=ClownFish
-    - PG_PASSWORD=ClownMan
-    - PG_DATABASE=tffgodb
-    - PG_HOST=db # Name of the service
-    - PG_PORT=5432 # Port for connecting to the psql database 
     
     depends_on:
     - db

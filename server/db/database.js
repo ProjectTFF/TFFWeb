@@ -1,29 +1,37 @@
 // database.js
 
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize(process.env.PG_DATABASE || 'tffgodb',
-                                process.env.PG_USER || 'ClownFish',
-                                process.env.PG_PASSWORD || 'ClownMan',
+const sequelize = new Sequelize(process.env.PGDATABASE || 'WrongDb',
+                                process.env.PGUSER || 'WrongUser',
+                                process.env.PGPASSWORD || 'WrongPass',
                                 {
-                                    host: process.env.PG_HOST || 'localhost',
-                                    port: process.env.PG_PORT || 5432,
+                                    host: process.env.PGHOST || 'WronHost',
+                                    port: process.env.PGPORT || 99999999,
                                     dialect: 'postgres',
                                     dialectOptions: {
                                         ssl: process.env.DB_SSL == "true"
                                     }
                                 });
 
-const Test_artist_data = sequelize.define('test_artist_data', {
-        id: {
+const Artist = sequelize.define('artist', {
+        artistid: {
             type: Sequelize.INTEGER,
             primaryKey: true,
             allowNull: false
         },
-        name: {
+        firstname: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
+        lastname: {
             type: Sequelize.STRING,
             allowNull: true
         },
-        description: {
+        biography_eng: {
+            type: Sequelize.STRING,
+            allowNull: true
+        },
+        biography_fin: {
             type: Sequelize.STRING,
             allowNull: true
         }
@@ -33,5 +41,5 @@ const Test_artist_data = sequelize.define('test_artist_data', {
 
 module.exports = {
     sequelize: sequelize,
-    Test_artist_data: Test_artist_data
+    Artist: Artist
 };
