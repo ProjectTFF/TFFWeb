@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS venue (
     venuename VARCHAR(30),
     venueaddress VARCHAR(50),
     venuecity VARCHAR(20),
-    venuezipcode NUMERIC(5),
+    venuezipcode INT,
     venueinfo_eng VARCHAR(20),
     venueinfo_fin VARCHAR(20),
     PRIMARY KEY (venueid)
