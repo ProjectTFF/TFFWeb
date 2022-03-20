@@ -113,7 +113,7 @@ function ArtistPage() {
           />
 
           <div className="artist-row">
-            {HomeArtistObject.splice(0, 4).map((artistObj) => (
+            {HomeArtistObject.slice(0, 4).map((artistObj) => (
               <ArtistCollection
                 key={artistObj.artistName}
                 artistImage={artistObj.artistPicture}
