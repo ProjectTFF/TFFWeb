@@ -10,7 +10,7 @@ function Artists() {
     <div className="artists">
       <h1>Artists</h1>
       <div className="artist-row">
-        {HomeArtistObject.splice(0, 4).map((artistObj) => (
+        {HomeArtistObject.map((artistObj) => (
           <ArtistCollection
             key={artistObj.artistName}
             artistImage={artistObj.artistPicture}
