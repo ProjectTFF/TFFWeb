@@ -56,30 +56,18 @@
   .program-card-col {
     max-width: 15rem;
     min-width: 15rem;
-    /* padding-bottom: 2rem; */
     padding: 0 1.5rem 2rem;
   }
 
   .program-card-col .program-card-block {
     width: 100%;
   }
-
-  /* .program-card-col .img-wrap {
-    width: 10rem;
-    height: 10rem;
-  } */
 }
 
 @media screen and (min-width: 768px) {
-  /* .programm-card-row {
-    margin-left: -1.5rem;
-    margin-right: -1.5rem;
-  } */
-
   .program-card-col {
     max-width: 18rem;
     min-width: 18rem;
-    /* padding: 0 1.5rem 3rem; */
     padding-bottom: 3rem;
   }
 
@@ -106,11 +94,6 @@
 }
 
 @media screen and (min-width: 1200px) {
-  /* .program-card-col {
-    max-width: 20rem;
-    min-width: 20rem;
-  } */
-
   .program-card-col .img-wrap {
     width: 18rem;
     height: 18rem;

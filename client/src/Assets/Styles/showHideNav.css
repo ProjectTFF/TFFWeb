@@ -4,7 +4,7 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 2;
+  z-index: 3;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -12,18 +12,6 @@
   padding: 1.5rem 2rem 0;
   line-height: 0;
 }
-
-/* .header-holder::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: 16rem;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 37.6%, #000000 90.25%);
-  transform: matrix(1, 0, 0, -1, 0, 0);
-  z-index: -1;
-} */
 
 .header-holder + main {
   padding-top: 16rem;
