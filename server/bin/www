@@ -4,7 +4,11 @@
  * Module dependencies.
  */
 
-require('dotenv').config();
+
+// Choose the correct environmental variables for dev/prod
+require('dotenv').config({path: `.env.${process.env.NODE_ENV}`});
+
+
 var app = require('../app');
 var debug = require('debug')('server:server');
 var http = require('http');
