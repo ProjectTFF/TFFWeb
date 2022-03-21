@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "NODE_ENV=prod node ./bin/www",
     "start_dev": "nodemon ./bin/www",
-    "test": "echo 'Error, there are no tests to run.'",
+    "test_db": "chmod +x ./bin/test.sh && NODE_ENV=test ./bin/test.sh",
     "lint": "eslint",
     "migrate": "node ./bin/migrate.js"
   },
@@ -18,7 +18,8 @@
     "mocha": "^9.2.0",
     "morgan": "~1.9.1",
     "pg": "^8.7.3",
-    "sequelize": "^6.17.0"
+    "sequelize": "^6.17.0",
+    "supertest": "^6.2.2"
   },
   "devDependencies": {
     "eslint": "^8.9.0",
