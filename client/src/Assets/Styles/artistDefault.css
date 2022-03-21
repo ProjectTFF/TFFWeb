@@ -61,7 +61,6 @@
   .artist-row {
     flex-wrap: wrap;
     overflow: visible;
-    /* justify-content: space-between; */
     justify-content: center;
     margin-left: -1.5rem;
     margin-right: -1.5rem;
@@ -71,17 +70,11 @@
     max-width: 15rem;
     min-width: 15rem;
     padding: 0 1.5rem 2rem;
-    /* padding-bottom: 2rem; */
   }
 
   .artist-info-col .artist-info-block {
     width: 100%;
   }
-
-  /* .artist-info-col .img-wrap {
-    width: 10rem;
-    height: 10rem;
-  } */
 }
 
 @media screen and (min-width: 768px) {
@@ -117,11 +110,6 @@
 }
 
 @media screen and (min-width: 1200px) {
-  /* .artist-info-col {
-    max-width: 20rem;
-    min-width: 20rem;
-  } */
-
   .artist-info-col .img-wrap {
     width: 20rem;
     height: 20rem;

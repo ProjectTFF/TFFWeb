@@ -6,6 +6,8 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { Button } from './navButton';
 import CloseBurger from '../Assets/Images/MenuCloseIcon.svg';
 
+import Language from './language';
+
 export const NavMenu = ({
 
   changeState,
@@ -63,18 +65,11 @@ export const NavMenu = ({
             <ChevronRightIcon />
           </NavLink>
         </li>
-      </ul>
-    </nav>
-    <div className="language-select">
-      <ul>
-        <li>
-          <a href="#url">Select Language</a>
-          <ul className="language-list">
-            <li><a href="#url">FI</a></li>
-            <li><a href="#url">EN</a></li>
-          </ul>
+
+        <li className="language-item">
+          <Language />
         </li>
       </ul>
-    </div>
+    </nav>
   </div>
 );

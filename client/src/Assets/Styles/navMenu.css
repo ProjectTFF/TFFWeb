@@ -28,9 +28,6 @@
 }
 
 .navbar ul {
-  /* list-style: none;
-  padding: 0;
-  margin: 0; */
   font-size: 1.8rem;
   line-height: 1.222;
   font-family: Zilla Slab, Times New Roman, Times, Baskerville, Georgia, serif;
@@ -60,40 +57,21 @@
   line-height: 1;
 }
 
-.language-select {
-  padding: 2.5rem 3rem 0;
-  line-height: 1.285;
-}
-
-/* .language-select ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-} */
-
-.language-select ul li {
-  position: relative;
-}
-
-.language-select ul a {
+.navbar ul li .language-select {
   color: #fff;
-}
-
-.language-list {
-  margin-top: 0.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.language-list li {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.language-list li a {
   display: block;
-  padding: 0.5rem;
+  position: relative;
+  padding-right: 2rem;
+  
+  background: none;
+  border: none;
+
+  font-size: 1.8rem;
+  line-height: 1.222;
+  font-family: Zilla Slab, Times New Roman, Times, Baskerville, Georgia, serif;
 }
 
-.language-list li a:hover {
+.navbar ul li .language-select:hover {
   color: #00d1ff;
 }
 

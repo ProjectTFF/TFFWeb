@@ -55,7 +55,8 @@ h6,
   margin: 0 0 1rem;
 }
 
-a {
+a,
+.language-select {
   color: #00d1ff;
   transition: color 0.3s ease-in-out;
 }
@@ -75,12 +76,29 @@ p {
   width: 100%;
 }
 
+.wrapper::after {
+  content: '';
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 16rem;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 37.6%, #000000 90.25%);
+  transform: matrix(1, 0, 0, -1, 0, 0);
+  z-index: 0;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
 .container {
   max-width: 122rem;
   margin: 0 auto;
   padding: 0 2rem;
-  /* position: relative; */
-  /* z-index: 1; */
+  position: relative;
+  z-index: 1;
 }
 
 .container:after {

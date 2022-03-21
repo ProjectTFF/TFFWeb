@@ -20,10 +20,3 @@
 .programme-section .program-card-col {
   padding: 0 1.5rem 3rem;
 }
-/* 
-@media screen and (max-width: 460px) {
-  .programme-section .program-card-col .img-wrap {
-    width: 10rem;
-    height: 10rem;
-  }
-} */
