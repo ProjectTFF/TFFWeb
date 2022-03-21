@@ -77,6 +77,10 @@
     font-size: 1.25rem;
 }
 
+.artist .artist-row {
+    margin: 0 3rem 1rem 3rem;
+}
+
 .artist .artist-bottom {
     margin-top: -15rem;
     padding-top: 15rem;
