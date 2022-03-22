@@ -1,5 +1,6 @@
 // database.js
 
+const { useColors } = require('debug/src/browser');
 const Sequelize = require('sequelize');
 const sequelize = new Sequelize(process.env.PGDATABASE || 'WrongDb',
                                 process.env.PGUSER || 'WrongUser',
@@ -235,7 +236,27 @@ const Programme = Sequelize.define('concert', {
 
 );
 
-// Here we export the Artist model definition for use outside this file.
+// relationships between tables
+
+Artist.hasOne(Links);
+Links.belongsTo(Artist);
+
+Artist.hasMany(Photos);
+Photos.belongsTo(Artist);
+
+Venue.hasMany(Concert);
+Concert.hasOne(Venue);
+
+Programme.hasMany(Artist);
+Artist.belongsTo(Programme);
+
+Programme.hasMany(Composition);
+Composition.belongsTo(Programme);
+
+Concert.belongsTo(Programme);
+Programme.hasMany(Concert);
+
+// Here we export the model definitions for use outside this file.
 module.exports = {
     sequelize: sequelize,
     Artist: Artist,
