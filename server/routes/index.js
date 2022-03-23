@@ -12,7 +12,8 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-
+// Is the service up?
+router.get('/status', (req, res) => res.sendStatus(204))
 
 /* Testing route for https request */
 router.get('/test_route', function(req, res, next) {

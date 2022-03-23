@@ -31,8 +31,8 @@ services:
       dockerfile: Dockerfile
       context: ./server
 
-    env_file:
-      - ./server/.env
+    environment:
+      - DB_HOST=db
 
     ports:
       - '3001:3001'
@@ -46,14 +46,14 @@ services:
     image: postgres:12
 
     ports: 
-    - '5433:5432'
+    - '2345:5432'
 
     environment:
       - POSTGRES_USER=ClownFish
       - POSTGRES_PASSWORD=ClownMan
       - POSTGRES_DB=tffgodb
 
-  # As the container is virtualized, it has no percistent data storages.
+  # As the container is virtualized, it has no persistent data storages.
   # Here we map a folder from host's file system to containers file system.
   # We also set the init script to be run when the container is created.
     volumes: 
