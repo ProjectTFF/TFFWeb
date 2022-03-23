@@ -1,0 +1,82 @@
+.nav-drop {
+  background: rgba(68, 76, 84, 0.9);
+  position: fixed;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  transition: transform 0.3s ease-in-out, visibility 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transform: translateX(-100%);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.nav-drop-active.nav-drop {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.navMenu {
+  padding: 1.7rem 2rem 3rem;
+}
+
+.navbar {
+  padding: 7rem 3rem 0;
+}
+
+.navbar ul {
+  font-size: 1.8rem;
+  line-height: 1.222;
+  font-family: Zilla Slab, Times New Roman, Times, Baskerville, Georgia, serif;
+}
+
+.navbar ul li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 2rem 0;
+}
+
+.navbar ul li .nav-link {
+  color: #fff;
+  display: block;
+  position: relative;
+  padding-right: 2rem;
+}
+
+.navbar ul li .nav-link:hover {
+  color: #00d1ff;
+}
+
+.navbar ul li .nav-link .css-i4bv87-MuiSvgIcon-root {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.navbar ul li .language-select {
+  color: #fff;
+  display: block;
+  position: relative;
+  padding-right: 2rem;
+  
+  background: none;
+  border: none;
+
+  font-size: 1.8rem;
+  line-height: 1.222;
+  font-family: Zilla Slab, Times New Roman, Times, Baskerville, Georgia, serif;
+}
+
+.navbar ul li .language-select:hover {
+  color: #00d1ff;
+}
+
+@media screen and (min-width: 430px) {
+  .nav-drop {
+    width: 36rem;
+  }
+}

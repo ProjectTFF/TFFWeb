@@ -1,0 +1,101 @@
+.program-highlight-section {
+  padding-bottom: 1rem;
+}
+
+.program-card-row {
+  display: flex;
+  margin: 0 -0.5rem 3.5rem;
+  overflow-x: auto;
+}
+.program-card-col {
+  padding: 0 0.5rem 1rem;
+  text-align: center;
+}
+.program-card-col .program-card-block {
+  width: 10.5rem;
+  display: block;
+}
+.program-card-col .img-wrap {
+  border-radius: 100%;
+  display: block;
+  height: 10rem;
+  width: 10rem;
+  padding: 0.2rem;
+  background: linear-gradient(90deg, #54ccf2 0%, #7d54f2 100%);
+  margin: 0 auto 2rem;
+}
+.program-card-col .img-wrap img {
+  border-radius: 100%;
+  width: 100%;
+}
+.program-card-col .card-name {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+.program-card-col .card-title {
+  display: block;
+  font-family: Zilla Slab, Times New Roman, Times, Baskerville, Georgia, serif;
+  font-size: 1.8rem;
+  line-height: 1.166;
+  color: #fff;
+  font-weight: 400;
+}
+
+@media screen and (min-width: 490px) {
+  .program-card-row {
+    flex-wrap: wrap;
+    overflow: visible;
+    /* justify-content: space-between; */
+    justify-content: center;
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+  }
+
+  .program-card-col {
+    max-width: 15rem;
+    min-width: 15rem;
+    padding: 0 1.5rem 2rem;
+  }
+
+  .program-card-col .program-card-block {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .program-card-col {
+    max-width: 18rem;
+    min-width: 18rem;
+    padding-bottom: 3rem;
+  }
+
+  .program-card-col .img-wrap {
+    width: 15rem;
+    height: 15rem;
+  }
+
+  .program-card-col .card-name {
+    font-size: 1.5rem;
+  }
+
+  .program-card-col .card-title {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .program-card-col {
+    max-width: none;
+    min-width: 0;
+    width: 20%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .program-card-col .img-wrap {
+    width: 18rem;
+    height: 18rem;
+  }
+}

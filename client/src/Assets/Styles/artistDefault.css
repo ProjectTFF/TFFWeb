@@ -1,0 +1,121 @@
+.artist-section {
+  padding-bottom: 1rem;
+}
+
+.artist-row {
+  display: flex;
+  margin: 0 -0.5rem 3.5rem;
+  overflow-x: auto;
+}
+
+.artist-info-col {
+  padding: 0 0.5rem 1rem;
+}
+
+.artist-info-col .artist-info-block {
+  width: 10.5rem;
+  display: block;
+  text-align: center;
+}
+
+.artist-info-col .img-wrap {
+  border-radius: 100%;
+  display: block;
+  height: 10rem;
+  width: 10rem;
+  padding: 0.2rem;
+  background: linear-gradient(90deg, #54ccf2 0%, #7d54f2 100%);
+  margin: 0 auto 2rem;
+}
+.artist-info-col .img-wrap img {
+  border-radius: 100%;
+  width: 100%;
+}
+
+.artist-info-block span {
+  display: block;
+}
+
+.artist-info-block .artist-role {
+  font-size: 1rem;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.artist-info-block .artist-name {
+  font-family: Zilla Slab, Times New Roman, Times, Baskerville, Georgia, serif;
+  font-size: 1.8rem;
+  line-height: 1.111;
+  color: #fff;
+}
+
+.artist-info-block .artist-address {
+  font-family: Zilla Slab, Times New Roman, Times, Baskerville, Georgia, serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  line-height: 1.333;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+@media screen and (min-width: 490px) {
+  .artist-row {
+    flex-wrap: wrap;
+    overflow: visible;
+    justify-content: center;
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+  }
+
+  .artist-info-col {
+    max-width: 15rem;
+    min-width: 15rem;
+    padding: 0 1.5rem 2rem;
+  }
+
+  .artist-info-col .artist-info-block {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .artist-info-col {
+    max-width: 18rem;
+    min-width: 18rem;
+  }
+
+  .artist-info-col .img-wrap {
+    width: 15rem;
+    height: 15rem;
+  }
+
+  .artist-info-block .artist-role {
+    font-size: 1.5rem;
+  }
+
+  .artist-info-block .artist-name {
+    font-size: 2rem;
+  }
+
+  .artist-info-block .artist-address {
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .artist-info-col {
+    max-width: none;
+    min-width: 0;
+    width: 20%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .artist-info-col .img-wrap {
+    width: 20rem;
+    height: 20rem;
+  }
+
+  .artist-info-block .artist-address {
+    font-size: 1.8rem;
+  }
+}

@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Zilla+Slab:wght@300;400;500;600&display=swap');
+@import '../../../node_modules/react-modal-video/css/modal-video.css';
+
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  font-size: 62.5%;
+}
+
+*,
+:after,
+:before {
+  box-sizing: inherit;
+}
+
+* {
+  max-height: 1000000px;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #17191b;
+  color: #fff;
+  font: 1.4rem/1.5 Poppins, Arial, Helvetica, sans-serif;
+  min-width: 32rem;
+  margin: 0;
+}
+
+body.nav-active {
+  overflow: hidden;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: top;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6,
+.h {
+  margin: 0 0 1rem;
+}
+
+a,
+.language-select {
+  color: #00d1ff;
+  transition: color 0.3s ease-in-out;
+}
+a,
+a:focus,
+a:hover {
+  text-decoration: none;
+}
+
+p {
+  margin: 0 0 2rem;
+}
+
+.wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.wrapper::after {
+  content: '';
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 16rem;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 37.6%, #000000 90.25%);
+  transform: matrix(1, 0, 0, -1, 0, 0);
+  z-index: 0;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+.container {
+  max-width: 122rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.container:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}

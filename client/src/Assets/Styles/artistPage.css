@@ -1,0 +1,88 @@
+.artist .artist-banner {
+    background: url('../Images/ArtistBackground.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    height: 20rem;
+    margin-top: 5rem;
+}
+
+.artist .artist-banner:before {
+    background: linear-gradient(180deg, transparent 30%, #17191b);
+    bottom: 0;
+    content: '';
+    height: 40%;
+    left: 0;
+    position: absolute;
+    right: 0;
+  }
+
+.artist .all-artists-top {
+    position: absolute;
+    left: 2.5rem;
+    z-index: 2;
+    top: 3rem;
+    color: white;
+}
+
+.artist .maininfos .box img{
+    position: absolute;
+    height: 10rem;
+    margin-left: 2rem;
+    margin-top: 10rem;
+}
+
+.artist .maininfos .box h1 {
+    position: absolute;
+    font-size: 1.75rem;
+    padding: 0;
+    margin-left: 12rem;
+    margin-top: 14rem;
+}
+
+.artist .maininfos ul{
+    position: absolute;
+    padding: 0;
+    margin-top: 17rem;
+    margin-left: 12rem;
+}
+
+.artist li {
+    margin: 0.75rem;
+    display: inline;
+}
+
+.artist .information {
+    text-align: justify;
+    margin: 3rem;
+}
+
+.artist .section-title-block {
+    margin: 3rem;
+}
+
+.artist .thumbnail-row {
+    display: inline-block;
+    margin: 0 0 0 1rem;
+}
+
+.artist .thumbnail-row .thumbnail-col {
+    display: inline-block;
+}
+
+.artist .section-title-block h2 {
+    font-size: 1.25rem;
+}
+
+.artist .artist-row {
+    margin: 0 3rem 1rem 3rem;
+}
+
+.artist .artist-bottom {
+    margin-top: -15rem;
+    padding-top: 15rem;
+    background: linear-gradient(to bottom, #00000000, #000000);
+}

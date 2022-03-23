@@ -1,0 +1,16 @@
+.menu-btn {
+  cursor: pointer;
+  background: none;
+  border: 0;
+  padding: 0;
+  display: block;
+  width: 2rem;
+}
+
+.menu-btn img {
+  width: 100%;
+}
+
+.menu--close {
+  margin-left: auto;
+}
