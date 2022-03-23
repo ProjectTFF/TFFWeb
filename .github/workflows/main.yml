@@ -27,6 +27,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
 
+      - name: Where am I?
+        run: ls -la
+        
       - name: Start containers
         run: docker-compose up -d --build
       
