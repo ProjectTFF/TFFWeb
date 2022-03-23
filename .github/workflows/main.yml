@@ -30,8 +30,8 @@ jobs:
       - name: Where am I?
         run: ls -la
         
-      - name: Start containers
-        run: docker-compose up -d --build
+      - name: Start the database container
+        run: docker-compose up db -d --build
       
       - name: Install node
         uses: actions/setup-node@v1
