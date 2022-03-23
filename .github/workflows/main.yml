@@ -31,7 +31,7 @@ jobs:
         run: ls -la
         
       - name: Start the database container
-        run: docker-compose up db -d --build
+        run: docker-compose up -d --build db
       
       - name: Install node
         uses: actions/setup-node@v1
