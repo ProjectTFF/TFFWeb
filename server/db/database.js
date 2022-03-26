@@ -36,6 +36,10 @@ const Artist = sequelize.define('artist', {
         biography_fin: {
             type: Sequelize.STRING,
             allowNull: false
+        },
+        instrument: {
+            type: Sequelize.STRING,
+            allowNull:true
         }
     },
 
@@ -224,9 +228,9 @@ const Programme = sequelize.define('concert', {
         allowNull: false,
         primaryKey: true
     },
-    performanceorder: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
+    performancetime: {
+        type: Sequelize.TIME,
+        allowNull: true,
         primaryKey: true
     }
 },
