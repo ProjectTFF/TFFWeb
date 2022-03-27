@@ -59,7 +59,7 @@ const Links = sequelize.define('links', {
             allowNull: true
         },
         youtube: {
-            type: Sequalize.STRING,
+            type: Sequelize.STRING,
             allowNull: true
         },
         instagram: {
@@ -103,7 +103,7 @@ const Photos = sequelize.define('photos', {
 );
 
     // model for 'composition' table
-const Composition = Sequelize.define('composition', {
+const Composition = sequelize.define('composition', {
         compositionid: {
             type: Sequelize.INTEGER,
             allowNull: false,
@@ -133,7 +133,7 @@ const Composition = Sequelize.define('composition', {
 );
 
     // model for 'venue' table
-const Venue = Sequelize.define('venue', {
+const Venue = sequelize.define('venue', {
         venueid: {
             type: Sequelize.INTEGER,
             allowNull: false,
@@ -170,7 +170,7 @@ const Venue = Sequelize.define('venue', {
 );
 
 // model for 'concert' table
-const Concert = Sequelize.define('concert', {
+const Concert = sequelize.define('concert', {
         concertid: {
             type: Sequelize.INTEGER,
             allowNull: false,
@@ -208,7 +208,7 @@ const Concert = Sequelize.define('concert', {
 
 // model for the 'programme' table
 
-const Programme = Sequelize.define('concert', {
+const Programme = sequelize.define('concert', {
         concertid: {
             type: Sequelize.INTEGER,
             allowNull: false,
@@ -235,26 +235,6 @@ const Programme = Sequelize.define('concert', {
     freezeTableName:true}
 
 );
-
-// relationships between tables
-
-Artist.hasOne(Links);
-Links.belongsTo(Artist);
-
-Artist.hasMany(Photos);
-Photos.belongsTo(Artist);
-
-Venue.hasMany(Concert);
-Concert.hasOne(Venue);
-
-Programme.hasMany(Artist);
-Artist.belongsTo(Programme);
-
-Programme.hasMany(Composition);
-Composition.belongsTo(Programme);
-
-Concert.belongsTo(Programme);
-Programme.hasMany(Concert);
 
 // Here we export the model definitions for use outside this file.
 module.exports = {
