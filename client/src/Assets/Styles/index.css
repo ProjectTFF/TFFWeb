@@ -1,6 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Zilla+Slab:wght@300;400;500;600&display=swap');
 @import '../../../node_modules/react-modal-video/css/modal-video.css';
 
+@font-face {
+  font-family: 'gogoia';
+  src: url('../../fonts/gogoia-regular-webfont.eot');
+  src: url('../../fonts/gogoia-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../../fonts/gogoia-regular-webfont.woff2') format('woff2'), url('../../fonts/gogoia-regular-webfont.woff') format('woff'), url('../../fonts/gogoia-regular-webfont.ttf') format('truetype'), url('../../fonts/gogoia-regular-webfont.svg#gogoiaregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
 html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
