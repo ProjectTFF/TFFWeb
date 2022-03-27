@@ -3,7 +3,7 @@ const db = require('../db/database');
 
 exports.all_artist = function(req,res,next){
     db.Artist.findAll({
-        attributes: ['artistid','firstname', 'lastname']
+        attributes: ['artistid','firstname', 'lastname','instrument']
     })
     .then( artist => {
         res.status(200).send(JSON.stringify(artist));
