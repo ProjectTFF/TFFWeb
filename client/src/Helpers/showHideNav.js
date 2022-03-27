@@ -20,14 +20,22 @@ function ShowHideNav() {
 
   return (
     <div className="header-holder">
-      <div className="nav-opener">
-        <Button
-          buttonStyle="menu--open"
-          onClick={changeState}
-        >
-          <img src={OpenBurger} alt="Nav Open" />
-        </Button>
-      </div>
+      {show
+      ? (
+        <button className="nav-closer-outside" onClick={changeState} type="button">
+          .
+        </button>
+      )
+      : (
+        <div className="nav-opener">
+          <Button
+            buttonStyle="menu--open"
+            onClick={changeState}
+          >
+            <img src={OpenBurger} alt="Nav Open" />
+          </Button>
+        </div>
+      ) }
       <div className={show ? 'nav-drop-active nav-drop' : 'nav-drop'}>
         <NavMenu changeState={changeState} />
       </div>
