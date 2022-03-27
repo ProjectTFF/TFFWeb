@@ -1,7 +1,7 @@
 import React from 'react';
 import ArtistCollection from '../Components/artistDefault';
 import { HomeArtistObject } from '../Helpers/homeArtistMap';
-import DefaultButton from '../Components/defaultButton';
+import PrimaryButton from '../Components/primaryButton';
 
 import '../Assets/Styles/artists.css';
 
@@ -22,7 +22,7 @@ function Artists() {
       </div>
 
       <div className="artists-bottom">
-        <DefaultButton />
+        <PrimaryButton />
       </div>
     </div>
   );

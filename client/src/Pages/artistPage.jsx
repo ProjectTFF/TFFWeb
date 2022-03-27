@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
-import DefaultButton from '../Components/defaultButton';
+import PrimaryButton from '../Components/primaryButton';
 import iconMap from '../Helpers/iconMap';
 import ThumbnailCard from '../Components/thumbnailCard';
 import ArtistCollection from '../Components/artistDefault';
@@ -117,7 +117,7 @@ function ArtistPage() {
         </div>
       </div>
       <div className="artist-bottom">
-        <DefaultButton />
+        <PrimaryButton />
       </div>
     </div>
   );

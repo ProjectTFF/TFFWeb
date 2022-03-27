@@ -1,5 +1,5 @@
 .nav-drop {
-  background: rgba(68, 76, 84, 0.9);
+  background: rgba(0, 0, 0, 0.9);
   position: fixed;
   left: 0;
   width: 100%;
@@ -28,9 +28,8 @@
 }
 
 .navbar ul {
-  font-size: 1.8rem;
-  line-height: 1.222;
-  font-family: Zilla Slab, Times New Roman, Times, Baskerville, Georgia, serif;
+  font-size: 1.6rem;
+  line-height: 1.25;
 }
 
 .navbar ul li {
@@ -49,6 +48,11 @@
   color: #00d1ff;
 }
 
+.navbar ul li .nav-link:active {
+  color: #00d1ff;
+  text-decoration: underline;
+}
+
 .navbar ul li .nav-link .css-i4bv87-MuiSvgIcon-root {
   position: absolute;
   right: 0;
@@ -61,14 +65,12 @@
   color: #fff;
   display: block;
   position: relative;
-  padding-right: 2rem;
-  
+  padding: 0;
   background: none;
   border: none;
-
   font-size: 1.8rem;
   line-height: 1.222;
-  font-family: Zilla Slab, Times New Roman, Times, Baskerville, Georgia, serif;
+  cursor: pointer;
 }
 
 .navbar ul li .language-select:hover {
