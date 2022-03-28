@@ -36,18 +36,16 @@
 }
 .program-card-col .card-title {
   display: block;
-  font-family: Zilla Slab, Times New Roman, Times, Baskerville, Georgia, serif;
-  font-size: 1.8rem;
-  line-height: 1.166;
+  font-size: 1.4rem;
+  line-height: 1.25;
   color: #fff;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 @media screen and (min-width: 490px) {
   .program-card-row {
     flex-wrap: wrap;
     overflow: visible;
-    /* justify-content: space-between; */
     justify-content: center;
     margin-left: -1.5rem;
     margin-right: -1.5rem;
@@ -81,7 +79,7 @@
   }
 
   .program-card-col .card-title {
-    font-size: 2rem;
+    font-size: 1.6rem;
   }
 }
 

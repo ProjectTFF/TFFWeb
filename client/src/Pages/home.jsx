@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import DefaultButton from '../Components/defaultButton';
+import PrimaryButton from '../Components/primaryButton';
 import SectionHeader from '../Components/sectionHeader';
 import NormalCard from '../Components/normalCard';
 import ThumbnailCard from '../Components/thumbnailCard';
@@ -43,7 +43,7 @@ function Home() {
         <div className="dashboard-content">
           <span className="top-text">Tampere Flute Fest</span>
           <h1>ICE · JÄÄ</h1>
-          <span className="meta-text">24.4.2022 &amp;Tampere Hall</span>
+          <span className="meta-text">24.4.2022 @Tampere Hall</span>
         </div>
       </div>
       <main>
@@ -51,10 +51,19 @@ function Home() {
           <div className="container">
             <div className="info-text-block">
               <p>
-                Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit. Faucibus justo, gravida sem viverra.
+                Tampere Flute Fest 2022 will bring an eclectic program
+                of icy sonic wonder this April 22nd-24th!
               </p>
-              <DefaultButton />
+              <p>
+                Inspired by the wonders of nature, this year’s edition titled “JÄÄ • ICE”,
+                will deliver a diverse range of in-person, and live-streamed events
+                where innovation and the flute meet.
+              </p>
+              <div className="button-wrap">
+                <PrimaryButton
+                  buttonText="buy tickets"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -70,9 +79,7 @@ function Home() {
                 <ArtistCollection
                   key={artistObj.id}
                   artistImage={artistObj.artistPicture}
-                  artistRole={artistObj.artistRole}
                   artistName={artistObj.artistName}
-                  artistAddress={artistObj.artistPlace}
                 />
             ))}
             </div>
@@ -109,7 +116,11 @@ function Home() {
            ))}
             </div>
           </div>
-          <DefaultButton />
+          <div className="button-wrap">
+            <PrimaryButton
+              buttonText="buy tickets"
+            />
+          </div>
           <div className="highlight-section">
             <SectionHeader
               sectionTitle="Highlights from previous years"

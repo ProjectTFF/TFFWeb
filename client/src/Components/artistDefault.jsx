@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 function ArtistCollection(props) {
    const {
- artistImage, artistRole, artistName, artistAddress,
+ artistImage, artistName,
 } = props;
 
    return (
@@ -14,9 +14,7 @@ function ArtistCollection(props) {
          <div className="img-wrap">
            <img src={artistImage} alt="" />
          </div>
-         <span className="artist-role">{artistRole}</span>
          <span className="artist-name">{artistName}</span>
-         <span className="artist-address">{artistAddress}</span>
        </Link>
      </div>
    );

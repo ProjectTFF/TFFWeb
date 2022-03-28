@@ -32,29 +32,12 @@
   width: 100%;
 }
 
-.artist-info-block span {
-  display: block;
-}
-
-.artist-info-block .artist-role {
-  font-size: 1rem;
-  line-height: 1.5;
-  text-transform: uppercase;
-}
-
 .artist-info-block .artist-name {
-  font-family: Zilla Slab, Times New Roman, Times, Baskerville, Georgia, serif;
-  font-size: 1.8rem;
-  line-height: 1.111;
+  display: block;
+  font-size: 1.6rem;
+  line-height: 1.25;
+  font-weight: 300;
   color: #fff;
-}
-
-.artist-info-block .artist-address {
-  font-family: Zilla Slab, Times New Roman, Times, Baskerville, Georgia, serif;
-  font-style: italic;
-  font-size: 1.2rem;
-  line-height: 1.333;
-  color: rgba(255, 255, 255, 0.7);
 }
 
 @media screen and (min-width: 490px) {
@@ -88,16 +71,8 @@
     height: 15rem;
   }
 
-  .artist-info-block .artist-role {
-    font-size: 1.5rem;
-  }
-
   .artist-info-block .artist-name {
     font-size: 2rem;
-  }
-
-  .artist-info-block .artist-address {
-    font-size: 1.6rem;
   }
 }
 
@@ -113,9 +88,5 @@
   .artist-info-col .img-wrap {
     width: 20rem;
     height: 20rem;
-  }
-
-  .artist-info-block .artist-address {
-    font-size: 1.8rem;
   }
 }

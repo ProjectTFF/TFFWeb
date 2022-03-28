@@ -1,0 +1,67 @@
+.button-wrap {
+  padding-bottom: 4rem;
+  text-align: center;
+}
+
+.btn {
+  border-radius: 2rem;
+  display: inline-block;
+  font-size: 1.2rem;
+  line-height: 1.333;
+  padding: 1rem 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  position: relative;
+  border: 2px solid transparent;
+  transition: color 0.3s ease-in-out, background 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+.btn-primary {
+  background: #54ccf2;
+  color: #fff;
+  min-width: 20rem;
+  border-color: #54ccf2;
+}
+
+.btn-primary:active {
+  background: #31b0d9;
+  border-color: #31b0d9;
+}
+
+.btn-primary:hover {
+  background: #6bdcff;
+  border-color: #6bdcff;
+}
+
+.btn-primary:focus {
+  background: #6bdcff;
+  border-color: rgba(78, 171, 238, 0.8);
+}
+
+.btn-primary.disabled,
+.btn-primary:disabled {
+  background: #f1faff;
+  border-color: #b2b6bf;
+  color: #8e979d;
+  pointer-events: none;
+}
+
+.btn-primary .css-i4bv87-MuiSvgIcon-root {
+  position: absolute;
+  font-size: 2.7rem;
+  right: 1.1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@media screen and (min-width: 1024px) {
+  .btn-primary {
+    font-size: 1.5rem;
+  }
+
+  .btn-primary .css-i4bv87-MuiSvgIcon-root {
+    font-size: 3rem;
+  }
+}
