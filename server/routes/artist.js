@@ -17,9 +17,9 @@ router.get('/links/:artistid',function(req,res,next){
     artistController.links_for_artist(req,res,next);
 })
 
-router.get('/photos/:artistid',function(req,res,next){
+/*router.get('/photos/:artistid',function(req,res,next){
     artistController.photos_for_artist(req,res,next);
-})
+})*/
 
 
 module.exports = router;

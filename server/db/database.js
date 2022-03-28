@@ -36,10 +36,6 @@ const Artist = sequelize.define('artist', {
         biography_fin: {
             type: Sequelize.STRING,
             allowNull: false
-        },
-        instrument: {
-            type: Sequelize.STRING,
-            allowNull:true
         }
     },
 

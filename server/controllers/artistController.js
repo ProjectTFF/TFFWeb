@@ -3,7 +3,7 @@ const db = require('../db/database');
 
 exports.all_artist = function(req,res,next){
     db.Artist.findAll({
-        attributes: ['artistid','firstname', 'lastname','instrument']
+        attributes: ['artistid','firstname', 'lastname']
     })
     .then( artist => {
         res.status(200).send(JSON.stringify(artist));
@@ -32,7 +32,8 @@ exports.links_for_artist = function(req,res,next) {
     db.Links.findOne({
         where: {
             artistid: artist_id
-        }
+        },
+        attributes: ['website', 'facebook', 'youtube', 'instagram', 'spotify']
         })
         .then( artist => {
             res.status(200).send(JSON.stringify(artist));
@@ -42,10 +43,10 @@ exports.links_for_artist = function(req,res,next) {
         })
 }
 
-exports.photos_for_artist = function(req,res,next) {
+/*exports.photos_for_artist = function(req,res,next) {
     const artist_id = req.params.artistid;
     db.Photos.findAll({
         where : {artistid: artist_id},
         attributes: ['photoid','photoref']
     })
-}
+}*/

@@ -6,7 +6,6 @@ CREATE TABLE IF NOT EXISTS artist (
     lastname VARCHAR(25) NOT NULL,
     biography_eng VARCHAR(30),
     biography_fin VARCHAR(30),
-    instrument VARCHAR(30),
     PRIMARY KEY (artistid)
     );
 
@@ -67,7 +66,7 @@ CREATE TABLE IF NOT EXISTS programme (
     artistid INT NOT NULL,
     compositionid INT NOT NULL,
     performancetime TIME,
-    PRIMARY KEY (concertid, artistid, compositionid, performanceorder),
+    PRIMARY KEY (concertid, artistid, compositionid, performancetime),
     FOREIGN key (concertid) REFERENCES concert,
     FOREIGN KEY (artistid) REFERENCES artist,
     FOREIGN KEY (compositionid) REFERENCES composition
@@ -130,7 +129,7 @@ VALUES
 
 -- programme dummy data
 
-INSERT INTO programme (concertid, artistid, compositionid, performanceorder)
+INSERT INTO programme (concertid, artistid, compositionid, performancetime)
 VALUES
     (1, 2, 1, '19:00'),
     (1, 4, 3, '19:30'),
