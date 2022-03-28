@@ -36,7 +36,7 @@
 }
 .program-card-col .card-title {
   display: block;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   line-height: 1.25;
   color: #fff;
   font-weight: 300;
@@ -78,9 +78,9 @@
     font-size: 1.5rem;
   }
 
-  /* .program-card-col .card-title {
-    font-size: 1.8rem;
-  } */
+  .program-card-col .card-title {
+    font-size: 1.6rem;
+  }
 }
 
 @media screen and (min-width: 992px) {

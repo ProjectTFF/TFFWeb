@@ -79,9 +79,7 @@ function Home() {
                 <ArtistCollection
                   key={artistObj.id}
                   artistImage={artistObj.artistPicture}
-                  artistRole={artistObj.artistRole}
                   artistName={artistObj.artistName}
-                  artistAddress={artistObj.artistPlace}
                 />
             ))}
             </div>

@@ -85,3 +85,17 @@
     font-size: 6rem;
   }
 }
+
+@media screen and (min-width: 768px) {
+  .thumbnail-row .thumbnail-col {
+    min-width: 0;
+    max-width: none;
+    width: 33.33%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .thumbnail-row .thumbnail-col {
+    width: 25%;
+  }
+}
