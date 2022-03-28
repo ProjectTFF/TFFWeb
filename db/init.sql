@@ -65,8 +65,8 @@ CREATE TABLE IF NOT EXISTS programme (
     concertid INT NOT NULL,
     artistid INT NOT NULL,
     compositionid INT NOT NULL,
-    performanceorder INT NOT NULL,
-    PRIMARY KEY (concertid, artistid, compositionid, performanceorder),
+    performancetime TIME,
+    PRIMARY KEY (concertid, artistid, compositionid, performancetime),
     FOREIGN key (concertid) REFERENCES concert,
     FOREIGN KEY (artistid) REFERENCES artist,
     FOREIGN KEY (compositionid) REFERENCES composition
@@ -129,17 +129,17 @@ VALUES
 
 -- programme dummy data
 
-INSERT INTO programme (concertid, artistid, compositionid, performanceorder)
+INSERT INTO programme (concertid, artistid, compositionid, performancetime)
 VALUES
-    (1, 2, 1, 1),
-    (1, 4, 3, 2),
-    (1, 3, 3, 2),
-    (1, 5, 2, 3),
+    (1, 2, 1, '19:00'),
+    (1, 4, 3, '19:30'),
+    (1, 3, 3, '19:30'),
+    (1, 5, 2, '19:30'),
 
-    (2, 1, 1, 1),
-    (2, 1, 2, 2),
-    (2, 3, 3, 3),
+    (2, 1, 1, '19:30'),
+    (2, 1, 2, '19:30'),
+    (2, 3, 3, '19:30'),
 
-    (3, 1, 1, 1),
-    (3, 2, 3, 2),
-    (3, 3, 2, 3);
+    (3, 1, 1, '19:30'),
+    (3, 2, 3, '19:30'),
+    (3, 3, 2, '19:30');
