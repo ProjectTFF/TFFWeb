@@ -102,7 +102,7 @@ const Photos = sequelize.define('photos', {
 freezeTableName: true,}
 );
 
-   // model for 'composition' table
+// model for 'composition' table
 const Composition = sequelize.define('composition', {
     compositionid: {
         type: Sequelize.INTEGER,
@@ -207,7 +207,6 @@ freezeTableName: true}
 );
 
 // model for the 'programme' table
-
 const Programme = sequelize.define('concert', {
     concertid: {
         type: Sequelize.INTEGER,
@@ -246,4 +245,4 @@ module.exports = {
     Venue: Venue,
     Concert: Concert,
     Programme: Programme
-}; 
+};
