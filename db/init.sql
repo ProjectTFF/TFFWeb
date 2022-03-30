@@ -1,3 +1,6 @@
+\c postgres
+DROP DATABASE IF EXISTS tffgodb;
+CREATE DATABASE tffgodb;
 \c tffgodb
 
 CREATE TABLE IF NOT EXISTS artist (
