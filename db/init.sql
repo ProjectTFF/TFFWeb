@@ -1,3 +1,5 @@
+\c tffgodb
+
 CREATE TABLE IF NOT EXISTS artist (
     artistid INT NOT NULL,
     firstname VARCHAR(25) NOT NULL,
@@ -83,18 +85,18 @@ CREATE TABLE IF NOT EXISTS programme (
 
 INSERT INTO ARTIST (artistid, firstname, lastname, biography_eng, biography_fin) 
 VALUES 
-    (1, 'Astrid', 'Bjelland', 'astridbjelland_eng', 'astridbjelland_fin'),
-    (2, 'Fabian', 'Egger', 'fabianegger_eng', 'fabianegger_fin'),
-    (3, 'Sébastian', 'Jacot', 'sebastianjacot_eng', 'sebastianjacot_fin'),
-    (4, 'Annaleena', 'Jämsä', 'annaleenajamsa_eng', 'annaleenajamsa_fin'),
-    (5, 'Johanna', 'Kärkkäinen', 'johannakarkkainen_eng', 'johannakarkkainen_fin'),
-    (6, 'Alexis', 'Roman', 'alexisroman_eng', 'alexisroman_fin'),
-    (7, 'Beatriz', 'Macias', 'beatrizmacias_eng', 'beatrizmacias_fin'),
-    (8, 'Jenny', 'Villanen', 'jennyvillanen_eng', 'jennyvillanen_fin'),
-    (9, 'Malla','Vivolin', 'mallavivolin_eng', 'mallavivolin_fin'),
-    (10, 'Eva', 'Alkula', 'evaalkula_eng', 'evaalkula_fin'),
-    (11, 'Hanna-Leena', 'Savolainen', 'hannaleenasavolainen_eng', 'hannaleenasavolainen_fin'),
-    (12, 'Viktor', 'Pellia', 'viktorpellia_eng', 'viktorpellia_fin');
+    (1, 'Astrid', 'Bjelland', 'astridbjelland_eng.txt', 'astridbjelland_fin.txt'),
+    (2, 'Fabian', 'Egger', 'fabianegger_eng.txt', 'fabianegger_fin.txt'),
+    (3, 'Sébastian', 'Jacot', 'sebastianjacot_eng.txt', 'sebastianjacot_fin.txt'),
+    (4, 'Annaleena', 'Jämsä', 'annaleenajamsa_eng.txt', 'annaleenajamsa_fin.txt'),
+    (5, 'Johanna', 'Kärkkäinen', 'johannakarkkainen_eng.txt', 'johannakarkkainen_fin.txt'),
+    (6, 'Alexis', 'Roman', 'alexisroman_eng.txt', 'alexisroman_fin.txt'),
+    (7, 'Beatriz', 'Macias', 'beatrizmacias_eng.txt', 'beatrizmacias_fin.txt'),
+    (8, 'Jenny', 'Villanen', 'jennyvillanen_eng.txt', 'jennyvillanen_fin.txt'),
+    (9, 'Malla','Vivolin', 'mallavivolin_eng.txt', 'mallavivolin_fin.txt'),
+    (10, 'Eva', 'Alkula', 'evaalkula_eng.txt', 'evaalkula_fin.txt'),
+    (11, 'Hanna-Leena', 'Savolainen', 'hannaleenasavolainen_eng.txt', 'hannaleenasavolainen_fin.txt'),
+    (12, 'Viktor', 'Pellia', 'viktorpellia_eng.txt', 'viktorpellia_fin.txt');
 
 --artist links actual data
 
@@ -157,11 +159,11 @@ VALUES
 
 --concerts data
 
-INSERT INTO concert (concertid, concertname, concertdate, consertstarttime, concertinfo_eng, concertinfo_fin, venueid)
+INSERT INTO concert (concertid, concertname, concertdate, consertstarttime, concertendtime, concertinfo_eng, concertinfo_fin, venueid)
 VALUES
-    (1, 'TFF Kids', '2022-04-22', '10:00', 'tffkids_eng', 'tffkids_fin', 2),
-    (2, 'TFF Youth', '2022-04-23', '10:00', 'tffyouth_eng', 'tffyouth_fin', 3),
-    (3, 'TFF JÄÄ//ICE', '2022-04-24', '19:15', 'tffice_eng', 'tffice_fin', 1);
+    (1, 'TFF Kids', '2022-04-22', '10:00','13:00','tffkids_eng.txt', 'tffkids_fin.txt', 2),
+    (2, 'TFF Youth', '2022-04-23', '10:00','18:40', 'tffyouth_eng.txt', 'tffyouth_fin.txt', 3),
+    (3, 'TFF JÄÄ//ICE', '2022-04-24', '10:00','20:00', 'tffice_eng.txt', 'tffice_fin.txt', 1);
 
 -- programme data
 
