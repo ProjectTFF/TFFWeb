@@ -1,3 +1,4 @@
+export { default as ErrorPage } from './404';
 export { default as Venue } from './venue';
 export { default as Contest } from './contest';
 export { default as Contribute } from './contribute';

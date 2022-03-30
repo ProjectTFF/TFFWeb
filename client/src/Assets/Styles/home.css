@@ -1,5 +1,5 @@
 .dashboard-banner {
-  background: url('../Images/HomeBackground.svg');
+  background: url('../Images/dashboard-banner.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 50%;
@@ -40,7 +40,6 @@
 }
 .dashboard-content span.top-text {
   font-size: 3rem;
-  font-weight: 300;
   line-height: 1.133;
   margin-bottom: 1rem;
 }
@@ -72,7 +71,6 @@
 }
 .info-text-holder .info-text-block {
   font-size: 1.8rem;
-  font-weight: 300;
   line-height: 1.5;
   margin: 0 auto;
   max-width: 35.6rem;

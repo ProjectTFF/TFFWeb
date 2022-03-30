@@ -2,14 +2,6 @@
   margin-bottom: 3rem;
 }
 
-.programme-section h1 {
-  font-size: 2.4rem;
-  line-height: 1.166;
-  margin-bottom: 3rem;
-  font-family: Zilla Slab, Times New Roman, Times, Baskerville, Georgia, serif;
-  font-weight: 400;
-}
-
 .programme-section .programme-wrap {
   display: flex;
   flex-wrap: wrap;

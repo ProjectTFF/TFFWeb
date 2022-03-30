@@ -10,7 +10,7 @@ function Artists() {
     <main>
       <div className="container">
         <div className="artists">
-          <h1>Artists</h1>
+          <h1 className="page-title">Artists</h1>
           <div className="artist-row">
             {HomeArtistObject.map((artistObj) => (
               <ArtistCollection
@@ -24,6 +24,7 @@ function Artists() {
           <div className="button-wrap">
             <PrimaryButton
               buttonText="buy tickets"
+              showIcon
             />
           </div>
         </div>

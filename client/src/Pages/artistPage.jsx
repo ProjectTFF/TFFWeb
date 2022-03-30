@@ -122,6 +122,7 @@ function ArtistPage() {
             <div className="button-wrap">
               <PrimaryButton
                 buttonText="buy tickets"
+                showIcon
               />
             </div>
           </div>

@@ -3,7 +3,6 @@ import { useParams } from 'react-router';
 import event01 from '../Assets/Images/event01.jpg';
 
 function ProgramDetail() {
-   // const { cardImage, cardTitle, cardName } = props;
    const { programSlug } = useParams();
    useEffect(() => {
    }, [programSlug]);
@@ -16,7 +15,6 @@ function ProgramDetail() {
              <img src={event01} alt="" />
            </div>
            <span className="card-name">{programSlug}</span>
-           {/* <span className="card-title">{Card Title}</span> */}
            <p>
              Lorem ipsum dolor sit amet consectetur adipisicing elit.
              Unde aliquam eligendi sunt laborum, inventore est adipisci

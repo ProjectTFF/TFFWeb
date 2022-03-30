@@ -1,15 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import '../Assets/Styles/button.css';
 
 function PrimaryButton(props) {
-  const { buttonText } = props;
+  const { buttonText, showIcon } = props;
   return (
-    <Link to="/tickets_and_streaming" className="btn btn-primary">
+    <a href="https://www.tampere-talo.fi/tapahtumat/tampere-flute-fest-2022/" target="_blank" className="btn btn-primary" rel="noreferrer">
       {buttonText}
-      <ChevronRightIcon />
-    </Link>
+      {
+        showIcon && <ChevronRightIcon />
+      }
+    </a>
   );
 }
 

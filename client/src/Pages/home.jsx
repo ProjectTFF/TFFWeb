@@ -62,6 +62,7 @@ function Home() {
               <div className="button-wrap">
                 <PrimaryButton
                   buttonText="buy tickets"
+                  showIcon
                 />
               </div>
             </div>
@@ -119,6 +120,7 @@ function Home() {
           <div className="button-wrap">
             <PrimaryButton
               buttonText="buy tickets"
+              showIcon
             />
           </div>
           <div className="highlight-section">

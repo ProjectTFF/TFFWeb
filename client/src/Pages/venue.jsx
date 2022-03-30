@@ -1,16 +1,34 @@
 import React from 'react';
+import VenueDetail from '../Components/venueDetail';
+import PrimaryButton from '../Components/primaryButton';
+import { VenueCollection } from '../Helpers/venueCollection';
 
 function Venue() {
   return (
-    <div className="venue">
-      <h1>Venue</h1>
-      <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry standard dummy text
-        ever since the 1500s, when an unknown printer took a galley of
-        type and scrambled it to make a type specimen book.
-      </p>
-    </div>
+    <main>
+      <div className="container">
+        <div className="venue-section">
+          <h1 className="page-title">venue</h1>
+          <div className="venue-row">
+            {VenueCollection.map((venueObj) => (
+              <VenueDetail
+                key={venueObj.id}
+                venueHomeLink={venueObj.venueHomeLink}
+                venueName={venueObj.venueName}
+                venueAddress={venueObj.venueAddress}
+                venueMapLink={venueObj.venueMapLink}
+              />
+            ))}
+          </div>
+          <div className="button-wrap">
+            <PrimaryButton
+              buttonText="buy tickets"
+              showIcon
+            />
+          </div>
+        </div>
+      </div>
+    </main>
   );
 }
 

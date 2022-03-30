@@ -9,7 +9,7 @@ function Programme() {
     <main>
       <div className="container">
         <div className="programme-section">
-          <h1>Programme</h1>
+          <h1 className="page-title">Programme</h1>
           <div className="programme-wrap">
             {ProgramCardObject.map((cardObj) => (
               <ProgramCard
