@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ShowHideNav from './Helpers/showHideNav';
 
 import {
-  ArtistPage, Artists, Contest, Contribute, Home, Programme, Tickets,
+  ArtistPage, Artists, Home, Programme, Tickets,
   Venue, ProgramDetail, ErrorPage, ArtistCompetitionFinalist,
 } from './Pages';
 
@@ -15,8 +15,8 @@ ReactDOM.render(
       <ShowHideNav />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/contest" element={<Contest />} />
-        <Route path="/contribute" element={<Contribute />} />
+        {/* <Route path="/contest" element={<Contest />} /> */}
+        {/* <Route path="/contribute" element={<Contribute />} /> */}
         <Route path="/programme">
           <Route path="" element={<Programme />} />
           <Route path=":programSlug" element={<ProgramDetail />} />
