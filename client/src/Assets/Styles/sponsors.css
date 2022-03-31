@@ -1,0 +1,33 @@
+.sponsors-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+  margin: 0 -1rem;
+  padding-bottom: 4rem;
+}
+
+.sponsors-list li {
+  padding: 0 1rem;
+  margin-bottom: 2rem;
+}
+
+.sponsors-list li .sponsor-image {
+  width: 11rem;
+  display: block;
+}
+
+@media screen and (min-width: 1024px) {
+  .sponsors-list {
+    margin: 0 -2rem;
+  }
+
+  .sponsors-list li {
+    padding: 0 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .sponsors-list li .sponsor-image {
+    width: 22rem;
+  }
+}

@@ -1,0 +1,39 @@
+.artists .artist-row {
+  overflow: visible;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.artists .artist-info-col {
+  width: 50%;
+  padding-bottom: 3.5rem;
+}
+
+.artists .artist-info-col .artist-info-block {
+  width: 100%;
+}
+
+@media screen and (min-width: 430px) {
+  .artists .artist-info-col {
+    width: 33.33%;
+  }
+}
+
+@media screen and (min-width: 490px) {
+  .artists .artist-info-col {
+    max-width: none;
+    min-width: 0;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .artists .artist-info-col {
+    width: 25%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .artists .artist-info-col {
+    width: 20%;
+  }
+}

@@ -4,9 +4,16 @@
  * Module dependencies.
  */
 
+
+// Choose the correct environmental variables for dev/prod
+const envFile = process.env.NODE_ENV ? `.env.${process.env.NODE_ENV}` : '.env';
+require('dotenv').config({path: envFile});
+
+
 var app = require('../app');
 var debug = require('debug')('server:server');
 var http = require('http');
+
 
 /**
  * Get port from environment and store in Express.
@@ -88,3 +95,5 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+
+module.exports = server;

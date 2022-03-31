@@ -1,0 +1,129 @@
+.artist {
+  position: relative;
+}
+
+.artist::before {
+  content: '';
+  background-image: url('../Images/artist_header.svg');
+  position: absolute;
+  left: -1rem;
+  right: -1rem;
+  top: -1rem;
+  height: 16rem;
+  background-size: 100% 16rem;
+  background-position: 100% 100%;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+.artist::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 60rem;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 37.6%, #000000 100%);
+}
+
+.artist .artist-banner {
+  padding-bottom: 3.5rem;
+}
+
+.artist .all-artists-top {
+  z-index: 2;
+  color: white;
+  display: inline-block;
+  margin-bottom: 6.2rem;
+}
+
+.artist .all-artists-top:hover {
+  color: #00d1ff;
+}
+
+.artist .maininfos {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.artist .maininfos .box {
+  width: 10.5rem;
+  height: 10.5rem;
+  padding: 0.2rem;
+  border-radius: 100%;
+  background: linear-gradient(90deg, #54ccf2 0%, #7d54f2 100%);
+  overflow: hidden;
+  margin-right: 1rem;
+}
+
+.artist .maininfos .box img {
+  width: 100%;
+  border-radius: 100%;
+}
+
+.artist-intro {
+  align-self: flex-end;
+}
+
+.artist-intro h1 {
+  font-size: 3rem;
+  line-height: 1;
+  font-family: gogoia, 'Times New Roman', serif;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.artist-intro .artist-info-list {
+  margin: 0 -0.7rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.artist-intro .artist-info-list li {
+  padding: 0 0.7rem;
+}
+
+.artist .information {
+  text-align: justify;
+  padding-bottom: 4rem;
+}
+
+.artist .information .nav-link {
+  display: inline-block;
+}
+
+.artist .information .nav-link .MuiSvgIcon-root {
+  font-size: 2rem;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0 0 1rem;
+}
+
+.artist .thumbnail-row {
+  overflow: visible;
+  flex-wrap: wrap;
+}
+
+.artist .thumbnail-row .thumbnail-block {
+  width: 100%;
+}
+
+.artist .all-artists-bottom {
+  padding-bottom: 2rem;
+}
+
+@media screen and (min-width: 430px) {
+  .artist-intro h1 {
+    font-size: 3.2rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .artist .thumbnail-row .thumbnail-col {
+    width: 50%;
+    padding-bottom: 3rem;
+    min-width: 0;
+    max-width: none;
+  }
+}

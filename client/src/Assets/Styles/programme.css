@@ -1,0 +1,14 @@
+.programme-section {
+  margin-bottom: 3rem;
+}
+
+.programme-section .programme-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -1.5rem;
+  justify-content: center;
+}
+
+.programme-section .program-card-col {
+  padding: 0 1.5rem 3rem;
+}

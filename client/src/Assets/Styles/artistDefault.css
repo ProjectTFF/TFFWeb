@@ -1,0 +1,91 @@
+.artist-section {
+  padding-bottom: 1rem;
+}
+
+.artist-row {
+  display: flex;
+  margin: 0 -0.5rem 3.5rem;
+  overflow-x: auto;
+}
+
+.artist-info-col {
+  padding: 0 0.5rem 1rem;
+}
+
+.artist-info-col .artist-info-block {
+  width: 10.5rem;
+  display: block;
+  text-align: center;
+}
+
+.artist-info-col .img-wrap {
+  border-radius: 100%;
+  display: block;
+  height: 10rem;
+  width: 10rem;
+  padding: 0.2rem;
+  background: linear-gradient(90deg, #54ccf2 0%, #7d54f2 100%);
+  margin: 0 auto 2rem;
+}
+.artist-info-col .img-wrap img {
+  border-radius: 100%;
+  width: 100%;
+}
+
+.artist-info-block .artist-name {
+  display: block;
+  font-size: 1.6rem;
+  line-height: 1.25;
+  color: #fff;
+}
+
+@media screen and (min-width: 490px) {
+  .artist-row {
+    flex-wrap: wrap;
+    overflow: visible;
+    justify-content: center;
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+  }
+
+  .artist-info-col {
+    max-width: 15rem;
+    min-width: 15rem;
+    padding: 0 1.5rem 2rem;
+  }
+
+  .artist-info-col .artist-info-block {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .artist-info-col {
+    max-width: 18rem;
+    min-width: 18rem;
+  }
+
+  .artist-info-col .img-wrap {
+    width: 15rem;
+    height: 15rem;
+  }
+
+  .artist-info-block .artist-name {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .artist-info-col {
+    max-width: none;
+    min-width: 0;
+    width: 20%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .artist-info-col .img-wrap {
+    width: 20rem;
+    height: 20rem;
+  }
+}

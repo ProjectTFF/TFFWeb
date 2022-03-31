@@ -1,0 +1,101 @@
+.thumbnail-section {
+  padding-bottom: 2rem;
+}
+
+.thumbnail-row {
+  display: flex;
+  margin: 0 -1.5rem 3.5rem;
+  overflow-x: auto;
+}
+
+.thumbnail-row .thumbnail-col {
+  padding: 0 1.5rem 1rem;
+}
+
+.thumbnail-row .thumbnail-block {
+  background: linear-gradient(90deg, #54ccf2, #7d54f2);
+  border-radius: 1rem;
+  padding: 0.1rem;
+  width: 12.4rem;
+}
+
+.thumbnail-row .thumbnail-img {
+  border-radius: 1rem;
+  display: block;
+  height: 0;
+  overflow: hidden;
+  padding-top: 62.121%;
+  position: relative;
+}
+
+.thumbnail-row .thumbnail-img img {
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  -o-object-fit: cover;
+  object-fit: cover;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+
+.thumbnail-row .thumbnail-img .css-i4bv87-MuiSvgIcon-root {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 3rem;
+  left: 50%;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media screen and (min-width: 430px) {
+  .thumbnail-row .thumbnail-block {
+    width: 13.2rem;
+  }
+}
+
+@media screen and (min-width: 658px) {
+  .thumbnail-row {
+    flex-wrap: wrap;
+    overflow: visible;
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 690px) {
+  .thumbnail-row {
+    flex-wrap: wrap;
+    overflow: visible;
+    justify-content: center;
+  }
+
+  .thumbnail-row .thumbnail-col {
+    padding-bottom: 3rem;
+    max-width: 30rem;
+    min-width: 30rem;
+  }
+
+  .thumbnail-row .thumbnail-block {
+    width: 100%;
+  }
+
+  .thumbnail-row .thumbnail-img .css-i4bv87-MuiSvgIcon-root {
+    font-size: 6rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .thumbnail-row .thumbnail-col {
+    min-width: 0;
+    max-width: none;
+    width: 33.33%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .thumbnail-row .thumbnail-col {
+    width: 25%;
+  }
+}

@@ -1,0 +1,46 @@
+.header-holder {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem 0;
+  line-height: 0;
+}
+
+.header-holder + main {
+  padding-top: 6.5rem;
+}
+
+.bookmark {
+  font-size: 1.3rem;
+  line-height: 1.23;
+  text-transform: uppercase;
+  color: #fff;
+  display: inline-block;
+  margin-left: auto;
+}
+
+.bookmark:hover {
+  color: #00d1ff;
+}
+
+.nav-opener {
+  width: 2rem;
+}
+
+.nav-closer-outside {
+  position: absolute;
+  background-color: #00000000;
+  color: #00000000;
+  border: none;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+}

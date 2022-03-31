@@ -1,0 +1,30 @@
+.venue-row {
+  padding: 3rem 0;
+}
+
+.venue-col {
+  padding-bottom: 3rem;
+  font-size: 1.8rem;
+  line-height: 1.5;
+}
+
+.venue-col ul li {
+  margin-bottom: 0.3rem;
+}
+
+.venue-col ul li address {
+  font-style: normal;
+  max-width: 18.4rem;
+}
+
+.venue-col ul li a:hover {
+  text-decoration: underline;
+}
+
+.venue-col ul li .venue-home {
+  font-weight: 700;
+}
+
+.venue-section .button-wrap {
+  text-align: left;
+}
