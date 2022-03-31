@@ -2,30 +2,30 @@
 export const HomeArtistObject = [
    {
       id: 1,
-      artistName: 'Annaleena Jämsä',
-      artistPicture: require('../Assets/Images/Artists/artist1.jpg'),
+      artistName: 'Alexis Roman',
+      artistPicture: require('../Assets/Images/Artists/alexis_roman.png'),
    },
 
    {
       id: 2,
-      artistName: 'Astrid Bjelland',
-      artistPicture: require('../Assets/Images/Artists/artist2.jpg'),
+      artistName: 'Annaleena Jamsa',
+     artistPicture: require('../Assets/Images/Artists/annaleena_jamsa.png'),
    },
 
    {
       id: 3,
-      artistName: 'Fabian Egger',
-      artistPicture: require('../Assets/Images/Artists/artist1.jpg'),
+      artistName: 'Astrid Bjelland',
+      artistPicture: require('../Assets/Images/Artists/astrid_bjelland.png'),
    },
 
    {
       id: 4,
-      artistName: 'Sebastian Jacot',
-      artistPicture: require('../Assets/Images/Artists/artist2.jpg'),
+      artistName: 'Beatirz Macias',
+     artistPicture: require('../Assets/Images/Artists/beatirz_macias.png'),
    },
    {
       id: 5,
-      artistName: 'Sebastian Jacot',
-      artistPicture: require('../Assets/Images/Artists/artist2.jpg'),
+      artistName: 'Eva Alkula',
+     artistPicture: require('../Assets/Images/Artists/eva_alkula.png'),
    },
 ];

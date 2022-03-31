@@ -17,16 +17,21 @@
   padding-top: 6.5rem;
 }
 
-.bookmark {
+.openModalBtn {
   font-size: 1.3rem;
   line-height: 1.23;
   text-transform: uppercase;
   color: #fff;
   display: inline-block;
   margin-left: auto;
+  background: none;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 
-.bookmark:hover {
+.openModalBtn:hover {
   color: #00d1ff;
 }
 
