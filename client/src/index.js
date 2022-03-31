@@ -6,7 +6,7 @@ import ShowHideNav from './Helpers/showHideNav';
 
 import {
   ArtistPage, Artists, Contest, Contribute, Home, Programme, Tickets,
-  Venue, ProgramDetail, ErrorPage,
+  Venue, ProgramDetail, ErrorPage, ArtistCompetitionFinalist,
 } from './Pages';
 
 ReactDOM.render(
@@ -23,6 +23,7 @@ ReactDOM.render(
         </Route>
         <Route path="/tickets_and_streaming" element={<Tickets />} />
         <Route path="/venue" element={<Venue />} />
+        <Route path="/artistCompetitionFinalist" element={<ArtistCompetitionFinalist />} />
         <Route path="/artists">
           <Route path="" element={<Artists />} />
           <Route path=":artistSlug" element={<ArtistPage />} />

@@ -35,6 +35,12 @@ export const NavMenu = ({
           </NavLink>
         </li>
         <li className="nav-item">
+          <NavLink className="nav-link" to="/artistCompetitionFinalist" onClick={changeState}>
+            YAC Finalists
+            <ChevronRightIcon />
+          </NavLink>
+        </li>
+        <li className="nav-item">
           <NavLink className="nav-link" to="/programme" onClick={changeState}>
             Programme
             <ChevronRightIcon />
