@@ -87,4 +87,12 @@ exports.links_for_artist = function(req,res,next) {
         where : {artistid: artist_id},
         attributes: ['photoid','photoref']
     })
+    .then( artist => {
+            res.status(200).send(JSON.stringify(artist));
+    })
+    .catch( err => {
+        console.log(JSON.stringify(err))
+        var error = {"error":"An error occurred during the gathering of the photos for this artist"}
+        res.send(JSON.stringify(error));
+    })
 }*/
