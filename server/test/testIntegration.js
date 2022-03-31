@@ -11,7 +11,7 @@ describe('Check that the Express server is up.', function () {
     it('respond with valid HTTP status code and description and message', function (done) {
       // Check status
       request(Server)
-        .get('/status')
+        .get('/api/status')
         .expect(204, done);
     });
 });
@@ -19,7 +19,7 @@ describe('Check that the Express server is up.', function () {
 describe('Testing GET/artist/#id endpoint', async () => {
   it('responds with valid http code and message type', async () => {
     // Make GET request and compare to expectations
-    const res = await request(Server).get('/artist/1').send();
+    const res = await request(Server).get('/api/artist/1').send();
     
     // console.log("response: " + JSON.stringify(res));
     assert.equal(res.statusCode, 200);
@@ -31,7 +31,7 @@ describe('Testing GET/artist/#id endpoint', async () => {
 describe('Testing GET/programme/#id endpoint', async () => {
   it('Responds with valid http code and message type', async () => {
     // Make GET request and compare to expectations
-    const res = await request(Server).get('/programme/2').send();
+    const res = await request(Server).get('/api/programme/2').send();
 
     console.log("response: " + JSON.stringify(res));
     assert.equal(res.statusCode, 200);
