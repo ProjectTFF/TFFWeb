@@ -110,9 +110,10 @@ function Home() {
             <div className="card-row">
               { CardObject.map((cardObj) => (
                 <NormalCard
-                  key={cardObj.eventTitle}
+                  key={cardObj.id}
                   cardTitle={cardObj.eventTitle}
                   cardImage={cardObj.eventImage}
+                  cardLink={cardObj.eventUrl}
                 />
            ))}
             </div>

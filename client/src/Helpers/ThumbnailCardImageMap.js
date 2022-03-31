@@ -2,22 +2,22 @@
 export const ThumbnailCardObject = [
    {
       id: 1,
-      videoId: 'D0UnqGm_miA',
-      thumbnailImage: require('../Assets/Images/img04.jpg'),
+      videoId: 'zzGr0UXsvq8',
+      thumbnailImage: require('../Assets/Images/thumbnail-1.jpg'),
    },
    {
       id: 2,
-      videoId: '9xwazD5SyVg',
-      thumbnailImage: require('../Assets/Images/img04.jpg'),
+      videoId: 'EdNHwQ1p8pM',
+      thumbnailImage: require('../Assets/Images/thumbnail-2.jpg'),
    },
    {
       id: 3,
-      videoId: 'yAoLSRbwxL8',
-      thumbnailImage: require('../Assets/Images/img04.jpg'),
+      videoId: 'UfPr5y6oEjg',
+      thumbnailImage: require('../Assets/Images/thumbnail-3.jpg'),
    },
    {
       id: 4,
-      videoId: '5Peo-ivmupE',
-      thumbnailImage: require('../Assets/Images/img04.jpg'),
+      videoId: 'ACfqVSuw2OM',
+      thumbnailImage: require('../Assets/Images/thumbnail-4.jpg'),
    },
 ];
