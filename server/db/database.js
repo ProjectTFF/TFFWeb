@@ -102,26 +102,26 @@ const Photos = sequelize.define('photos', {
 freezeTableName: true,}
 );
 
-// model for 'composition' table
-const Composition = sequelize.define('composition', {
-    compositionid: {
+// model for 'performance' table
+const Performance = sequelize.define('composition', {
+    performanceid: {
         type: Sequelize.INTEGER,
         allowNull: false,
         primaryKey: true
     },
-    compositionname: {
+    performancename_eng: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    composer: {
+    performancename_fin: {
         type: Sequelize.STRING,
-        allowNull: true
+        allowNull: false
     },
-    compositioninfo_eng: {
+    performanceinfo_eng: {
         type: Sequelize.STRING,
         allowNull: true,
     },
-    compositioninfo_fin: {
+    performanceinfo_fin: {
         type: Sequelize.STRING,
         allowNull: true
 
@@ -155,11 +155,11 @@ const Venue = sequelize.define('venue', {
         type: Sequelize.INTEGER,
         allowNull: true
     },
-    venueinfo_eng: {
+    venuelink: {
         type: Sequelize.STRING,
         allowNull: true
     },
-    venueinfo_fin: {
+    venuelocation: {
         type: Sequelize.STRING,
         allowNull: true
     }
@@ -188,6 +188,10 @@ const Concert = sequelize.define('concert', {
         type: Sequelize.TIME,
         allowNull: false
     },
+    consertendtime: {
+        type: Sequelize.TIME,
+        allowNull: true
+    },
     consertinfo_eng: {
         type: Sequelize.STRING,
         allowNull: true
@@ -213,17 +217,17 @@ const Programme = sequelize.define('concert', {
         allowNull: false,
         primaryKey: true
     },
-    artistid: {
+    performanceid: {
         type: Sequelize.INTEGER,
         allowNull: false,
         primaryKey: true
     },
-    compositionid: {
-        type: Sequelize.INTEGER,
+    performancestarttime: {
+        type: Sequelize.TIME,
         allowNull: false,
         primaryKey: true
     },
-    performancetime: {
+    performanceendtime: {
         type: Sequelize.TIME,
         allowNull: true,
         primaryKey: true
@@ -235,14 +239,34 @@ freezeTableName:true}
 
 );
 
+// the table for connecting artist and performance
+const Performsin = sequelize.define('performsin', {
+    artistid: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        primaryKey: true
+    },
+    performanceid: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        primarykey: true
+    }
+
+},
+
+{timestamps: false,
+freezeTableName: true,}
+);
+
 // Here we export the Artist model definition for use outside this file.
 module.exports = {
     sequelize: sequelize,
     Artist: Artist,
     Links: Links,
     Photos: Photos,
-    Composition: Composition,
+    Performance: Performance,
     Venue: Venue,
     Concert: Concert,
-    Programme: Programme
+    Programme: Programme,
+    Performsin: Performsin
 };
