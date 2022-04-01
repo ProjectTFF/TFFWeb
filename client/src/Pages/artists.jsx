@@ -1,9 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import ArtistCollection from '../Components/artistDefault';
-// import { HomeArtistObject } from '../Helpers/homeArtistMap';
 import PrimaryButton from '../Components/primaryButton';
-import Picture from '../Assets/Images/Artists/eva_alkula.png';
 
 import '../Assets/Styles/artists.css';
 
@@ -26,7 +24,6 @@ function Artists() {
             {artists.map((artist) => (
               <ArtistCollection
                 artistId={artist.artistid}
-                artistImage={Picture}
               />
          ))}
           </div>
