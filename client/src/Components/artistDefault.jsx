@@ -10,11 +10,11 @@ function ArtistCollection(props) {
 } = props;
 
    /**
-   * Get information from backend (This artist)
+   * Get information from backend (This ${process.env.REACT_APP_BASE_URL}artist)
    */
    const [artist, setArtist] = React.useState([]);
    if (artist.length === 0) {
-      axios.get(`http://localhost:3001/api/artist/${artistId}`).then((res) => { const val = res.data; setArtist(val); });
+      axios.get(`${process.env.REACT_APP_BASE_URL}/api/artist/${artistId}`).then((res) => { const val = res.data; setArtist(val); });
    }
 
    return (
