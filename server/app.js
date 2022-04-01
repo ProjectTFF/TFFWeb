@@ -23,4 +23,9 @@ app.use('/api/users', usersRouter);
 app.use('/api/artist', artistRouter);
 app.use('/api/programme', programmeRouter);
 
+// Route to redirect unmatched routes back to homepage.
+app.all('*', function(req, res) {
+    res.redirect("back");
+  });
+
 module.exports = app;
