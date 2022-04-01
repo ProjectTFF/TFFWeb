@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import PrimaryButton from '../Components/primaryButton';
 import SectionHeader from '../Components/sectionHeader';
 import NormalCard from '../Components/normalCard';
@@ -9,15 +10,25 @@ import SponsorDetail from '../Components/sponsorDetail';
 import { CardObject } from '../Helpers/NormalCardImageMap';
 import { ThumbnailCardObject } from '../Helpers/ThumbnailCardImageMap';
 import { ProgramCardObject } from '../Helpers/ProgramCardMap';
-import { HomeArtistObject } from '../Helpers/homeArtistMap';
+// import { HomeArtistObject } from '../Helpers/homeArtistMap';
 import { SponsorCollection } from '../Helpers/sponsorMap';
 import '../Assets/Styles/home.css';
 import { getLengthOfLongestArray } from '../Helpers/arrayHelpers';
+
+import Picture from '../Assets/Images/Artists/eva_alkula.png';
 
 function Home() {
   const [highestLength, setHighestLength] = useState(0);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
+  /**
+   * Get information from backend (All artists)
+   */
+   const [artists, setArtists] = React.useState([]);
+   const changeState2 = (prop) => { setArtists(prop); };
+   if (artists.length === 0) {
+     axios.get('http://localhost:3001/api/artist').then((res) => { const val = res.data; changeState2(val); });
+   }
   useEffect(() => {
     const cb = () => {
       setWindowWidth(window.innerWidth);
@@ -31,12 +42,13 @@ function Home() {
 
   useEffect(() => {
     if (windowWidth >= 490) {
-      const lengthToSet = getLengthOfLongestArray(HomeArtistObject, ProgramCardObject);
+      const lengthToSet = getLengthOfLongestArray(artists, ProgramCardObject);
       setHighestLength(lengthToSet);
     } else {
       setHighestLength(4);
     }
   }, [windowWidth]);
+
   return (
     <>
       <div className="dashboard-banner">
@@ -76,11 +88,10 @@ function Home() {
               pageLink="artists"
             />
             <div className="artist-row">
-              {HomeArtistObject.map((artistObj) => (
+              {artists.slice(0, 5).map((artistObj) => (
                 <ArtistCollection
-                  key={artistObj.id}
-                  artistImage={artistObj.artistPicture}
-                  artistName={artistObj.artistName}
+                  artistId={artistObj.artistid}
+                  artistImage={Picture}
                 />
             ))}
             </div>
