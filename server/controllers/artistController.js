@@ -81,10 +81,9 @@ exports.links_for_artist = function(req,res,next) {
         })
 }
 
-/*exports.photos_for_artist = function(req,res,next) {
+exports.photos_for_artist = function(req,res,next) {
     const artist_id = req.params.artistid;
-    db.Photos.findAll({
-        where : {artistid: artist_id},
+    db.Photos.findByPk(artist_id,{
         attributes: ['photoid','photoref']
     })
     .then( artist => {
@@ -95,4 +94,4 @@ exports.links_for_artist = function(req,res,next) {
         var error = {"error":"An error occurred during the gathering of the photos for this artist"}
         res.send(JSON.stringify(error));
     })
-}*/
+}

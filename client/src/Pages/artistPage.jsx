@@ -8,7 +8,7 @@ import ThumbnailCard from '../Components/thumbnailCard';
 import ArtistCollection from '../Components/artistDefault';
 import { ThumbnailCardObject } from '../Helpers/ThumbnailCardImageMap';
 import SectionHeader from '../Components/sectionHeader';
-import Picture from '../Assets/Images/Artists/eva_alkula.png';
+import { ArtistPictureMap } from '../Helpers/ArtistPictureMap';
 
 import '../Assets/Styles/artistPage.css';
 
@@ -51,7 +51,7 @@ function ArtistPage() {
             </NavLink>
             <div className="maininfos">
               <div className="box">
-                <img src={null} alt={` ${artist.firstname} ${artist.lastname}`} />
+                <img src={ArtistPictureMap[id - 1].programImage} alt={` ${artist.firstname} ${artist.lastname}`} />
               </div>
               <div className="artist-intro">
                 <h1>
@@ -141,7 +141,6 @@ function ArtistPage() {
               {artists.slice(0, 5).map((artistObj) => (
                 <ArtistCollection
                   artistId={artistObj.artistid}
-                  artistImage={Picture}
                 />
           ))}
             </div>
