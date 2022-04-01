@@ -122,6 +122,23 @@ VALUES
     (11, NULL, 'https://www.facebook.com/hannaleena.savolainen', NULL, NULL, NULL, 11),
     (12, NULL, 'https://www.facebook.com/Piktor4ik','https://www.youtube.com/watch?v=dce0D3bEj9M','https://www.instagram.com/viktor_pellia/?hl=en', NULL, 12);
 
+--artist photos actual data
+INSERT INTO photos (photoid,artistid,photoref)
+VALUES
+    (1,1,'astrid_bjelland.png'),
+    (2,2,'fabian_egger.png'),
+    (3,3,'sebastian_jacot.png'),
+    (4,4,'hannaleena_savolainen.png'),
+    (5,5,'johanna_karkkainen.png'),
+    (6,6,'alexis_roman.png'),
+    (7,7,'beatirz_macias.png'),
+    (8,8,'jenny_villanen.png'),
+    (9,9,'malla_vivolin.png'),
+    (10,10,'eva_alkula.png'),
+    (11,11,'hannaleena_savolainen.png'),
+    (12,12,'Viktor_Pellia.png');
+
+
 --venues data
 
 INSERT INTO VENUE (venueid, venuename, venueaddress, venuecity, venuezipcode, venuelink, venuelocation )
