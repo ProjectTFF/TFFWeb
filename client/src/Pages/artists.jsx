@@ -12,7 +12,6 @@ function Artists() {
   const [artists, setArtists] = React.useState([]);
   const changeState = (prop) => { setArtists(prop); };
   if (artists.length === 0) {
-    console.log(`Process.env.REACT_APP_BASE_URL: ${process.env.REACT_APP_BASE_URL}`);
     axios.get(`${process.env.REACT_APP_BASE_URL}/api/artist`).then((res) => { const val = res.data; changeState(val); });
   }
 
