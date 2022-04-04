@@ -136,7 +136,7 @@ VALUES
     (9,9,'malla_vivolin.png'),
     (10,10,'eva_alkula.png'),
     (11,11,'hannaleena_savolainen.png'),
-    (12,12,'Viktor_Pellia.png');
+    (12,12,'viktor_pellia.png');
 
 
 --venues data
