@@ -27,7 +27,7 @@ function Home() {
    const [artists, setArtists] = React.useState([]);
    const changeState2 = (prop) => { setArtists(prop); };
    if (artists.length === 0) {
-     axios.get('http://localhost:3001/api/artist').then((res) => { const val = res.data; changeState2(val); });
+     axios.get(`${process.env.REACT_APP_BASE_URL}/api/artist`).then((res) => { const val = res.data; changeState2(val); });
    }
   useEffect(() => {
     const cb = () => {

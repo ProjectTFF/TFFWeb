@@ -28,8 +28,8 @@ function ArtistPage() {
   const [links, setLinks] = React.useState([]);
   const changeLinks = (prop) => { setLinks(prop); };
   if (artist.length === 0 || id !== artistSlug) {
-    axios.get(`http://localhost:3001/api/artist/${artistSlug}`).then((res) => { const val = res.data; changeState(val); setId(artistSlug); });
-    axios.get(`http://localhost:3001/api/artist/links/${artistSlug}`).then((res) => { const val = res.data; changeLinks(val); });
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/artist/${artistSlug}`).then((res) => { const val = res.data; changeState(val); setId(artistSlug); });
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/artist/links/${artistSlug}`).then((res) => { const val = res.data; changeLinks(val); });
   }
 
   /**
@@ -38,7 +38,7 @@ function ArtistPage() {
   const [artists, setArtists] = React.useState([]);
   const changeState2 = (prop) => { setArtists(prop); };
   if (artists.length === 0) {
-    axios.get('http://localhost:3001/api/artist').then((res) => { const val = res.data; changeState2(val); });
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/artist`).then((res) => { const val = res.data; changeState2(val); });
   }
 
   return (

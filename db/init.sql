@@ -136,7 +136,7 @@ VALUES
     (9,9,'malla_vivolin.png'),
     (10,10,'eva_alkula.png'),
     (11,11,'hannaleena_savolainen.png'),
-    (12,12,'Viktor_Pellia.png');
+    (12,12,'viktor_pellia.png');
 
 
 --venues data
@@ -161,10 +161,8 @@ VALUES
 
     (4, 'Inside the French School - Warm Up', 'Inside the French School - lämmittely', 'sat1eng.txt', 'sat1fin.txt'),
     (5, 'Masterclass: Sébastian Jacot', 'Mestarikurssi: Sébastian Jacot', 'sat2eng.txt', 'sat2fin.txt'),
-    (6, 'Masterclass: Jenny Villanen', 'Mestarikurssi: Jenny Villanen', 'sat3eng.txt', 'sat3fin.txt'),
     (7, 'Recital: Piccolo Variations - Jenny Villanen', 'Resitaali: Piccolo Variations - Jenny Vilanen', 'sat4eng.txt', 'sat4fin.txt'),
     (8, 'Masterclass: Jenny Villanen', 'Mestarikurssi: Jenny Villanen', 'sat5eng.txt', 'sat5fin.txt'),
-    (9, 'Masterclass: Alexis Roman', 'Mestarikurssi: Alexis Roman', 'sat6eng.txt', 'sat6fin.txt'),
     (10, 'Recital: Young Talent -Fabian Egger', 'Resitaali: Young Talent -Fabian Egger', 'sat7eng.txt', 'sat7fin.txt'),
     (11, 'Recital: An American in Paris - Beatriz Macías and Alexis Roman', 'Resitaali: An American in Paris - Beatriz Macías and Alexis Roman', 'sat8eng.txt', 'sat8fin.txt'),
 
@@ -194,11 +192,9 @@ VALUES
     (1, 3, '12:00','13:00'),
 
     (2, 4, '10:00,', '10:20'),
-    (2, 5, '10:30', '12:15'),
-    (2, 6, '10:45', '12:00'),
+    (2, 5, '10:30', '12:00'),
     (2, 7, '12:30', '13:00'),
-    (2, 8, '14:00', '15:15'),
-    (2, 9, '14:00', '15:30'),
+    (2, 8, '13:45', '15:45'),
     (2, 10, '16:00', '16:40'),
     (2, 11, '18:00', '18:40'),
 
@@ -218,7 +214,6 @@ VALUES
     (3, 5),
     (3, 14),
     (3, 15),
-    (8, 6),
     (8, 7),
     (8, 8),
     (2, 10),
@@ -238,6 +233,5 @@ VALUES
     (5, 17),
     (8, 17),
     (9, 17),
-    (6,9),
     (10, 17),
     (11, 17);
