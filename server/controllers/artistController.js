@@ -6,8 +6,22 @@ exports.all_artist = function(req,res,next){
     db.Artist.findAll({
         attributes: ['artistid','firstname', 'lastname']
     })
-    .then( artist => {
-        res.status(200).send(JSON.stringify(artist));
+    .then( artists => {
+        artists.map(artist => {
+            if (parseInt(artist.artistid,10)==3)
+            {
+                artist.firstname = 'Sébastian'
+            }
+            else if (parseInt(artist.artistid,10)==4)
+            {
+                artist.lastname = 'Jämsä'
+            }
+            else if (parseInt(artist.artistid,10)==5)
+            {
+                artist.lastname = 'Kärkkäinen'
+            }
+        })
+        res.status(200).send(JSON.stringify(artists));
     })
     .catch( err => {
         console.log(JSON.stringify(err))
@@ -24,6 +38,19 @@ exports.artist_info_by_id = function (req, res, next) {
         attributes :['artistid','firstname', 'lastname']
     })
         .then( artist => {
+            if (parseInt(artistid,10)==3)
+            {
+                artist.firstname = 'Sébastian'
+            }
+            else if (parseInt(artistid,10)==4)
+            {
+                artist.lastname = 'Jämsä'
+            }
+            else if (parseInt(artistid,10)==5)
+            {
+                artist.lastname = 'Kärkkäinen'
+            }
+
             db.Artist.findByPk(artistid,{
                 attributes : ['biography_eng', 'biography_fin']
             })
