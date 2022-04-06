@@ -27,7 +27,7 @@ export const SponsorCollection = [
    },
    {
       id: 6,
-      sponsorImage: require('../Assets/Images/sponsor-hernandez.png'),
+      sponsorImage: require('../Assets/Images/sponsor-huilupiste.png'),
       sponsorLink: 'https://huilupiste.fi/ ',
    },
    {

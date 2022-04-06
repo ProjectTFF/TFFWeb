@@ -48,12 +48,12 @@
   color: #00d1ff;
 }
 
-.navbar ul li .nav-link:active {
+.navbar ul li .nav-link.active {
   color: #00d1ff;
   text-decoration: underline;
 }
 
-.navbar ul li .nav-link .css-i4bv87-MuiSvgIcon-root {
+.navbar ul li .nav-link .MuiSvgIcon-root {
   position: absolute;
   right: 0;
   top: 0;

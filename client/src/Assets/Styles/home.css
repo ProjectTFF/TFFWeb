@@ -88,6 +88,21 @@
 }
 
 @media screen and (min-width: 768px) {
+  .dashboard-content h1 {
+    font-size: 15rem;
+    line-height: 1.02666;
+  }
+
+  .dashboard-content span.top-text {
+    font-size: 5rem;
+    line-height: 1.08;
+  }
+
+  .dashboard-content span.meta-text {
+    font-size: 5rem;
+    line-height: 1.08;
+  }
+
   .info-text-holder .info-text-block {
     max-width: 55rem;
   }
@@ -95,7 +110,17 @@
 
 @media screen and (min-width: 1024px) {
   .dashboard-content h1 {
+    font-size: 20rem;
+    line-height: 1.02;
+  }
+
+  .dashboard-content span.top-text {
     font-size: 6.4rem;
-    line-height: 1.029;
+    line-height: 1.062;
+  }
+
+  .dashboard-content span.meta-text {
+    font-size: 6.4rem;
+    line-height: 1.062;
   }
 }

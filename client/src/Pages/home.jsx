@@ -55,7 +55,7 @@ function Home() {
         <div className="dashboard-content">
           <span className="top-text">Tampere Flute Fest</span>
           <h1>ICE · JÄÄ</h1>
-          <span className="meta-text">24.4.2022 @Tampere Hall</span>
+          <span className="meta-text">22.-24.4.2022 @Tampere Hall</span>
         </div>
       </div>
       <main>
@@ -115,7 +115,7 @@ function Home() {
           </div>
           <div className="events-section">
             <SectionHeader
-              sectionTitle="Supporting events"
+              sectionTitle="Program"
               showAll={false}
             />
             <div className="card-row">
