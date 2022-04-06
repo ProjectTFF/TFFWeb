@@ -13,15 +13,17 @@ function ArtistCollection(props) {
    * Get information from backend (This ${process.env.REACT_APP_BASE_URL}artist)
    */
    const [artist, setArtist] = React.useState([]);
-   if (artist.length === 0) {
-      axios.get(`${process.env.REACT_APP_BASE_URL}/api/artist/${artistId}`).then((res) => { const val = res.data; setArtist(val); });
+  const [id, setId] = React.useState(artistId);
+
+   if (artist.length === 0 || id !== artistId) {
+      axios.get(`${process.env.REACT_APP_BASE_URL}/api/artist/${artistId}`).then((res) => { const val = res.data; setArtist(val); setId(artistId); });
    }
 
    return (
      <div className="artist-info-col">
-       <Link className="artist-info-block" to={`/artists/${artistId}`}>
+       <Link className="artist-info-block" to={`/artists/${id}`}>
          <div className="img-wrap">
-           <img src={ArtistPictureMap[artistId - 1].programImage} alt="s" />
+           <img src={ArtistPictureMap[id - 1].programImage} alt="s" />
          </div>
          <span className="artist-name">{`${artist.firstname} ${artist.lastname}`}</span>
        </Link>

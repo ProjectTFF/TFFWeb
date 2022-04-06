@@ -138,11 +138,22 @@ function ArtistPage() {
               pageLink="artists"
             />
             <div className="artist-row">
-              {artists.slice(0, 5).map((artistObj) => (
+              {id < artists.length - 5
+                ? artists.slice(id, parseInt(id, 10) + 5).map((artistObj) => (
+                  <ArtistCollection
+                    artistId={artistObj.artistid}
+                  />
+              )) : artists.slice(id, artists.length).map((artistObj) => (
                 <ArtistCollection
                   artistId={artistObj.artistid}
                 />
-          ))}
+              ))}
+              {id < artists.length - 5 ? null
+                : artists.slice(0, parseInt(id, 10) - artists.length + 5).map((artistObj) => (
+                  <ArtistCollection
+                    artistId={artistObj.artistid}
+                  />
+              ))}
             </div>
             <div className="button-wrap">
               <PrimaryButton
