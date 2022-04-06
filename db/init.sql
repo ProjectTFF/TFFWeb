@@ -67,8 +67,8 @@ CREATE TABLE IF NOT EXISTS concert (
     concertdate DATE NOT NULL,
     consertstarttime TIME NOT NULL,
     concertendtime TIME,
-    concertinfo_eng VARCHAR(20),
-    concertinfo_fin VARCHAR(20),
+    concertinfo_eng VARCHAR(30),
+    concertinfo_fin VARCHAR(30),
     venueid INT NOT NULL,
     PRIMARY KEY (concertid),
     FOREIGN KEY (venueid) REFERENCES venue
@@ -179,9 +179,11 @@ VALUES
 
 INSERT INTO concert (concertid, concertname, concertdate, consertstarttime, concertendtime, concertinfo_eng, concertinfo_fin, venueid)
 VALUES
-    (1, 'TFF Kids', '2022-04-22', '10:00','13:00','tffkids_eng.txt', 'tffkids_fin.txt', 2),
-    (2, 'TFF Youth', '2022-04-23', '10:00','18:40', 'tffyouth_eng.txt', 'tffyouth_fin.txt', 3),
-    (3, 'TFF JÄÄ//ICE', '2022-04-24', '10:00','20:00', 'tffice_eng.txt', 'tffice_fin.txt', 1);
+    (1, 'friday', '2022-04-22', '10:00','13:00','friday_eng.txt', 'friday_fin.txt', 2),
+    (2, 'saturdaymorning', '2022-04-23', '10:00','12:00', 'saturdaymorning_eng.txt', 'saturdaymorning_fin.txt', 3),
+    (3, 'saturdaevening', '2022-04-23', '12:30','18:40', 'saturdayevening_eng.txt', 'saturdayevening_fin.txt', 3),
+    (4, 'sundaymorning', '2022-04-24', '10:00','13:40', 'sundaymorning_eng.txt', 'sundaymorning_fin.txt', 1),
+    (5, 'sundayevening', '2022-04-24', '14:00','20:00', 'sundayevening_eng.txt', 'sundayevening_fin.txt', 1);
 
 -- programme data
 
@@ -193,17 +195,17 @@ VALUES
 
     (2, 4, '10:00,', '10:20'),
     (2, 5, '10:30', '12:00'),
-    (2, 7, '12:30', '13:00'),
-    (2, 8, '13:45', '15:45'),
-    (2, 10, '16:00', '16:40'),
-    (2, 11, '18:00', '18:40'),
+    (3, 7, '12:30', '13:00'),
+    (3, 8, '13:45', '15:45'),
+    (3, 10, '16:00', '16:40'),
+    (3, 11, '18:00', '18:40'),
 
-    (3, 12, '10:00', '12:30'),
-    (3, 13, '13:00', '13:40'),
-    (3, 14, '14:00', '15:00'),
-    (3, 15, '15:15', '16:00'),
-    (3, 16, '16:15', '17:15'),
-    (3, 17, '18:30', '20:00');
+    (4, 12, '10:00', '12:30'),
+    (4, 13, '13:00', '13:40'),
+    (5, 14, '14:00', '15:00'),
+    (5, 15, '15:15', '16:00'),
+    (5, 16, '16:15', '17:15'),
+    (5, 17, '18:30', '20:00');
 
 
 --The through table for connecting artist to performances
