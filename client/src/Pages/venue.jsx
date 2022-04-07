@@ -46,6 +46,7 @@ function Venue(props) {
                     venueName={venueObj.venueName}
                     venueAddress={venueObj.venueAddress}
                     venueMapLink={venueObj.venueMapLink}
+                    language={language}
                   />
             ))}
               </div>
