@@ -10,7 +10,7 @@ function ProgramCard(props) {
       soon: 'Coming Soon!',
     },
     finnish: {
-      soon: 'Coming Soon! (Finnish)',
+      soon: 'Tulossa!',
     },
   };
 

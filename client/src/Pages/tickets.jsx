@@ -14,8 +14,8 @@ function Tickets(props) {
       tickets: 'buy tickets',
     },
     finnish: {
-      soon: 'Coming Soon! (Finnish)',
-      tickets: 'buy tickets (Finnish)',
+      soon: 'Tulossa! (Finnish)',
+      tickets: 'osta liput',
     },
   };
 

@@ -26,8 +26,8 @@ function Artists(props) {
       tickets: 'buy tickets',
     },
     finnish: {
-      title: 'Artists (Finnish)',
-      tickets: 'buy tickets (Finnish)',
+      title: 'Artistit',
+      tickets: 'osta liput',
     },
   };
 
