@@ -54,7 +54,7 @@ function Home(props) {
       tickets: 'buy tickets',
       performing: 'Artists performing',
       highlights: 'Programme highlights',
-      events: 'Supporting events',
+      events: 'Program',
       previous: 'Highlights from previous years',
     },
     finnish: {
@@ -65,7 +65,7 @@ function Home(props) {
       tickets: 'buy tickets (Finnish)',
       performing: 'Artists performing (Finnish)',
       highlights: 'Programme highlights (Finnish)',
-      events: 'Supporting events (Finnish)',
+      events: 'Program (Finnish)',
       previous: 'Highlights from previous years (Finnish)',
     },
   };
@@ -88,12 +88,29 @@ function Home(props) {
           <span className="top-text">{content.title}</span>
           <h1>ICE · JÄÄ</h1>
           <span className="meta-text">
-            24.4.2022 @
+            22.-24.4.2022 @
             {content.hall}
           </span>
         </div>
       </div>
       <main>
+        <div className="promo-holder">
+          <div className="container">
+            <div className="promo-link">
+              <iframe
+                width="900"
+                height="470"
+                src="https://www.youtube.com/embed/Q_0dzMVJ07w?autoplay=1&mute=1"
+                title="TFF Promo video"
+                frameBorder="0"
+                allow="accelerometer; autoplay;
+                  clipboard-write; encrypted-media;
+                  gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </div>
         <div className="info-text-holder">
           <div className="container">
             <div className="info-text-block">
@@ -172,7 +189,7 @@ function Home(props) {
               showAll={false}
             />
             <div className="thumbnail-row">
-              {ThumbnailCardObject.slice(0, 4).map((cardObj) => (
+              {ThumbnailCardObject.slice(0, 8).map((cardObj) => (
                 <ThumbnailCard
                   key={cardObj.id}
                   cardImage={cardObj.thumbnailImage}

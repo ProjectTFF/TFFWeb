@@ -77,29 +77,24 @@ function Modal(props) {
         <span className="modal-title">{content.title}</span>
         <div className="modal-body">
           <p>{content.p1}</p>
-          <br />
-          <p>
-            {content.p2}
-            <ol>
-              <li>{content.p2l1}</li>
-              <li>{content.p2l2}</li>
-              <li>{content.p2l3}</li>
-            </ol>
-          </p>
-          <p>
-            {content.p3}
-            <ol>
-              <li>{content.p3l1}</li>
-              <li>{content.p3l2}</li>
-              <li>{content.p3l3}</li>
-            </ol>
-            {content.or}
-            <ol>
-              <li>{content.p3l4}</li>
-              <li>{content.p3l5}</li>
-              <li>{content.p3l6}</li>
-            </ol>
-          </p>
+          <p>{content.p2}</p>
+          <ol>
+            <li>{content.p2l1}</li>
+            <li>{content.p2l2}</li>
+            <li>{content.p2l3}</li>
+          </ol>
+          <p>{content.p3}</p>
+          <ol>
+            <li>{content.p3l1}</li>
+            <li>{content.p3l2}</li>
+            <li>{content.p3l3}</li>
+          </ol>
+          <p>{content.or}</p>
+          <ol>
+            <li>{content.p3l4}</li>
+            <li>{content.p3l5}</li>
+            <li>{content.p3l6}</li>
+          </ol>
         </div>
       </div>
     </div>
