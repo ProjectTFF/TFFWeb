@@ -1,7 +1,11 @@
-\c postgres
-DROP DATABASE IF EXISTS tffgodb;
-CREATE DATABASE tffgodb;
-\c tffgodb
+CREATE TABLE IF NOT EXISTS submissions (
+    id SERIAL,
+    ip VARCHAR(20),
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    PRIMARY KEY (id, ip)
+);
+
+DROP TABLE IF EXISTS artist, links, photos, performsin, performance, programme, concert, venue;
 
 CREATE TABLE IF NOT EXISTS artist (
     artistid INT NOT NULL,

@@ -15,6 +15,25 @@ const sequelize = new Sequelize(process.env.PGDATABASE || 'WrongDb',
                                 });
 
 // Here is a model for 'artist' table, which defines the column data types.
+
+const Submissions = sequelize.define('submissions', {
+    id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+        allowNull: false
+    },
+    ip: {
+        type: Sequelize.STRING,
+        primaryKey: true,
+        allowNull: false
+    },
+    created_at: {
+        type: Sequelize.DATE,
+        allowNull: false
+    },
+    
+})
+
 const Artist = sequelize.define('artist', {
         artistid: {
             type: Sequelize.INTEGER,
