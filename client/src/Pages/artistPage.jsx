@@ -1,15 +1,14 @@
 import React, { useEffect } from 'react';
+import axios from 'axios';
 import { useParams } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import PrimaryButton from '../Components/primaryButton';
-import iconMap from '../Helpers/iconMap';
 import ThumbnailCard from '../Components/thumbnailCard';
 import ArtistCollection from '../Components/artistDefault';
 import { ThumbnailCardObject } from '../Helpers/ThumbnailCardImageMap';
 import SectionHeader from '../Components/sectionHeader';
-import artistsMap from '../Helpers/artistsMap';
-import { HomeArtistObject } from '../Helpers/homeArtistMap';
+import { ArtistPictureMap } from '../Helpers/ArtistPictureMap';
 
 import '../Assets/Styles/artistPage.css';
 
@@ -18,6 +17,29 @@ function ArtistPage() {
 
   useEffect(() => {
   }, [artistSlug]);
+
+  /**
+   * Get information from backend (This artist)
+   */
+  const [id, setId] = React.useState(artistSlug);
+
+  const [artist, setArtist] = React.useState([]);
+  const changeState = (prop) => { setArtist(prop); };
+  const [links, setLinks] = React.useState([]);
+  const changeLinks = (prop) => { setLinks(prop); };
+  if (artist.length === 0 || id !== artistSlug) {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/artist/${artistSlug}`).then((res) => { const val = res.data; changeState(val); setId(artistSlug); });
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/artist/links/${artistSlug}`).then((res) => { const val = res.data; changeLinks(val); });
+  }
+
+  /**
+   * Get information from backend (All artists)
+   */
+  const [artists, setArtists] = React.useState([]);
+  const changeState2 = (prop) => { setArtists(prop); };
+  if (artists.length === 0) {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/artist`).then((res) => { const val = res.data; changeState2(val); });
+  }
 
   return (
     <main>
@@ -29,69 +51,76 @@ function ArtistPage() {
             </NavLink>
             <div className="maininfos">
               <div className="box">
-                <img src={artistsMap.Alexis} alt={` ${artistSlug}`} />
+                <img src={ArtistPictureMap[id - 1].programImage} alt={` ${artist.firstname} ${artist.lastname}`} />
               </div>
               <div className="artist-intro">
                 <h1>
-                  {` ${artistSlug}`}
+                  {` ${artist.firstname} ${artist.lastname}`}
                 </h1>
                 <ul className="artist-info-list">
-                  <li>
-                    <a href="https://twitter.com/">
-                      <img src={iconMap.Twitter} alt="Twitter" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://www.tiktok.com/">
-                      <img src={iconMap.TikTok} alt="TikTok" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://www.youtube.com/">
-                      <img src={iconMap.Youtube} alt="Youtube" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://www.instagram.com/">
-                      <img src={iconMap.Instagram} alt="Instagram" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://www.facebook.com/">
-                      <img src={iconMap.Facebook} alt="Facebook" />
-                    </a>
-                  </li>
+                  {links.website == null
+                  ? null
+                  : (
+                    <li>
+                      <a href={links.website}>
+                        Website
+                      </a>
+                    </li>
+                  ) }
+                  {links.youtube == null
+                  ? null
+                  : (
+                    <li>
+                      <a href={links.youtube}>
+                        Youtube
+                      </a>
+                    </li>
+                  ) }
+                  {links.facebook == null
+                  ? null
+                  : (
+                    <li>
+                      <a href={links.facebook}>
+                        Facebook
+                      </a>
+                    </li>
+                  ) }
+                  {links.instagram == null
+                  ? null
+                  : (
+                    <li>
+                      <a href={links.instagram}>
+                        Instagram
+                      </a>
+                    </li>
+                  ) }
+                  {links.spotify == null
+                  ? null
+                  : (
+                    <li>
+                      <a href={links.spotify}>
+                        Spotify
+                      </a>
+                    </li>
+                  ) }
                 </ul>
               </div>
             </div>
           </div>
           <div className="information">
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry standard dummy text ever
-              since the 1500s, when an unknown printer took a galley of type and
-              scrambled it to make a type specimen book.
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry standard dummy text ever
-              since the 1500s, when an unknown printer took a galley of type and
-              scrambled it to make a type specimen book.
-            </p>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry standard dummy text ever
-              since the 1500s, when an unknown printer took a galley of type and
-              scrambled it to make a type specimen book.
-            </p>
+            {artist.biography_eng}
+            <br />
+            <br />
             <NavLink className="nav-link" to="/">
               See what
-              {` ${artistSlug} `}
+              {` ${artist.firstname} ${artist.lastname} `}
               will be performing in 2022
               <KeyboardDoubleArrowRightIcon />
             </NavLink>
           </div>
           <div className="previous-work">
             <SectionHeader
-              sectionTitle={`Watch ${artistSlug}’ previous work`}
+              sectionTitle={`Watch ${artist.firstname} ${artist.lastname}’s previous work`}
             />
             <div className="thumbnail-row">
               {ThumbnailCardObject.slice(0, 4).map((cardObj) => (
@@ -109,15 +138,22 @@ function ArtistPage() {
               pageLink="artists"
             />
             <div className="artist-row">
-              {HomeArtistObject.slice(0, 5).map((artistObj) => (
+              {id < artists.length - 5
+                ? artists.slice(id, parseInt(id, 10) + 5).map((artistObj) => (
+                  <ArtistCollection
+                    artistId={artistObj.artistid}
+                  />
+              )) : artists.slice(id, artists.length).map((artistObj) => (
                 <ArtistCollection
-                  key={artistObj.artistName}
-                  artistImage={artistObj.artistPicture}
-                  artistRole={artistObj.artistRole}
-                  artistName={artistObj.artistName}
-                  artistPlace={artistObj.artistPlace}
+                  artistId={artistObj.artistid}
                 />
-          ))}
+              ))}
+              {id < artists.length - 5 ? null
+                : artists.slice(0, parseInt(id, 10) - artists.length + 5).map((artistObj) => (
+                  <ArtistCollection
+                    artistId={artistObj.artistid}
+                  />
+              ))}
             </div>
             <div className="button-wrap">
               <PrimaryButton

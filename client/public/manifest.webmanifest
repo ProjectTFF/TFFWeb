@@ -1,7 +1,7 @@
 {
-  "short_name": "TFFGo",
-  "name": "TFFGo",
-  "description" : "Website for the music festival",
+  "short_name": "TFF",
+  "name": "TFF",
+  "description" : "Website for the tampere flute festival",
   "icons": [
     {
       "src": "favicon.ico",

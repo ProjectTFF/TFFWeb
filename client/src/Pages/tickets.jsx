@@ -1,15 +1,19 @@
 import React from 'react';
+import '../Assets/Styles/errorPage.css';
+import PrimaryButton from '../Components/primaryButton';
 
 function Tickets() {
   return (
-    <div className="tickets">
-      <h1>Tickets</h1>
-      <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry standard dummy text
-        ever since the 1500s, when an unknown printer took a galley of
-        type and scrambled it to make a type specimen book.
-      </p>
+    <div className="comingSoon-page-wrapper">
+      <div className="comingSoon-page-holder">
+        <h1>Coming Soon!</h1>
+        <div className="button-wrap">
+          <PrimaryButton
+            buttonText="buy tickets"
+            showIcon
+          />
+        </div>
+      </div>
     </div>
   );
 }

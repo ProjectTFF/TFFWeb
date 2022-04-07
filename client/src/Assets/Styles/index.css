@@ -38,6 +38,7 @@ body {
   font-weight: 300;
 }
 
+body.modal-active,
 body.nav-active {
   overflow: hidden;
 }

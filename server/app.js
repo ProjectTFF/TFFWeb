@@ -16,11 +16,16 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'build')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/artist', artistRouter);
-app.use('/programme', programmeRouter);
+app.use('/api', indexRouter);
+app.use('/api/users', usersRouter);
+app.use('/api/artist', artistRouter);
+app.use('/api/programme', programmeRouter);
+
+// Route to redirect unmatched routes back to homepage.
+app.all('*', function(req, res) {
+    res.redirect("back");
+  });
 
 module.exports = app;

@@ -67,8 +67,8 @@ CREATE TABLE IF NOT EXISTS concert (
     concertdate DATE NOT NULL,
     consertstarttime TIME NOT NULL,
     concertendtime TIME,
-    concertinfo_eng VARCHAR(20),
-    concertinfo_fin VARCHAR(20),
+    concertinfo_eng VARCHAR(30),
+    concertinfo_fin VARCHAR(30),
     venueid INT NOT NULL,
     PRIMARY KEY (concertid),
     FOREIGN KEY (venueid) REFERENCES venue
@@ -122,6 +122,23 @@ VALUES
     (11, NULL, 'https://www.facebook.com/hannaleena.savolainen', NULL, NULL, NULL, 11),
     (12, NULL, 'https://www.facebook.com/Piktor4ik','https://www.youtube.com/watch?v=dce0D3bEj9M','https://www.instagram.com/viktor_pellia/?hl=en', NULL, 12);
 
+--artist photos actual data
+INSERT INTO photos (photoid,artistid,photoref)
+VALUES
+    (1,1,'astrid_bjelland.png'),
+    (2,2,'fabian_egger.png'),
+    (3,3,'sebastian_jacot.png'),
+    (4,4,'hannaleena_savolainen.png'),
+    (5,5,'johanna_karkkainen.png'),
+    (6,6,'alexis_roman.png'),
+    (7,7,'beatirz_macias.png'),
+    (8,8,'jenny_villanen.png'),
+    (9,9,'malla_vivolin.png'),
+    (10,10,'eva_alkula.png'),
+    (11,11,'hannaleena_savolainen.png'),
+    (12,12,'viktor_pellia.png');
+
+
 --venues data
 
 INSERT INTO VENUE (venueid, venuename, venueaddress, venuecity, venuezipcode, venuelink, venuelocation )
@@ -144,10 +161,8 @@ VALUES
 
     (4, 'Inside the French School - Warm Up', 'Inside the French School - lämmittely', 'sat1eng.txt', 'sat1fin.txt'),
     (5, 'Masterclass: Sébastian Jacot', 'Mestarikurssi: Sébastian Jacot', 'sat2eng.txt', 'sat2fin.txt'),
-    (6, 'Masterclass: Jenny Villanen', 'Mestarikurssi: Jenny Villanen', 'sat3eng.txt', 'sat3fin.txt'),
     (7, 'Recital: Piccolo Variations - Jenny Villanen', 'Resitaali: Piccolo Variations - Jenny Vilanen', 'sat4eng.txt', 'sat4fin.txt'),
     (8, 'Masterclass: Jenny Villanen', 'Mestarikurssi: Jenny Villanen', 'sat5eng.txt', 'sat5fin.txt'),
-    (9, 'Masterclass: Alexis Roman', 'Mestarikurssi: Alexis Roman', 'sat6eng.txt', 'sat6fin.txt'),
     (10, 'Recital: Young Talent -Fabian Egger', 'Resitaali: Young Talent -Fabian Egger', 'sat7eng.txt', 'sat7fin.txt'),
     (11, 'Recital: An American in Paris - Beatriz Macías and Alexis Roman', 'Resitaali: An American in Paris - Beatriz Macías and Alexis Roman', 'sat8eng.txt', 'sat8fin.txt'),
 
@@ -164,9 +179,11 @@ VALUES
 
 INSERT INTO concert (concertid, concertname, concertdate, consertstarttime, concertendtime, concertinfo_eng, concertinfo_fin, venueid)
 VALUES
-    (1, 'TFF Kids', '2022-04-22', '10:00','13:00','tffkids_eng.txt', 'tffkids_fin.txt', 2),
-    (2, 'TFF Youth', '2022-04-23', '10:00','18:40', 'tffyouth_eng.txt', 'tffyouth_fin.txt', 3),
-    (3, 'TFF JÄÄ//ICE', '2022-04-24', '10:00','20:00', 'tffice_eng.txt', 'tffice_fin.txt', 1);
+    (1, 'friday', '2022-04-22', '10:00','13:00','friday_eng.txt', 'friday_fin.txt', 2),
+    (2, 'saturdaymorning', '2022-04-23', '10:00','12:00', 'saturdaymorning_eng.txt', 'saturdaymorning_fin.txt', 3),
+    (3, 'saturdaevening', '2022-04-23', '12:30','18:40', 'saturdayevening_eng.txt', 'saturdayevening_fin.txt', 3),
+    (4, 'sundaymorning', '2022-04-24', '10:00','13:40', 'sundaymorning_eng.txt', 'sundaymorning_fin.txt', 1),
+    (5, 'sundayevening', '2022-04-24', '14:00','20:00', 'sundayevening_eng.txt', 'sundayevening_fin.txt', 1);
 
 -- programme data
 
@@ -177,20 +194,18 @@ VALUES
     (1, 3, '12:00','13:00'),
 
     (2, 4, '10:00,', '10:20'),
-    (2, 5, '10:30', '12:15'),
-    (2, 6, '10:45', '12:00'),
-    (2, 7, '12:30', '13:00'),
-    (2, 8, '14:00', '15:15'),
-    (2, 9, '14:00', '15:30'),
-    (2, 10, '16:00', '16:40'),
-    (2, 11, '18:00', '18:40'),
+    (2, 5, '10:30', '12:00'),
+    (3, 7, '12:30', '13:00'),
+    (3, 8, '13:45', '15:45'),
+    (3, 10, '16:00', '16:40'),
+    (3, 11, '18:00', '18:40'),
 
-    (3, 12, '10:00', '12:30'),
-    (3, 13, '13:00', '13:40'),
-    (3, 14, '14:00', '15:00'),
-    (3, 15, '15:15', '16:00'),
-    (3, 16, '16:15', '17:15'),
-    (3, 17, '18:30', '20:00');
+    (4, 12, '10:00', '12:30'),
+    (4, 13, '13:00', '13:40'),
+    (5, 14, '14:00', '15:00'),
+    (5, 15, '15:15', '16:00'),
+    (5, 16, '16:15', '17:15'),
+    (5, 17, '18:30', '20:00');
 
 
 --The through table for connecting artist to performances
@@ -201,7 +216,6 @@ VALUES
     (3, 5),
     (3, 14),
     (3, 15),
-    (8, 6),
     (8, 7),
     (8, 8),
     (2, 10),
@@ -221,6 +235,5 @@ VALUES
     (5, 17),
     (8, 17),
     (9, 17),
-    (6,9),
     (10, 17),
     (11, 17);

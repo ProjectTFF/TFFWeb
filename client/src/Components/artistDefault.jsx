@@ -1,20 +1,31 @@
 import React from 'react';
+import axios from 'axios';
 import '../Assets/Styles/artistDefault.css';
 import { Link } from 'react-router-dom';
+import { ArtistPictureMap } from '../Helpers/ArtistPictureMap';
 
 function ArtistCollection(props) {
    const {
- artistImage, artistName,
+  artistId,
 } = props;
 
-   return (
+   /**
+   * Get information from backend (This ${process.env.REACT_APP_BASE_URL}artist)
+   */
+   const [artist, setArtist] = React.useState([]);
+  const [id, setId] = React.useState(artistId);
 
+   if (artist.length === 0 || id !== artistId) {
+      axios.get(`${process.env.REACT_APP_BASE_URL}/api/artist/${artistId}`).then((res) => { const val = res.data; setArtist(val); setId(artistId); });
+   }
+
+   return (
      <div className="artist-info-col">
-       <Link className="artist-info-block" to={`/artists/${artistName}`}>
+       <Link className="artist-info-block" to={`/artists/${id}`}>
          <div className="img-wrap">
-           <img src={artistImage} alt="" />
+           <img src={ArtistPictureMap[id - 1].programImage} alt="s" />
          </div>
-         <span className="artist-name">{artistName}</span>
+         <span className="artist-name">{`${artist.firstname} ${artist.lastname}`}</span>
        </Link>
      </div>
    );

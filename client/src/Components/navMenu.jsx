@@ -35,6 +35,12 @@ export const NavMenu = ({
           </NavLink>
         </li>
         <li className="nav-item">
+          <NavLink className="nav-link" to="/artistCompetitionFinalist" onClick={changeState}>
+            YAC Finalists
+            <ChevronRightIcon />
+          </NavLink>
+        </li>
+        <li className="nav-item">
           <NavLink className="nav-link" to="/programme" onClick={changeState}>
             Programme
             <ChevronRightIcon />
@@ -52,19 +58,19 @@ export const NavMenu = ({
             <ChevronRightIcon />
           </NavLink>
         </li>
-        <li className="nav-item">
+        {/* <li className="nav-item">
           <NavLink className="nav-link" to="/contest" onClick={changeState}>
             Contest for artists
             <ChevronRightIcon />
           </NavLink>
-        </li>
+        </li> */}
 
-        <li className="nav-item">
+        {/* <li className="nav-item">
           <NavLink className="nav-link" to="/contribute" onClick={changeState}>
             Contribute to the festival
             <ChevronRightIcon />
           </NavLink>
-        </li>
+        </li> */}
 
         <li className="language-item">
           <Language />

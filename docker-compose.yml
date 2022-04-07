@@ -31,9 +31,6 @@ services:
       dockerfile: Dockerfile
       context: ./server
 
-    environment:
-      - DB_HOST=db
-
     ports:
       - '3001:3001'
     

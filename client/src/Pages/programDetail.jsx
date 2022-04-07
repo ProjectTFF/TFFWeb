@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router';
-import event01 from '../Assets/Images/event01.jpg';
+// import event01 from '../Assets/Images/event01.jpg';
 
 function ProgramDetail() {
    const { programSlug } = useParams();
@@ -12,7 +12,7 @@ function ProgramDetail() {
        <div className="container">
          <div className="programDetail-block">
            <div className="img-wrap">
-             <img src={event01} alt="" />
+             {/* <img src={event01} alt="" /> */}
            </div>
            <span className="card-name">{programSlug}</span>
            <p>

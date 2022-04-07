@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-
+import ModalButton from '../Components/modalButton';
 import { NavMenu } from '../Components/navMenu';
 import { Button } from '../Components/navButton';
 import OpenBurger from '../Assets/Images/MenuOpenIcon.svg';
@@ -39,9 +39,10 @@ function ShowHideNav() {
       <div className={show ? 'nav-drop-active nav-drop' : 'nav-drop'}>
         <NavMenu changeState={changeState} />
       </div>
-      <a className="bookmark" href="https://tampereflutefest.com/festival-2022/">
+      {/* <a className="bookmark" href="https://tampereflutefest.com/festival-2022/">
         BOOKMARK
-      </a>
+      </a> */}
+      <ModalButton />
     </div>
   );
 

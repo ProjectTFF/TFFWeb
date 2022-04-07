@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import PrimaryButton from '../Components/primaryButton';
 import SectionHeader from '../Components/sectionHeader';
 import NormalCard from '../Components/normalCard';
@@ -9,15 +10,25 @@ import SponsorDetail from '../Components/sponsorDetail';
 import { CardObject } from '../Helpers/NormalCardImageMap';
 import { ThumbnailCardObject } from '../Helpers/ThumbnailCardImageMap';
 import { ProgramCardObject } from '../Helpers/ProgramCardMap';
-import { HomeArtistObject } from '../Helpers/homeArtistMap';
+// import { HomeArtistObject } from '../Helpers/homeArtistMap';
 import { SponsorCollection } from '../Helpers/sponsorMap';
 import '../Assets/Styles/home.css';
 import { getLengthOfLongestArray } from '../Helpers/arrayHelpers';
+
+import Picture from '../Assets/Images/Artists/eva_alkula.png';
 
 function Home() {
   const [highestLength, setHighestLength] = useState(0);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
+  /**
+   * Get information from backend (All artists)
+   */
+   const [artists, setArtists] = React.useState([]);
+   const changeState2 = (prop) => { setArtists(prop); };
+   if (artists.length === 0) {
+     axios.get(`${process.env.REACT_APP_BASE_URL}/api/artist`).then((res) => { const val = res.data; changeState2(val); });
+   }
   useEffect(() => {
     const cb = () => {
       setWindowWidth(window.innerWidth);
@@ -31,22 +42,40 @@ function Home() {
 
   useEffect(() => {
     if (windowWidth >= 490) {
-      const lengthToSet = getLengthOfLongestArray(HomeArtistObject, ProgramCardObject);
+      const lengthToSet = getLengthOfLongestArray(artists, ProgramCardObject);
       setHighestLength(lengthToSet);
     } else {
       setHighestLength(4);
     }
   }, [windowWidth]);
+
   return (
     <>
       <div className="dashboard-banner">
         <div className="dashboard-content">
           <span className="top-text">Tampere Flute Fest</span>
           <h1>ICE · JÄÄ</h1>
-          <span className="meta-text">24.4.2022 @Tampere Hall</span>
+          <span className="meta-text">22.-24.4.2022 @Tampere Hall</span>
         </div>
       </div>
       <main>
+        <div className="promo-holder">
+          <div className="container">
+            <div className="promo-link">
+              <iframe
+                width="900"
+                height="470"
+                src="https://www.youtube.com/embed/Q_0dzMVJ07w?autoplay=1&mute=1"
+                title="TFF Promo video"
+                frameBorder="0"
+                allow="accelerometer; autoplay;
+                  clipboard-write; encrypted-media;
+                  gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </div>
         <div className="info-text-holder">
           <div className="container">
             <div className="info-text-block">
@@ -76,11 +105,10 @@ function Home() {
               pageLink="artists"
             />
             <div className="artist-row">
-              {HomeArtistObject.map((artistObj) => (
+              {artists.slice(0, 5).map((artistObj) => (
                 <ArtistCollection
-                  key={artistObj.id}
-                  artistImage={artistObj.artistPicture}
-                  artistName={artistObj.artistName}
+                  artistId={artistObj.artistid}
+                  artistImage={Picture}
                 />
             ))}
             </div>
@@ -104,15 +132,16 @@ function Home() {
           </div>
           <div className="events-section">
             <SectionHeader
-              sectionTitle="Supporting events"
+              sectionTitle="Program"
               showAll={false}
             />
             <div className="card-row">
               { CardObject.map((cardObj) => (
                 <NormalCard
-                  key={cardObj.eventTitle}
+                  key={cardObj.id}
                   cardTitle={cardObj.eventTitle}
                   cardImage={cardObj.eventImage}
+                  cardLink={cardObj.eventUrl}
                 />
            ))}
             </div>
@@ -129,7 +158,7 @@ function Home() {
               showAll={false}
             />
             <div className="thumbnail-row">
-              {ThumbnailCardObject.slice(0, 4).map((cardObj) => (
+              {ThumbnailCardObject.slice(0, 8).map((cardObj) => (
                 <ThumbnailCard
                   key={cardObj.id}
                   cardImage={cardObj.thumbnailImage}

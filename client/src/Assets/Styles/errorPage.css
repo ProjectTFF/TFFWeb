@@ -1,3 +1,4 @@
+.comingSoon-page-wrapper,
 .error-page-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -10,6 +11,11 @@
   padding: 5rem 2rem;
 }
 
+.comingSoon-page-wrapper {
+  z-index: 0;
+}
+
+.comingSoon-page-wrapper:before,
 .error-page-wrapper:before {
   content: '';
   background: url('../Images/dashboard-banner.jpg');
@@ -22,6 +28,7 @@
   height: 100vh;
 }
 
+.comingSoon-page-wrapper:after,
 .error-page-wrapper:after {
   content: '';
   background: #000;
@@ -36,6 +43,7 @@
   z-index: 0;
 }
 
+.comingSoon-page-holder,
 .error-page-holder {
   position: relative;
   z-index: 1;
@@ -45,11 +53,17 @@
   line-height: 1.5;
 }
 
+.comingSoon-page-holder h1,
 .error-page-holder h1 {
   font-size: 9rem;
   line-height: 1;
   margin-bottom: 3rem;
   font-weight: 600;
+}
+
+.comingSoon-page-holder h1 {
+  font-size: 6rem;
+  text-transform: uppercase;
 }
 
 .error-page-holder .error-title {
@@ -61,6 +75,19 @@
   padding-bottom: 2rem;
 }
 
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -1.5rem;
+  justify-content: center;
+}
+
+.btn-group li {
+  padding: 0 1.5rem;
+  margin-bottom: 2rem;
+}
+
+
 @media screen and (min-width: 768px) {
   .error-page-holder h1 {
     font-size: 15rem;
@@ -71,5 +98,9 @@
     padding-bottom: 3rem;
     font-size: 3rem;
     line-height: 1.133;
+  }
+
+  .comingSoon-page-holder h1 {
+    font-size: 7rem;
   }
 }

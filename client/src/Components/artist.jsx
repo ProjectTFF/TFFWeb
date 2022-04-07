@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 export const Artist = ({
 
     artistName,
-    artistPlace,
-    artistRole,
     artistPicture,
 
 }) => (
@@ -13,14 +11,8 @@ export const Artist = ({
     <div className="picture">
       <img src={artistPicture} alt={artistName} />
     </div>
-    <div className="role">
-      {artistRole}
-    </div>
     <div className="name">
       {artistName}
-    </div>
-    <div className="place">
-      {artistPlace}
     </div>
   </Link>
 );

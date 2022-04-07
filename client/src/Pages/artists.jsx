@@ -1,22 +1,29 @@
 import React from 'react';
+import axios from 'axios';
 import ArtistCollection from '../Components/artistDefault';
-import { HomeArtistObject } from '../Helpers/homeArtistMap';
 import PrimaryButton from '../Components/primaryButton';
 
 import '../Assets/Styles/artists.css';
 
 function Artists() {
+  /**
+   * Get information from backend (All artists)
+   */
+  const [artists, setArtists] = React.useState([]);
+  const changeState = (prop) => { setArtists(prop); };
+  if (artists.length === 0) {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/artist`).then((res) => { const val = res.data; changeState(val); });
+  }
+
   return (
     <main>
       <div className="container">
         <div className="artists">
           <h1 className="page-title">Artists</h1>
           <div className="artist-row">
-            {HomeArtistObject.map((artistObj) => (
+            {artists.map((artist) => (
               <ArtistCollection
-                key={artistObj.artistName}
-                artistImage={artistObj.artistPicture}
-                artistName={artistObj.artistName}
+                artistId={artist.artistid}
               />
          ))}
           </div>
