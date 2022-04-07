@@ -1,5 +1,6 @@
 .program-highlight-section {
   padding-bottom: 1rem;
+  display: none;
 }
 
 .program-card-row {

@@ -4,7 +4,7 @@ export const CardObject = [
       id: 1,
       eventTitle: 'TFF Kids',
       eventImage: require('../Assets/Images/event-kids.jpg'),
-      eventUrl: 'https://www.laikku.fi/tapahtuma/2022-04-22/Rouva-Satakieli---TFF-KIDS',
+      eventUrl: 'https://youtu.be/EdNHwQ1p8pM',
    },
    {
       id: 2,

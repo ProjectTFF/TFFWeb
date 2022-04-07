@@ -53,7 +53,7 @@
   text-decoration: underline;
 }
 
-.navbar ul li .nav-link .MuiSvgIcon-root {
+.navbar ul li .nav-link svg {
   position: absolute;
   right: 0;
   top: 0;
