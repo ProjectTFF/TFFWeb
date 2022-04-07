@@ -9,7 +9,6 @@ function ProgramCard(props) {
          <div className="img-wrap">
            <img src={cardImage} alt="" />
          </div>
-         {/* <span className="card-name">{cardName}</span> */}
          <strong className="card-title">{cardTitle}</strong>
        </div>
      </div>

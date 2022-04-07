@@ -1,7 +1,6 @@
 /* eslint-disable react/react-in-jsx-scope */
 import { useState } from 'react';
 import Modal from './modal';
-// import Modal from './modal';
 
 function ModalButton() {
    const [showModal, setShowModal] = useState(false);
