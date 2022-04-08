@@ -12,7 +12,11 @@ import { ArtistPictureMap } from '../Helpers/ArtistPictureMap';
 
 import '../Assets/Styles/artistPage.css';
 
-function ArtistPage() {
+function ArtistPage(props) {
+  const {
+    language,
+   } = props;
+
   const { artistSlug } = useParams();
 
   useEffect(() => {
@@ -41,13 +45,38 @@ function ArtistPage() {
     axios.get(`${process.env.REACT_APP_BASE_URL}/api/artist`).then((res) => { const val = res.data; changeState2(val); });
   }
 
+  // Content of the page by language
+  let content = {
+    english: {
+      exit: ' Back to artists',
+      website: 'Website',
+      biography: artist.biography_eng,
+      performing: `See what ${artist.firstname} ${artist.lastname} will be performing in 2022`,
+      previous: `Watch ${artist.firstname} ${artist.lastname}’s previous work`,
+      all: 'See all artists',
+      tickets: 'buy tickets',
+    },
+    finnish: {
+      exit: ' Back to artists (Finnish)',
+      website: 'Website (Finnish)',
+      biography: artist.biography_fin,
+      performing: `See what ${artist.firstname} ${artist.lastname} will be performing in 2022 (Finnish)`,
+      previous: `Watch ${artist.firstname} ${artist.lastname}’s previous work (Finnish)`,
+      all: 'See all artists (Finnish)',
+      tickets: 'buy tickets (Finnish)',
+    },
+  };
+
+  content = language === 'finnish' ? (content.finnish) : (content.english);
+
   return (
     <main>
       <div className="artist">
         <div className="container">
           <div className="artist-banner">
             <NavLink className="all-artists-top" to="/artists">
-              &#8592; Back to artists
+              &#8592;
+              {content.exit}
             </NavLink>
             <div className="maininfos">
               <div className="box">
@@ -63,7 +92,7 @@ function ArtistPage() {
                   : (
                     <li>
                       <a href={links.website}>
-                        Website
+                        {content.website}
                       </a>
                     </li>
                   ) }
@@ -108,19 +137,17 @@ function ArtistPage() {
             </div>
           </div>
           <div className="information">
-            {artist.biography_eng}
+            {content.biography}
             <br />
             <br />
             <NavLink className="nav-link" to="/">
-              See what
-              {` ${artist.firstname} ${artist.lastname} `}
-              will be performing in 2022
+              {content.performing}
               <KeyboardDoubleArrowRightIcon />
             </NavLink>
           </div>
           <div className="previous-work">
             <SectionHeader
-              sectionTitle={`Watch ${artist.firstname} ${artist.lastname}’s previous work`}
+              sectionTitle={content.previous}
             />
             <div className="thumbnail-row">
               {ThumbnailCardObject.slice(0, 4).map((cardObj) => (
@@ -133,7 +160,8 @@ function ArtistPage() {
           </div>
           <div className="all-artists-bottom">
             <SectionHeader
-              sectionTitle="See all artists"
+              sectionTitle={content.all}
+              language={language}
               showAll
               pageLink="artists"
             />
@@ -157,7 +185,7 @@ function ArtistPage() {
             </div>
             <div className="button-wrap">
               <PrimaryButton
-                buttonText="buy tickets"
+                buttonText={content.tickets}
                 showIcon
               />
             </div>

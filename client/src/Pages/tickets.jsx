@@ -4,12 +4,31 @@ import DefaultButton from '../Components/defaultButton';
 import PrimaryButton from '../Components/primaryButton';
 import PromoImage from '../Assets/Images/promo.png';
 
-function Tickets() {
+function Tickets(props) {
+  const {
+    language,
+   } = props;
+
+  // Content of the page by language
+  let content = {
+    english: {
+      ticketTitle: 'TICKETS AND STREAMING',
+      buyTickets: 'buy tickets',
+      buyStreaming: 'buy Streaming',
+    },
+    finnish: {
+      ticketTitle: 'TICKETS AND STREAMING (Finnish)',
+      buyTickets: 'buy tickets (Finnish)',
+      buyStreaming: 'buy Streaming (Finnish)',
+    },
+  };
+
+content = language === 'finnish' ? (content.finnish) : (content.english);
   return (
     <main>
       <div className="ticket-holder">
         <div className="container">
-          <h1 className="page-title">TICKETS AND STREAMING</h1>
+          <h1 className="page-title">{content.ticketTitle}</h1>
           <div className="ticket-text-content">
             <div className="img-wrap">
               <img src={PromoImage} alt="" />
@@ -28,13 +47,13 @@ function Tickets() {
           <ul className="btn-groups">
             <li>
               <PrimaryButton
-                buttonText="buy tickets"
+                buttonText={content.buyTickets}
                 showIcon
               />
             </li>
             <li>
               <DefaultButton
-                buttonText="buy streaming"
+                buttonText={content.buyStreaming}
                 showIcon
               />
             </li>
