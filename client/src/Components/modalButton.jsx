@@ -18,7 +18,7 @@ function ModalButton(props) {
        bookmark: 'Bookmark',
      },
      finnish: {
-      bookmark: 'Bookmark (Finnish)',
+      bookmark: 'Kirjanmerkki',
      },
    };
 
