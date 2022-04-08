@@ -29,7 +29,8 @@
 		<![endif]-->
 		<script src="./javascripts/processing.js" type="text/javascript"></script>
 		<script src="./javascripts/jQuery.js" type="text/javascript"></script>
-		
+		<script src="./javascripts/uploadScript.js" type="text/javascript"></script>
+		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 		
 		<script type="text/javascript">
 		// convenience function to get the id attribute of generated sketch html element
@@ -85,25 +86,32 @@
 		}
 
 		</script>
-
 		</head>
 	
 		<body>
-		<div id="content">
-			<button id="recordButton">
-				<img src="./images/record_btn.png" alt="RECORD">
+			<div
+				class="g-recaptcha"
+				data-sitekey="6LcdS1gfAAAAAI_kju1CkmAmTf1bul5F_w7cfjH0"
+				data-callback="uploadSound"
+				data-expired-callback="onRecaptchaResponseExpiry"
+				data-error-callback="onRecaptchaError"
+			></div>
+			</div>
+			<div id="content">
+				<button id="recordButton">
+					<img src="./images/record_btn.png" alt="RECORD">
 
-			</button>
-			<div>
+				</button>
+				<div>
 				<canvas id="SoundBowJS" data-processing-sources="./javascripts/SoundBow_JS.pde" width="1000" height="600">
 					<p>Your browser does not support the canvas tag.</p>
 				</canvas>
 				<noscript>
 					<p>JavaScript is required to view the contents of this page.</p>
 				</noscript>
-	    	</div>
-			<h1>SoundBow_JS</h1>
-		</div>
-	</body>
+				</div>
+				<h1>SoundBow_JS</h1>
+			</div>
+		</body>
 	<script src="./javascripts/recordAudio.js" type="text/javascript"></script>
 </html>
