@@ -4,6 +4,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
 const fileupload = require('express-fileupload');
+// const cookieSession = require('cookie-session');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -12,6 +13,33 @@ var programmeRouter = require('./routes/programme');
 var soundbowRouter = require('./routes/soundbow');
 
 var app = express();
+
+// Setting cookie for client
+// app.use(function(req, res, next) {
+//   // Check if client sent cookie
+//   var cookie = req.cookies.session;
+//   if (cookie == undefined) {
+//     // no: Set a new cookie
+//     res.cookie('hasSentSound', false, {maxAge: 24 * 60 * 60 * 1000});
+//     console.log('Cookie created for new client.');
+//   }
+// });
+
+
+// If the user doesn't have a cookie ready, set it up.
+app.use(cookieParser());
+app.use(function(req, res, next) {
+  var cookie = req.cookies.hasSentSound;
+  if (cookie == undefined) {
+      // no: Set a new cookie
+      res.cookie('hasSentSound', false, {maxAge: 24 * 60 * 60 * 1000});
+      console.log('Cookie created for new client: ' + req.cookies.hasSentSound);
+  }
+  else {
+      console.log('cookie is: ' + req.cookies.hasSentSound);
+  }
+  next();
+});
 
 app.use(cors());
 app.use(fileupload());
