@@ -1,9 +1,7 @@
 /*---------------------------------------------------------------------------------------------------------------------------
-
 Soundbow_JS - a javascript port of the SoundBow drawing sound interface 
 (c) binaura.net 2012
 info@binaura.net
-
 ---------------------------------------------------------------------------------------------------------------------------*/
 
 
@@ -23,12 +21,20 @@ info@binaura.net
   
   boolean clearWires = false;
   boolean resetWalls = false;
+  boolean getDrawing = false;
+  boolean setDrawing = false;
   boolean showIntro = true; 
   
   boolean initialized = false; // run setup once
    
+
+
+  
   public void setup() 
   {
+    
+
+   
     counter = 0;
     
     size(viewportwidth,viewportheight);
@@ -37,7 +43,7 @@ info@binaura.net
     {
       //  create sound engine here
       
-      frameRate(150);
+      frameRate(30);
       background(0);
       colorMode(HSB, 255);
       bar = height - 80;
@@ -63,6 +69,10 @@ info@binaura.net
       myGui = new GUI();
       initialized = true;
     }
+    savedBar = bar;
+    savedWallArray = wallArray;
+    savedWireArray = wireArray;
+    savedXArray = xArray;
   }
   
   public void draw() 
@@ -119,6 +129,77 @@ info@binaura.net
       resetWalls = false;
 
     }
+	
+	if (getDrawing)
+	{
+savedWallArray = wallArray;
+savedXArray = xArray;
+savedWireArray = wireArray;
+savedBar = bar;
+
+wallValue = new ArrayList();
+for (let i = 0; i < wallArray.length; i++)
+{
+  
+  wallContainer = {
+  _x:wallArray[i]._x,
+  boxX:wallArray[i].boxX,
+  boxY:wallArray[i].boxY,
+  lenght:wallArray[i].length,
+  size:wallArray[i].size,
+  flash:wallArray[i].flash,
+  
+  over:wallArray[i].over,
+  press:wallArray[i].press,
+  locked:wallArray[i].locked,
+  otherslocked:wallArray[i].otherslocked,
+  dragged:wallArray[i].dragged,
+  others: null 
+  }
+
+}
+wallValue[i] = wallContainer;
+
+
+
+
+wireValue = new ArrayList();
+for (let i = 0; i < wireArray.length; i++){
+  wireContainer = 
+  {_x:wireArray[i]._x,
+  _y:wireArray[i]._y,
+  _xNext:[i]._xNext,
+  __xArray: wireArray[i].__xArray,
+  _coll:wireArray[i]._coll,
+  size:wireArray[i].size, // size of wall (offset for collision)
+  touchPosX:wireArray[i].touchPosX,
+  touchPosY:wireArray[i].touchPosY
+  }
+   wireValue[i] = wireContainer
+}
+
+
+sendDrawing({savedWireArr: wireValue, savedWallArr: wallValue, savedXArr: savedXArray.values, savBar: savedBar});
+getDrawing = false;
+	}
+	
+	if (setDrawing)
+	{
+    
+	wallArray = savedWallArray;
+	wireArray = savedWireArray;
+  xArray = savedXArray
+  bar = savedBar;
+
+
+
+
+
+
+
+  setDrawing = false;
+	}
+	
     
     myGui.mask();
     
@@ -140,6 +221,8 @@ info@binaura.net
     myGui.scaleButtons();
     myGui.clearButton();
     myGui.resetButton();
+	myGui.getDrawingButton();
+//	myGui.setDrawingButton();
 
 
   }
@@ -211,13 +294,26 @@ info@binaura.net
         myGui.resetPressed = true;
         resetWalls = true;
       }
+	  if((mouseX>width-60) && (mouseY > height-180) && (mouseY < height-130))
+      {
+        myGui.getDrawingAlpha = 255;
+        myGui.getDrawingPressed = true;
+		getDrawing = true;
+      }
+	  //if((mouseX>width-60) && (mouseY > height-230) && (mouseY < height-180))
+    //  {
+    //    myGui.setDrawingAlpha = 255;
+    //    myGui.setDrawingPressed = true;
+		//setDrawing = true;
+    //  }
+	  
   }
 
 class GUI
 {
   int _trigger;
   PImage introImage;
-  PImage btn1, btn2, btn4, btn5;
+  PImage btn1, btn2, btn4, btn5, btn6;
   
   float fadeOut = 255;
   float clearAlpha = 0;
@@ -225,12 +321,16 @@ class GUI
   float scale1Alpha = 0;
   float scale2Alpha = 0;
   float scale3Alpha = 0;
+  float getDrawingAlpha = 0;
+  float setDrawingAlpha = 0;
   
   boolean clearPressed = false;
   boolean resetPressed = false;
   boolean scale1Pressed = false;
   boolean scale2Pressed = false;
   boolean scale3Pressed = false;
+  boolean getDrawingPressed = false;
+  boolean setDrawingPressed = false;
   
   GUI() 
   {
@@ -239,6 +339,7 @@ class GUI
     btn2 = loadImage("./images/btn_2.png");
     btn4 = loadImage("./images/btn_4.png");
     btn5 = loadImage("./images/btn_5.png");
+    btn6 = loadImage("./images/btn_6.png");
   } 
   
   public void drawintroImage()
@@ -332,6 +433,40 @@ class GUI
       stroke(255, resetAlpha);
       ellipse(width-40,height-60,50+(255-resetAlpha)/2,50+(255-resetAlpha)/2);
       if(resetAlpha<1)  resetPressed = false;
+    }
+  }
+  
+  public void getDrawingButton()
+  {
+	noStroke();
+    colorMode(HSB);
+    tint(140,100,180);
+    image(btn6, width-40,height-160,50,50);
+  
+    if(getDrawingPressed)
+    {
+      getDrawingAlpha -= 15;
+      noFill();
+      stroke(255, getDrawingAlpha);
+      ellipse(width-40,height-160,50+(255-getDrawingAlpha)/2,50+(255-getDrawingAlpha)/2);
+      if(getDrawingAlpha<1)  getDrawingPressed = false;
+    }
+  }
+  
+    public void setDrawingButton()
+  {
+	noStroke();
+    colorMode(HSB);
+    tint(140,100,180);
+    image(btn6, width-40,height-210,50,50);
+  
+    if(setDrawingPressed)
+    {
+      setDrawingAlpha -= 15;
+      noFill();
+      stroke(255, setDrawingAlpha);
+      ellipse(width-40,height-160,50+(255-setDrawingAlpha)/2,50+(255-setDrawingAlpha)/2);
+      if(setDrawingAlpha<1)  setDrawingPressed = false;
     }
   }
   
@@ -674,5 +809,6 @@ class Wire
     playing = true;
     index = 0;
   }
-}
+  
 
+}
