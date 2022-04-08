@@ -160,9 +160,6 @@ for (let i = 0; i < wallArray.length; i++)
 }
 wallValue[i] = wallContainer;
 
-
-
-
 wireValue = new ArrayList();
 for (let i = 0; i < wireArray.length; i++){
   wireContainer = 
@@ -712,7 +709,7 @@ class Wire
       touchPosY.add(mouseY);
       index++;
     
-      stroke(255,100,255);  
+      stroke(255,255,100);  
       for(int i=0; i<touchPosX.size()-1; i++) 
       {
         line((Integer)touchPosX.get(i), (Integer)touchPosY.get(i), (Integer)touchPosX.get(i+1), (Integer)touchPosY.get(i+1));
@@ -741,7 +738,10 @@ class Wire
         noStroke();
         fill(255);     
         ellipse(_x, _y, 10, 10);
-        stroke(100);
+        int red = 255;
+        int green = 255;
+        int blue = 100 + 155/(touchPosX.size()-1)*index;
+        stroke(red,green, blue);
       
         for(int i=0; i<touchPosX.size()-1; i++) 
         {
