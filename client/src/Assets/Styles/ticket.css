@@ -1,0 +1,35 @@
+.ticket-holder {
+   padding-bottom: 4rem;
+}
+
+.ticket-text-content {
+   font-size: 1.8rem;
+   line-height: 1.5;
+   padding: 2rem 0;
+   text-align: center;
+}
+
+.ticket-text-content .img-wrap {
+   max-width: 85rem;
+   margin: 0 auto 3rem;
+}
+
+.ticket-text-content .img-wrap img {
+   width: 100%;
+}
+
+.ticket-holder .btn-groups li {
+   margin: 0 0 3rem;
+   text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+   .ticket-text-content {
+      font-size: 2.3rem;
+      line-height: 1.458;
+   }
+
+   .ticket-holder .btn-groups li {
+      margin-bottom: 3.5rem;
+   }
+}
