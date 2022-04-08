@@ -3,9 +3,9 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import '../Assets/Styles/button.css';
 
 function DefaultButton(props) {
-  const { buttonText, showIcon } = props;
+  const { buttonText, showIcon, url } = props;
   return (
-    <a href="https://www.youtube.com" target="_blank" className="btn btn-default" rel="noreferrer">
+    <a href={url} target="_blank" className="btn btn-default" rel="noreferrer">
       {buttonText}
       {
         showIcon && <ChevronRightIcon />

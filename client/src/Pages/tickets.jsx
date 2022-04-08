@@ -15,11 +15,15 @@ function Tickets(props) {
       ticketTitle: 'TICKETS AND STREAMING',
       buyTickets: 'buy tickets',
       buyStreaming: 'buy Streaming',
+      p1: 'Tampere Flute Fest 2022 will bring an eclectic program of icy sonic wonder this April 22nd-24th!',
+      p2: 'Inspired by the wonders of nature, this year’s edition titled “JÄÄ • ICE”, will deliver a diverse range of in-person, and live-streamed events where innovation and the flute meet.',
     },
     finnish: {
-      ticketTitle: 'TICKETS AND STREAMING (Finnish)',
-      buyTickets: 'buy tickets (Finnish)',
-      buyStreaming: 'buy Streaming (Finnish)',
+      ticketTitle: 'LIPUT JA SUORATOISTO',
+      buyTickets: 'osta lippuja',
+      buyStreaming: 'osta suoratoisto',
+      p1: 'Tampereen Huilujuhla 2022 tuo eklektisen ohjelman jäisestä sonic-ihmeestä 22.-24.4.2022!',
+      p2: 'Luonnon ihmeiden innoittamana tämän vuoden "JÄÄ • ICE" -painos tarjoaa monipuolisen valikoiman henkilökohtaisia ja livestriimattuja tapahtumia, joissa innovaatiot ja huilu kohtaavat.',
     },
   };
 
@@ -33,16 +37,8 @@ content = language === 'finnish' ? (content.finnish) : (content.english);
             <div className="img-wrap">
               <img src={PromoImage} alt="" />
             </div>
-            <p>
-              Tampere Flute Fest 2022 will bring an eclectic program of
-              icy sonic wonder this April 22nd-24th!
-            </p>
-            <p>
-              Inspired by the wonders of nature, this year’s
-              edition titled “JÄÄ • ICE”, will deliver a diverse
-              range of in-person, and live-streamed events where
-              innovation and the flute meet.
-            </p>
+            <p>{content.p1}</p>
+            <p>{content.p2}</p>
           </div>
           <ul className="btn-groups">
             <li>
@@ -53,12 +49,12 @@ content = language === 'finnish' ? (content.finnish) : (content.english);
             </li>
             <li>
               <DefaultButton
+                url="https://www.lippu.fi/en/eventseries/tampere-flute-fest-2022-livestriimi-3116312/"
                 buttonText={content.buyStreaming}
                 showIcon
               />
             </li>
           </ul>
-
         </div>
       </div>
     </main>
