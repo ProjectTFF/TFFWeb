@@ -6,76 +6,101 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { Button } from './navButton';
 import CloseBurger from '../Assets/Images/MenuCloseIcon.svg';
 
-import Language from './language';
+export function NavMenu(props) {
+  const {
+    changeState, language, handleSetLanguage,
+   } = props;
 
-export const NavMenu = ({
+  // Content of the page by language
+  let content = {
+    english: {
+      home: 'Home',
+      artists: 'Artists',
+      finalists: 'YAC Finalists',
+      programme: 'Programme',
+      venue: 'Venue',
+      tickets: 'Tickets and streaming',
+      language: 'FI',
+    },
+    finnish: {
+      home: 'Etusivu',
+      artists: 'Artistit',
+      finalists: 'YAC -finalistit',
+      programme: 'Ohjelma',
+      venue: 'Tapahtumapaikat',
+      tickets: 'Liput ja suoratoisto',
+      language: 'EN',
+    },
+  };
 
-  changeState,
+  content = language === 'finnish' ? (content.finnish) : (content.english);
+  return (
+    <div className="navMenu">
+      <Button
+        buttonStyle="menu--close"
+        onClick={changeState}
+      >
+        <img src={CloseBurger} alt="Nav Close" />
+      </Button>
+      <nav className="navbar">
+        <ul className="navbar-nav">
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/" onClick={changeState}>
+              {content.home}
+              <ChevronRightIcon />
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/artists" onClick={changeState}>
+              {content.artists}
+              <ChevronRightIcon />
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/artistCompetitionFinalist" onClick={changeState}>
+              {content.finalists}
+              <ChevronRightIcon />
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/programme" onClick={changeState}>
+              {content.programme}
+              <ChevronRightIcon />
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/venue" onClick={changeState}>
+              {content.venue}
+              <ChevronRightIcon />
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/tickets_and_streaming" onClick={changeState}>
+              {content.tickets}
+              <ChevronRightIcon />
+            </NavLink>
+          </li>
+          {/* <li className="nav-item">
+            <NavLink className="nav-link" to="/contest" onClick={changeState}>
+              Contest for artists
+              <ChevronRightIcon />
+            </NavLink>
+          </li> */}
 
-}) => (
-  <div className="navMenu">
-    <Button
-      buttonStyle="menu--close"
-      onClick={changeState}
-    >
-      <img src={CloseBurger} alt="Nav Close" />
-    </Button>
-    <nav className="navbar">
-      <ul className="navbar-nav">
-        <li className="nav-item">
-          <NavLink className="nav-link" to="/" onClick={changeState}>
-            Home
-            <ChevronRightIcon />
-          </NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink className="nav-link" to="/artists" onClick={changeState}>
-            Artists
-            <ChevronRightIcon />
-          </NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink className="nav-link" to="/artistCompetitionFinalist" onClick={changeState}>
-            YAC Finalists
-            <ChevronRightIcon />
-          </NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink className="nav-link" to="/programme" onClick={changeState}>
-            Programme
-            <ChevronRightIcon />
-          </NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink className="nav-link" to="/venue" onClick={changeState}>
-            Venue
-            <ChevronRightIcon />
-          </NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink className="nav-link" to="/tickets_and_streaming" onClick={changeState}>
-            Tickets and streaming
-            <ChevronRightIcon />
-          </NavLink>
-        </li>
-        {/* <li className="nav-item">
-          <NavLink className="nav-link" to="/contest" onClick={changeState}>
-            Contest for artists
-            <ChevronRightIcon />
-          </NavLink>
-        </li> */}
+          {/* <li className="nav-item">
+            <NavLink className="nav-link" to="/contribute" onClick={changeState}>
+              Contribute to the festival
+              <ChevronRightIcon />
+            </NavLink>
+          </li> */}
 
-        {/* <li className="nav-item">
-          <NavLink className="nav-link" to="/contribute" onClick={changeState}>
-            Contribute to the festival
-            <ChevronRightIcon />
-          </NavLink>
-        </li> */}
-
-        <li className="language-item">
-          <Language />
-        </li>
-      </ul>
-    </nav>
-  </div>
-);
+          <li className="language-item">
+            <button className="language-select" onClick={() => handleSetLanguage(language === 'english' ? 'finnish' : 'english')} type="button">
+              {content.language}
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  );
+}

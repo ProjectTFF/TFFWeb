@@ -4,7 +4,21 @@ import { NavLink } from 'react-router-dom';
 import '../Assets/Styles/sectionHeader.css';
 
 function SectionHeader(props) {
-   const { sectionTitle, showAll, pageLink } = props;
+   const {
+     sectionTitle, showAll, pageLink, language,
+    } = props;
+
+   // Content of the page by language
+   let content = {
+     english: {
+       all: 'See All ',
+     },
+     finnish: {
+       all: 'Näytä kaikki',
+     },
+   };
+
+   content = language === 'finnish' ? (content.finnish) : (content.english);
    return (
      <div className="section-title-block">
        <h2>{sectionTitle}</h2>
@@ -12,8 +26,7 @@ function SectionHeader(props) {
         ? (
           <div className="link-wrap">
             <NavLink className="link" to={`/${pageLink}`}>
-              See All
-              {' '}
+              {content.all}
               <KeyboardDoubleArrowRightIcon />
             </NavLink>
           </div>

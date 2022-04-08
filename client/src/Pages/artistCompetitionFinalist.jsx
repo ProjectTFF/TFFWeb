@@ -5,12 +5,29 @@ import PrimaryButton from '../Components/primaryButton';
 
 import '../Assets/Styles/artists.css';
 
-function ArtistCompetitionFinalist() {
+function ArtistCompetitionFinalist(props) {
+  const {
+    language,
+   } = props;
+
+  // Content of the page by language
+  let content = {
+    english: {
+      title: 'Young Artist Competition Finalists',
+      tickets: 'buy tickets',
+    },
+    finnish: {
+      title: 'Young Artist Competition -kilpailun finalistit',
+      tickets: 'osta liput',
+    },
+  };
+
+  content = language === 'finnish' ? (content.finnish) : (content.english);
   return (
     <main>
       <div className="container">
         <div className="competition-info-wrap">
-          <h1 className="page-title">Young Artist Competition Finalists</h1>
+          <h1 className="page-title">{content.title}</h1>
           <div className="competition-info-row">
             {CompetitionFinalist.map((finalistObj) => (
               <ArtistCompetition
@@ -26,7 +43,7 @@ function ArtistCompetitionFinalist() {
 
           <div className="button-wrap">
             <PrimaryButton
-              buttonText="buy tickets"
+              buttonText={content.tickets}
               showIcon
             />
           </div>

@@ -4,24 +4,26 @@
 }
 
 .btn {
+  letter-spacing: 0.15rem;
   border-radius: 2rem;
   display: inline-block;
   font-size: 1.2rem;
   line-height: 1.333;
-  padding: 1rem 1.5rem;
+  padding: 1rem 3.5rem;
   font-weight: 600;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
   position: relative;
   border: 2px solid transparent;
+  min-width: 20rem;
   transition: color 0.3s ease-in-out, background 0.3s ease-in-out, border-color 0.3s ease-in-out;
 }
 
 .btn-primary {
   background: #54ccf2;
   color: #fff;
-  min-width: 20rem;
+  /* min-width: 20rem; */
   border-color: #54ccf2;
 }
 
@@ -48,7 +50,40 @@
   pointer-events: none;
 }
 
-.btn-primary .css-i4bv87-MuiSvgIcon-root {
+
+.btn-default {
+  background: #fff;
+  color: #6c6c6c;
+  border-color: #54ccf2;
+}
+
+.btn-default:active {
+  background: #31b0d9;
+  border-color: #31b0d9;
+  color: #fff;
+}
+
+.btn-default:hover {
+  background: #6bdcff;
+  border-color: #6bdcff;
+  color: #fff;
+}
+
+.btn-default:focus {
+  background: #6bdcff;
+  border-color: rgba(78, 171, 238, 0.8);
+  color: #fff;
+}
+
+.btn-default.disabled,
+.btn-default:disabled {
+  background: #f1faff;
+  border-color: #b2b6bf;
+  color: #8e979d;
+  pointer-events: none;
+}
+
+.btn svg {
   position: absolute;
   font-size: 2.7rem;
   right: 1.1rem;
@@ -56,12 +91,16 @@
   transform: translateY(-50%);
 }
 
-@media screen and (min-width: 1024px) {
-  .btn-primary {
+@media screen and (min-width: 768px) {
+  .btn {
     font-size: 1.5rem;
+    min-width: 24rem;
+    /* padding: 1rem 4rem; */
   }
 
-  .btn-primary .css-i4bv87-MuiSvgIcon-root {
+
+
+  .btn svg {
     font-size: 3rem;
   }
 }
