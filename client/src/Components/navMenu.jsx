@@ -23,12 +23,12 @@ export function NavMenu(props) {
       language: 'FI',
     },
     finnish: {
-      home: 'Home (Finnish)',
-      artists: 'Artists (Finnish)',
-      finalists: 'YAC Finalists (Finnish)',
-      programme: 'Programme (Finnish)',
-      venue: 'Venue (Finnish)',
-      tickets: 'Tickets and streaming (Finnish)',
+      home: 'Etusivu',
+      artists: 'Artistit',
+      finalists: 'YAC -finalistit',
+      programme: 'Ohjelma',
+      venue: 'Tapahtumapaikat',
+      tickets: 'Liput ja suoratoisto',
       language: 'EN',
     },
   };

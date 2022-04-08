@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>SoundBow JS </title>
+		
+		<script type="text/javascript">
+		
+		// // <![CDATA[  
+    	// var mobile = (/iphone|ipad|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()));  
+    	// if (mobile) 
+    	// {  
+        // 	document.location = "http://www.binaura.net/stc/wrx/soundbow/mobile.html";  
+    	// }  
+		// // ]]>
+
+		var viewportwidth;
+ 		var viewportheight;
+  
+ 		// the more standards compliant browsers (mozilla/netscape/opera/IE7) use window.innerWidth and window.innerHeight
+  
+ 		viewportwidth = window.innerWidth,
+      	viewportheight = window.innerHeight
+ 		
+		</script> 
+		
+		<link rel="stylesheet" href="./stylesheets/soundbow.css">
+		<!--[if lt IE 9]>
+			<script type="text/javascript">alert("Your browser does not support the canvas tag.");</script>
+		<![endif]-->
+		<script src="./javascripts/processing.js" type="text/javascript"></script>
+		<script src="./javascripts/jQuery.js" type="text/javascript"></script>
+		
+		
+		<script type="text/javascript">
+		// convenience function to get the id attribute of generated sketch html element
+		function getProcessingSketchId () { return 'SoundBowJS'; }
+		</script>
+
+
+		<script type="text/javascript" language="javascript" >
+
+
+		var audioElementArrayPentascale = new Array();
+		var audioElementArrayHarmonicscale = new Array();
+		
+
+		for ( var i=0; i<8; i++ )
+		{
+
+			//	load sounds for pentaton scale
+
+			audioElementArrayPentascale[i] = document.createElement('audio');
+			var index = i+1;
+			audioElementArrayPentascale[i].setAttribute('src', './soundbow_sounds/' + index +'.wav');
+
+			//	load sounds for harmonic scale
+
+			audioElementArrayHarmonicscale[i] = document.createElement('audio');
+			audioElementArrayHarmonicscale[i].setAttribute('src', './soundbow_sounds/1' + index +'.wav');
+		}
+
+		function PlayPentaSound(sel)
+		{
+			console.log(audioElementArrayPentascale.length);
+			console.log("selection : " + sel)
+			if((sel>=1)&&(sel<=8))
+			{
+				audioElementArrayPentascale[sel-1].load;
+				audioElementArrayPentascale[sel-1].currentTime = 0;
+				audioElementArrayPentascale[sel-1].play();
+			}
+		}
+
+		function PlayHarmonicSound(sel)
+		{
+			
+			console.log(audioElementArrayHarmonicscale.length);
+			console.log("selection : " + sel)
+			if((sel>=1)&&(sel<=8))
+			{
+				audioElementArrayHarmonicscale[sel-1].load;
+				audioElementArrayHarmonicscale[sel-1].currentTime = 0;
+				audioElementArrayHarmonicscale[sel-1].play();
+			}
+		}
+
+		</script>
+
+		</head>
+	
+		<body>
+		<div id="content">
+			<button id="recordButton">
+				<img src="./images/record_btn.png" alt="RECORD">
+
+			</button>
+			<div>
+				<canvas id="SoundBowJS" data-processing-sources="./javascripts/SoundBow_JS.pde" width="1000" height="600">
+					<p>Your browser does not support the canvas tag.</p>
+				</canvas>
+				<noscript>
+					<p>JavaScript is required to view the contents of this page.</p>
+				</noscript>
+	    	</div>
+			<h1>SoundBow_JS</h1>
+		</div>
+	</body>
+	<script src="./javascripts/recordAudio.js" type="text/javascript"></script>
+</html>
