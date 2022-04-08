@@ -20,7 +20,7 @@ function Tickets(props) {
     },
     finnish: {
       ticketTitle: 'LIPUT JA SUORATOISTO',
-      buyTickets: 'osta lippuja',
+      buyTickets: 'osta liput',
       buyStreaming: 'osta suoratoisto',
       p1: 'Tampereen Huilujuhla 2022 tuo eklektisen ohjelman jäisestä sonic-ihmeestä 22.-24.4.2022!',
       p2: 'Luonnon ihmeiden innoittamana tämän vuoden "JÄÄ • ICE" -painos tarjoaa monipuolisen valikoiman henkilökohtaisia ja livestriimattuja tapahtumia, joissa innovaatiot ja huilu kohtaavat.',
