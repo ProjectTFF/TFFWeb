@@ -17,7 +17,11 @@ import { getLengthOfLongestArray } from '../Helpers/arrayHelpers';
 
 import Picture from '../Assets/Images/Artists/eva_alkula.png';
 
-function Home() {
+function Home(props) {
+  const {
+    language,
+   } = props;
+
   const [highestLength, setHighestLength] = useState(0);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -40,6 +44,34 @@ function Home() {
     };
   });
 
+  // Content of the page by language
+  let content = {
+    english: {
+      title: 'Tampere Flute Fest',
+      hall: 'Tampere Hall',
+      p1: 'Tampere Flute Fest 2022 will bring an eclectic program of icy sonic wonder this April 22nd-24th!',
+      p2: 'Inspired by the wonders of nature, this year’s edition titled “JÄÄ • ICE”, will deliver a diverse range of in-person, and live-streamed events where innovation and the flute meet.',
+      tickets: 'buy tickets',
+      performing: 'Artists performing',
+      highlights: 'Programme highlights',
+      events: 'Program',
+      previous: 'Highlights from previous years',
+    },
+    finnish: {
+      title: 'Tampere Flute Fest (Finnish)',
+      hall: 'Tampere Hall (Finnish)',
+      p1: 'Tampere Flute Fest 2022 will bring an eclectic program of icy sonic wonder this April 22nd-24th! (Finnish)',
+      p2: 'Inspired by the wonders of nature, this year’s edition titled “JÄÄ • ICE”, will deliver a diverse range of in-person, and live-streamed events where innovation and the flute meet. (Finnish)',
+      tickets: 'buy tickets (Finnish)',
+      performing: 'Artists performing (Finnish)',
+      highlights: 'Programme highlights (Finnish)',
+      events: 'Program (Finnish)',
+      previous: 'Highlights from previous years (Finnish)',
+    },
+  };
+
+  content = language === 'finnish' ? (content.finnish) : (content.english);
+
   useEffect(() => {
     if (windowWidth >= 490) {
       const lengthToSet = getLengthOfLongestArray(artists, ProgramCardObject);
@@ -53,9 +85,12 @@ function Home() {
     <>
       <div className="dashboard-banner">
         <div className="dashboard-content">
-          <span className="top-text">Tampere Flute Fest</span>
+          <span className="top-text">{content.title}</span>
           <h1>ICE · JÄÄ</h1>
-          <span className="meta-text">22.-24.4.2022 @Tampere Hall</span>
+          <span className="meta-text">
+            22.-24.4.2022 @
+            {content.hall}
+          </span>
         </div>
       </div>
       <main>
@@ -79,18 +114,11 @@ function Home() {
         <div className="info-text-holder">
           <div className="container">
             <div className="info-text-block">
-              <p>
-                Tampere Flute Fest 2022 will bring an eclectic program
-                of icy sonic wonder this April 22nd-24th!
-              </p>
-              <p>
-                Inspired by the wonders of nature, this year’s edition titled “JÄÄ • ICE”,
-                will deliver a diverse range of in-person, and live-streamed events
-                where innovation and the flute meet.
-              </p>
+              <p>{content.p1}</p>
+              <p>{content.p2}</p>
               <div className="button-wrap">
                 <PrimaryButton
-                  buttonText="buy tickets"
+                  buttonText={content.tickets}
                   showIcon
                 />
               </div>
@@ -100,9 +128,10 @@ function Home() {
         <div className="container">
           <div className="artist-section">
             <SectionHeader
-              sectionTitle="Artists performing"
+              sectionTitle={content.performing}
               showAll
               pageLink="artists"
+              language={language}
             />
             <div className="artist-row">
               {artists.slice(0, 5).map((artistObj) => (
@@ -115,9 +144,10 @@ function Home() {
           </div>
           <div className="program-highlight-section">
             <SectionHeader
-              sectionTitle="Programme highlights"
+              sectionTitle={content.highlights}
               showAll
               pageLink="programme"
+              language={language}
             />
             <div className="program-card-row">
               {ProgramCardObject.slice(0, highestLength).map((cardObj) => (
@@ -126,13 +156,14 @@ function Home() {
                   cardImage={cardObj.programImage}
                   cardName={cardObj.programName}
                   cardTitle={cardObj.programTitle}
+                  language={language}
                 />
             ))}
             </div>
           </div>
           <div className="events-section">
             <SectionHeader
-              sectionTitle="Program"
+              sectionTitle={content.events}
               showAll={false}
             />
             <div className="card-row">
@@ -148,13 +179,13 @@ function Home() {
           </div>
           <div className="button-wrap">
             <PrimaryButton
-              buttonText="buy tickets"
+              buttonText={content.tickets}
               showIcon
             />
           </div>
           <div className="highlight-section">
             <SectionHeader
-              sectionTitle="Highlights from previous years"
+              sectionTitle={content.previous}
               showAll={false}
             />
             <div className="thumbnail-row">

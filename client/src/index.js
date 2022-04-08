@@ -9,31 +9,44 @@ import {
   Venue, ProgramDetail, ErrorPage, ArtistCompetitionFinalist,
 } from './Pages';
 
+function App() {
+  const [language, setLanguage] = React.useState('english');
+
+  return (
+    <Router>
+      <div className="wrapper">
+        <ShowHideNav
+          language={language}
+          handleSetLanguage={(l) => {
+            setLanguage(l);
+          }}
+        />
+        <Routes>
+          <Route path="/" element={<Home language={language} />} />
+          {/* <Route path="/contest" element={<Contest />} /> */}
+          {/* <Route path="/contribute" element={<Contribute />} /> */}
+          <Route path="/programme">
+            <Route path="" element={<Programme language={language} />} />
+            <Route path=":programSlug" element={<ProgramDetail language={language} />} />
+          </Route>
+          <Route path="/tickets_and_streaming" element={<Tickets language={language} />} />
+          <Route path="/venue" element={<Venue language={language} />} />
+          <Route path="/artistCompetitionFinalist" element={<ArtistCompetitionFinalist language={language} />} />
+          <Route path="/artists">
+            <Route path="" element={<Artists language={language} />} />
+            <Route path=":artistSlug" element={<ArtistPage language={language} />} />
+          </Route>
+          <Route path="/programs">
+            <Route path=":artistSlug" element={<ProgramDetail language={language} />} />
+          </Route>
+          <Route path="*" element={<ErrorPage language={language} />} />
+        </Routes>
+      </div>
+    </Router>
+  );
+}
+
 ReactDOM.render(
-  <Router>
-    <div className="wrapper">
-      <ShowHideNav />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        {/* <Route path="/contest" element={<Contest />} /> */}
-        {/* <Route path="/contribute" element={<Contribute />} /> */}
-        <Route path="/programme">
-          <Route path="" element={<Programme />} />
-          <Route path=":programSlug" element={<ProgramDetail />} />
-        </Route>
-        <Route path="/tickets_and_streaming" element={<Tickets />} />
-        <Route path="/venue" element={<Venue />} />
-        <Route path="/artistCompetitionFinalist" element={<ArtistCompetitionFinalist />} />
-        <Route path="/artists">
-          <Route path="" element={<Artists />} />
-          <Route path=":artistSlug" element={<ArtistPage />} />
-        </Route>
-        <Route path="/programs">
-          <Route path=":artistSlug" element={<ProgramDetail />} />
-        </Route>
-        <Route path="*" element={<ErrorPage />} />
-      </Routes>
-    </div>
-  </Router>,
+  <App />,
   document.getElementById('root'),
 );

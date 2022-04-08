@@ -5,7 +5,11 @@ import PrimaryButton from '../Components/primaryButton';
 
 import '../Assets/Styles/artists.css';
 
-function Artists() {
+function Artists(props) {
+  const {
+    language,
+   } = props;
+
   /**
    * Get information from backend (All artists)
    */
@@ -15,11 +19,25 @@ function Artists() {
     axios.get(`${process.env.REACT_APP_BASE_URL}/api/artist`).then((res) => { const val = res.data; changeState(val); });
   }
 
+  // Content of the page by language
+  let content = {
+    english: {
+      title: 'Artists',
+      tickets: 'buy tickets',
+    },
+    finnish: {
+      title: 'Artists (Finnish)',
+      tickets: 'buy tickets (Finnish)',
+    },
+  };
+
+  content = language === 'finnish' ? (content.finnish) : (content.english);
+
   return (
     <main>
       <div className="container">
         <div className="artists">
-          <h1 className="page-title">Artists</h1>
+          <h1 className="page-title">{content.title}</h1>
           <div className="artist-row">
             {artists.map((artist) => (
               <ArtistCollection
@@ -30,7 +48,7 @@ function Artists() {
 
           <div className="button-wrap">
             <PrimaryButton
-              buttonText="buy tickets"
+              buttonText={content.tickets}
               showIcon
             />
           </div>

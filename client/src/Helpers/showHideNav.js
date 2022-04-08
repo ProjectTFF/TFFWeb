@@ -5,7 +5,11 @@ import { Button } from '../Components/navButton';
 import OpenBurger from '../Assets/Images/MenuOpenIcon.svg';
 import '../Assets/Styles/showHideNav.css';
 
-function ShowHideNav() {
+function ShowHideNav(props) {
+  const {
+    language, handleSetLanguage,
+   } = props;
+
   const [show, setShow] = React.useState(false);
 
   const changeState = () => { setShow(!show); };
@@ -37,12 +41,16 @@ function ShowHideNav() {
         </div>
       ) }
       <div className={show ? 'nav-drop-active nav-drop' : 'nav-drop'}>
-        <NavMenu changeState={changeState} />
+        <NavMenu
+          changeState={changeState}
+          language={language}
+          handleSetLanguage={handleSetLanguage}
+        />
       </div>
       {/* <a className="bookmark" href="https://tampereflutefest.com/festival-2022/">
         BOOKMARK
       </a> */}
-      <ModalButton />
+      <ModalButton language={language} />
     </div>
   );
 
