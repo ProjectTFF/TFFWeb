@@ -20,7 +20,8 @@ async function uploadSound(token) {
     var dddata = JSON.stringify({content: data});
     console.log(data);
     // TODO: SET DEPLOY VALUE FOR URL
-    xhr_uploadSound.open("POST", "http://localhost:3001/api/soundbow/save");
+    // xhr_uploadSound.open("POST", "http://localhost:3001/api/soundbow/save");
+    xhr_uploadSound.open("POST", "https://friendly-roentgen164336.app.dockr.net/api/soundbow/save");
     xhr_uploadSound.setRequestHeader("Content-Type", "application/json");
     xhr_uploadSound.setRequestHeader('Accept', 'application/json');
     xhr_uploadSound.setRequestHeader('Token', token);
