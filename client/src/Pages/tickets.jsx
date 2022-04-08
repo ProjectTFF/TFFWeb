@@ -22,8 +22,8 @@ function Tickets(props) {
       ticketTitle: 'LIPUT JA SUORATOISTO',
       buyTickets: 'osta liput',
       buyStreaming: 'osta suoratoisto',
-      p1: 'Tampereen Huilujuhla 2022 tuo eklektisen ohjelman jäisestä sonic-ihmeestä 22.-24.4.2022!',
-      p2: 'Luonnon ihmeiden innoittamana tämän vuoden "JÄÄ • ICE" -painos tarjoaa monipuolisen valikoiman henkilökohtaisia ja livestriimattuja tapahtumia, joissa innovaatiot ja huilu kohtaavat.',
+      p1: 'Tampere Flute Fest 2022 vie matkalle halki lumen ja jään 22.-24. huhtikuuta!',
+      p2: 'Tämän vuoden teema “JÄÄ//ICE” saa inspiraationsa luonnon ihmeistä ja luvassa on musiikillisesti monipuolinen valikoima tapahtumia, joissa voit kokea huilun uusilla tavoilla, paikan päällä tai verkon välityksellä osallistuen.',
     },
   };
 
