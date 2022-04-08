@@ -43,6 +43,7 @@
 
 		var audioElementArrayPentascale = new Array();
 		var audioElementArrayHarmonicscale = new Array();
+		var arrayInfo = new Array();
 		
 
 		for ( var i=0; i<8; i++ )
@@ -52,16 +53,18 @@
 
 			audioElementArrayPentascale[i] = document.createElement('audio');
 			var index = i+1;
-			audioElementArrayPentascale[i].setAttribute('src', './soundbow_sounds/' + index +'.wav');
+			audioElementArrayPentascale[i].setAttribute('src', './assets/sounds/' + index +'.wav');
 
 			//	load sounds for harmonic scale
 
 			audioElementArrayHarmonicscale[i] = document.createElement('audio');
-			audioElementArrayHarmonicscale[i].setAttribute('src', './soundbow_sounds/1' + index +'.wav');
+			audioElementArrayHarmonicscale[i].setAttribute('src', './assets/sounds/1' + index +'.wav');
 		}
 
 		function PlayPentaSound(sel)
 		{
+		    var playbackElement;
+			
 			console.log(audioElementArrayPentascale.length);
 			console.log("selection : " + sel)
 			if((sel>=1)&&(sel<=8))
@@ -84,24 +87,81 @@
 				audioElementArrayHarmonicscale[sel-1].play();
 			}
 		}
+		
 
+
+		
+		function sendDrawing(arrayInfoSb)
+		{
+			arrayInfo = arrayInfoSb
+			console.log(arrayInfo)
+			document.getElementById("recaptcha").style.display ="block"
+
+
+
+		}
+		
+		
 		</script>
 		</head>
 	
 		<body>
-			<div
-				class="g-recaptcha"
-				data-sitekey="6LcdS1gfAAAAAI_kju1CkmAmTf1bul5F_w7cfjH0"
-				data-callback="uploadSound"
-				data-expired-callback="onRecaptchaResponseExpiry"
-				data-error-callback="onRecaptchaError"
-			></div>
-			</div>
-			<div id="content">
-				<button id="recordButton">
-					<img src="./images/record_btn.png" alt="RECORD">
+		<script>
+		
+		function sendJson(){
+				console.log("moi")
+			}
+		function onRecaptchaSuccess(token)
+		{
+			var xhr = new XMLHttpRequest();
+			xhr.open("POST", '/sendFile', true);
+			xhr.setRequestHeader('Content-Type', 'application/json')
+			xhr.addEventListener('onload', sendJson) 
+			xhr.send(JSON.stringify({value:"value"}))
+		}
+	
+					
+		
+		</script>
+		<div id="content">
 
-				</button>
+			<script src="https://www.google.com/recaptcha/api.js" async defer>
+			</script>
+			
+			<script>
+			function hideRecaptcha(){
+				document.getElementById("recaptcha").style.display = "none"
+			}
+			
+			</script>
+			var buttonPressed = false
+			function getButtonPressed()
+			{
+				
+			}
+			<div>
+				<div id="recaptcha">
+					<div
+					class="g-recaptcha"
+					data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+					data-callback="onRecaptchaSuccess"
+					data-expired-callback="onRecaptchaResponseExpiry"
+					data-error-callback="onRecaptchaError"
+					>
+			  
+					</div>
+					<button type="button" id="submitButton">
+					Submit your sound!
+					</button>
+					<button type="button" id="hideSubmit" onclick="hideRecaptcha()">
+					Hide these buttons!
+					</button>
+
+					
+				</div>
+				
+			  
+				</div>
 				<div>
 				<canvas id="SoundBowJS" data-processing-sources="./javascripts/SoundBow_JS.pde" width="1000" height="600">
 					<p>Your browser does not support the canvas tag.</p>
@@ -110,8 +170,7 @@
 					<p>JavaScript is required to view the contents of this page.</p>
 				</noscript>
 				</div>
-				<h1>SoundBow_JS</h1>
-			</div>
-		</body>
-	<script src="./javascripts/recordAudio.js" type="text/javascript"></script>
+	    	</div>
+		</div>
+	</body>
 </html>
