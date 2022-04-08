@@ -94,8 +94,11 @@
 		function sendDrawing(arrayInfoSb)
 		{
 			arrayInfo = arrayInfoSb
-			console.log(JSON.stringify(arrayInfo))
+			payload = JSON.stringify(arrayInfo)
 			document.getElementById("recaptcha").style.display ="block"
+			const para = document.createElement("p");
+			para.id = "payload"
+			para.innerText = payload
 
 
 
