@@ -72,6 +72,8 @@ router.post('/save', function(req, res) {
     
             // TODO: Validate, Sanitize and Upload the data in payload
             // const { payload: {data} } = req;
+
+            res.cookie('hasSentSound', 'true');
     
             res.writeHead(200, {
                 'Content-Type': 'application/json'
