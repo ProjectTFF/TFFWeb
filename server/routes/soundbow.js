@@ -1,58 +1,105 @@
 var express = require('express');
+const fs = require('fs');
 var router = express.Router();
 var path = require('path');
 const { stringify } = require('querystring');
-
-/* Serving the Soundbow page 
-TODO: Set cookie to track client from sending multiple files in a row.
-*/
-router.get('/', function(req, res) {
-    // res.render('../public/soundbow.html');
-    res.send(path.join(__dirname, '../', 'public', 'soundbow.html'));
-})
+require("es6-promise").polyfill()
+require("isomorphic-fetch")
 
 /* POST request for sending Soundbow data 
     Requirements for taking in data:
-     - IP hasn't sent a response just earlier (This needs the database)
      - Given cookie hasn't just sent a response (This also needs the database)
      - File validation for security:
-      - Check that file exists
-      - Check the file size
-      - Check the file ending (user has selected recorded file)
-      - Check the file encoding (????)
-      - Use external package for MIME types (???)
-     
+     - Check that file exists
+     - Check the file size
+     - Check the file ending (user has selected recorded file)
+     - Check the file encoding (????)
+     - Use external package for MIME types (???)
 */
 router.post('/save', function(req, res) {
     
-    const videoFile = req.files.soundbow_video;
-    // const savePath = __dirname + '/images/' + image.name
-    const savePath = path.join(__dirname, '..', 'upload', videoFile.name);
-    var clientIP =  'Sender ip: ' + stringify(req.ip);
-    var clientremoteAddr = 'Sender remoteAddr: ' + stringify(req.RemoteAddr);
-    console.log( stringify((req.headers['x-forwarded-for'] || req.connection.remoteAddress || '').split(',')[0].trim()));
+    // Check that cooke isn't yet used.
+    var cookie = req.cookies.hasSentSound;
+    if (cookie == undefined) {
+        var errorMessage = 'Cookie is missing. Please enable cookies on your browser and try again.'
+        console.log(errorMessage);
+        res.writeHead(500, {
+            'Content-Type': 'application/json'
+        });
+        
+        res.end(JSON.stringify({status: 'error', message: errorMessage}));
+        return;
+    }
+    else if (cookie === 'true') {
+        var errorMessage = 'You have already uploaded one sound!'
+        console.log(errorMessage);
+        res.writeHead(500, {
+            'Content-Type': 'application/json'
+        });
+        res.end(JSON.stringify({status: 'error', message: errorMessage}));
+        return;
+    }
+    else {
+        console.log("Cookie exists, and hasn't been used: " + cookie);
+        
+        // Check the reCaptchaToken
+        const { headers: { token } } = req;
+        const { body: { content } } = req;
+        // console.log(content);
 
-    console.log('3rd party app clientIP: ' + stringify(req.clientIp));
-    console.log(clientIP);
-    console.log(clientremoteAddr);
-    console.log('jonkun ip: ' + req.socket.remoteAddress);
-    
-    videoFile.mv(savePath, (error) => {
-        if (error) {
-            console.log(error);
-            res.writeHead(500, {
-                'Content-Type': 'application/json'
-            });
-            res.end(JSON.stringify({status: 'error', message: error, clientIP: clientIP, clientremoteAddr: clientremoteAddr }));
-            return;
+        const RECAPTCHA_SERVER_KEY = process.env.RECAPTCHA_SERVER_KEY
+        // console.log("RECAPTCHA_SERVER_KEY: " + RECAPTCHA_SERVER_KEY);
+        // console.log("token käyttäjältjä: " + token);
+        // Validate Human
+        fetch(`https://www.google.com/recaptcha/api/siteverify`, {
+        method: "post",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/x-www-form-urlencoded; charset=utf-8"
+        },
+        body: `secret=${RECAPTCHA_SERVER_KEY}&response=${token}`
+        })
+        .then(res => res.json())
+        .then(json => {
+            const isHuman = json.success;
+            console.log("ihmiststatus: " + isHuman);
+            if (token === null || !isHuman) {
+                res.writeHead(200, {
+                    'Content-Type': 'application/json'
+                });
+                res.end(JSON.stringify({status: 'Unsuccesfull', message: 'YOU ARE NOT A HUMAN.'}));
+                return;
             }
-            
+    
+            // The code below will run only after the reCAPTCHA is succesfully validated.
+            console.log("SUCCESS!")
+    
+            // TODO: Validate, Sanitize and Upload the content in payload
+            var timestamp = Date.now();
+            const fileName = 'data_' + timestamp.toString() + '.json';
+            const savePath = path.join(__dirname, '..', 'upload', fileName);
+            fs.writeFileSync(savePath, content);
+
+            res.cookie('hasSentSound', 'true');
+    
             res.writeHead(200, {
                 'Content-Type': 'application/json'
             });
-            res.end(JSON.stringify({status: 'success', path: savePath, clientIP: clientIP, clientremoteAddr: clientremoteAddr }));
-        }
-    )
+            res.end(JSON.stringify({status: 'success'}));
+            return;
+        })
+        .catch(err => {
+            console.log('recaptcha response is undefined ??');
+            console.log(err.message);
+            res.writeHead(200, {
+                'Content-Type': 'application/json'
+            });
+            res.end(JSON.stringify({status: 'error', message: err.message}));
+            return;
+        })
+
+        
+    }
 })
 
 module.exports = router;
