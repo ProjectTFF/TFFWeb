@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cors = require('cors');
 const fileupload = require('express-fileupload');
 // const cookieSession = require('cookie-session');
+const bodyParser = require('body-parser');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -25,7 +26,7 @@ var app = express();
 //   }
 // });
 
-
+app.use(bodyParser.json({ type: 'application/*+json' }));
 // If the user doesn't have a cookie ready, set it up.
 app.use(cookieParser());
 app.use(function(req, res, next) {
@@ -33,7 +34,7 @@ app.use(function(req, res, next) {
   if (cookie == undefined) {
       // no: Set a new cookie
       res.cookie('hasSentSound', false, {maxAge: 24 * 60 * 60 * 1000});
-      console.log('Cookie created for new client: ' + req.cookies.hasSentSound);
+      console.log('Cookie created for new client. ');
   }
   else {
       console.log('cookie is: ' + req.cookies.hasSentSound);
@@ -45,8 +46,8 @@ app.use(cors());
 app.use(fileupload());
 app.use(logger('dev'));
 app.use(express.json());
+
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'build')));
 app.use(express.static(path.join(__dirname, 'public')));
 

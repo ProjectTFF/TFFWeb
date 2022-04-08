@@ -12,12 +12,17 @@ xhr_uploadSound.onload = function () {
     }
 }
 
-async function uploadSound(payload, token) {
+async function uploadSound(token) {
     console.log("Uploading sound.");
     // TODO: SET PAYLOAD FOR SOUNDBOWDATA
     var payload = document.getElementById("payload");
+    var data = payload.innerText;
+    var dddata = JSON.stringify({content: data});
+    console.log(data);
     // TODO: SET DEPLOY VALUE FOR URL
     xhr_uploadSound.open("POST", "http://localhost:3001/api/soundbow/save");
+    xhr_uploadSound.setRequestHeader("Content-Type", "application/json");
+    xhr_uploadSound.setRequestHeader('Accept', 'application/json');
     xhr_uploadSound.setRequestHeader('Token', token);
-    xhr_uploadSound.send(payload);
+    xhr_uploadSound.send(dddata);
 }

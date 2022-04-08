@@ -1,4 +1,5 @@
 var express = require('express');
+const fs = require('fs');
 var router = express.Router();
 var path = require('path');
 const { stringify } = require('querystring');
@@ -43,9 +44,12 @@ router.post('/save', function(req, res) {
         
         // Check the reCaptchaToken
         const { headers: { token } } = req;
+        const { body: { content } } = req;
+        // console.log(content);
+
         const RECAPTCHA_SERVER_KEY = process.env.RECAPTCHA_SERVER_KEY
-        console.log("RECAPTCHA_SERVER_KEY: " + RECAPTCHA_SERVER_KEY);
-        console.log("token käyttäjältjä: " + token);
+        // console.log("RECAPTCHA_SERVER_KEY: " + RECAPTCHA_SERVER_KEY);
+        // console.log("token käyttäjältjä: " + token);
         // Validate Human
         fetch(`https://www.google.com/recaptcha/api/siteverify`, {
         method: "post",
@@ -60,7 +64,7 @@ router.post('/save', function(req, res) {
             const isHuman = json.success;
             console.log("ihmiststatus: " + isHuman);
             if (token === null || !isHuman) {
-                res.writeHead(500, {
+                res.writeHead(200, {
                     'Content-Type': 'application/json'
                 });
                 res.end(JSON.stringify({status: 'Unsuccesfull', message: 'YOU ARE NOT A HUMAN.'}));
@@ -70,8 +74,11 @@ router.post('/save', function(req, res) {
             // The code below will run only after the reCAPTCHA is succesfully validated.
             console.log("SUCCESS!")
     
-            // TODO: Validate, Sanitize and Upload the data in payload
-            // const { payload: {data} } = req;
+            // TODO: Validate, Sanitize and Upload the content in payload
+            var timestamp = Date.now();
+            const fileName = 'data_' + timestamp.toString() + '.json';
+            const savePath = path.join(__dirname, '..', 'upload', fileName);
+            fs.writeFileSync(savePath, content);
 
             res.cookie('hasSentSound', 'true');
     
@@ -84,7 +91,7 @@ router.post('/save', function(req, res) {
         .catch(err => {
             console.log('recaptcha response is undefined ??');
             console.log(err.message);
-            res.writeHead(500, {
+            res.writeHead(200, {
                 'Content-Type': 'application/json'
             });
             res.end(JSON.stringify({status: 'error', message: err.message}));
