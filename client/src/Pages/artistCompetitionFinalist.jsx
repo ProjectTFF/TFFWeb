@@ -17,8 +17,8 @@ function ArtistCompetitionFinalist(props) {
       tickets: 'buy tickets',
     },
     finnish: {
-      title: 'Young Artist Competition Finalists (Finnish)',
-      tickets: 'buy tickets (Finnish)',
+      title: 'Young Artist Competition -kilpailun finalistit',
+      tickets: 'osta liput',
     },
   };
 

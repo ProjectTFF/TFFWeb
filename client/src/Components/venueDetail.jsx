@@ -12,7 +12,7 @@ function VenueDetail(props) {
        map: 'Show on map',
      },
      finnish: {
-       map: 'Show on map (Finnish)',
+       map: 'Näytä kartalla',
      },
    };
 

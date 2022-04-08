@@ -14,7 +14,7 @@ function SectionHeader(props) {
        all: 'See All ',
      },
      finnish: {
-       all: 'See All (Finnish)',
+       all: 'Näytä kaikki',
      },
    };
 

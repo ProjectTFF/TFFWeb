@@ -15,8 +15,8 @@ function Venue(props) {
       tickets: 'buy tickets',
     },
     finnish: {
-      title: 'venue (Finnish)',
-      tickets: 'buy tickets (Finnish)',
+      title: 'Tapahtumapaikka',
+      tickets: 'osta liput',
     },
   };
 
