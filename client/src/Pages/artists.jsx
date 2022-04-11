@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import ArtistCollection from '../Components/artistDefault';
 import PrimaryButton from '../Components/primaryButton';
+import DefaultButton from '../Components/defaultButton';
 
 import '../Assets/Styles/artists.css';
 
@@ -23,11 +24,15 @@ function Artists(props) {
   let content = {
     english: {
       title: 'Artists',
-      tickets: 'buy tickets',
+      // tickets: 'buy tickets',
+      buyTickets: 'buy tickets',
+      buyStreaming: 'buy Streaming',
     },
     finnish: {
       title: 'Artistit',
-      tickets: 'osta liput',
+      // tickets: 'osta liput',
+      buyTickets: 'osta liput',
+      buyStreaming: 'osta suoratoisto',
     },
   };
 
@@ -46,12 +51,21 @@ function Artists(props) {
          ))}
           </div>
 
-          <div className="button-wrap">
-            <PrimaryButton
-              buttonText={content.tickets}
-              showIcon
-            />
-          </div>
+          <ul className="btn-groups">
+            <li>
+              <PrimaryButton
+                buttonText={content.buyTickets}
+                showIcon
+              />
+            </li>
+            <li>
+              <DefaultButton
+                url="https://www.lippu.fi/en/eventseries/tampere-flute-fest-2022-livestriimi-3116312/"
+                buttonText={content.buyStreaming}
+                showIcon
+              />
+            </li>
+          </ul>
         </div>
       </div>
     </main>

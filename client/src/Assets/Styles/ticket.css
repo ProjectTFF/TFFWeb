@@ -1,6 +1,16 @@
+.btn-groups {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+}
+
 .ticket-holder {
    padding-bottom: 4rem;
 }
+
+/* .ticket-holder .btn-groups {
+   display: block;
+} */
 
 .ticket-text-content {
    font-size: 1.8rem;
@@ -18,8 +28,9 @@
    width: 100%;
 }
 
-.ticket-holder .btn-groups li {
+.btn-groups li {
    margin: 0 0 3rem;
+   padding: 0 1rem;
    text-align: center;
 }
 
@@ -29,7 +40,7 @@
       line-height: 1.458;
    }
 
-   .ticket-holder .btn-groups li {
+   .btn-groups li {
       margin-bottom: 3.5rem;
    }
 }

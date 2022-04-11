@@ -9,6 +9,7 @@ import ArtistCollection from '../Components/artistDefault';
 import { ThumbnailCardObject } from '../Helpers/ThumbnailCardImageMap';
 import SectionHeader from '../Components/sectionHeader';
 import { ArtistPictureMap } from '../Helpers/ArtistPictureMap';
+import DefaultButton from '../Components/defaultButton';
 
 import '../Assets/Styles/artistPage.css';
 
@@ -54,7 +55,9 @@ function ArtistPage(props) {
       performing: `See what ${artist.firstname} ${artist.lastname} will be performing in 2022`,
       previous: `Watch ${artist.firstname} ${artist.lastname}'s previous work`,
       all: 'See all artists',
-      tickets: 'buy tickets',
+      // tickets: 'buy tickets',
+      buyTickets: 'buy tickets',
+      buyStreaming: 'buy Streaming',
     },
     finnish: {
       exit: ' Näytä kaikki artistit',
@@ -63,7 +66,9 @@ function ArtistPage(props) {
       performing: `Näytä missä ${artist.firstname} ${artist.lastname} esiintyy tämän vuoden festivaaleilla`,
       previous: 'Katso artistin edellisiä esiintymisiä',
       all: 'Näytä kaikki artistit',
-      tickets: 'osta liput',
+      // tickets: 'osta liput',
+      buyTickets: 'osta liput',
+      buyStreaming: 'osta suoratoisto',
     },
   };
 
@@ -183,12 +188,21 @@ function ArtistPage(props) {
                   />
               ))}
             </div>
-            <div className="button-wrap">
-              <PrimaryButton
-                buttonText={content.tickets}
-                showIcon
-              />
-            </div>
+            <ul className="btn-groups">
+              <li>
+                <PrimaryButton
+                  buttonText={content.buyTickets}
+                  showIcon
+                />
+              </li>
+              <li>
+                <DefaultButton
+                  url="https://www.lippu.fi/en/eventseries/tampere-flute-fest-2022-livestriimi-3116312/"
+                  buttonText={content.buyStreaming}
+                  showIcon
+                />
+              </li>
+            </ul>
           </div>
         </div>
       </div>

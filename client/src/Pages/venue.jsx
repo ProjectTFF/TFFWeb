@@ -2,6 +2,7 @@ import React from 'react';
 import VenueDetail from '../Components/venueDetail';
 import PrimaryButton from '../Components/primaryButton';
 import { VenueCollection } from '../Helpers/venueCollection';
+import DefaultButton from '../Components/defaultButton';
 
 function Venue(props) {
   const {
@@ -12,11 +13,15 @@ function Venue(props) {
   let content = {
     english: {
       title: 'venue',
-      tickets: 'buy tickets',
+      // tickets: 'buy tickets',
+      buyTickets: 'buy tickets',
+      buyStreaming: 'buy Streaming',
     },
     finnish: {
       title: 'Tapahtumapaikka',
-      tickets: 'osta liput',
+      // tickets: 'osta liput',
+      buyTickets: 'osta liput',
+      buyStreaming: 'osta suoratoisto',
     },
   };
 
@@ -50,12 +55,21 @@ function Venue(props) {
                   />
             ))}
               </div>
-              <div className="button-wrap">
-                <PrimaryButton
-                  buttonText={content.tickets}
-                  showIcon
-                />
-              </div>
+              <ul className="btn-groups">
+                <li>
+                  <PrimaryButton
+                    buttonText={content.buyTickets}
+                    showIcon
+                  />
+                </li>
+                <li>
+                  <DefaultButton
+                    url="https://www.lippu.fi/en/eventseries/tampere-flute-fest-2022-livestriimi-3116312/"
+                    buttonText={content.buyStreaming}
+                    showIcon
+                  />
+                </li>
+              </ul>
             </div>
           </div>
         </div>

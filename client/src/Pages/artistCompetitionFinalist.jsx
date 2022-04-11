@@ -2,6 +2,7 @@ import React from 'react';
 import ArtistCompetition from '../Components/artistCompetition';
 import { CompetitionFinalist } from '../Helpers/competitionFinalist';
 import PrimaryButton from '../Components/primaryButton';
+import DefaultButton from '../Components/defaultButton';
 
 import '../Assets/Styles/artists.css';
 
@@ -14,11 +15,15 @@ function ArtistCompetitionFinalist(props) {
   let content = {
     english: {
       title: 'Young Artist Competition Finalists',
-      tickets: 'buy tickets',
+      // tickets: 'buy tickets',
+      buyTickets: 'buy tickets',
+      buyStreaming: 'buy Streaming',
     },
     finnish: {
       title: 'Young Artist Competition -kilpailun finalistit',
-      tickets: 'osta liput',
+      // tickets: 'osta liput',
+      buyTickets: 'osta liput',
+      buyStreaming: 'osta suoratoisto',
     },
   };
 
@@ -40,13 +45,21 @@ function ArtistCompetitionFinalist(props) {
               />
          ))}
           </div>
-
-          <div className="button-wrap">
-            <PrimaryButton
-              buttonText={content.tickets}
-              showIcon
-            />
-          </div>
+          <ul className="btn-groups">
+            <li>
+              <PrimaryButton
+                buttonText={content.buyTickets}
+                showIcon
+              />
+            </li>
+            <li>
+              <DefaultButton
+                url="https://www.lippu.fi/en/eventseries/tampere-flute-fest-2022-livestriimi-3116312/"
+                buttonText={content.buyStreaming}
+                showIcon
+              />
+            </li>
+          </ul>
         </div>
       </div>
     </main>

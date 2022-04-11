@@ -1,6 +1,7 @@
 import React from 'react';
 import '../Assets/Styles/errorPage.css';
 import PrimaryButton from '../Components/primaryButton';
+import DefaultButton from '../Components/defaultButton';
 
 function Programme(props) {
   const {
@@ -11,11 +12,15 @@ function Programme(props) {
   let content = {
     english: {
       soon: 'Coming Soon!',
-      tickets: 'buy tickets',
+      // tickets: 'buy tickets',
+      buyTickets: 'buy tickets',
+      buyStreaming: 'buy Streaming',
     },
     finnish: {
       soon: 'Tulossa!',
-      tickets: 'osta liput',
+      // tickets: 'osta liput',
+      buyTickets: 'osta liput',
+      buyStreaming: 'osta suoratoisto',
     },
   };
 
@@ -24,12 +29,21 @@ function Programme(props) {
     <div className="comingSoon-page-wrapper">
       <div className="comingSoon-page-holder">
         <h1>{content.soon}</h1>
-        <div className="button-wrap">
-          <PrimaryButton
-            buttonText={content.tickets}
-            showIcon
-          />
-        </div>
+        <ul className="btn-groups">
+          <li>
+            <PrimaryButton
+              buttonText={content.buyTickets}
+              showIcon
+            />
+          </li>
+          <li>
+            <DefaultButton
+              url="https://www.lippu.fi/en/eventseries/tampere-flute-fest-2022-livestriimi-3116312/"
+              buttonText={content.buyStreaming}
+              showIcon
+            />
+          </li>
+        </ul>
       </div>
     </div>
   );
