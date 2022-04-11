@@ -4,6 +4,15 @@
   width: 100%;
 }
 
+.venue-location-holder .btn-groups {
+ display: block;
+}
+
+.venue-location-holder .btn-groups li {
+  text-align: left;
+  padding: 0;
+}
+
 .venue-map-holder iframe {
   position: absolute;
   left: 0;
