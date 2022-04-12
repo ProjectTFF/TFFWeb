@@ -91,6 +91,29 @@ exports.programme_info_by_id = function (req, res, next) {
         type: db.sequelize.QueryTypes.SELECT
     })
     .then(infos => {
+        infos.map(performance => {
+            if(performance.performanceinfo_eng != null)
+            {
+            var path = './text/eventinfos/';
+            //remove the " character to have a proper link
+            var find = '\"';
+            var re = new RegExp(find, 'g');
+
+            var file_eng = path.concat(JSON.stringify(performance.performanceinfo_eng)).replace(re,'');
+            var file_fin = path.concat(JSON.stringify(performance.performanceinfo_fin)).replace(re,'');
+            
+            var buffer_eng = fs.readFileSync(file_eng);
+            var buffer_fin = fs.readFileSync(file_fin);
+
+            // use the toString() method to convert
+            // Buffer into String
+            var fileContent_eng = buffer_eng.toString();
+            var fileContent_fin = buffer_fin.toString();
+
+            performance.performanceinfo_eng = fileContent_eng;
+            performance.performanceinfo_fin = fileContent_fin;
+            }
+        })
         res.status(200).send(JSON.stringify(infos));
     })
     .catch( err => {
@@ -99,4 +122,8 @@ exports.programme_info_by_id = function (req, res, next) {
         res.send(JSON.stringify(error));
     })
     
+}
+
+exports.artists_performance = function (req, res, next) {
+
 }

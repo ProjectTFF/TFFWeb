@@ -16,4 +16,8 @@ router.get('/:concertid', function(req, res, next) {
   programmeController.programme_info_by_id(req, res, next);
 });
 
+router.get('/:performanceid', function(req, res, next) {
+  programmeController.artists_performance(req, res, next);
+});
+
 module.exports = router;
