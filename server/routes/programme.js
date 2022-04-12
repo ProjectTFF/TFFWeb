@@ -5,11 +5,10 @@ var programmeController = require('../controllers/programmeController');
 
 /* GET General programme introduction page*/
 router.get('/', function(req, res, next) {
-  res.send('Here we would serve some content for the general main page.');
+  programmeController.all_performances(req, res, next);
 });
 
-router.get('/:programmeid', function(req, res, next) {
-    //const artistid = req.params.artistid;
+router.get('/allprogrammes', function(req, res, next) {
     programmeController.programme_info_by_id(req, res, next);
 });
 

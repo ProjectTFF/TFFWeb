@@ -103,7 +103,7 @@ freezeTableName: true,}
 );
 
 // model for 'performance' table
-const Performance = sequelize.define('composition', {
+const Performance = sequelize.define('performance', {
     performanceid: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -211,7 +211,7 @@ freezeTableName: true}
 );
 
 // model for the 'programme' table
-const Programme = sequelize.define('concert', {
+const Programme = sequelize.define('programme', {
     concertid: {
         type: Sequelize.INTEGER,
         allowNull: false,
