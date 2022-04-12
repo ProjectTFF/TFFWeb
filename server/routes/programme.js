@@ -9,7 +9,11 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/allprogrammes', function(req, res, next) {
-    programmeController.programme_info_by_id(req, res, next);
+    programmeController.programme_info(req, res, next);
+});
+
+router.get('/:concertid', function(req, res, next) {
+  programmeController.programme_info_by_id(req, res, next);
 });
 
 module.exports = router;

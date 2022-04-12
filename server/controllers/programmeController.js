@@ -47,11 +47,11 @@ exports.all_performances = function(req,res,next) {
     })
 }
 
-exports.programme_info_by_id = function (req, res, next) {
+exports.programme_info = function (req, res, next) {
     db.sequelize.query('SELECT concertid, concertname, concertdate, Venue.venueid, venuename FROM Concert JOIN Venue ON Concert.venueid = Venue.venueid', {
         type: db.sequelize.QueryTypes.SELECT
       })
-    .then( concerts => {
+    .then(concerts => {
         concerts.map(concert => {
         if(parseInt(concert.concertid,10)==1)
         {
@@ -73,6 +73,7 @@ exports.programme_info_by_id = function (req, res, next) {
         {
             concert.concertname = 'TFF Jää/Ice Lunch Pass';
         }
+        
         })
         
         res.status(200).send(JSON.stringify(concerts));
@@ -82,4 +83,20 @@ exports.programme_info_by_id = function (req, res, next) {
         var error = {"error":"An error occurred during the gathering of the programme information"};
         res.send(JSON.stringify(error));
     })
+}
+
+exports.programme_info_by_id = function (req, res, next) {
+    db.sequelize.query('SELECT Performance.performanceid, performancename_eng, performancename_fin, performancestarttime, performanceendtime, performanceinfo_eng, performanceinfo_fin FROM Programme JOIN Performance ON Programme.performanceid = Performance.performanceid WHERE Programme.concertid = (:id)', {
+        replacements: {id: req.params.concertid},
+        type: db.sequelize.QueryTypes.SELECT
+    })
+    .then(infos => {
+        res.status(200).send(JSON.stringify(infos));
+    })
+    .catch( err => {
+        console.log(JSON.stringify(err));
+        var error = {"error":"An error occurred during the gathering of the performance for this concert"};
+        res.send(JSON.stringify(error));
+    })
+    
 }
