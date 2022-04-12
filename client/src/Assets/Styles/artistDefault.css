@@ -35,8 +35,9 @@
 .artist-info-block .artist-name {
   display: block;
   font-size: 1.6rem;
-  line-height: 1.25;
+  line-height: 1.375;
   color: #fff;
+  font-family: 'gogoia', Times New Roman, serif;
 }
 
 @media screen and (min-width: 490px) {
@@ -71,7 +72,8 @@
   }
 
   .artist-info-block .artist-name {
-    font-size: 2rem;
+    font-size: 2.4rem;
+    line-height: 1.25;
   }
 }
 

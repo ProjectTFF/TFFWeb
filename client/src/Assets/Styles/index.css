@@ -77,7 +77,7 @@ a:hover {
 }
 
 p {
-  margin: 0 0 2.2rem;
+  margin: 0 0 3rem;
 }
 
 .wrapper {
@@ -130,4 +130,18 @@ ul {
   margin-bottom: 3rem;
   font-family: gogoia, 'Times New Roman', serif;
   font-weight: 400;
+}
+
+
+@media screen and (min-width: 768px) {
+  body {
+    font-size: 1.8rem;
+    line-height: 1.166;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  body.nav-active {
+    overflow: visible;
+  }
 }

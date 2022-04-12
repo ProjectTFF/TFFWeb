@@ -1,8 +1,7 @@
 import React from 'react';
-import VenueDetail from '../Components/venueDetail';
 import PrimaryButton from '../Components/primaryButton';
-import { VenueCollection } from '../Helpers/venueCollection';
 import DefaultButton from '../Components/defaultButton';
+import '../Assets/Styles/venue.css';
 
 function Venue(props) {
   const {
@@ -13,15 +12,25 @@ function Venue(props) {
   let content = {
     english: {
       title: 'venue',
-      // tickets: 'buy tickets',
       buyTickets: 'buy tickets',
       buyStreaming: 'buy Streaming',
+      venue1: 'Tampere Hall',
+      venue2: 'Tampere Conservatoire',
+      venue3: 'Culture House Laikku',
+      weekDay1: 'Friday',
+      weekDay2: 'Saturday',
+      weekDay3: 'Sunday',
     },
     finnish: {
       title: 'Tapahtumapaikka',
-      // tickets: 'osta liput',
       buyTickets: 'osta liput',
       buyStreaming: 'osta suoratoisto',
+      venue1: 'Tampere-Talo',
+      venue2: 'Tampereen konservatorio',
+      venue3: 'Kulttuuritalo Laikku',
+      weekDay1: 'Perjantai',
+      weekDay2: 'Lauantai',
+      weekDay3: 'Sunnuntai',
     },
   };
 
@@ -34,44 +43,52 @@ function Venue(props) {
           <div className="venue-holder">
             <div className="venue-map-holder">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1904.0180958149626!2d23.778449816160823!3d61.496056382468666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x468edf5403e22497%3A0xca85cc20221ba48d!2sTampere-talo%20Oy!5e0!3m2!1sen!2sfi!4v1649333564614!5m2!1sen!2sfi"
-                width="600"
-                height="450"
-                title="Tampere Talo map"
-                allowFullScreen=""
-                loading="lazy"
+                src="https://www.google.com/maps/d/embed?mid=1qZruUtMM8F6h_NNdoqeU9jBLLsevKpP5&ehbc=2E312F"
+                width="640"
+                height="480"
+                title="TFF"
               />
             </div>
             <div className="venue-location-holder">
-              <div className="venue-row">
-                {VenueCollection.map((venueObj) => (
-                  <VenueDetail
-                    key={venueObj.id}
-                    venueHomeLink={venueObj.venueHomeLink}
-                    venueName={venueObj.venueName}
-                    venueAddress={venueObj.venueAddress}
-                    venueMapLink={venueObj.venueMapLink}
-                    language={language}
-                  />
-            ))}
+              <div className="venue-info">
+                <a target="_blank" href="http://www.tampere-talo.fi/" rel="noreferrer">{content.venue1}</a>
+                <span className="event-date">
+                  {content.weekDay3}
+                  &nbsp;24.4.22
+                </span>
               </div>
-              <ul className="btn-groups">
-                <li>
-                  <PrimaryButton
-                    buttonText={content.buyTickets}
-                    showIcon
-                  />
-                </li>
-                <li>
-                  <DefaultButton
-                    url="https://www.lippu.fi/en/eventseries/tampere-flute-fest-2022-livestriimi-3116312/"
-                    buttonText={content.buyStreaming}
-                    showIcon
-                  />
-                </li>
-              </ul>
+              <div className="venue-info">
+                <a target="_blank" href="https://www.tampereenkonservatorio.fi/" rel="noreferrer">{content.venue2}</a>
+                <span className="event-date">
+                  {content.weekDay2}
+                  &nbsp;23.4.22
+                </span>
+              </div>
+              <div className="venue-info">
+                <a target="_blank" href="https://www.laikku.fi/" rel="noreferrer">{content.venue3}</a>
+                <span className="event-date">
+                  {content.weekDay1}
+                  &nbsp;22.4.22
+                </span>
+              </div>
+
             </div>
           </div>
+          <ul className="btn-groups">
+            <li>
+              <PrimaryButton
+                buttonText={content.buyTickets}
+                showIcon
+              />
+            </li>
+            <li>
+              <DefaultButton
+                url="https://www.lippu.fi/en/eventseries/tampere-flute-fest-2022-livestriimi-3116312/"
+                buttonText={content.buyStreaming}
+                showIcon
+              />
+            </li>
+          </ul>
         </div>
       </div>
     </main>

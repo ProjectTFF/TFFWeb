@@ -9,11 +9,12 @@
 }
 
 .section-title-block h2 {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 300;
-  line-height: 1.642;
+  line-height: 1.5;
   margin: 0;
   width: 70%;
+  text-transform: uppercase;
 }
 
 .section-title-block h2:only-child {
@@ -24,6 +25,8 @@
   display: inline-block;
   padding: 0 2.5rem 0 0;
   position: relative;
+  font-size: 1.4rem;
+  line-height: 1.285;
 }
 
 .section-title-block .link-wrap a svg {

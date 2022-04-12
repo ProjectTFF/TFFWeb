@@ -20,6 +20,7 @@ export function NavMenu(props) {
       programme: 'Programme',
       venue: 'Venue',
       tickets: 'Tickets and streaming',
+      languageText: 'VAIHDA KIELI',
       language: 'FI',
     },
     finnish: {
@@ -29,6 +30,7 @@ export function NavMenu(props) {
       programme: 'Ohjelma',
       venue: 'Tapahtumapaikat',
       tickets: 'Liput ja suoratoisto',
+      languageText: 'CHANGE TO',
       language: 'EN',
     },
   };
@@ -94,13 +96,18 @@ export function NavMenu(props) {
             </NavLink>
           </li> */}
 
-          <li className="language-item">
-            <button className="language-select" onClick={() => handleSetLanguage(language === 'english' ? 'finnish' : 'english')} type="button">
-              {content.language}
-            </button>
-          </li>
         </ul>
       </nav>
+      <div className="language-wrap">
+        <span className="language-text">{content.languageText}</span>
+        <button
+          className="language-select"
+          onClick={() => handleSetLanguage(language === 'english' ? 'finnish' : 'english')}
+          type="button"
+        >
+          {content.language}
+        </button>
+      </div>
     </div>
   );
 }
