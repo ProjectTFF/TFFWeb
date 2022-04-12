@@ -1,4 +1,4 @@
-const {Performance, Concert, Programme, Venue } = require('../db/database');
+const {Performance, Concert, Programme, Venue, Artist, Performsin } = require('../db/database');
 const db = require('../db/database');
 const fs = require("fs");
 
@@ -92,6 +92,36 @@ exports.programme_info_by_id = function (req, res, next) {
     })
     .then(infos => {
         infos.map(performance => {
+            if (parseInt(performance.performanceid,10)==4)
+            {
+                performance.performancename_fin = 'Inside the French School - lämmittely';
+            }
+            else if (parseInt(performance.performanceid,10)==5)
+            {
+                performance.performancename_eng = 'Masterclass: Sébastian Jacot';
+                performance.performancename_fin = 'Mestarikurssi: Sébastian Jacot';
+            }
+            else if (parseInt(performance.performanceid,10)==11)
+            {
+                performance.performancename_eng = 'Recital: An American in Paris - Beatriz Macías and Alexis Roman';
+                performance.performancename_fin = 'Resitaali: An American in Paris - Beatriz Macías and Alexis Roman';
+            }
+            else if (parseInt(performance.performanceid,10)==14)
+            {
+                performance.performancename_eng = 'Masterclass: Sébastian Jacot';
+                performance.performancename_fin = 'Mestarikurssi: Sébastian Jacot';
+            }
+            else if (parseInt(performance.performanceid,10)==15)
+            {
+                performance.performancename_eng = 'Recital: La flute enchantée - Sébastian Jacot';
+                performance.performancename_fin = 'Resitaali: La flute enchantée - Sébastian Jacot';
+            }
+            else if (parseInt(performance.performanceid,10)==17)
+            {
+                performance.performancename_eng = 'JÄÄ//ICE Gala Concert';
+                performance.performancename_fin = 'JÄÄ//ICE - Gaalakonsertti';
+            }
+
             if(performance.performanceinfo_eng != null)
             {
             var path = './text/eventinfos/';
@@ -125,5 +155,30 @@ exports.programme_info_by_id = function (req, res, next) {
 }
 
 exports.artists_performance = function (req, res, next) {
-
+    db.sequelize.query('SELECT Performsin.artistid, firstname, lastname FROM Performsin JOIN Artist ON Performsin.artistid = Artist.artistid WHERE Performsin.performanceid = (:id)', {
+        replacements: {id: req.params.performanceid},
+        type: db.sequelize.QueryTypes.SELECT
+    })
+    .then(artists => {
+        artists.map(artist => {
+            if (parseInt(artist.artistid,10)==3)
+            {
+                artist.firstname = 'Sébastian';
+            }
+            else if (parseInt(artist.artistid,10)==4)
+            {
+                artist.lastname = 'Jämsä';
+            }
+            else if (parseInt(artist.artistid,10)==5)
+            {
+                artist.lastname = 'Kärkkäinen';
+            }
+        })
+        res.status(200).send(JSON.stringify(artists));
+    })
+    .catch( err => {
+        console.log(JSON.stringify(err));
+        var error = {"error":"An error occurred during the gathering of the artists for this performance"};
+        res.send(JSON.stringify(error));
+    })
 }
