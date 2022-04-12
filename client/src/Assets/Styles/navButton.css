@@ -4,7 +4,7 @@
   border: 0;
   padding: 0;
   display: block;
-  width: 2rem;
+  width: 3rem;
 }
 
 .menu-btn img {
@@ -13,4 +13,10 @@
 
 .menu--close {
   margin-left: auto;
+}
+
+@media screen and (min-width: 1024px) {
+  .menu-btn {
+    display: none;
+  }
 }

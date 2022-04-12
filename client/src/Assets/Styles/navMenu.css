@@ -27,33 +27,34 @@
   padding: 7rem 3rem 0;
 }
 
-.navbar ul {
+.navbar-nav {
   font-size: 1.6rem;
   line-height: 1.25;
 }
 
-.navbar ul li {
+.navbar-nav li {
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   padding: 2rem 0;
 }
 
-.navbar ul li .nav-link {
+.navbar-nav li .nav-link {
   color: #fff;
   display: block;
   position: relative;
   padding-right: 2rem;
+  text-transform: uppercase;
 }
 
-.navbar ul li .nav-link:hover {
+.navbar-nav li .nav-link:hover {
   color: #00d1ff;
 }
 
-.navbar ul li .nav-link.active {
+.navbar-nav li .nav-link.active {
   color: #00d1ff;
   text-decoration: underline;
 }
 
-.navbar ul li .nav-link svg {
+.navbar-nav li .nav-link svg {
   position: absolute;
   right: 0;
   top: 0;
@@ -61,24 +62,129 @@
   line-height: 1;
 }
 
-.navbar ul li .language-select {
+.language-wrap {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 2rem 0;
+  margin: 0 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.language-text {
+  font-size: 1.6rem;
+  line-height: 1.25;
+  font-weight: 400;
+  margin-right: 0.5rem;
+}
+
+.language-select {
   color: #fff;
   display: block;
   position: relative;
   padding: 0;
   background: none;
   border: none;
-  font-size: 1.8rem;
-  line-height: 1.222;
+  font-size: 1.5rem;
+  line-height: 1.25;
   cursor: pointer;
 }
 
-.navbar ul li .language-select:hover {
+.language-select:hover {
   color: #00d1ff;
 }
 
 @media screen and (min-width: 430px) {
   .nav-drop {
     width: 36rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .nav-drop {
+    width: 100%;
+    position: static;
+    visibility: visible;
+    opacity: 1;
+    background: none;
+    height: auto;
+    overflow: visible;
+    transition: none;
+    transform: none;
+  }
+
+  .nav-drop-active.nav-drop {
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+  }
+
+  .navMenu {
+    padding: 0;
+  }
+
+  .navbar {
+    padding: 0;
+  }
+
+  .navbar-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    line-height: 1;
+  }
+
+  .navbar-nav li {
+    border: 0;
+    padding: 0 0.7rem;
+  }
+
+  .navbar-nav li .nav-link {
+    display: inline;
+    padding: 0;
+    color: #cbcfd4;
+  }
+
+  .navbar-nav li .nav-link svg {
+    display: none;
+  }
+
+  .language-wrap {
+    border: 0;
+    padding: 0;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0;  
+    display: block;
+  }
+
+  .language-text {
+    display: none;
+  }
+
+  .language-select {
+    color: #cbcfd4;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .navbar-nav {
+    font-size: 1.7rem;
+  }
+
+  .navbar-nav li {
+    padding: 0 1.3rem;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .navbar-nav {
+    font-size: 1.8rem;
+  }
+
+  .navbar-nav li {
+    padding: 0 2rem;
   }
 }
