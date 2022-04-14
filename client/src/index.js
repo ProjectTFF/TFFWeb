@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './Assets/Styles/index.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ShowHideNav from './Helpers/showHideNav';
+import Footer from './Components/footer';
 
 import {
   ArtistPage, Artists, Home, Programme, Tickets,
@@ -14,7 +15,7 @@ function App() {
 
   return (
     <Router>
-      <div className="wrapper">
+      <div className="wrapper" id="wapper">
         <ShowHideNav
           language={language}
           handleSetLanguage={(l) => {
@@ -41,6 +42,7 @@ function App() {
           </Route>
           <Route path="*" element={<ErrorPage language={language} />} />
         </Routes>
+        <Footer />
       </div>
     </Router>
   );
