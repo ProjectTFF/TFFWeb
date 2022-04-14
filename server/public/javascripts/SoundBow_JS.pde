@@ -332,11 +332,11 @@ class GUI
   GUI() 
   {
     introImage = loadImage("./images/intro.png");
-    btn1 = loadImage("./images/btn_1.png");
-    btn2 = loadImage("./images/btn_2.png");
-    btn4 = loadImage("./images/btn_4.png");
-    btn5 = loadImage("./images/btn_5.png");
-    btn6 = loadImage("./images/btn_6.png");
+    btn1 = loadImage("./images/oneset.svg");
+    btn2 = loadImage("./images/secondset.svg");
+    btn6 = loadImage("./images/send.svg");
+    btn5 = loadImage("./images/reset.svg");
+    btn4 = loadImage("./images/record_btn.png");
   } 
   
   public void drawintroImage()
@@ -360,11 +360,9 @@ class GUI
   {
     colorMode(HSB);
     noStroke();
-    tint(255);
-    
-    tint(60,100,180);
+
     image(btn1, width-40,35,50,50);
-    tint(80,100,180);
+
     image(btn2, width-40,85,50,50);
    
     if(scale1Pressed)
@@ -420,7 +418,6 @@ class GUI
   {
     noStroke();
     colorMode(HSB);
-    tint(140,100,180);
     image(btn4, width-40,height-60,50,50);
   
     if(resetPressed)
@@ -437,7 +434,6 @@ class GUI
   {
 	noStroke();
     colorMode(HSB);
-    tint(140,100,180);
     image(btn6, width-40,height-160,50,50);
   
     if(getDrawingPressed)
@@ -454,7 +450,6 @@ class GUI
   {
 	noStroke();
     colorMode(HSB);
-    tint(140,100,180);
     image(btn6, width-40,height-210,50,50);
   
     if(setDrawingPressed)
@@ -471,7 +466,6 @@ class GUI
   {
     noStroke();
     colorMode(HSB);
-    tint(160,100,180);
     image(btn5, width-40,height-110,50,50);
     if(clearPressed)
     {
