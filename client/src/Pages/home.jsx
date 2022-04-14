@@ -58,6 +58,8 @@ function Home(props) {
       highlights: 'Programme highlights',
       events: 'Program',
       previous: 'Highlights from previous years',
+      ticketLink: 'https://www.lippu.fi/en/artist/tampere-flute-fest/',
+      streamLink: 'https://www.lippu.fi/en/eventseries/tampere-flute-fest-2022-livestriimi-3116312/',
     },
     finnish: {
       title: 'Tampere Flute Fest',
@@ -70,6 +72,8 @@ function Home(props) {
       highlights: 'Poimintoja ohjelmistosta',
       events: 'Tapahtumat',
       previous: 'Kohokohtia aikaisemmilta vuosilta',
+      ticketLink: 'https://www.lippu.fi/artist/tampere-flute-fest/',
+      streamLink: 'https://www.lippu.fi/eventseries/tampere-flute-fest-2022-livestriimi-3116312/',
     },
   };
 
@@ -122,13 +126,14 @@ function Home(props) {
               <ul className="btn-groups">
                 <li>
                   <PrimaryButton
+                    url={content.ticketLink}
                     buttonText={content.buyTickets}
                     showIcon
                   />
                 </li>
                 <li>
                   <DefaultButton
-                    url="https://www.lippu.fi/en/eventseries/tampere-flute-fest-2022-livestriimi-3116312/"
+                    url={content.streamLink}
                     buttonText={content.buyStreaming}
                     showIcon
                   />
@@ -192,13 +197,14 @@ function Home(props) {
           <ul className="btn-groups">
             <li>
               <PrimaryButton
+                url={content.ticketLink}
                 buttonText={content.buyTickets}
                 showIcon
               />
             </li>
             <li>
               <DefaultButton
-                url="https://www.lippu.fi/en/eventseries/tampere-flute-fest-2022-livestriimi-3116312/"
+                url={content.streamLink}
                 buttonText={content.buyStreaming}
                 showIcon
               />

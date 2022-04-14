@@ -12,15 +12,17 @@ function Programme(props) {
   let content = {
     english: {
       soon: 'Coming Soon!',
-      // tickets: 'buy tickets',
       buyTickets: 'buy tickets',
       buyStreaming: 'buy Streaming',
+      ticketLink: 'https://www.lippu.fi/en/artist/tampere-flute-fest/',
+      streamLink: 'https://www.lippu.fi/en/eventseries/tampere-flute-fest-2022-livestriimi-3116312/',
     },
     finnish: {
       soon: 'Tulossa!',
-      // tickets: 'osta liput',
       buyTickets: 'osta liput',
       buyStreaming: 'osta suoratoisto',
+      ticketLink: 'https://www.lippu.fi/artist/tampere-flute-fest/',
+      streamLink: 'https://www.lippu.fi/eventseries/tampere-flute-fest-2022-livestriimi-3116312/',
     },
   };
 
@@ -32,13 +34,14 @@ function Programme(props) {
         <ul className="btn-groups">
           <li>
             <PrimaryButton
+              url={content.ticketLink}
               buttonText={content.buyTickets}
               showIcon
             />
           </li>
           <li>
             <DefaultButton
-              url="https://www.lippu.fi/en/eventseries/tampere-flute-fest-2022-livestriimi-3116312/"
+              url={content.streamLink}
               buttonText={content.buyStreaming}
               showIcon
             />
