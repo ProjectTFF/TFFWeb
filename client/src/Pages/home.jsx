@@ -10,6 +10,7 @@ import SponsorDetail from '../Components/sponsorDetail';
 import { CardObject } from '../Helpers/NormalCardImageMap';
 import { ThumbnailCardObject } from '../Helpers/ThumbnailCardImageMap';
 import { ProgramCardObject } from '../Helpers/ProgramCardMap';
+import DefaultButton from '../Components/defaultButton';
 // import { HomeArtistObject } from '../Helpers/homeArtistMap';
 import { SponsorCollection } from '../Helpers/sponsorMap';
 import '../Assets/Styles/home.css';
@@ -51,22 +52,24 @@ function Home(props) {
       hall: 'Tampere Hall',
       p1: 'Tampere Flute Fest 2022 will bring an eclectic program of icy sonic wonder this April 22nd-24th!',
       p2: 'Inspired by the wonders of nature, this year’s edition titled “JÄÄ • ICE”, will deliver a diverse range of in-person, and live-streamed events where innovation and the flute meet.',
-      tickets: 'buy tickets',
+      buyTickets: 'buy tickets',
+      buyStreaming: 'buy Streaming',
       performing: 'Artists performing',
       highlights: 'Programme highlights',
       events: 'Program',
       previous: 'Highlights from previous years',
     },
     finnish: {
-      title: 'Tampere Flute Fest (Finnish)',
-      hall: 'Tampere Hall (Finnish)',
-      p1: 'Tampere Flute Fest 2022 will bring an eclectic program of icy sonic wonder this April 22nd-24th! (Finnish)',
-      p2: 'Inspired by the wonders of nature, this year’s edition titled “JÄÄ • ICE”, will deliver a diverse range of in-person, and live-streamed events where innovation and the flute meet. (Finnish)',
-      tickets: 'buy tickets (Finnish)',
-      performing: 'Artists performing (Finnish)',
-      highlights: 'Programme highlights (Finnish)',
-      events: 'Program (Finnish)',
-      previous: 'Highlights from previous years (Finnish)',
+      title: 'Tampere Flute Fest',
+      hall: 'Tampere-Talo',
+      p1: 'Tampere Flute Fest 2022 vie matkalle halki lumen ja jään 22.-24. huhtikuuta!',
+      p2: 'Tämän vuoden teema “JÄÄ//ICE” saa inspiraationsa luonnon ihmeistä ja luvassa on musiikillisesti monipuolinen valikoima tapahtumia, joissa voit kokea huilun uusilla tavoilla, paikan päällä tai verkon välityksellä osallistuen.',
+      buyTickets: 'osta liput',
+      buyStreaming: 'osta suoratoisto',
+      performing: 'Artistit',
+      highlights: 'Poimintoja ohjelmistosta',
+      events: 'Tapahtumat',
+      previous: 'Kohokohtia aikaisemmilta vuosilta',
     },
   };
 
@@ -116,12 +119,21 @@ function Home(props) {
             <div className="info-text-block">
               <p>{content.p1}</p>
               <p>{content.p2}</p>
-              <div className="button-wrap">
-                <PrimaryButton
-                  buttonText={content.tickets}
-                  showIcon
-                />
-              </div>
+              <ul className="btn-groups">
+                <li>
+                  <PrimaryButton
+                    buttonText={content.buyTickets}
+                    showIcon
+                  />
+                </li>
+                <li>
+                  <DefaultButton
+                    url="https://www.lippu.fi/en/eventseries/tampere-flute-fest-2022-livestriimi-3116312/"
+                    buttonText={content.buyStreaming}
+                    showIcon
+                  />
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -177,12 +189,21 @@ function Home(props) {
            ))}
             </div>
           </div>
-          <div className="button-wrap">
-            <PrimaryButton
-              buttonText={content.tickets}
-              showIcon
-            />
-          </div>
+          <ul className="btn-groups">
+            <li>
+              <PrimaryButton
+                buttonText={content.buyTickets}
+                showIcon
+              />
+            </li>
+            <li>
+              <DefaultButton
+                url="https://www.lippu.fi/en/eventseries/tampere-flute-fest-2022-livestriimi-3116312/"
+                buttonText={content.buyStreaming}
+                showIcon
+              />
+            </li>
+          </ul>
           <div className="highlight-section">
             <SectionHeader
               sectionTitle={content.previous}

@@ -9,6 +9,7 @@ import ArtistCollection from '../Components/artistDefault';
 import { ThumbnailCardObject } from '../Helpers/ThumbnailCardImageMap';
 import SectionHeader from '../Components/sectionHeader';
 import { ArtistPictureMap } from '../Helpers/ArtistPictureMap';
+import DefaultButton from '../Components/defaultButton';
 
 import '../Assets/Styles/artistPage.css';
 
@@ -52,18 +53,22 @@ function ArtistPage(props) {
       website: 'Website',
       biography: artist.biography_eng,
       performing: `See what ${artist.firstname} ${artist.lastname} will be performing in 2022`,
-      previous: `Watch ${artist.firstname} ${artist.lastname}’s previous work`,
+      previous: `Watch ${artist.firstname} ${artist.lastname}'s previous work`,
       all: 'See all artists',
-      tickets: 'buy tickets',
+      // tickets: 'buy tickets',
+      buyTickets: 'buy tickets',
+      buyStreaming: 'buy Streaming',
     },
     finnish: {
-      exit: ' Back to artists (Finnish)',
-      website: 'Website (Finnish)',
+      exit: ' Näytä kaikki artistit',
+      website: 'Websivu',
       biography: artist.biography_fin,
-      performing: `See what ${artist.firstname} ${artist.lastname} will be performing in 2022 (Finnish)`,
-      previous: `Watch ${artist.firstname} ${artist.lastname}’s previous work (Finnish)`,
-      all: 'See all artists (Finnish)',
-      tickets: 'buy tickets (Finnish)',
+      performing: `Näytä missä ${artist.firstname} ${artist.lastname} esiintyy tämän vuoden festivaaleilla`,
+      previous: 'Katso artistin edellisiä esiintymisiä',
+      all: 'Näytä kaikki artistit',
+      // tickets: 'osta liput',
+      buyTickets: 'osta liput',
+      buyStreaming: 'osta suoratoisto',
     },
   };
 
@@ -183,12 +188,21 @@ function ArtistPage(props) {
                   />
               ))}
             </div>
-            <div className="button-wrap">
-              <PrimaryButton
-                buttonText={content.tickets}
-                showIcon
-              />
-            </div>
+            <ul className="btn-groups">
+              <li>
+                <PrimaryButton
+                  buttonText={content.buyTickets}
+                  showIcon
+                />
+              </li>
+              <li>
+                <DefaultButton
+                  url="https://www.lippu.fi/en/eventseries/tampere-flute-fest-2022-livestriimi-3116312/"
+                  buttonText={content.buyStreaming}
+                  showIcon
+                />
+              </li>
+            </ul>
           </div>
         </div>
       </div>

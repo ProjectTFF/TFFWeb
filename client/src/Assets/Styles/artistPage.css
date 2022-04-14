@@ -87,6 +87,8 @@
 .artist .information {
   text-align: justify;
   padding-bottom: 4rem;
+  font-size: 1.4rem;
+  line-height: 1.5;
 }
 
 .artist .information .nav-link {
@@ -125,5 +127,19 @@
     padding-bottom: 3rem;
     min-width: 0;
     max-width: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .artist .information {
+    font-size: 1.8rem;
+    line-height: 1.555;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .artist .information {
+    font-size: 2rem;
+    line-height: 1.5;
   }
 }
