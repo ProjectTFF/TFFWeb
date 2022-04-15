@@ -91,19 +91,24 @@
 
 
 		
-		function sendDrawing(arrayInfoSb)
+		function confirmSend(arrayInfoSb)
 		{
 			var arrayInfo = arrayInfoSb
 			var payload = JSON.stringify(arrayInfo)
-			// document.getElementById("recaptcha").style.display ="block"
 			toggleConfirmationDialog();
 			var para = document.createElement("p");
 			para.style.display = "none";
 			para.id = "payload"
 			para.innerText = payload
 			document.body.appendChild(para);
-
 		}
+
+		// function showRecaptchaButton()
+		// {
+		// 	// document.getElementById("recaptcha").style.display ="block"
+		// 	toggleConfirmationDialog();
+		// 	toggleRecaptchaDialog();
+		// }
 		
 		
 		</script>
@@ -148,29 +153,29 @@
 			<div>
 				
 				<dialog id="instruction_dialog">
-					<!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
-					<h2 class="close_menu_button" onClick="toggleInstructionDialog()">Close menu</h2>
+					<!-- <h2 class="close_menu_button" onClick="toggleInstructionDialog()">Close menu</h2> -->
 					<div class="dialog_container">
 						<h2 class="dialog_header">DRAW YOUR SOUND</h2>
 						<div class="dialog_text">
 							We want to include the viewer into the festival and we want you to draw us your sound. When you are satisfied with the sound press “SEND” and the sound will be recorded and sent to us. If you aren’t happy with what you hear you can fine tune your contribution by “RESET” and try again. We will include the sounds sent to us in our festival in Tampere in 2022. 
 						</div>
+						<button class="close_button" onClick="toggleInstructionDialog()">LET'S GET DRAWING!</button>
 					</div>
 				</dialog>
 
 				<dialog id="confirmation_dialog" style="display: none">
 					<!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
-					<h2 class="close_menu_button" onClick="toggleConfirmationDialog()">Close menu</h2>
+					<!-- <h2 class="close_menu_button" onClick="toggleConfirmationDialog()">Close menu</h2> -->
 					<div class="dialog_container">
 						<h2 class="dialog_header">Send the sound?</h2>
 						<div class="dialog_text">
-							Each user is limited to one sound. When you are satisfied with the sound press “SEND” and the sound will be recorded and sent to us. If you aren’t happy with what you hear you can fine tune your contribution by “RESET” and try again.
+							Each user is limited to one sound. When you are satisfied with the sound press “SEND” and the sound will be recorded and sent to us. If you aren’t happy with what you hear you can return back to drawing your contribution by "BACK" and try again.
 							<br><br>
 							After clicking "SEND", we'll verify that you are human with Google's ReCaptcha.
 						</div>
 						<div class="confirmation_button_container">
-							<button class="send_button">SEND</button>
-							<button class="reset_button" onClick="toggleConfirmationDialog">RESET</button>
+							<button class="send_button" onClick="showRecaptchaDialog();closeDialogs()">SEND</button>
+							<button class="reset_button" onClick="toggleConfirmationDialog();deleteSoundPayload()">BACK</button>
 						</div>
 					</div>
 				</dialog>
@@ -180,24 +185,28 @@
 					<img src="./images/btn_1.png" alt="Avaa ohjeet">
 				</div>
 
-				<div id="recaptcha">
-					<div
-					class="g-recaptcha"
-					data-sitekey="6LdZnFkfAAAAAEz-Cr1BVWplbzmnEOIxrZPobxMc"
-					data-callback="uploadSound"
-					data-expired-callback="onRecaptchaResponseExpiry"
-					data-error-callback="onRecaptchaError"
-					>
+				<dialog id="recaptcha_dialog" style="display:none">
+					<div class="dialog_container_recaptcha">
+						<div id="recaptcha">
+							<div
+							class="g-recaptcha"
+							data-sitekey="6LdZnFkfAAAAAEz-Cr1BVWplbzmnEOIxrZPobxMc"
+							data-callback="uploadSound"
+							data-expired-callback="onRecaptchaResponseExpiry"
+							data-error-callback="onRecaptchaError"
+							>
+							</div>
+							<!-- <label>YOU CAN ONLY SAVE ONE FILE! Be aware </label> -->
+							<br></br>
+							<!-- <button type="button" id="submitButton">
+							Submit your sound!
+							</button> -->
+							<button class="close_button" onclick="closeRecaptchaDialog()">
+							CANCEL
+							</button>
+						</div>
 					</div>
-					<label>YOU CAN ONLY SAVE ONE FILE! Be aware </label>
-					<br></br>
-					<!-- <button type="button" id="submitButton">
-					Submit your sound!
-					</button> -->
-					<button type="button" id="hideSubmit" onclick="hideRecaptcha()">
-					Hide these buttons!
-					</button>
-				</div>
+				</dialog>
 			</div>
 
 				<div>
