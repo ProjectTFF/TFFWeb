@@ -176,7 +176,7 @@ for (let i = 0; i < wireArray.length; i++){
 }
 
 
-sendDrawing({savedWireArr: wireValue, savedWallArr: wallValue, savedXArr: savedXArray.values, savBar: savedBar});
+confirmSend({savedWireArr: wireValue, savedWallArr: wallValue, savedXArr: savedXArray.values, savBar: savedBar});
 getDrawing = false;
 	}
 	
@@ -236,6 +236,9 @@ getDrawing = false;
   {
     //  get rid of intro image 
     // showIntro = false;
+
+    // Close both dialog boxes
+    closeDialogs();
 
     //  custom methods
     if((mouseY> 0) && (mouseY < bar) && (mouseX < width-70)) 
@@ -337,7 +340,6 @@ class GUI
     btn4 = loadImage("./images/btn_4.png");
     btn5 = loadImage("./images/btn_5.png");
     btn6 = loadImage("./images/btn_6.png");
-    help_button = loadImage("./images/bnt_1.png");
   } 
   
   public void drawintroImage()
@@ -484,16 +486,6 @@ class GUI
     }
   }
 
-  public void helpButton()
-  {
-    noStroke();
-    colorMode(HSB);
-    image(help_button, width-40,height-110,50,50);
-    if(helpPressed)
-    {
-      toggleInstructionDialog();
-    }
-  }
 }
 class Sound
 {
