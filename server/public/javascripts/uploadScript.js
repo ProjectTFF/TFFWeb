@@ -28,6 +28,13 @@ async function uploadSound(token) {
     xhr_uploadSound.send(dddata);
 }
 
+function deleteSoundPayload() {
+    const payload = document.getElementById("payload");
+    if (payload != undefined) {
+        payload.remove();
+    }
+}
+
 function toggleInstructionDialog() {
     if (document.getElementById("instruction_dialog").style.display == 'none') {
         document.getElementById("instruction_dialog").style.display = 'flex';
@@ -35,8 +42,8 @@ function toggleInstructionDialog() {
     else {
         document.getElementById("instruction_dialog").style.display = 'none';
     }
-    
 }
+
 function toggleConfirmationDialog() {
     if (document.getElementById("confirmation_dialog").style.display == 'none') {
         document.getElementById("confirmation_dialog").style.display = 'flex';
@@ -44,4 +51,23 @@ function toggleConfirmationDialog() {
     else {
         document.getElementById("confirmation_dialog").style.display = 'none';
     }
+}
+
+// function toggleRecaptchaDialog() {
+//     if (document.getElementById("toggleRecaptchaDialog").style.display == 'none') {
+//         document.getElementById("toggleRecaptchaDialog").style.display = 'flex';
+//     }
+// }
+
+function showRecaptchaDialog() {
+    document.getElementById("recaptcha_dialog").style.display = 'flex';
+}
+
+function closeRecaptchaDialog() {
+    document.getElementById("recaptcha_dialog").style.display = 'none';
+}
+
+function closeDialogs() {
+    document.getElementById("confirmation_dialog").style.display = 'none';
+    document.getElementById("instruction_dialog").style.display = 'none';
 }
