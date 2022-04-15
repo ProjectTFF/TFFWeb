@@ -11,16 +11,16 @@ import { CardObject } from '../Helpers/NormalCardImageMap';
 import { ThumbnailCardObject } from '../Helpers/ThumbnailCardImageMap';
 import { ProgramCardObject } from '../Helpers/ProgramCardMap';
 import DefaultButton from '../Components/defaultButton';
-// import { HomeArtistObject } from '../Helpers/homeArtistMap';
 import { SponsorCollection } from '../Helpers/sponsorMap';
 import '../Assets/Styles/home.css';
 import { getLengthOfLongestArray } from '../Helpers/arrayHelpers';
+import ShowHideNav from '../Helpers/showHideNav';
 
 import Picture from '../Assets/Images/Artists/eva_alkula.png';
 
 function Home(props) {
   const {
-    language,
+    language, handleSetLanguage,
    } = props;
 
   const [highestLength, setHighestLength] = useState(0);
@@ -100,6 +100,10 @@ function Home(props) {
           </span>
         </div>
       </div>
+      <ShowHideNav
+        language={language}
+        handleSetLanguage={handleSetLanguage}
+      />
       <main>
         <div className="promo-holder">
           <div className="container">

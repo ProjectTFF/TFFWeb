@@ -1,0 +1,68 @@
+.page-title{
+    font-weight: normal;
+    display: inline-block;
+}
+
+.pass-title{
+    font: 2rem Poppins, Arial, Helvetica, sans-serif;
+    margin-bottom: 1rem;
+}
+
+.btn-near{
+    display: inline-block;
+    padding: 0 0 0 3rem;
+    list-style: none;
+}
+
+.btn-near li{
+    display: inline-block;
+    padding: 0;
+}
+
+.pass-infos p{
+    margin-bottom: 1rem;
+}
+
+.pass-infos span{
+    color: #00d1ff;
+}
+
+.pass-special{
+    color: #E51A5E;
+}
+
+.pass-timetable{
+    padding: 0;
+    list-style: none;
+}
+
+.pass-timetable li{
+    margin: 3rem 0 3rem 0;
+}
+
+.pass-time{
+    margin: 0;
+    display: inline-block;
+    width: 5rem;
+}
+
+.pass-right-timetable{
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 0 0 12.5rem;
+}
+
+.pass-right-timetable p {
+    margin-bottom: 1rem;
+}
+
+.pass-artists span{
+    color: #00d1ff;
+}
+
+@media screen and (min-width: 1024px) {
+    .programme-holder{
+        margin-left: 20rem;
+        margin-right: 20rem;
+    }
+}
