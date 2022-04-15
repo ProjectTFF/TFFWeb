@@ -27,3 +27,21 @@ async function uploadSound(token) {
     xhr_uploadSound.setRequestHeader('Token', token);
     xhr_uploadSound.send(dddata);
 }
+
+function toggleInstructionDialog() {
+    if (document.getElementById("instruction_dialog").style.display == 'none') {
+        document.getElementById("instruction_dialog").style.display = 'flex';
+    }
+    else {
+        document.getElementById("instruction_dialog").style.display = 'none';
+    }
+    
+}
+function toggleConfirmationDialog() {
+    if (document.getElementById("confirmation_dialog").style.display == 'none') {
+        document.getElementById("confirmation_dialog").style.display = 'flex';
+    }
+    else {
+        document.getElementById("confirmation_dialog").style.display = 'none';
+    }
+}

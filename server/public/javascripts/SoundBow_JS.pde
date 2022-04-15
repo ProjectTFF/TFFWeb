@@ -23,7 +23,7 @@ info@binaura.net
   boolean resetWalls = false;
   boolean getDrawing = false;
   boolean setDrawing = false;
-  boolean showIntro = true; 
+  // boolean showIntro = true; 
   
   boolean initialized = false; // run setup once
    
@@ -213,7 +213,7 @@ getDrawing = false;
         }
     }
   
-    myGui.drawintroImage();
+    // myGui.drawintroImage();
     myGui.displayScales();
     myGui.scaleButtons();
     myGui.clearButton();
@@ -235,7 +235,7 @@ getDrawing = false;
   public void mousePressed()
   {
     //  get rid of intro image 
-    showIntro = false;
+    // showIntro = false;
 
     //  custom methods
     if((mouseY> 0) && (mouseY < bar) && (mouseX < width-70)) 
@@ -309,7 +309,7 @@ getDrawing = false;
 class GUI
 {
   int _trigger;
-  PImage introImage;
+  // PImage introImage;
   PImage btn1, btn2, btn4, btn5, btn6;
   
   float fadeOut = 255;
@@ -331,12 +331,13 @@ class GUI
   
   GUI() 
   {
-    introImage = loadImage("./images/intro.png");
+    // introImage = loadImage("./images/intro.png");
     btn1 = loadImage("./images/btn_1.png");
     btn2 = loadImage("./images/btn_2.png");
     btn4 = loadImage("./images/btn_4.png");
     btn5 = loadImage("./images/btn_5.png");
     btn6 = loadImage("./images/btn_6.png");
+    help_button = loadImage("./images/bnt_1.png");
   } 
   
   public void drawintroImage()
@@ -480,6 +481,17 @@ class GUI
       stroke(255, clearAlpha);
       ellipse(width-40,height-110,50+(255-clearAlpha)/2,50+(255-clearAlpha)/2);
       if(clearAlpha<1)clearPressed = false;
+    }
+  }
+
+  public void helpButton()
+  {
+    noStroke();
+    colorMode(HSB);
+    image(help_button, width-40,height-110,50,50);
+    if(helpPressed)
+    {
+      toggleInstructionDialog();
     }
   }
 }

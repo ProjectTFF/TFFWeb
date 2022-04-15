@@ -95,9 +95,10 @@
 		{
 			var arrayInfo = arrayInfoSb
 			var payload = JSON.stringify(arrayInfo)
-			console.log("arrayinfo: adsfjadiofkvm" + payload)
-			document.getElementById("recaptcha").style.display ="block"
+			// document.getElementById("recaptcha").style.display ="block"
+			toggleConfirmationDialog();
 			var para = document.createElement("p");
+			para.style.display = "none";
 			para.id = "payload"
 			para.innerText = payload
 			document.body.appendChild(para);
@@ -143,7 +144,42 @@
 			{
 				
 			}
+
 			<div>
+				
+				<dialog id="instruction_dialog">
+					<!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
+					<h2 class="close_menu_button" onClick="toggleInstructionDialog()">Close menu</h2>
+					<div class="dialog_container">
+						<h2 class="dialog_header">DRAW YOUR SOUND</h2>
+						<div class="dialog_text">
+							We want to include the viewer into the festival and we want you to draw us your sound. When you are satisfied with the sound press “SEND” and the sound will be recorded and sent to us. If you aren’t happy with what you hear you can fine tune your contribution by “RESET” and try again. We will include the sounds sent to us in our festival in Tampere in 2022. 
+						</div>
+					</div>
+				</dialog>
+
+				<dialog id="confirmation_dialog" style="display: none">
+					<!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
+					<h2 class="close_menu_button" onClick="toggleConfirmationDialog()">Close menu</h2>
+					<div class="dialog_container">
+						<h2 class="dialog_header">Send the sound?</h2>
+						<div class="dialog_text">
+							Each user is limited to one sound. When you are satisfied with the sound press “SEND” and the sound will be recorded and sent to us. If you aren’t happy with what you hear you can fine tune your contribution by “RESET” and try again.
+							<br><br>
+							After clicking "SEND", we'll verify that you are human with Google's ReCaptcha.
+						</div>
+						<div class="confirmation_button_container">
+							<button class="send_button">SEND</button>
+							<button class="reset_button" onClick="toggleConfirmationDialog">RESET</button>
+						</div>
+					</div>
+				</dialog>
+	
+				<!-- Use any element to open the sidenav -->
+				<div class="help_button" onclick="toggleInstructionDialog()">
+					<img src="./images/btn_1.png" alt="Avaa ohjeet">
+				</div>
+
 				<div id="recaptcha">
 					<div
 					class="g-recaptcha"
@@ -161,19 +197,16 @@
 					<button type="button" id="hideSubmit" onclick="hideRecaptcha()">
 					Hide these buttons!
 					</button>
+				</div>
+			</div>
 
-					
-				</div>
-				
-			  
-				</div>
 				<div>
-				<canvas id="SoundBowJS" data-processing-sources="./javascripts/SoundBow_JS.pde" width="1000" height="600">
-					<p>Your browser does not support the canvas tag.</p>
-				</canvas>
-				<noscript>
-					<p>JavaScript is required to view the contents of this page.</p>
-				</noscript>
+					<canvas id="SoundBowJS" data-processing-sources="./javascripts/SoundBow_JS.pde" width="1000" height="600">
+						<p>Your browser does not support the canvas tag.</p>
+					</canvas>
+					<noscript>
+						<p>JavaScript is required to view the contents of this page.</p>
+					</noscript>
 				</div>
 	    	</div>
 		</div>
