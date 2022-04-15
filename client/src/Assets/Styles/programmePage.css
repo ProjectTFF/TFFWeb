@@ -5,6 +5,7 @@
 
 .pass-title{
     font: 2rem Poppins, Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
     margin-bottom: 1rem;
 }
 
