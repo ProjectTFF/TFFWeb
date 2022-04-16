@@ -23,7 +23,7 @@ info@binaura.net
   boolean resetWalls = false;
   boolean getDrawing = false;
   boolean setDrawing = false;
-  // boolean showIntro = true; 
+  boolean showIntro = true; 
   
   boolean initialized = false; // run setup once
    
@@ -213,7 +213,7 @@ getDrawing = false;
         }
     }
   
-    // myGui.drawintroImage();
+    myGui.drawintroImage();
     myGui.displayScales();
     myGui.scaleButtons();
     myGui.clearButton();
@@ -235,7 +235,7 @@ getDrawing = false;
   public void mousePressed()
   {
     //  get rid of intro image 
-    // showIntro = false;
+    showIntro = false;
 
     // Close both dialog boxes
     closeDialogs();
@@ -312,7 +312,7 @@ getDrawing = false;
 class GUI
 {
   int _trigger;
-  // PImage introImage;
+  PImage introImage;
   PImage btn1, btn2, btn4, btn5, btn6;
   
   float fadeOut = 255;
@@ -334,7 +334,7 @@ class GUI
   
   GUI() 
   {
-    // introImage = loadImage("./images/intro.png");
+    introImage = loadImage("./images/intro.png");
     btn1 = loadImage("./images/oneset.svg");
     btn2 = loadImage("./images/secondset.svg");
     btn6 = loadImage("./images/send.svg");
@@ -350,8 +350,8 @@ class GUI
     if(showIntro)
     {
       imageMode(CENTER);
-      tint(255,fadeOut);
-      image(introImage, width/2, height/2);
+      // tint(255,fadeOut);
+      // image(introImage, width/2, height/2);
     }
     else
     {
