@@ -65,8 +65,6 @@
 		{
 		    var playbackElement;
 			
-			console.log(audioElementArrayPentascale.length);
-			console.log("selection : " + sel)
 			if((sel>=1)&&(sel<=8))
 			{
 				audioElementArrayPentascale[sel-1].load;
@@ -78,8 +76,6 @@
 		function PlayHarmonicSound(sel)
 		{
 			
-			console.log(audioElementArrayHarmonicscale.length);
-			console.log("selection : " + sel)
 			if((sel>=1)&&(sel<=8))
 			{
 				audioElementArrayHarmonicscale[sel-1].load;
@@ -91,18 +87,24 @@
 
 
 		
-		function sendDrawing(arrayInfoSb)
+		function confirmSend(arrayInfoSb)
 		{
 			var arrayInfo = arrayInfoSb
 			var payload = JSON.stringify(arrayInfo)
-			console.log("arrayinfo: adsfjadiofkvm" + payload)
-			document.getElementById("recaptcha").style.display ="block"
+			toggleConfirmationDialog();
 			var para = document.createElement("p");
+			para.style.display = "none";
 			para.id = "payload"
 			para.innerText = payload
 			document.body.appendChild(para);
-
 		}
+
+		// function showRecaptchaButton()
+		// {
+		// 	// document.getElementById("recaptcha").style.display ="block"
+		// 	toggleConfirmationDialog();
+		// 	toggleRecaptchaDialog();
+		// }
 		
 		
 		</script>
@@ -143,37 +145,96 @@
 			{
 				
 			}
-			<div>
-				<div id="recaptcha">
-					<div
-					class="g-recaptcha"
-					data-sitekey="6LdZnFkfAAAAAEz-Cr1BVWplbzmnEOIxrZPobxMc"
-					data-callback="uploadSound"
-					data-expired-callback="onRecaptchaResponseExpiry"
-					data-error-callback="onRecaptchaError"
-					>
-					</div>
-					<label>YOU CAN ONLY SAVE ONE FILE! Be aware </label>
-					<br></br>
-					<!-- <button type="button" id="submitButton">
-					Submit your sound!
-					</button> -->
-					<button type="button" id="hideSubmit" onclick="hideRecaptcha()">
-					Hide these buttons!
-					</button>
 
-					
-				</div>
+			<div>
 				
-			  
+				<dialog id="instruction_dialog">
+					<!-- <h2 class="close_menu_button" onClick="toggleInstructionDialog()">Close menu</h2> -->
+					<div class="dialog_container">
+						<h2 class="dialog_header">DRAW YOUR SOUND</h2>
+						<div class="dialog_text">
+							To include you, the audience, into Tampere Flute Festival we are asking you to draw us your sound. There are two sets of sounds (1 and 2) and you can move the strings on the screen however you want. When you are done drawing press “SEND” and the sound will be recorded and sent to us. If you aren't happy with what you hear you can always “RESET” and try again. We will include the sounds sent to us in our festival in Tampere in 2022. 
+						</div>
+						<button class="close_button" onClick="toggleInstructionDialog()">LET'S GET DRAWING!</button>
+					</div>
+				</dialog>
+
+				<dialog id="confirmation_dialog" style="display: none">
+					<!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
+					<!-- <h2 class="close_menu_button" onClick="toggleConfirmationDialog()">Close menu</h2> -->
+					<div class="dialog_container">
+						<h2 class="dialog_header">SEND THE SOUND?</h2>
+						<div class="dialog_text">
+							Each user is limited to one sound. When you are satisfied with the sound, press “SEND” and the sound will be recorded and sent to us. If you aren't happy with what you hear you can return back to drawing your contribution by "BACK" and try again.
+							<br><br>
+							After clicking "SEND", we'll verify that you are human with a Google's reCAPTCHA test.
+						</div>
+						<div class="confirmation_button_container">
+							<button class="send_button" onClick="showRecaptchaDialog();closeDialogs()">SEND</button>
+							<button class="reset_button" onClick="toggleConfirmationDialog();deleteSoundPayload()">BACK</button>
+						</div>
+					</div>
+				</dialog>
+	
+				<!-- Use any element to open the sidenav -->
+				<div class="help_button" onclick="toggleInstructionDialog()">
+					<!-- <img src="./images/btn_1.png" alt="Avaa ohjeet">-->
 				</div>
+
+				<dialog id="recaptcha_dialog" style="display:none">
+					<div class="dialog_container_recaptcha">
+						<div id="recaptcha">
+							<div
+							class="g-recaptcha"
+							data-sitekey="6LdK0HIfAAAAAGbevPUKHxyTAz131Nj0eVx_Hywe"
+							data-callback="uploadSound"
+							data-expired-callback="onRecaptchaResponseExpiry"
+							data-error-callback="onRecaptchaError"
+							>
+							</div>
+							<!-- <label>YOU CAN ONLY SAVE ONE FILE! Be aware </label> -->
+							<br></br>
+							<!-- <button type="button" id="submitButton">
+							Submit your sound!
+							</button> -->
+							<button class="close_button" onclick="closeRecaptchaDialog()">
+							CANCEL
+							</button>
+						</div>
+					</div>
+				</dialog>
+
+				<dialog id="success_dialog" style="display:none">
+					<div class="dialog_container">
+						<h2 class="dialog_header"></h2>
+						<div id="success_text" class="dialog_text">
+							Sound sent successfully. Thank you for contributing! 
+						</div>
+						<button class="close_button" onClick="closeDialogs()">Continue Drawing</button>
+					</div>
+				</dialog>
+
+				<dialog id="failure_dialog" style="display:none">
+					<div class="dialog_container">
+						<h2 class="dialog_header">ERROR</h2>
+						<div id="failure_text" class="dialog_text">
+							Hmm something went wrong. You can try to send again with the "TRY AGAIN", or return to drawing with "BACK TO DRAWING".
+						</div>
+						<div class="confirmation_button_container">
+							<button class="send_button" onClick="showRecaptchaDialog();closeDialogs();grecaptcha.reset()">TRY AGAIN</button>
+							<button class="reset_button" onClick="closeDialogs()">BACK TO DRAWING</button>
+						</div>
+					</div>
+				</dialog>
+			</div>
+
 				<div>
-				<canvas id="SoundBowJS" data-processing-sources="./javascripts/SoundBow_JS.pde" width="1000" height="600">
-					<p>Your browser does not support the canvas tag.</p>
-				</canvas>
-				<noscript>
-					<p>JavaScript is required to view the contents of this page.</p>
-				</noscript>
+					<canvas id="SoundBowJS" data-processing-sources="./javascripts/SoundBow_JS.pde" width="1000" height="600">
+						<p>Your browser does not support the canvas tag.</p>
+					</canvas>
+					<noscript>
+						<p>JavaScript is required to view the contents of this page.</p>
+					</noscript>
 				</div>
 	    	</div>
 		</div>

@@ -21,9 +21,9 @@ router.post('/save', function(req, res) {
     // Check that cooke isn't yet used.
     var cookie = req.cookies.hasSentSound;
     if (cookie == undefined) {
-        var errorMessage = 'Cookie is missing. Please enable cookies on your browser and try again.'
+        var errorMessage = 'Cookie is missing. Please enable cookies on your browser and try again. '
         console.log(errorMessage);
-        res.writeHead(500, {
+        res.writeHead(200, {
             'Content-Type': 'application/json'
         });
         
@@ -31,9 +31,9 @@ router.post('/save', function(req, res) {
         return;
     }
     else if (cookie === 'true') {
-        var errorMessage = 'You have already uploaded one sound!'
+        var errorMessage = 'You have already uploaded one sound! '
         console.log(errorMessage);
-        res.writeHead(500, {
+        res.writeHead(200, {
             'Content-Type': 'application/json'
         });
         res.end(JSON.stringify({status: 'error', message: errorMessage}));
@@ -67,7 +67,7 @@ router.post('/save', function(req, res) {
                 res.writeHead(200, {
                     'Content-Type': 'application/json'
                 });
-                res.end(JSON.stringify({status: 'Unsuccesfull', message: 'YOU ARE NOT A HUMAN.'}));
+                res.end(JSON.stringify({status: 'error', message: 'YOU ARE NOT A HUMAN. '}));
                 return;
             }
     
@@ -94,7 +94,7 @@ router.post('/save', function(req, res) {
             res.writeHead(200, {
                 'Content-Type': 'application/json'
             });
-            res.end(JSON.stringify({status: 'error', message: err.message}));
+            res.end(JSON.stringify({status: 'error', message: 'There is a problem with reCAPTCHA. '}));
             return;
         })
 

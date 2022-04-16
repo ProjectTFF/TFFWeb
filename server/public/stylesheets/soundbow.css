@@ -39,16 +39,104 @@ canvas {
 	background-color: #3d3d3d;
 }
 
-#recaptcha
-{
-  display: none;
-  background-color: #000;
-  z-index: 999;
-  position:fixed;
-  bottom: 50%;
-  right: 0;
+
+#instruction_dialog, #confirmation_dialog, #failure_dialog {
+
+	z-index: 999;
+	position: fixed;
+	width: 40vw;
+	display: flex;
+	background-color: #0f0f0f;
+	padding: 2rem;
 }
 
-.g-recaptcha {
-	z-index: 3;
+#recaptcha_dialog, #success_dialog {
+	z-index: 999;
+	position: fixed;
+	/* width: 40vw; */
+	display: flex;
+	background-color: #0f0f0f;
+	padding: 2rem;
+	justify-content: center;
+}
+
+.dialog_container {
+	display: flex;
+	flex-direction: column;
+	margin-right: 1rem;
+	margin-left: 2rem;
+}
+
+.dialog_container_recaptcha {
+	display: flex;
+	flex-direction: column;
+	margin-right: 1rem;
+	margin-left: 2rem;
+	/* justify-content: center; */
+}
+
+.dialog_header {
+	text-align: left;
+	font-size: 1.5rem;
+	color: #fff;
+}
+
+.dialog_text {
+	text-align: left;
+	font-size: 1rem;
+	color: #fff;
+	margin-bottom: 1rem;
+}
+
+.help_button {
+	z-index: 999;
+	display: block;
+	position: fixed;
+	bottom: 50%;
+	right: 0px;
+}
+
+.confirmation_button_container {
+	display: flex;
+	flex-direction: row;
+	margin-top: 2rem;
+	justify-content: center;
+}
+
+.close_button {
+	width: 240px;
+	height: 50px;
+	margin-right: 1rem;
+	margin-left: 1rem;
+	background: rgba(84, 204, 242, 0.5);
+	border-radius: 80px;
+	align-self: center;
+	margin-top: 1rem;
+}
+
+.send_button {
+	width: 240px;
+	height: 50px;
+	margin-right: 1rem;
+	margin-left: 1rem;
+	background: rgba(84, 204, 242, 0.5);
+	border-radius: 80px;
+}
+
+.reset_button {
+	width: 240px;
+	height: 50px;
+	margin-right: 1rem;
+	margin-left: 1rem;
+	border: 2px solid rgba(0, 209, 255, 0.5);
+	box-sizing: border-box;
+	border-radius: 80px;
+}
+
+.close_menu_button {
+	text-align: center;
+	font-size: 1.5rem;
+	color: #fff;
+	writing-mode: vertical-lr;
+	text-orientation: mixed;
 }
