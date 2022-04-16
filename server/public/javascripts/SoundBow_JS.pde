@@ -217,6 +217,7 @@ getDrawing = false;
     myGui.displayScales();
     myGui.scaleButtons();
     myGui.clearButton();
+    myGui.instructions();
     // myGui.resetButton();
 	myGui.getDrawingButton();
 //	myGui.setDrawingButton();
@@ -294,6 +295,11 @@ getDrawing = false;
         myGui.resetPressed = true;
         resetWalls = true;
       }
+     if((mouseX>width-70) && (mouseY < (height-height/2) -20) && (mouseY > (height-height/2) -80)) {
+        myGui.instructionsAlpha = 255
+        myGui.instructionsPressed = true;
+        //image(btn3, width-40,height-height/2 -50, 60,60);
+    }
 	  if((mouseX>width-60) && (mouseY > height-130) && (mouseY < height-80))
       {
         myGui.getDrawingAlpha = 255;
@@ -313,7 +319,7 @@ class GUI
 {
   int _trigger;
   PImage introImage;
-  PImage btn1, btn2, btn4, btn5, btn6;
+  PImage btn1, btn2, btn3, btn4, btn5, btn6;
   
   float fadeOut = 255;
   float clearAlpha = 0;
@@ -321,6 +327,7 @@ class GUI
   float scale1Alpha = 0;
   float scale2Alpha = 0;
   float scale3Alpha = 0;
+  float instructionsAlpha = 0;
   float getDrawingAlpha = 0;
   float setDrawingAlpha = 0;
   
@@ -329,6 +336,7 @@ class GUI
   boolean scale1Pressed = false;
   boolean scale2Pressed = false;
   boolean scale3Pressed = false;
+  boolean instructionsPressed = false;
   boolean getDrawingPressed = false;
   boolean setDrawingPressed = false;
   
@@ -337,6 +345,7 @@ class GUI
     introImage = loadImage("./images/intro.png");
     btn1 = loadImage("./images/oneset.svg");
     btn2 = loadImage("./images/secondset.svg");
+    btn3 = loadImage("./images/btn_1.png");
     btn6 = loadImage("./images/send.svg");
     btn5 = loadImage("./images/reset.svg");
     btn4 = loadImage("./images/record_btn.png");
@@ -368,6 +377,8 @@ class GUI
 
     image(btn2, width-40,85,50,50);
    
+
+
     if(scale1Pressed)
     {
       scale1Alpha -= 15;
@@ -386,6 +397,8 @@ class GUI
       if(scale2Alpha<1)scale2Pressed = false;
     }
   }
+  
+
   
   public void displayScales()
   {
@@ -416,7 +429,7 @@ class GUI
     fill(0);
     rect(0,bar,width,height);
   }
-    
+
   public void resetButton()
   {
     noStroke();
@@ -433,6 +446,24 @@ class GUI
     }
   }
   
+  public void instructions() {
+    noStroke();
+    colorMode(HSB);
+    
+    image(btn3, width-40,height-height/2 -50, 60,60);
+    if(instructionsPressed) {
+        toggleInstructionDialog();
+      instructionsAlpha -= 15;
+      noFill();
+      stroke(255, instructionsAlpha);
+      ellipse(width-40,height-height/2 -50, 50+(255-instructionsAlpha)/2,50+(255-instructionsAlpha)/2);
+      if(instructionsAlpha<1)  instructionsPressed = false;
+      
+
+    }
+
+  }
+
   public void getDrawingButton()
   {
 	noStroke();
@@ -707,7 +738,7 @@ class Wire
       touchPosY.add(mouseY);
       index++;
     
-      stroke(255,255,100);  
+      stroke(#54CCF2);  
       for(int i=0; i<touchPosX.size()-1; i++) 
       {
         line((Integer)touchPosX.get(i), (Integer)touchPosY.get(i), (Integer)touchPosX.get(i+1), (Integer)touchPosY.get(i+1));
@@ -734,12 +765,13 @@ class Wire
       {
       
         noStroke();
-        fill(255);     
+        fill(#54CCF2);     
         ellipse(_x, _y, 10, 10);
-        int red = 255;
-        int green = 255;
-        int blue = 100 + 155/(touchPosX.size()-1)*index;
-        stroke(red,green, blue);
+
+        //int red = 255;
+        //int green = 255;
+        //int blue = 100 + 155/(touchPosX.size()-1)*index;
+        stroke(#54CCF2);
       
         for(int i=0; i<touchPosX.size()-1; i++) 
         {
