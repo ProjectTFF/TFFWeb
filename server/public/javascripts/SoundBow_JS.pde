@@ -347,7 +347,7 @@ class GUI
     introImage = loadImage("./images/intro.png");
     btn1 = loadImage("./images/oneset.svg");
     btn2 = loadImage("./images/secondset.svg");
-    btn3 = loadImage("./images/btn_1.png");
+    btn3 = loadImage("./images/info.png");
     btn6 = loadImage("./images/send.svg");
     btn5 = loadImage("./images/reset.svg");
     btn4 = loadImage("./images/record_btn.png");
