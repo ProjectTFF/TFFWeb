@@ -281,7 +281,7 @@ getDrawing = false;
         myGui.scale2Pressed = true;
         scaling = 1;
       }
-      if((mouseX>width-60) && (mouseY > height-130) && (mouseY < height-80)) 
+      if((mouseX>width-60) && (mouseY > height-80) && (mouseY < height-30)) 
       {
         //  clear wires
         myGui.clearAlpha = 255;
@@ -294,7 +294,7 @@ getDrawing = false;
         myGui.resetPressed = true;
         resetWalls = true;
       }
-	  if((mouseX>width-60) && (mouseY > height-180) && (mouseY < height-130))
+	  if((mouseX>width-60) && (mouseY > height-130) && (mouseY < height-80))
       {
         myGui.getDrawingAlpha = 255;
         myGui.getDrawingPressed = true;
@@ -444,7 +444,7 @@ class GUI
       getDrawingAlpha -= 15;
       noFill();
       stroke(255, getDrawingAlpha);
-      ellipse(width-40,height-160,50+(255-getDrawingAlpha)/2,50+(255-getDrawingAlpha)/2);
+      ellipse(width-40,height-110,50+(255-getDrawingAlpha)/2,50+(255-getDrawingAlpha)/2);
       if(getDrawingAlpha<1)  getDrawingPressed = false;
     }
   }
@@ -475,7 +475,7 @@ class GUI
       clearAlpha -= 15;
       noFill();
       stroke(255, clearAlpha);
-      ellipse(width-40,height-110,50+(255-clearAlpha)/2,50+(255-clearAlpha)/2);
+      ellipse(width-40,height-60,50+(255-clearAlpha)/2,50+(255-clearAlpha)/2);
       if(clearAlpha<1)clearPressed = false;
     }
   }
