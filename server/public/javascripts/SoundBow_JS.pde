@@ -217,7 +217,7 @@ getDrawing = false;
     myGui.displayScales();
     myGui.scaleButtons();
     myGui.clearButton();
-    myGui.resetButton();
+    // myGui.resetButton();
 	myGui.getDrawingButton();
 //	myGui.setDrawingButton();
 
@@ -437,7 +437,7 @@ class GUI
   {
 	noStroke();
     colorMode(HSB);
-    image(btn6, width-40,height-160,50,50);
+    image(btn6, width-40,height-110,50,50);
   
     if(getDrawingPressed)
     {
@@ -469,7 +469,7 @@ class GUI
   {
     noStroke();
     colorMode(HSB);
-    image(btn5, width-40,height-110,50,50);
+    image(btn5, width-40,height-60,50,50);
     if(clearPressed)
     {
       clearAlpha -= 15;
