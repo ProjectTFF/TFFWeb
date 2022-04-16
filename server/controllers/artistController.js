@@ -10,15 +10,15 @@ exports.all_artist = function(req,res,next){
         artists.map(artist => {
             if (parseInt(artist.artistid,10)==3)
             {
-                artist.firstname = 'Sébastian'
+                artist.firstname = 'Sébastian';
             }
             else if (parseInt(artist.artistid,10)==4)
             {
-                artist.lastname = 'Jämsä'
+                artist.lastname = 'Jämsä';
             }
             else if (parseInt(artist.artistid,10)==5)
             {
-                artist.lastname = 'Kärkkäinen'
+                artist.lastname = 'Kärkkäinen';
             }
         })
         res.status(200).send(JSON.stringify(artists));
@@ -40,15 +40,15 @@ exports.artist_info_by_id = function (req, res, next) {
         .then( artist => {
             if (parseInt(artistid,10)==3)
             {
-                artist.firstname = 'Sébastian'
+                artist.firstname = 'Sébastian';
             }
             else if (parseInt(artistid,10)==4)
             {
-                artist.lastname = 'Jämsä'
+                artist.lastname = 'Jämsä';
             }
             else if (parseInt(artistid,10)==5)
             {
-                artist.lastname = 'Kärkkäinen'
+                artist.lastname = 'Kärkkäinen';
             }
 
             db.Artist.findByPk(artistid,{
@@ -77,14 +77,14 @@ exports.artist_info_by_id = function (req, res, next) {
                 res.status(200).send(result);
             })
             .catch( err => {
-                console.log(JSON.stringify(err))
-                var error = {"error":"An error occurred during the gathering of the bio of this artist"}
+                console.log(JSON.stringify(err));
+                var error = {"error":"An error occurred during the gathering of the bio of this artist"};
                 res.send(JSON.stringify(error));
             })
         })
         .catch( err => {
-            console.log(JSON.stringify(err))
-            var error = {"error":"An error occurred during the gathering of the general information about this artist"}
+            console.log(JSON.stringify(err));
+            var error = {"error":"An error occurred during the gathering of the general information about this artist"};
             res.send(JSON.stringify(error));
         })
         
@@ -102,8 +102,8 @@ exports.links_for_artist = function(req,res,next) {
             res.status(200).send(JSON.stringify(artist));
         })
         .catch( err => {
-            console.log(JSON.stringify(err))
-            var error = {"error":"An error occurred during the gathering of links for this artist"}
+            console.log(JSON.stringify(err));
+            var error = {"error":"An error occurred during the gathering of links for this artist"};
             res.send(JSON.stringify(error));
         })
 }

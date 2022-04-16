@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Banner from '../Components/banner';
 import ArtistCollection from '../Components/artistDefault';
 import PrimaryButton from '../Components/primaryButton';
 import DefaultButton from '../Components/defaultButton';
@@ -24,15 +25,21 @@ function Artists(props) {
   let content = {
     english: {
       title: 'Artists',
-      // tickets: 'buy tickets',
+      bannerTitle: 'Tampere Flute Fest',
+      hall: 'Tampere Hall',
       buyTickets: 'buy tickets',
       buyStreaming: 'buy Streaming',
+      ticketLink: 'https://www.lippu.fi/en/artist/tampere-flute-fest/',
+      streamLink: 'https://www.lippu.fi/en/eventseries/tampere-flute-fest-2022-livestriimi-3116312/',
     },
     finnish: {
       title: 'Artistit',
-      // tickets: 'osta liput',
+      bannerTitle: 'Tampere Flute Fest',
+      hall: 'Tampere-Talo',
       buyTickets: 'osta liput',
       buyStreaming: 'osta suoratoisto',
+      ticketLink: 'https://www.lippu.fi/artist/tampere-flute-fest/',
+      streamLink: 'https://www.lippu.fi/eventseries/tampere-flute-fest-2022-livestriimi-3116312/',
     },
   };
 
@@ -40,6 +47,10 @@ function Artists(props) {
 
   return (
     <main>
+      <Banner
+        bannerTitle={content.bannerTitle}
+        bannerHall={content.hall}
+      />
       <div className="container">
         <div className="artists">
           <h1 className="page-title">{content.title}</h1>
@@ -50,17 +61,17 @@ function Artists(props) {
               />
          ))}
           </div>
-
           <ul className="btn-groups">
             <li>
               <PrimaryButton
+                url={content.ticketLink}
                 buttonText={content.buyTickets}
                 showIcon
               />
             </li>
             <li>
               <DefaultButton
-                url="https://www.lippu.fi/en/eventseries/tampere-flute-fest-2022-livestriimi-3116312/"
+                url={content.streamLink}
                 buttonText={content.buyStreaming}
                 showIcon
               />

@@ -1,15 +1,61 @@
 
 let xhr_uploadSound = new XMLHttpRequest();
 
+const ERROR_MESSAGE_END = "You can try to send again with the 'TRY AGAIN', or return to drawing with 'BACK TO DRAWING'."
+
 xhr_uploadSound.onload = function () {
+    closeRecaptchaDialog();
+    closeDialogs();
     if (xhr_uploadSound.status == 200) {
-        console.log("Upload response OKOK");
         console.log(JSON.parse(xhr_uploadSound.response));
+        var response = JSON.parse(xhr_uploadSound.response);
+
+        if (response == undefined) {
+            openFailureDialog("Something went wrong with the request. ");
+        }
+        else {
+            if(response.status == "success") {
+                openSuccessDialog();
+            }
+            else if (response.status == "error") {
+                openFailureDialog(response.message);
+            }
+            else {
+                openFailureDialog("Something unexpected happened. ");
+            }
+        }
     }
     else {
-        console.log("Upload response NOT OK???");
         console.log(JSON.parse(xhr_uploadSound.response));
+        const errorMessage = "Something went wrong with reaching the server. ";
+        openFailureDialog(errorMessage);
     }
+}
+
+function openSuccessDialog() {
+    // const dialog = document.getElementById("success_dialog");
+    // dialog.style.display = 'flex';
+    closeDialogs();
+    document.getElementById("success_dialog").style.display = 'flex';
+}
+
+function openFailureDialog(message) {
+    const dialog_text = document.getElementById("failure_text");
+    const dialog = document.getElementById("failure_dialog");
+    
+    const complete_message = message + ERROR_MESSAGE_END;
+    dialog_text.innerText = complete_message;
+    document.getElementById("failure_dialog").style.display = 'flex';
+}
+
+function onRecaptchaError() {
+    const message = "Something went wrong with reCAPTCHA. " + ERROR_MESSAGE_END;
+    openFailureDialog(message);
+}
+
+function onRecaptchaResponseExpiry() {
+    const message = "ReCAPTCHA checkbox was open too long. " + ERROR_MESSAGE_END;
+    openFailureDialog(message);
 }
 
 async function uploadSound(token) {
@@ -26,4 +72,51 @@ async function uploadSound(token) {
     xhr_uploadSound.setRequestHeader('Accept', 'application/json');
     xhr_uploadSound.setRequestHeader('Token', token);
     xhr_uploadSound.send(dddata);
+}
+
+function deleteSoundPayload() {
+    const payload = document.getElementById("payload");
+    if (payload != undefined) {
+        payload.remove();
+    }
+}
+
+function toggleInstructionDialog() {
+    if (document.getElementById("instruction_dialog").style.display == 'none') {
+        document.getElementById("instruction_dialog").style.display = 'flex';
+    }
+    else {
+        document.getElementById("instruction_dialog").style.display = 'none';
+    }
+}
+
+function toggleConfirmationDialog() {
+    if (document.getElementById("confirmation_dialog").style.display == 'none') {
+        document.getElementById("confirmation_dialog").style.display = 'flex';
+    }
+    else {
+        document.getElementById("confirmation_dialog").style.display = 'none';
+    }
+}
+
+// function toggleRecaptchaDialog() {
+//     if (document.getElementById("toggleRecaptchaDialog").style.display == 'none') {
+//         document.getElementById("toggleRecaptchaDialog").style.display = 'flex';
+//     }
+// }
+
+function showRecaptchaDialog() {
+    document.getElementById("recaptcha_dialog").style.display = 'flex';
+}
+
+function closeRecaptchaDialog() {
+    document.getElementById("recaptcha_dialog").style.display = 'none';
+    grecaptcha.reset()
+}
+
+function closeDialogs() {
+    document.getElementById("confirmation_dialog").style.display = 'none';
+    document.getElementById("instruction_dialog").style.display = 'none';
+    document.getElementById("failure_dialog").style.display = 'none';
+    document.getElementById("success_dialog").style.display = 'none';
 }
