@@ -203,9 +203,11 @@ getDrawing = false;
     //  update walls
     for (int i = 0; i < NUMBER_OF_WALLS-1; i++) 
     {
-      colorMode(HSB, 255);
-        stroke(200,0,150);
-        fill(i/parseFloat(NUMBER_OF_WALLS)*255,150,255);
+      //colorMode(HSB, 255);
+        //stroke(200,0,150);
+        fill(#ffffff);
+        
+        stroke(#666666);
         if(wallArray[i]!=null)
         {  
           wallArray[i].update();
