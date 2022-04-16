@@ -5,7 +5,7 @@
 
 .pass-title{
     font: 2rem Poppins, Arial, Helvetica, sans-serif;
-    text-transform: uppercase;
+    text-transform: capitalize;
     margin-bottom: 1rem;
 }
 
@@ -39,18 +39,19 @@
 
 .pass-timetable li{
     margin: 3rem 0 3rem 0;
+    display: flex;
 }
 
 .pass-time{
     margin: 0;
     display: inline-block;
-    width: 5rem;
+    width: 2rem;
 }
 
 .pass-right-timetable{
     display: inline-block;
     vertical-align: top;
-    margin: 0 0 0 12.5rem;
+    margin-left: 15rem;
 }
 
 .pass-right-timetable p {
@@ -61,9 +62,16 @@
     color: #00d1ff;
 }
 
-@media screen and (min-width: 1024px) {
-    .programme-holder{
-        margin-left: 20rem;
-        margin-right: 20rem;
+@media screen and (min-width: 768px) {
+
+    .pass-time{
+        width: 5rem;
+    }
+
+    @media screen and (min-width: 1024px) {
+        .programme-holder{
+            margin-left: 20rem;
+            margin-right: 20rem;
+        }
     }
 }

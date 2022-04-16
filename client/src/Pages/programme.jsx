@@ -17,10 +17,137 @@ function Programme(props) {
     axios.get(`${process.env.REACT_APP_BASE_URL}/api/programme/allprogrammes`).then((res) => { const val = res.data; setProgrammes(val); });
   }
 
-  const [timetable, setTimetable] = React.useState([]);
+  const timetable = [];
 
-  if (programmes.length !== 0 && timetable.length === 0) {
-    axios.get(`${process.env.REACT_APP_BASE_URL}/api/programme/1`).then((res) => { const val = res.data; setTimetable(val); });
+  const [time1, setTime1] = React.useState([]);
+  if (time1.length === 0) {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/programme/1`).then((res) => { const val = res.data; setTime1(val); });
+  }
+
+  const [time2, setTime2] = React.useState([]);
+  if (time1.length === 0) {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/programme/2`).then((res) => { const val = res.data; setTime2(val); });
+  }
+
+  const [time3, setTime3] = React.useState([]);
+  if (time1.length === 0) {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/programme/3`).then((res) => { const val = res.data; setTime3(val); });
+  }
+
+  const [time4, setTime4] = React.useState([]);
+  if (time1.length === 0) {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/programme/4`).then((res) => { const val = res.data; setTime4(val); });
+  }
+
+  const [time5, setTime5] = React.useState([]);
+  if (time1.length === 0) {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/programme/5`).then((res) => { const val = res.data; setTime5(val); });
+  }
+
+  if (timetable.length === 0) {
+    timetable.push(time1);
+    timetable.push(time2);
+    timetable.push(time3);
+    timetable.push(time4);
+    timetable.push(time5);
+  }
+
+  const [boolArtist, setBool] = React.useState(true);
+  const [artist1, setArtist1] = React.useState(null);
+  const [artist2, setArtist2] = React.useState(null);
+  const [artist3, setArtist3] = React.useState(null);
+  const [artist4, setArtist4] = React.useState(null);
+  const [artist5, setArtist5] = React.useState(null);
+  const [artist6, setArtist6] = React.useState(null);
+  const [artist7, setArtist7] = React.useState(null);
+  const [artist8, setArtist8] = React.useState(null);
+  const [artist9, setArtist9] = React.useState(null);
+  const [artist10, setArtist10] = React.useState(null);
+  const [artist11, setArtist11] = React.useState(null);
+  const [artist12, setArtist12] = React.useState(null);
+  const [artist13, setArtist13] = React.useState(null);
+  const [artist14, setArtist14] = React.useState(null);
+  const [artist15, setArtist15] = React.useState(null);
+  const [artist16, setArtist16] = React.useState(null);
+  const [artist17, setArtist17] = React.useState(null);
+  const artists = [];
+
+  if (artist1 === null) {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/programme/artists/1`).then((res) => { const val = res.data; setArtist1(val); });
+  }
+  if (artist2 === null) {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/programme/artists/2`).then((res) => { const val = res.data; setArtist2(val); });
+  }
+  if (artist3 === null) {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/programme/artists/3`).then((res) => { const val = res.data; setArtist3(val); });
+  }
+  if (artist4 === null) {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/programme/artists/4`).then((res) => { const val = res.data; setArtist4(val); });
+  }
+  if (artist5 === null) {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/programme/artists/5`).then((res) => { const val = res.data; setArtist5(val); });
+  }
+  if (artist6 === null) {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/programme/artists/6`).then((res) => { const val = res.data; setArtist6(val); });
+  }
+  if (artist7 === null) {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/programme/artists/7`).then((res) => { const val = res.data; setArtist7(val); });
+  }
+  if (artist8 === null) {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/programme/artists/8`).then((res) => { const val = res.data; setArtist8(val); });
+  }
+  if (artist9 === null) {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/programme/artists/9`).then((res) => { const val = res.data; setArtist9(val); });
+  }
+  if (artist10 === null) {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/programme/artists/10`).then((res) => { const val = res.data; setArtist10(val); });
+  }
+  if (artist11 === null) {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/programme/artists/11`).then((res) => { const val = res.data; setArtist11(val); });
+  }
+  if (artist12 === null) {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/programme/artists/12`).then((res) => { const val = res.data; setArtist12(val); });
+  }
+  if (artist13 === null) {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/programme/artists/13`).then((res) => { const val = res.data; setArtist13(val); });
+  }
+  if (artist14 === null) {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/programme/artists/14`).then((res) => { const val = res.data; setArtist14(val); });
+  }
+  if (artist15 === null) {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/programme/artists/15`).then((res) => { const val = res.data; setArtist15(val); });
+  }
+  if (artist16 === null) {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/programme/artists/16`).then((res) => { const val = res.data; setArtist16(val); });
+  }
+  if (artist17 === null) {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/programme/artists/17`).then((res) => { const val = res.data; setArtist17(val); });
+  }
+
+  if (boolArtist && artist1 === null && artist2 === null && artist3 === null
+    && artist4 === null && artist5 === null && artist6 === null && artist7 === null
+    && artist8 === null && artist9 === null && artist10 === null && artist11 === null
+    && artist12 === null && artist13 === null && artist14 === null && artist15 === null
+    && artist16 === null && artist17 === null) {
+    artists.push(artist1);
+    artists.push(artist2);
+    artists.push(artist3);
+    artists.push(artist4);
+    artists.push(artist5);
+    artists.push(artist6);
+    artists.push(artist7);
+    artists.push(artist8);
+    artists.push(artist9);
+    artists.push(artist10);
+    artists.push(artist11);
+    artists.push(artist12);
+    artists.push(artist13);
+    artists.push(artist14);
+    artists.push(artist15);
+    artists.push(artist16);
+    artists.push(artist17);
+
+    setBool(false);
   }
 
   // Content of the page by language
@@ -80,8 +207,28 @@ function Programme(props) {
                 {/* <p className="pass-special">special info</p> */}
               </p>
               <ol className="pass-timetable">
-                {timetable.map((event) => (
-                  event.performancename_eng
+                {timetable[programme.concertid - 1].map((performance) => (
+                  <li>
+                    <p className="pass-time">
+                      {`${performance.performancestarttime}${'-'}${performance.performanceendtime}`}
+                    </p>
+                    <p className="pass-right-timetable">
+                      <h2>{language === 'finnish' ? performance.performancename_fin : performance.performancename_eng}</h2>
+                      <p>{language === 'finnish' ? performance.performanceinfo_fin : performance.performanceinfo_eng}</p>
+                      {
+                        performance.performanceid - 1
+                      /* boolArtist ? 'ERROR404' :
+                      artists[performance.performanceid - 1].map((artist) => (
+                        <p className="pass-artists">
+                          {'Artist: '}
+                          <span>
+                      {`${artist.firstname} ${artist.lastname}`}
+                          </span>
+                        </p>
+                      )) */
+                      }
+                    </p>
+                  </li>
                 ))}
               </ol>
             </div>
