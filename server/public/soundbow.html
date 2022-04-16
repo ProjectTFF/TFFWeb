@@ -65,8 +65,6 @@
 		{
 		    var playbackElement;
 			
-			console.log(audioElementArrayPentascale.length);
-			console.log("selection : " + sel)
 			if((sel>=1)&&(sel<=8))
 			{
 				audioElementArrayPentascale[sel-1].load;
@@ -78,8 +76,6 @@
 		function PlayHarmonicSound(sel)
 		{
 			
-			console.log(audioElementArrayHarmonicscale.length);
-			console.log("selection : " + sel)
 			if((sel>=1)&&(sel<=8))
 			{
 				audioElementArrayHarmonicscale[sel-1].load;
@@ -190,7 +186,7 @@
 						<div id="recaptcha">
 							<div
 							class="g-recaptcha"
-							data-sitekey="6LdZnFkfAAAAAEz-Cr1BVWplbzmnEOIxrZPobxMc"
+							data-sitekey="6LcdS1gfAAAAAI_kju1CkmAmTf1bul5F_w7cfjH0"
 							data-callback="uploadSound"
 							data-expired-callback="onRecaptchaResponseExpiry"
 							data-error-callback="onRecaptchaError"
@@ -204,6 +200,29 @@
 							<button class="close_button" onclick="closeRecaptchaDialog()">
 							CANCEL
 							</button>
+						</div>
+					</div>
+				</dialog>
+
+				<dialog id="success_dialog" style="display:none">
+					<div class="dialog_container">
+						<h2 class="dialog_header"></h2>
+						<div id="success_text" class="dialog_text">
+							Sound sent successfully. Thank you for contributing! 
+						</div>
+						<button class="close_button" onClick="closeDialogs()">Continue Drawing</button>
+					</div>
+				</dialog>
+
+				<dialog id="failure_dialog" style="display:none">
+					<div class="dialog_container">
+						<h2 class="dialog_header">ERROR</h2>
+						<div id="failure_text" class="dialog_text">
+							Hmm something went wrong. You can try to send again with the "TRY AGAIN", or return to drawing with "BACK TO DRAWING".
+						</div>
+						<div class="confirmation_button_container">
+							<button class="send_button" onClick="showRecaptchaDialog();closeDialogs();grecaptcha.reset()">TRY AGAIN</button>
+							<button class="reset_button" onClick="closeDialogs()">BACK TO DRAWING</button>
 						</div>
 					</div>
 				</dialog>
