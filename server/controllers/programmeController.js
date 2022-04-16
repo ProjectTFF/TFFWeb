@@ -179,6 +179,10 @@ exports.artists_performance = function (req, res, next) {
                 artist.lastname = 'Kärkkäinen';
             }
         })
+        if(artists.length === 0)
+        {
+            artists = [null];
+        }
         res.status(200).send(JSON.stringify(artists));
     })
     .catch( err => {
