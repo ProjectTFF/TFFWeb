@@ -40,7 +40,7 @@ canvas {
 }
 
 
-#instruction_dialog, #confirmation_dialog{
+#instruction_dialog, #confirmation_dialog, #failure_dialog {
 
 	z-index: 999;
 	position: fixed;
@@ -50,7 +50,7 @@ canvas {
 	padding: 2rem;
 }
 
-#recaptcha_dialog {
+#recaptcha_dialog, #success_dialog {
 	z-index: 999;
 	position: fixed;
 	/* width: 40vw; */
