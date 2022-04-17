@@ -144,4 +144,8 @@ ul {
   body.nav-active {
     overflow: visible;
   }
+
+  .wrapper {
+    overflow: visible;
+  }
 }

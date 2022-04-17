@@ -11,16 +11,16 @@ import { CardObject } from '../Helpers/NormalCardImageMap';
 import { ThumbnailCardObject } from '../Helpers/ThumbnailCardImageMap';
 import { ProgramCardObject } from '../Helpers/ProgramCardMap';
 import DefaultButton from '../Components/defaultButton';
-// import { HomeArtistObject } from '../Helpers/homeArtistMap';
 import { SponsorCollection } from '../Helpers/sponsorMap';
 import '../Assets/Styles/home.css';
 import { getLengthOfLongestArray } from '../Helpers/arrayHelpers';
+import ShowHideNav from '../Helpers/showHideNav';
 
 import Picture from '../Assets/Images/Artists/eva_alkula.png';
 
 function Home(props) {
   const {
-    language,
+    language, handleSetLanguage,
    } = props;
 
   const [highestLength, setHighestLength] = useState(0);
@@ -58,6 +58,8 @@ function Home(props) {
       highlights: 'Programme highlights',
       events: 'Program',
       previous: 'Highlights from previous years',
+      ticketLink: 'https://www.lippu.fi/en/artist/tampere-flute-fest/',
+      streamLink: 'https://www.lippu.fi/en/eventseries/tampere-flute-fest-2022-livestriimi-3116312/',
     },
     finnish: {
       title: 'Tampere Flute Fest',
@@ -70,6 +72,8 @@ function Home(props) {
       highlights: 'Poimintoja ohjelmistosta',
       events: 'Tapahtumat',
       previous: 'Kohokohtia aikaisemmilta vuosilta',
+      ticketLink: 'https://www.lippu.fi/artist/tampere-flute-fest/',
+      streamLink: 'https://www.lippu.fi/eventseries/tampere-flute-fest-2022-livestriimi-3116312/',
     },
   };
 
@@ -96,6 +100,10 @@ function Home(props) {
           </span>
         </div>
       </div>
+      <ShowHideNav
+        language={language}
+        handleSetLanguage={handleSetLanguage}
+      />
       <main>
         <div className="promo-holder">
           <div className="container">
@@ -122,13 +130,14 @@ function Home(props) {
               <ul className="btn-groups">
                 <li>
                   <PrimaryButton
+                    url={content.ticketLink}
                     buttonText={content.buyTickets}
                     showIcon
                   />
                 </li>
                 <li>
                   <DefaultButton
-                    url="https://www.lippu.fi/en/eventseries/tampere-flute-fest-2022-livestriimi-3116312/"
+                    url={content.streamLink}
                     buttonText={content.buyStreaming}
                     showIcon
                   />
@@ -192,13 +201,14 @@ function Home(props) {
           <ul className="btn-groups">
             <li>
               <PrimaryButton
+                url={content.ticketLink}
                 buttonText={content.buyTickets}
                 showIcon
               />
             </li>
             <li>
               <DefaultButton
-                url="https://www.lippu.fi/en/eventseries/tampere-flute-fest-2022-livestriimi-3116312/"
+                url={content.streamLink}
                 buttonText={content.buyStreaming}
                 showIcon
               />

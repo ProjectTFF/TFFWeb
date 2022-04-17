@@ -1,17 +1,20 @@
 import React from 'react';
+import Banner from '../Components/banner';
 import PrimaryButton from '../Components/primaryButton';
 import DefaultButton from '../Components/defaultButton';
 import '../Assets/Styles/venue.css';
 
 function Venue(props) {
   const {
-    language,
+    language, handleSetLanguage,
    } = props;
 
   // Content of the page by language
   let content = {
     english: {
       title: 'venue',
+      bannerTitle: 'Tampere Flute Fest',
+      hall: 'Tampere Hall',
       buyTickets: 'buy tickets',
       buyStreaming: 'buy Streaming',
       venue1: 'Tampere Hall',
@@ -20,9 +23,13 @@ function Venue(props) {
       weekDay1: 'Friday',
       weekDay2: 'Saturday',
       weekDay3: 'Sunday',
+      ticketLink: 'https://www.lippu.fi/en/artist/tampere-flute-fest/',
+      streamLink: 'https://www.lippu.fi/en/eventseries/tampere-flute-fest-2022-livestriimi-3116312/',
     },
     finnish: {
       title: 'Tapahtumapaikka',
+      bannerTitle: 'Tampere Flute Fest',
+      hall: 'Tampere-Talo',
       buyTickets: 'osta liput',
       buyStreaming: 'osta suoratoisto',
       venue1: 'Tampere-Talo',
@@ -31,12 +38,20 @@ function Venue(props) {
       weekDay1: 'Perjantai',
       weekDay2: 'Lauantai',
       weekDay3: 'Sunnuntai',
+      ticketLink: 'https://www.lippu.fi/artist/tampere-flute-fest/',
+      streamLink: 'https://www.lippu.fi/eventseries/tampere-flute-fest-2022-livestriimi-3116312/',
     },
   };
 
   content = language === 'finnish' ? (content.finnish) : (content.english);
   return (
-    <main>
+    <>
+      <Banner
+        bannerTitle={content.bannerTitle}
+        bannerHall={content.hall}
+        language={language}
+        handleSetLanguage={handleSetLanguage}
+      />
       <div className="container">
         <div className="venue-section">
           <h1 className="page-title">{content.title}</h1>
@@ -71,19 +86,19 @@ function Venue(props) {
                   &nbsp;22.4.22
                 </span>
               </div>
-
             </div>
           </div>
           <ul className="btn-groups">
             <li>
               <PrimaryButton
+                url={content.ticketLink}
                 buttonText={content.buyTickets}
                 showIcon
               />
             </li>
             <li>
               <DefaultButton
-                url="https://www.lippu.fi/en/eventseries/tampere-flute-fest-2022-livestriimi-3116312/"
+                url={content.streamLink}
                 buttonText={content.buyStreaming}
                 showIcon
               />
@@ -91,7 +106,7 @@ function Venue(props) {
           </ul>
         </div>
       </div>
-    </main>
+    </>
   );
 }
 

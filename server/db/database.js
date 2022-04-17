@@ -103,7 +103,7 @@ freezeTableName: true,}
 );
 
 // model for 'performance' table
-const Performance = sequelize.define('composition', {
+const Performance = sequelize.define('performance', {
     performanceid: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -139,7 +139,11 @@ const Venue = sequelize.define('venue', {
         allowNull: false,
         primaryKey: true
     },
-    venuename: {
+    venuename_eng: {
+        type: Sequelize.STRING,
+        allowNull: true,
+    },
+    venuename_fin: {
         type: Sequelize.STRING,
         allowNull: true,
     },
@@ -176,12 +180,16 @@ const Concert = sequelize.define('concert', {
         allowNull: false,
         primaryKey: true
     },
-    concertname: {
+    concertname_eng: {
+        type: Sequelize.STRING,
+        allowNull: true
+    },
+    concertname_fin: {
         type: Sequelize.STRING,
         allowNull: true
     },
     concertdate: {
-        type: Sequelize.DATE,
+        type: Sequelize.STRING,
         allowNull: false
     },
     consertstarttime: {
@@ -211,7 +219,7 @@ freezeTableName: true}
 );
 
 // model for the 'programme' table
-const Programme = sequelize.define('concert', {
+const Programme = sequelize.define('programme', {
     concertid: {
         type: Sequelize.INTEGER,
         allowNull: false,

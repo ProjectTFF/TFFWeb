@@ -1,4 +1,5 @@
 import React from 'react';
+import Banner from '../Components/banner';
 import ArtistCompetition from '../Components/artistCompetition';
 import { CompetitionFinalist } from '../Helpers/competitionFinalist';
 import PrimaryButton from '../Components/primaryButton';
@@ -8,28 +9,40 @@ import '../Assets/Styles/artists.css';
 
 function ArtistCompetitionFinalist(props) {
   const {
-    language,
+    language, handleSetLanguage,
    } = props;
 
   // Content of the page by language
   let content = {
     english: {
       title: 'Young Artist Competition Finalists',
-      // tickets: 'buy tickets',
+      bannerTitle: 'Tampere Flute Fest',
+      hall: 'Tampere Hall',
       buyTickets: 'buy tickets',
       buyStreaming: 'buy Streaming',
+      ticketLink: 'https://www.lippu.fi/en/artist/tampere-flute-fest/',
+      streamLink: 'https://www.lippu.fi/en/eventseries/tampere-flute-fest-2022-livestriimi-3116312/',
     },
     finnish: {
       title: 'Young Artist Competition -kilpailun finalistit',
-      // tickets: 'osta liput',
+      bannerTitle: 'Tampere Flute Fest',
+      hall: 'Tampere-Talo',
       buyTickets: 'osta liput',
       buyStreaming: 'osta suoratoisto',
+      ticketLink: 'https://www.lippu.fi/artist/tampere-flute-fest/',
+      streamLink: 'https://www.lippu.fi/eventseries/tampere-flute-fest-2022-livestriimi-3116312/',
     },
   };
 
   content = language === 'finnish' ? (content.finnish) : (content.english);
   return (
-    <main>
+    <>
+      <Banner
+        bannerTitle={content.bannerTitle}
+        bannerHall={content.hall}
+        language={language}
+        handleSetLanguage={handleSetLanguage}
+      />
       <div className="container">
         <div className="competition-info-wrap">
           <h1 className="page-title">{content.title}</h1>
@@ -48,13 +61,14 @@ function ArtistCompetitionFinalist(props) {
           <ul className="btn-groups">
             <li>
               <PrimaryButton
+                url={content.ticketLink}
                 buttonText={content.buyTickets}
                 showIcon
               />
             </li>
             <li>
               <DefaultButton
-                url="https://www.lippu.fi/en/eventseries/tampere-flute-fest-2022-livestriimi-3116312/"
+                url={content.streamLink}
                 buttonText={content.buyStreaming}
                 showIcon
               />
@@ -62,7 +76,7 @@ function ArtistCompetitionFinalist(props) {
           </ul>
         </div>
       </div>
-    </main>
+    </>
   );
 }
 

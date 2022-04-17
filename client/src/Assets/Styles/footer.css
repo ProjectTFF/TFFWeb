@@ -1,0 +1,43 @@
+footer {
+   background: #363636;
+   padding: 4rem 0;
+   text-align: center;
+}
+
+footer .scroll-to-top {
+   position: fixed;
+   bottom: 2rem;
+   right: 2rem;
+   z-index: 1;
+}
+
+footer .scroll-to-top button {
+   background: none;
+   padding: 0;
+   border: 0;
+}
+
+footer .scroll-to-top svg {
+   font-size: 4rem;
+   line-height: 1;
+   color: #fff;
+   cursor: pointer;
+   transform: rotate(-180deg);
+   transition: color 0.3s ease-in-out;
+}
+
+footer .scroll-to-top svg:hover {
+   color: #54ccf2;
+}
+
+footer .copyright {
+   display: block;
+}
+
+footer .copyright a {
+   color: #fff;
+}
+
+footer .copyright a:hover {
+   color: #54ccf2;
+}
