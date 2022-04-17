@@ -9,6 +9,10 @@
     margin-bottom: 1rem;
 }
 
+.performance-name{
+    font: 1.5rem Poppins, Arial, Helvetica, sans-serif;
+}
+
 .btn-near{
     display: inline-block;
     padding: 0 0 0 3rem;
@@ -58,7 +62,12 @@
     margin-bottom: 1rem;
 }
 
-.pass-artists span{
+.performance-artists {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.performance-artist {
     color: #00d1ff;
 }
 
@@ -66,6 +75,14 @@
 
     .pass-time{
         width: 5rem;
+    }
+
+    .pass-title{
+        font-size: 3rem;
+    }
+
+    .performance-name{
+        font-size: 2rem;
     }
 
     @media screen and (min-width: 1024px) {

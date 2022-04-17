@@ -52,83 +52,78 @@ function Programme(props) {
     timetable.push(time5);
   }
 
-  const [boolArtist, setBool] = React.useState(true);
-  const [artist1, setArtist1] = React.useState(null);
-  const [artist2, setArtist2] = React.useState(null);
-  const [artist3, setArtist3] = React.useState(null);
-  const [artist4, setArtist4] = React.useState(null);
-  const [artist5, setArtist5] = React.useState(null);
-  const [artist6, setArtist6] = React.useState(null);
-  const [artist7, setArtist7] = React.useState(null);
-  const [artist8, setArtist8] = React.useState(null);
-  const [artist9, setArtist9] = React.useState(null);
-  const [artist10, setArtist10] = React.useState(null);
-  const [artist11, setArtist11] = React.useState(null);
-  const [artist12, setArtist12] = React.useState(null);
-  const [artist13, setArtist13] = React.useState(null);
-  const [artist14, setArtist14] = React.useState(null);
-  const [artist15, setArtist15] = React.useState(null);
-  const [artist16, setArtist16] = React.useState(null);
-  const [artist17, setArtist17] = React.useState(null);
+  const [artist1, setArtist1] = React.useState([]);
+  const [artist2, setArtist2] = React.useState([]);
+  const [artist3, setArtist3] = React.useState([]);
+  const [artist4, setArtist4] = React.useState([]);
+  const [artist5, setArtist5] = React.useState([]);
+  const [artist6, setArtist6] = React.useState([]);
+  const [artist7, setArtist7] = React.useState([]);
+  const [artist8, setArtist8] = React.useState([]);
+  const [artist9, setArtist9] = React.useState([]);
+  const [artist10, setArtist10] = React.useState([]);
+  const [artist11, setArtist11] = React.useState([]);
+  const [artist12, setArtist12] = React.useState([]);
+  const [artist13, setArtist13] = React.useState([]);
+  const [artist14, setArtist14] = React.useState([]);
+  const [artist15, setArtist15] = React.useState([]);
+  const [artist16, setArtist16] = React.useState([]);
+  const [artist17, setArtist17] = React.useState([]);
   const artists = [];
 
-  if (artist1 === null) {
+  if (artist1.length === 0) {
     axios.get(`${process.env.REACT_APP_BASE_URL}/api/programme/artists/1`).then((res) => { const val = res.data; setArtist1(val); });
   }
-  if (artist2 === null) {
+  if (artist2.length === 0) {
     axios.get(`${process.env.REACT_APP_BASE_URL}/api/programme/artists/2`).then((res) => { const val = res.data; setArtist2(val); });
   }
-  if (artist3 === null) {
+  if (artist3.length === 0) {
     axios.get(`${process.env.REACT_APP_BASE_URL}/api/programme/artists/3`).then((res) => { const val = res.data; setArtist3(val); });
   }
-  if (artist4 === null) {
+  if (artist4.length === 0) {
     axios.get(`${process.env.REACT_APP_BASE_URL}/api/programme/artists/4`).then((res) => { const val = res.data; setArtist4(val); });
   }
-  if (artist5 === null) {
+  if (artist5.length === 0) {
     axios.get(`${process.env.REACT_APP_BASE_URL}/api/programme/artists/5`).then((res) => { const val = res.data; setArtist5(val); });
   }
-  if (artist6 === null) {
+  if (artist6.length === 0) {
     axios.get(`${process.env.REACT_APP_BASE_URL}/api/programme/artists/6`).then((res) => { const val = res.data; setArtist6(val); });
   }
-  if (artist7 === null) {
+  if (artist7.length === 0) {
     axios.get(`${process.env.REACT_APP_BASE_URL}/api/programme/artists/7`).then((res) => { const val = res.data; setArtist7(val); });
   }
-  if (artist8 === null) {
+  if (artist8.length === 0) {
     axios.get(`${process.env.REACT_APP_BASE_URL}/api/programme/artists/8`).then((res) => { const val = res.data; setArtist8(val); });
   }
-  if (artist9 === null) {
+  if (artist9.length === 0) {
     axios.get(`${process.env.REACT_APP_BASE_URL}/api/programme/artists/9`).then((res) => { const val = res.data; setArtist9(val); });
   }
-  if (artist10 === null) {
+  if (artist10.length === 0) {
     axios.get(`${process.env.REACT_APP_BASE_URL}/api/programme/artists/10`).then((res) => { const val = res.data; setArtist10(val); });
   }
-  if (artist11 === null) {
+  if (artist11.length === 0) {
     axios.get(`${process.env.REACT_APP_BASE_URL}/api/programme/artists/11`).then((res) => { const val = res.data; setArtist11(val); });
   }
-  if (artist12 === null) {
+  if (artist12.length === 0) {
     axios.get(`${process.env.REACT_APP_BASE_URL}/api/programme/artists/12`).then((res) => { const val = res.data; setArtist12(val); });
   }
-  if (artist13 === null) {
+  if (artist13.length === 0) {
     axios.get(`${process.env.REACT_APP_BASE_URL}/api/programme/artists/13`).then((res) => { const val = res.data; setArtist13(val); });
   }
-  if (artist14 === null) {
+  if (artist14.length === 0) {
     axios.get(`${process.env.REACT_APP_BASE_URL}/api/programme/artists/14`).then((res) => { const val = res.data; setArtist14(val); });
   }
-  if (artist15 === null) {
+  if (artist15.length === 0) {
     axios.get(`${process.env.REACT_APP_BASE_URL}/api/programme/artists/15`).then((res) => { const val = res.data; setArtist15(val); });
   }
-  if (artist16 === null) {
+  if (artist16.length === 0) {
     axios.get(`${process.env.REACT_APP_BASE_URL}/api/programme/artists/16`).then((res) => { const val = res.data; setArtist16(val); });
   }
-  if (artist17 === null) {
+  if (artist17.length === 0) {
     axios.get(`${process.env.REACT_APP_BASE_URL}/api/programme/artists/17`).then((res) => { const val = res.data; setArtist17(val); });
   }
 
-  if (boolArtist && artist1 === null && artist2 === null && artist3 === null
-    && artist4 === null && artist5 === null && artist6 === null && artist7 === null
-    && artist8 === null && artist9 === null && artist10 === null && artist11 === null
-    && artist12 === null && artist13 === null && artist14 === null && artist15 === null
-    && artist16 === null && artist17 === null) {
+  if (artists.length === 0) {
     artists.push(artist1);
     artists.push(artist2);
     artists.push(artist3);
@@ -146,8 +141,6 @@ function Programme(props) {
     artists.push(artist15);
     artists.push(artist16);
     artists.push(artist17);
-
-    setBool(false);
   }
 
   // Content of the page by language
@@ -186,8 +179,8 @@ function Programme(props) {
           <h1 className="page-title">{content.programmeTitle}</h1>
           {programmes.map((programme) => (
             <div className="pass-division">
-              <h2 className="pass-title">
-                {`${programme.concertdate} ${programme.concertname}`}
+              <p className="pass-title">
+                {`${programme.concertdate} ${language === 'finnish' ? programme.concertname_fin : programme.concertname_eng}`}
                 <ul className="btn-near">
                   <li>
                     <PrimaryButton
@@ -197,12 +190,12 @@ function Programme(props) {
                     />
                   </li>
                 </ul>
-              </h2>
+              </p>
               <p className="pass-infos">
                 {/* <p>description</p> */}
                 <p>
                   {'Location : '}
-                  <span>{programme.venuename}</span>
+                  <span>{language === 'finnish' ? programme.venuename_fin : programme.venuename_eng}</span>
                 </p>
                 {/* <p className="pass-special">special info</p> */}
               </p>
@@ -213,20 +206,22 @@ function Programme(props) {
                       {`${performance.performancestarttime}${'-'}${performance.performanceendtime}`}
                     </p>
                     <p className="pass-right-timetable">
-                      <h2>{language === 'finnish' ? performance.performancename_fin : performance.performancename_eng}</h2>
+                      <p className="performance-name">{language === 'finnish' ? performance.performancename_fin : performance.performancename_eng}</p>
                       <p>{language === 'finnish' ? performance.performanceinfo_fin : performance.performanceinfo_eng}</p>
-                      {
-                        performance.performanceid - 1
-                      /* boolArtist ? 'ERROR404' :
-                      artists[performance.performanceid - 1].map((artist) => (
-                        <p className="pass-artists">
-                          {'Artist: '}
-                          <span>
-                      {`${artist.firstname} ${artist.lastname}`}
-                          </span>
+                      <p>
+                        {artists[performance.performanceid - 1].length === 1 ? (artists[performance.performanceid - 1][0] == null ? '' : 'Artist: ') : 'Artists: '}
+                        <p className="performance-artists">
+                          {artists[performance.performanceid - 1].map((artist) => (
+                            artist == null
+                            ? null
+                            : (
+                              <p className="performance-artist">
+                                {`${artist.firstname} ${artist.lastname}`}
+                              </p>
+                            )
+                          )) }
                         </p>
-                      )) */
-                      }
+                      </p>
                     </p>
                   </li>
                 ))}
