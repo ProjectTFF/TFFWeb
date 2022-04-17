@@ -71,6 +71,7 @@ async function uploadSound(token) {
     xhr_uploadSound.setRequestHeader("Content-Type", "application/json");
     xhr_uploadSound.setRequestHeader('Accept', 'application/json');
     xhr_uploadSound.setRequestHeader('Token', token);
+    xhr_uploadSound.withCredentials = true;
     xhr_uploadSound.send(dddata);
 }
 
