@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import './Assets/Styles/index.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import ShowHideNav from './Helpers/showHideNav';
 import Footer from './Components/footer';
 import Loader from './Components/loader';
 
@@ -32,12 +31,6 @@ function App() {
         ? <Loader />
         : (
           <Router>
-            <ShowHideNav
-              language={language}
-              handleSetLanguage={(l) => {
-          setLanguage(l);
-        }}
-            />
             <Routes>
               <Route path="/" element={<Home language={language} />} />
               {/* <Route path="/contest" element={<Contest />} /> */}

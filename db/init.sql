@@ -52,7 +52,8 @@ CREATE TABLE IF NOT EXISTS performsin (
 
 CREATE TABLE IF NOT EXISTS venue (
     venueid INT NOT NULL,
-    venuename VARCHAR(30),
+    venuename_eng VARCHAR(30),
+    venuename_fin VARCHAR(30),
     venueaddress VARCHAR(50),
     venuecity VARCHAR(20),
     venuezipcode INT,
@@ -63,8 +64,9 @@ CREATE TABLE IF NOT EXISTS venue (
 
 CREATE TABLE IF NOT EXISTS concert (
     concertid INT NOT NULL,
-    concertname VARCHAR(50),
-    concertdate DATE NOT NULL,
+    concertname_eng VARCHAR(50),
+    concertname_fin VARCHAR(50),
+    concertdate VARCHAR(10),
     consertstarttime TIME NOT NULL,
     concertendtime TIME,
     concertinfo_eng VARCHAR(30),
@@ -141,11 +143,11 @@ VALUES
 
 --venues data
 
-INSERT INTO VENUE (venueid, venuename, venueaddress, venuecity, venuezipcode, venuelink, venuelocation )
+INSERT INTO VENUE (venueid, venuename_eng, venuename_fin, venueaddress, venuecity, venuezipcode, venuelink, venuelocation )
 VALUES
-    (1, 'Tampere-Talo','Yliopistonkatu 55', 'Tampere', 33101, 'http://www.tampere-talo.fi/', 'https://goo.gl/maps/x8ymf7FRWrUGRi6AA'),
-    (2, 'Kulttuuritalo Laikku', 'Keskustori 4', 'Tampere', 33100, 'https://www.laikku.fi', 'https://goo.gl/maps/EqoRQy3G4Rww1H7T8'),
-    (3, 'Tampereen konservatorio', 'F.E. Sillanpään katu 9', 'Tampere', 33230, 'https://www.tampereenkonservatorio.fi/', 'https://g.page/kulttuuritalolaikku?share');
+    (1, 'Tampere Hall','Tampere-Talo', 'Yliopistonkatu 55', 'Tampere', 33101, 'http://www.tampere-talo.fi/', 'https://goo.gl/maps/x8ymf7FRWrUGRi6AA'),
+    (2, 'Culture House Laikku', 'Kulttuuritalo Laikku', 'Keskustori 4', 'Tampere', 33100, 'https://www.laikku.fi', 'https://goo.gl/maps/EqoRQy3G4Rww1H7T8'),
+    (3, 'Tampere Conservatoire', 'Tampereen konservatorio', 'F.E. Sillanpään katu 9', 'Tampere', 33230, 'https://www.tampereenkonservatorio.fi/', 'https://g.page/kulttuuritalolaikku?share');
 
 --performances data
 
@@ -177,13 +179,13 @@ VALUES
 
 --concerts data
 
-INSERT INTO concert (concertid, concertname, concertdate, consertstarttime, concertendtime, concertinfo_eng, concertinfo_fin, venueid)
+INSERT INTO concert (concertid, concertname_eng, concertname_fin, concertdate, consertstarttime, concertendtime, concertinfo_eng, concertinfo_fin, venueid)
 VALUES
-    (1, 'friday', '2022-04-22', '10:00','13:00','friday_eng.txt', 'friday_fin.txt', 2),
-    (2, 'saturdaymorning', '2022-04-23', '10:00','12:00', 'saturdaymorning_eng.txt', 'saturdaymorning_fin.txt', 3),
-    (3, 'saturdaevening', '2022-04-23', '12:30','18:40', 'saturdayevening_eng.txt', 'saturdayevening_fin.txt', 3),
-    (4, 'sundaymorning', '2022-04-24', '10:00','13:40', 'sundaymorning_eng.txt', 'sundaymorning_fin.txt', 1),
-    (5, 'sundayevening', '2022-04-24', '14:00','20:00', 'sundayevening_eng.txt', 'sundayevening_fin.txt', 1);
+    (1, 'friday', 'friday', '22.04.22', '10:00','13:00','friday_eng.txt', 'friday_fin.txt', 2),
+    (2, 'saturdaymorning','saturdaymorning', '23.04.22', '10:00','12:00', 'saturdaymorning_eng.txt', 'saturdaymorning_fin.txt', 3),
+    (3, 'saturdaevening','saturdaevening', '23.04.22', '12:30','18:40', 'saturdayevening_eng.txt', 'saturdayevening_fin.txt', 3),
+    (4, 'sundaymorning','sundaymorning', '24.04.22', '10:00','13:40', 'sundaymorning_eng.txt', 'sundaymorning_fin.txt', 1),
+    (5, 'sundayevening','sundayevening', '24.04.22', '14:00','20:00', 'sundayevening_eng.txt', 'sundayevening_fin.txt', 1);
 
 -- programme data
 

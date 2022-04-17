@@ -6,7 +6,7 @@ import '../Assets/Styles/venue.css';
 
 function Venue(props) {
   const {
-    language,
+    language, handleSetLanguage,
    } = props;
 
   // Content of the page by language
@@ -45,10 +45,12 @@ function Venue(props) {
 
   content = language === 'finnish' ? (content.finnish) : (content.english);
   return (
-    <main>
+    <>
       <Banner
         bannerTitle={content.bannerTitle}
         bannerHall={content.hall}
+        language={language}
+        handleSetLanguage={handleSetLanguage}
       />
       <div className="container">
         <div className="venue-section">
@@ -104,7 +106,7 @@ function Venue(props) {
           </ul>
         </div>
       </div>
-    </main>
+    </>
   );
 }
 

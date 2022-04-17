@@ -48,30 +48,35 @@ exports.all_performances = function(req,res,next) {
 }
 
 exports.programme_info = function (req, res, next) {
-    db.sequelize.query('SELECT concertid, concertname, concertdate, Venue.venueid, venuename FROM Concert JOIN Venue ON Concert.venueid = Venue.venueid', {
+    db.sequelize.query('SELECT concertid, concertname_eng,concertname_fin, concertdate, Venue.venueid, venuename_eng, venuename_fin FROM Concert JOIN Venue ON Concert.venueid = Venue.venueid', {
         type: db.sequelize.QueryTypes.SELECT
       })
     .then(concerts => {
         concerts.map(concert => {
         if(parseInt(concert.concertid,10)==1)
         {
-            concert.concertname = 'TFF Kid';
+            concert.concertname_eng = 'TFF Kid';
+            concert.concertname_fin = 'TFF Kid';
         }
         else if(parseInt(concert.concertid,10)==2)
         {
-            concert.concertname = 'TFF Youth Morning Pass';
+            concert.concertname_eng = 'TFF Youth Morning Pass';
+            concert.concertname_fin = 'TFF Youth Aamupassi';
         }
         else if(parseInt(concert.concertid,10)==3)
         {
-            concert.concertname = 'TFF Youth Lunch Pass';
+            concert.concertname_eng = 'TFF Youth Lunch Pass';
+            concert.concertname_fin = 'TFF Youth Lounaspassi';
         }
         else if(parseInt(concert.concertid,10)==4)
         {
-            concert.concertname = 'TFF Jää/Ice Morning Pass';
+            concert.concertname_eng = 'TFF Jää/Ice Morning Pass';
+            concert.concertname_fin = 'TFF Jää/Ice Aamupassi';
         }
         else if(parseInt(concert.concertid,10)==5)
         {
-            concert.concertname = 'TFF Jää/Ice Lunch Pass';
+            concert.concertname_eng = 'TFF Jää/Ice Lunch Pass';
+            concert.concertname_fin = 'TFF Jää/Ice Lounaspassi';
         }
         
         })
@@ -174,6 +179,10 @@ exports.artists_performance = function (req, res, next) {
                 artist.lastname = 'Kärkkäinen';
             }
         })
+        if(artists.length === 0)
+        {
+            artists = [null];
+        }
         res.status(200).send(JSON.stringify(artists));
     })
     .catch( err => {
