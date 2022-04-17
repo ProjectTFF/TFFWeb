@@ -32,22 +32,19 @@ function App() {
         : (
           <Router>
             <Routes>
-              <Route path="/" element={<Home language={language} />} />
+              <Route path="/" element={<Home language={language} handleSetLanguage={(l) => { setLanguage(l); }} />} />
               {/* <Route path="/contest" element={<Contest />} /> */}
               {/* <Route path="/contribute" element={<Contribute />} /> */}
-              <Route path="/programme">
-                <Route path="" element={<Programme language={language} />} />
-                <Route path=":programSlug" element={<ProgramDetail language={language} />} />
-              </Route>
-              <Route path="/tickets_and_streaming" element={<Tickets language={language} />} />
-              <Route path="/venue" element={<Venue language={language} />} />
-              <Route path="/artistCompetitionFinalist" element={<ArtistCompetitionFinalist language={language} />} />
+              <Route path="/programme" element={<Programme language={language} handleSetLanguage={(l) => { setLanguage(l); }} />} />
+              <Route path="/tickets_and_streaming" element={<Tickets language={language} handleSetLanguage={(l) => { setLanguage(l); }} />} />
+              <Route path="/venue" element={<Venue language={language} />} handleSetLanguage={(l) => { setLanguage(l); }} />
+              <Route path="/artistCompetitionFinalist" element={<ArtistCompetitionFinalist language={language} handleSetLanguage={(l) => { setLanguage(l); }} />} />
               <Route path="/artists">
-                <Route path="" element={<Artists language={language} />} />
-                <Route path=":artistSlug" element={<ArtistPage language={language} />} />
+                <Route path="" element={<Artists language={language} handleSetLanguage={(l) => { setLanguage(l); }} />} />
+                <Route path=":artistSlug" element={<ArtistPage language={language} handleSetLanguage={(l) => { setLanguage(l); }} />} />
               </Route>
               <Route path="/programs">
-                <Route path=":artistSlug" element={<ProgramDetail language={language} />} />
+                <Route path=":artistSlug" element={<ProgramDetail language={language} handleSetLanguage={(l) => { setLanguage(l); }} />} />
               </Route>
               <Route path="*" element={<ErrorPage language={language} />} />
             </Routes>
