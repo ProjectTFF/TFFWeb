@@ -7,7 +7,7 @@ import PromoImage from '../Assets/Images/promo.png';
 
 function Tickets(props) {
   const {
-    language,
+    language, handleSetLanguage,
    } = props;
 
   // Content of the page by language
@@ -38,10 +38,12 @@ function Tickets(props) {
 
 content = language === 'finnish' ? (content.finnish) : (content.english);
   return (
-    <main>
+    <>
       <Banner
         bannerTitle={content.bannerTitle}
         bannerHall={content.hall}
+        language={language}
+        handleSetLanguage={handleSetLanguage}
       />
       <div className="ticket-holder">
         <div className="container">
@@ -71,7 +73,7 @@ content = language === 'finnish' ? (content.finnish) : (content.english);
           </ul>
         </div>
       </div>
-    </main>
+    </>
   );
 }
 

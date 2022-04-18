@@ -42,7 +42,7 @@ main .inner-page-banner {
   width: 100%;
   max-width: 122rem;
   margin: 0 auto;
-  z-index: 1;
+  z-index: 2;
 }
 
 .dashboard-content span {
@@ -140,6 +140,14 @@ main .inner-page-banner {
 }
 
 @media screen and (min-width: 1024px) {
+  .dashboard-banner {
+    margin-bottom: 0;
+  }
+
+  .dashboard-banner.inner-page-banner {
+    margin-bottom: 0;
+  }
+
   .dashboard-content {
     padding: 12rem 4rem;
   }

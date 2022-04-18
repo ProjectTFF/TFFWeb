@@ -1,0 +1,11 @@
+.margin {
+    display: block;
+    margin-bottom: 4rem;
+    color: #00000000;
+}
+
+@media screen and (min-width: 1024px) {
+    .margin {
+        display: none;
+    }
+}

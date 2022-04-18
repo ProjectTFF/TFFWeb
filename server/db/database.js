@@ -139,7 +139,11 @@ const Venue = sequelize.define('venue', {
         allowNull: false,
         primaryKey: true
     },
-    venuename: {
+    venuename_eng: {
+        type: Sequelize.STRING,
+        allowNull: true,
+    },
+    venuename_fin: {
         type: Sequelize.STRING,
         allowNull: true,
     },
@@ -176,12 +180,16 @@ const Concert = sequelize.define('concert', {
         allowNull: false,
         primaryKey: true
     },
-    concertname: {
+    concertname_eng: {
+        type: Sequelize.STRING,
+        allowNull: true
+    },
+    concertname_fin: {
         type: Sequelize.STRING,
         allowNull: true
     },
     concertdate: {
-        type: Sequelize.DATE,
+        type: Sequelize.STRING,
         allowNull: false
     },
     consertstarttime: {

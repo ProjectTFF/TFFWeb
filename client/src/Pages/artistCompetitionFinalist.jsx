@@ -9,7 +9,7 @@ import '../Assets/Styles/artists.css';
 
 function ArtistCompetitionFinalist(props) {
   const {
-    language,
+    language, handleSetLanguage,
    } = props;
 
   // Content of the page by language
@@ -36,10 +36,12 @@ function ArtistCompetitionFinalist(props) {
 
   content = language === 'finnish' ? (content.finnish) : (content.english);
   return (
-    <main>
+    <>
       <Banner
         bannerTitle={content.bannerTitle}
         bannerHall={content.hall}
+        language={language}
+        handleSetLanguage={handleSetLanguage}
       />
       <div className="container">
         <div className="competition-info-wrap">
@@ -74,7 +76,7 @@ function ArtistCompetitionFinalist(props) {
           </ul>
         </div>
       </div>
-    </main>
+    </>
   );
 }
 

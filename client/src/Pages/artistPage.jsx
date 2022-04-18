@@ -10,12 +10,13 @@ import { ThumbnailCardObject } from '../Helpers/ThumbnailCardImageMap';
 import SectionHeader from '../Components/sectionHeader';
 import { ArtistPictureMap } from '../Helpers/ArtistPictureMap';
 import DefaultButton from '../Components/defaultButton';
+import Banner from '../Components/banner';
 
 import '../Assets/Styles/artistPage.css';
 
 function ArtistPage(props) {
   const {
-    language,
+    language, handleSetLanguage,
    } = props;
 
   const { artistSlug } = useParams();
@@ -49,6 +50,8 @@ function ArtistPage(props) {
   // Content of the page by language
   let content = {
     english: {
+      bannerTitle: 'Tampere Flute Fest',
+      hall: 'Tampere Hall',
       exit: ' Back to artists',
       website: 'Website',
       biography: artist.biography_eng,
@@ -60,6 +63,8 @@ function ArtistPage(props) {
       buyStreaming: 'buy Streaming',
     },
     finnish: {
+      bannerTitle: 'Tampere Flute Fest',
+      hall: 'Tampere-Talo',
       exit: ' Näytä kaikki artistit',
       website: 'Websivu',
       biography: artist.biography_fin,
@@ -75,7 +80,13 @@ function ArtistPage(props) {
   content = language === 'finnish' ? (content.finnish) : (content.english);
 
   return (
-    <main>
+    <>
+      <Banner
+        bannerTitle={content.bannerTitle}
+        bannerHall={content.hall}
+        language={language}
+        handleSetLanguage={handleSetLanguage}
+      />
       <div className="artist">
         <div className="container">
           <div className="artist-banner">
@@ -206,7 +217,7 @@ function ArtistPage(props) {
           </div>
         </div>
       </div>
-    </main>
+    </>
   );
 }
 

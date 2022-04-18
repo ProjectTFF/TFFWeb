@@ -9,7 +9,7 @@ import '../Assets/Styles/artists.css';
 
 function Artists(props) {
   const {
-    language,
+    language, handleSetLanguage,
    } = props;
 
   /**
@@ -46,10 +46,12 @@ function Artists(props) {
   content = language === 'finnish' ? (content.finnish) : (content.english);
 
   return (
-    <main>
+    <>
       <Banner
         bannerTitle={content.bannerTitle}
         bannerHall={content.hall}
+        language={language}
+        handleSetLanguage={handleSetLanguage}
       />
       <div className="container">
         <div className="artists">
@@ -79,7 +81,7 @@ function Artists(props) {
           </ul>
         </div>
       </div>
-    </main>
+    </>
   );
 }
 
