@@ -147,21 +147,38 @@ for (let i = 0; i < wallArray.length; i++)
   boxY:wallArray[i].boxY,
   lenght:wallArray[i].length,
   size:wallArray[i].size,
-  flash:wallArray[i].flash,
-  
-  over:wallArray[i].over,
-  press:wallArray[i].press,
-  locked:wallArray[i].locked,
-  otherslocked:wallArray[i].otherslocked,
-  dragged:wallArray[i].dragged,
-  others: null 
+
   }
 
 }
 wallValue[i] = wallContainer;
 
 wireValue = new ArrayList();
+
+
 for (let i = 0; i < wireArray.length; i++){
+
+  tmpX = wireArray[i].touchPosX;
+  touchPosXContainer = new ArrayList();
+  touchPosYContainer = new ArrayList<Integer>();
+  if(tmpX)
+  {
+    touchPosXSize = tmpX.size();
+  }
+
+
+
+  if(touchPosXSize > 0)
+  {
+      for (let j = 0; j < touchPosXSize; j++)
+    {
+
+      touchPosXContainer[j] = (wireArray[i].(Integer)touchPosX.get(j));
+      touchPosYContainer[j] = (wireArray[i].(Integer)touchPosY.get(j));
+    }
+  }
+
+
   wireContainer = 
   {_x:wireArray[i]._x,
   _y:wireArray[i]._y,
@@ -169,8 +186,8 @@ for (let i = 0; i < wireArray.length; i++){
   __xArray: wireArray[i].__xArray,
   _coll:wireArray[i]._coll,
   size:wireArray[i].size, // size of wall (offset for collision)
-  touchPosX:wireArray[i].touchPosX,
-  touchPosY:wireArray[i].touchPosY
+  touchPosX:touchPosXContainer,
+  touchPosY:touchPosYContainer,
   }
    wireValue[i] = wireContainer
 }
@@ -182,17 +199,6 @@ getDrawing = false;
 	
 	if (setDrawing)
 	{
-    
-	wallArray = savedWallArray;
-	wireArray = savedWireArray;
-  xArray = savedXArray
-  bar = savedBar;
-
-
-
-
-
-
 
   setDrawing = false;
 	}
