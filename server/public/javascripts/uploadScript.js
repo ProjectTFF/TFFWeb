@@ -92,6 +92,10 @@ function toggleInstructionDialog() {
     }
 }
 
+function openInstructionDialog() {
+    document.getElementById("instruction_dialog").style.display = 'flex';
+}
+
 function toggleConfirmationDialog() {
     if (document.getElementById("confirmation_dialog").style.display == 'none') {
         document.getElementById("confirmation_dialog").style.display = 'flex';

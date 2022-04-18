@@ -40,11 +40,23 @@ canvas {
 }
 
 
-#instruction_dialog, #confirmation_dialog, #failure_dialog {
+#instruction_dialog, #confirmation_dialog {
 
 	z-index: 999;
 	position: fixed;
 	width: 40vw;
+	display: flex;
+	background-color: #0f0f0f;
+	padding: 2rem;
+	font-size: 12px;
+	line-height: 170%;
+}
+
+#failure_dialog {
+
+	z-index: 999;
+	position: fixed;
+	width: 45vw;
 	display: flex;
 	background-color: #0f0f0f;
 	padding: 2rem;
