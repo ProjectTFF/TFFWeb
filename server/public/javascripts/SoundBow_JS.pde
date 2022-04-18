@@ -771,10 +771,19 @@ class Wire
         fill(#54CCF2);     
         ellipse(_x, _y, 15, 15);
 
-        //int red = 255;
-        //int green = 255;
-        //int blue = 100 + 155/(touchPosX.size()-1)*index;
-        stroke(#54CCF2);
+  
+      // Manually converting hex to rgb 
+      start_red = 2*16+1;
+      start_green = 3*16+1;
+      start_blue =3*16+6;
+      final_red = 5*16 + 4;
+      final_green = 12*16+12;
+      final_blue = 15*16+2;
+      current_red = start_red + (final_red-start_red)/(touchPosX.size()-1)*index;
+      current_green = start_green + (final_green-start_green)/(touchPosX.size()-1)*index;
+      current_blue = start_blue + (final_blue-start_blue)/(touchPosX.size()-1)*index;
+      colorMode(RGB, 255, 255, 255, 255)
+      stroke(current_red, current_green, current_blue);
       
         for(int i=0; i<touchPosX.size()-1; i++) 
         {
