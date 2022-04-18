@@ -48,6 +48,8 @@ canvas {
 	display: flex;
 	background-color: #0f0f0f;
 	padding: 2rem;
+	font-size: 12px;
+	line-height: 170%;
 }
 
 #recaptcha_dialog, #success_dialog {
