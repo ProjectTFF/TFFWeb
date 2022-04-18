@@ -71,6 +71,18 @@
     color: #00d1ff;
 }
 
+.btn-holder .btn-secondary {
+    font-size: 1.1rem;
+    line-height: 1;
+    min-width: 0;
+    padding: 0.6rem 1.9rem 0.6rem 1rem;
+}
+
+.btn-holder .btn-secondary svg {
+    font-size: 1.8rem;
+    right: 0.3rem;
+}
+
 @media screen and (min-width: 768px) {
 
     .pass-time{
@@ -92,3 +104,4 @@
         }
     }
 }
+

@@ -14,7 +14,7 @@
 }
 
 .header-holder + main {
-  padding-top: 7rem;
+  padding-top: 3rem;
 }
 
 .openModalBtn {
@@ -50,7 +50,6 @@
   height: 100vh;
 }
 
-
 @media screen and (min-width: 1024px) {
   .header-holder {
     background: #212427;
@@ -58,8 +57,8 @@
     padding: 2.6rem 13rem;
     position: sticky;
     top:0;
-    margin-bottom: 3rem;
     z-index: 10;
+    margin-bottom: 5rem;
   }
 
   .header-holder + main {
@@ -76,7 +75,13 @@
     right: 5rem;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: #cbcfd4;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .openModalBtn  {
+    font-size: 1.5rem;
   }
 }
