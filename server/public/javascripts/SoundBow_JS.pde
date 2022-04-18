@@ -43,7 +43,7 @@ info@binaura.net
     {
       //  create sound engine here
       
-      frameRate(30);
+      frameRate(100);
       background(0);
       colorMode(HSB, 255);
       bar = height - 80;
@@ -741,6 +741,7 @@ class Wire
       stroke(#54CCF2);  
       for(int i=0; i<touchPosX.size()-1; i++) 
       {
+        strokeWeight(6);
         line((Integer)touchPosX.get(i), (Integer)touchPosY.get(i), (Integer)touchPosX.get(i+1), (Integer)touchPosY.get(i+1));
       }
     } 
@@ -766,7 +767,7 @@ class Wire
       
         noStroke();
         fill(#54CCF2);     
-        ellipse(_x, _y, 10, 10);
+        ellipse(_x, _y, 15, 15);
 
         //int red = 255;
         //int green = 255;
@@ -775,6 +776,7 @@ class Wire
       
         for(int i=0; i<touchPosX.size()-1; i++) 
         {
+          strokeWeight(6);
           line((Integer)touchPosX.get(i), (Integer)touchPosY.get(i), (Integer)touchPosX.get(i+1), (Integer)touchPosY.get(i+1));
         }
         
