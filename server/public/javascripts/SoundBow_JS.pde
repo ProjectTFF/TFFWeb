@@ -203,9 +203,11 @@ getDrawing = false;
     //  update walls
     for (int i = 0; i < NUMBER_OF_WALLS-1; i++) 
     {
-      colorMode(HSB, 255);
-        stroke(200,0,150);
-        fill(i/parseFloat(NUMBER_OF_WALLS)*255,150,255);
+      //colorMode(HSB, 255);
+        //stroke(200,0,150);
+        fill(#ffffff);
+        
+        stroke(#666666);
         if(wallArray[i]!=null)
         {  
           wallArray[i].update();
@@ -345,7 +347,7 @@ class GUI
     introImage = loadImage("./images/intro.png");
     btn1 = loadImage("./images/oneset.svg");
     btn2 = loadImage("./images/secondset.svg");
-    btn3 = loadImage("./images/btn_1.png");
+    btn3 = loadImage("./images/info.png");
     btn6 = loadImage("./images/send.svg");
     btn5 = loadImage("./images/reset.svg");
     btn4 = loadImage("./images/record_btn.png");
