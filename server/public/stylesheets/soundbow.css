@@ -113,8 +113,9 @@ canvas {
 .confirmation_button_container {
 	display: flex;
 	flex-direction: row;
-	margin-top: 2rem;
+	margin-top: 1rem;
 	justify-content: center;
+	flex-wrap: wrap;
 }
 
 .close_button {
@@ -135,6 +136,7 @@ canvas {
 	height: 50px;
 	margin-right: 1rem;
 	margin-left: 1rem;
+	margin-top: 1rem;
 	font-weight: bold;
 	color: white;
 	background: rgba(84, 204, 242, 0.5);
@@ -146,6 +148,7 @@ canvas {
 	height: 50px;
 	margin-right: 1rem;
 	margin-left: 1rem;
+	margin-top: 1rem;
 	font-weight: bold;
 	color: black;
 	box-sizing: border-box;
