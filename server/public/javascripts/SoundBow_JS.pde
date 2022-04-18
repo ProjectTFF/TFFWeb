@@ -43,7 +43,7 @@ info@binaura.net
     {
       //  create sound engine here
       
-      frameRate(30);
+      frameRate(100);
       background(0);
       colorMode(HSB, 255);
       bar = height - 80;
