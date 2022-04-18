@@ -178,11 +178,6 @@
 						</div>
 					</div>
 				</dialog>
-	
-				<!-- Use any element to open the sidenav -->
-				<div class="help_button" onclick="toggleInstructionDialog()">
-					<!-- <img src="./images/btn_1.png" alt="Avaa ohjeet">-->
-				</div>
 
 				<dialog id="recaptcha_dialog" style="display:none">
 					<div class="dialog_container_recaptcha">
@@ -213,7 +208,10 @@
 						<div id="success_text" class="dialog_text">
 							Sound sent successfully. Thank you for contributing! 
 						</div>
-						<button class="close_button" onClick="closeDialogs()">Continue Drawing</button>
+						<div class="confirmation_button_container">
+							<button class="reset_button" onClick="closeDialogs()">CONTINUE DRAWING</button>
+							<a href="https://tffgo.tampereflutefest.com"><button class="send_button">BACK TO WEBSITE</button></a>
+						</div>
 					</div>
 				</dialog>
 
@@ -226,6 +224,7 @@
 						<div class="confirmation_button_container">
 							<button class="send_button" onClick="showRecaptchaDialog();closeDialogs();grecaptcha.reset()">TRY AGAIN</button>
 							<button class="reset_button" onClick="closeDialogs()">BACK TO DRAWING</button>
+							<a href="https://tffgo.tampereflutefest.com"><button class="send_button">BACK TO WEBSITE</button></a>
 						</div>
 					</div>
 				</dialog>

@@ -666,7 +666,7 @@ class GUI
     
     image(btn3, width-40,height-height/2 -50, 60,60);
     if(instructionsPressed) {
-        toggleInstructionDialog();
+        openInstructionDialog();
       instructionsAlpha -= 15;
       noFill();
       stroke(255, instructionsAlpha);
