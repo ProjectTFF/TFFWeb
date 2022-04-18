@@ -771,7 +771,7 @@ class Wire
   
       // Manually converting hex to rgb 
       start_red = 2*16+1;
-      start_green = 3*!6+1;
+      start_green = 3*16+1;
       start_blue =3*16+6;
       final_red = 5*16 + 4;
       final_green = 12*16+12;
