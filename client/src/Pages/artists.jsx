@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import axios from 'axios';
 import Banner from '../Components/banner';
 import ArtistCollection from '../Components/artistDefault';
 import PrimaryButton from '../Components/primaryButton';
@@ -10,22 +9,13 @@ import '../Assets/Styles/artists.css';
 
 function Artists(props) {
   const {
-    language, handleSetLanguage,
+    language, handleSetLanguage, artists,
    } = props;
 
   const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
-
-  /**
-   * Get information from backend (All artists)
-   */
-  const [artists, setArtists] = React.useState([]);
-  const changeState = (prop) => { setArtists(prop); };
-  if (artists.length === 0) {
-    axios.get(`${process.env.REACT_APP_BASE_URL}/api/artist`).then((res) => { const val = res.data; changeState(val); });
-  }
 
   // Content of the page by language
   let content = {
@@ -66,6 +56,7 @@ function Artists(props) {
             {artists.map((artist) => (
               <ArtistCollection
                 artistId={artist.artistid}
+                artists={artists}
               />
          ))}
           </div>

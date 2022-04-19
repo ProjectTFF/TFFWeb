@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import axios from 'axios';
 import PrimaryButton from '../Components/primaryButton';
 import SectionHeader from '../Components/sectionHeader';
 import NormalCard from '../Components/normalCard';
@@ -20,7 +19,7 @@ import ShowHideNav from '../Helpers/showHideNav';
 
 function Home(props) {
   const {
-    language, handleSetLanguage,
+    language, handleSetLanguage, artists,
    } = props;
 
   const { pathname } = useLocation();
@@ -31,14 +30,6 @@ function Home(props) {
   const [highestLength, setHighestLength] = useState(0);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  /**
-   * Get information from backend (All artists)
-   */
-   const [artists, setArtists] = React.useState([]);
-   const changeState2 = (prop) => { setArtists(prop); };
-   if (artists.length === 0) {
-     axios.get(`${process.env.REACT_APP_BASE_URL}/api/artist`).then((res) => { const val = res.data; changeState2(val); });
-   }
   useEffect(() => {
     const cb = () => {
       setWindowWidth(window.innerWidth);
@@ -163,6 +154,7 @@ function Home(props) {
               {artists.slice(0, 5).map((artistObj) => (
                 <ArtistCollection
                   artistId={artistObj.artistid}
+                  artists={artists}
                 />
             ))}
             </div>
