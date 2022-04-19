@@ -173,8 +173,8 @@ function Programme(props) {
       streamLink: 'https://www.lippu.fi/en/eventseries/tampere-flute-fest-2022-livestriimi-3116312/',
     },
     finnish: {
-      programmeTitle: 'PROGRAM',
-      location: 'Location : ',
+      programmeTitle: 'OHJELMA',
+      location: 'Tapahtumapaikka : ',
       bannerTitle: 'Tampere Flute Fest',
       hall: 'Tampere-Talo',
       buyTickets: 'osta liput',
