@@ -17,11 +17,12 @@ export function NavMenu(props) {
       home: 'Home',
       artists: 'Artists',
       finalists: 'YAC Finalists',
-      programme: 'Programme',
+      programme: 'Program',
       venue: 'Venue',
-      tickets: 'Tickets and streaming',
+      tickets: 'Tickets & Streaming',
       languageText: 'VAIHDA KIELI',
       language: 'FI',
+      innovate: 'Innovate',
     },
     finnish: {
       home: 'Etusivu',
@@ -32,6 +33,7 @@ export function NavMenu(props) {
       tickets: 'Liput ja suoratoisto',
       languageText: 'CHANGE TO',
       language: 'EN',
+      innovate: 'Innovoi',
     },
   };
 
@@ -82,29 +84,21 @@ export function NavMenu(props) {
               <ChevronRightIcon />
             </NavLink>
           </li>
-          {/* <li className="nav-item">
-            <NavLink className="nav-link" to="/contest" onClick={changeState}>
-              Contest for artists
+          <li className="nav-item">
+            <a className="nav-link" href="https://tffgo.tampereflutefest.com/soundbow.html" target="_blank" onClick={changeState} rel="noreferrer">
+              {content.innovate}
               <ChevronRightIcon />
-            </NavLink>
-          </li> */}
-
-          {/* <li className="nav-item">
-            <NavLink className="nav-link" to="/contribute" onClick={changeState}>
-              Contribute to the festival
-              <ChevronRightIcon />
-            </NavLink>
-          </li> */}
-
+            </a>
+          </li>
         </ul>
       </nav>
       <div className="language-wrap">
-        <span className="language-text">{content.languageText}</span>
         <button
           className="language-select"
           onClick={() => handleSetLanguage(language === 'english' ? 'finnish' : 'english')}
           type="button"
         >
+          <span className="language-text">{content.languageText}</span>
           {content.language}
         </button>
       </div>

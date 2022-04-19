@@ -57,9 +57,10 @@
 .navbar-nav li .nav-link svg {
   position: absolute;
   right: 0;
-  top: 5rem;
+  top: 50%;
   font-size: 2.2rem;
   line-height: 1;
+  transform: translateY(-50%);
 }
 
 .language-wrap {
@@ -132,6 +133,8 @@
     flex-wrap: wrap;
     justify-content: center;
     line-height: 1;
+    margin: 0 0 0 -2%;
+    font-size: 1.4rem;
   }
 
   .navbar-nav li {
@@ -166,6 +169,7 @@
 
   .language-select {
     color: #cbcfd4;
+    font-size: 1.4rem;
   }
 }
 
@@ -175,7 +179,21 @@
   }
 
   .navbar-nav li {
-    padding: 0 1.3rem;
+    padding: 0 0.8rem;
+  }
+
+  .language-select {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .navbar-nav {
+    margin: 0;
+  }
+  
+  .navbar-nav li {
+    padding: 0 1.5rem;
   }
 }
 

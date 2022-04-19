@@ -1,11 +1,12 @@
 .margin {
-    display: block;
-    margin-bottom: 4rem;
-    color: #00000000;
+    /* display: block; */
+    /* margin-bottom: 4rem; */
+    /* color: #00000000; */
+    display: none;
 }
 
-@media screen and (min-width: 1024px) {
+/* @media screen and (min-width: 1024px) {
     .margin {
         display: none;
     }
-}
+} */

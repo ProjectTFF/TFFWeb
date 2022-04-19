@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import PrimaryButton from '../Components/primaryButton';
 import SectionHeader from '../Components/sectionHeader';
@@ -6,6 +7,7 @@ import NormalCard from '../Components/normalCard';
 import ThumbnailCard from '../Components/thumbnailCard';
 import ProgramCard from '../Components/programCard';
 import ArtistCollection from '../Components/artistDefault';
+import ProgramCollection from '../Components/programDefault';
 import SponsorDetail from '../Components/sponsorDetail';
 import { CardObject } from '../Helpers/NormalCardImageMap';
 import { ThumbnailCardObject } from '../Helpers/ThumbnailCardImageMap';
@@ -16,12 +18,15 @@ import '../Assets/Styles/home.css';
 import { getLengthOfLongestArray } from '../Helpers/arrayHelpers';
 import ShowHideNav from '../Helpers/showHideNav';
 
-import Picture from '../Assets/Images/Artists/eva_alkula.png';
-
 function Home(props) {
   const {
     language, handleSetLanguage,
    } = props;
+
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   const [highestLength, setHighestLength] = useState(0);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -158,7 +163,22 @@ function Home(props) {
               {artists.slice(0, 5).map((artistObj) => (
                 <ArtistCollection
                   artistId={artistObj.artistid}
-                  artistImage={Picture}
+                />
+            ))}
+            </div>
+          </div>
+          <div className="program-section">
+            <SectionHeader
+              sectionTitle={content.highlights}
+              showAll
+              pageLink="programme"
+              language={language}
+            />
+            <div className="program-row">
+              {[...Array(9).keys()].map((id) => (
+                <ProgramCollection
+                  programId={id}
+                  language={language}
                 />
             ))}
             </div>

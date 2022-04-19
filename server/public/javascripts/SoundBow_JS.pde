@@ -43,7 +43,7 @@ info@binaura.net
     {
       //  create sound engine here
       
-      frameRate(30);
+      frameRate(100);
       background(0);
       colorMode(HSB, 255);
       bar = height - 80;
@@ -147,21 +147,38 @@ for (let i = 0; i < wallArray.length; i++)
   boxY:wallArray[i].boxY,
   lenght:wallArray[i].length,
   size:wallArray[i].size,
-  flash:wallArray[i].flash,
-  
-  over:wallArray[i].over,
-  press:wallArray[i].press,
-  locked:wallArray[i].locked,
-  otherslocked:wallArray[i].otherslocked,
-  dragged:wallArray[i].dragged,
-  others: null 
-  }
 
+  }
+  wallValue[i] = wallContainer;
 }
-wallValue[i] = wallContainer;
+
 
 wireValue = new ArrayList();
+
+
 for (let i = 0; i < wireArray.length; i++){
+
+  tmpX = wireArray[i].touchPosX;
+  touchPosXContainer = new ArrayList();
+  touchPosYContainer = new ArrayList<Integer>();
+  if(tmpX)
+  {
+    touchPosXSize = tmpX.size();
+  }
+
+
+
+  if(touchPosXSize > 0)
+  {
+      for (let j = 0; j < touchPosXSize; j++)
+    {
+
+      touchPosXContainer[j] = (wireArray[i].(Integer)touchPosX.get(j));
+      touchPosYContainer[j] = (wireArray[i].(Integer)touchPosY.get(j));
+    }
+  }
+
+
   wireContainer = 
   {_x:wireArray[i]._x,
   _y:wireArray[i]._y,
@@ -169,30 +186,225 @@ for (let i = 0; i < wireArray.length; i++){
   __xArray: wireArray[i].__xArray,
   _coll:wireArray[i]._coll,
   size:wireArray[i].size, // size of wall (offset for collision)
-  touchPosX:wireArray[i].touchPosX,
-  touchPosY:wireArray[i].touchPosY
+  touchPosX:touchPosXContainer,
+  touchPosY:touchPosYContainer,
   }
    wireValue[i] = wireContainer
 }
 
-
-confirmSend({savedWireArr: wireValue, savedWallArr: wallValue, savedXArr: savedXArray.values, savBar: savedBar});
+confirmSend({savedWireArr: wireValue, savedWallArr: wallValue, savedXArr: savedXArray, savBar: savedBar});
 getDrawing = false;
 	}
 	
 	if (setDrawing)
 	{
-    
-	wallArray = savedWallArray;
-	wireArray = savedWireArray;
-  xArray = savedXArray
-  bar = savedBar;
+
+
+data = {
+    "savedWireArr": {
+        "0": {
+            "_x": 846,
+            "_y": 469,
+            "__xArray": [
+                78,
+                235.22222222222223,
+                392.44444444444446,
+                549.6666666666667,
+                706.8888888888889,
+                864.1111111111111,
+                1021.3333333333334,
+                1178.5555555555557,
+                1257.7777777777778
+            ],
+            "_coll": 9,
+            "size": 55,
+            "touchPosX": {
+                "0": 846,
+                "1": 825,
+                "2": 802,
+                "3": 796,
+                "4": 797,
+                "5": 815,
+                "6": 833,
+                "7": 849,
+                "8": 880,
+                "9": 899,
+                "10": 897,
+                "11": 856,
+                "12": 766,
+                "13": 641,
+                "14": 540,
+                "15": 498,
+                "16": 469,
+                "17": 434,
+                "18": 414,
+                "19": 413,
+                "20": 413,
+                "21": 418,
+                "22": 465,
+                "23": 606,
+                "24": 812,
+                "25": 932,
+                "26": 1000,
+                "27": 1056,
+                "28": 1076
+            },
+            "touchPosY": {
+                "0": 469,
+                "1": 484,
+                "2": 495,
+                "3": 502,
+                "4": 507,
+                "5": 519,
+                "6": 532,
+                "7": 550,
+                "8": 570,
+                "9": 572,
+                "10": 572,
+                "11": 568,
+                "12": 571,
+                "13": 572,
+                "14": 583,
+                "15": 597,
+                "16": 604,
+                "17": 611,
+                "18": 614,
+                "19": 614,
+                "20": 614,
+                "21": 614,
+                "22": 614,
+                "23": 636,
+                "24": 659,
+                "25": 664,
+                "26": 673,
+                "27": 681,
+                "28": 686
+            }
+        }
+    },
+    "savedWallArr": {
+        "0": {
+            "_x": 0,
+            "boxX": 78,
+            "boxY": 854,
+            "lenght": 78,
+            "size": 55
+        },
+        "1": {
+            "_x": 0,
+            "boxX": 235.22222222222223,
+            "boxY": 854,
+            "lenght": 235.22222222222223,
+            "size": 55
+        },
+        "2": {
+            "_x": 0,
+            "boxX": 392.44444444444446,
+            "boxY": 854,
+            "lenght": 392.44444444444446,
+            "size": 55
+        },
+        "3": {
+            "_x": 0,
+            "boxX": 549.6666666666667,
+            "boxY": 854,
+            "lenght": 549.6666666666667,
+            "size": 55
+        },
+        "4": {
+            "_x": 0,
+            "boxX": 706.8888888888889,
+            "boxY": 854,
+            "lenght": 706.8888888888889,
+            "size": 55
+        },
+        "5": {
+            "_x": 0,
+            "boxX": 864.1111111111111,
+            "boxY": 854,
+            "lenght": 864.1111111111111,
+            "size": 55
+        },
+        "6": {
+            "_x": 0,
+            "boxX": 1021.3333333333334,
+            "boxY": 854,
+            "lenght": 1021.3333333333334,
+            "size": 55
+        },
+        "7": {
+            "_x": 0,
+            "boxX": 1178.5555555555557,
+            "boxY": 854,
+            "lenght": 1178.5555555555557,
+            "size": 55
+        },
+        "8": {
+            "_x": 0,
+            "boxX": 1308.2777777777778,
+            "boxY": 854,
+            "lenght": 1335.7777777777778,
+            "size": 55
+        }
+    },
+    "savedXArr": [
+        78,
+        235.22222222222223,
+        392.44444444444446,
+        549.6666666666667,
+        706.8888888888889,
+        864.1111111111111,
+        1021.3333333333334,
+        1178.5555555555557,
+        1257.7777777777778
+    ],
+    "savBar": 857
+}
+
+tmpX = new ArrayList;
+tmpY = new ArrayList; 
+for (let key in data["savedWireArr"]["0"]["touchPosX"]) {
+  console.log(key)
+
+ var numberX = parseInt(data["savedWireArr"]["0"]["touchPosX"][key]);
+ var numberY = parseInt(data["savedWireArr"]["0"]["touchPosY"][key]);
+
+  tmpX.add(parseInt(numberX));
+  tmpY.add(parseInt(numberY));
+}
 
 
 
+  wireArray["0"]["touchPosX"]= tmpX;
+  wireArray["0"]["touchPosY"] = tmpY;
 
 
 
+          //  reset walls
+      wallArray = new Wall[NUMBER_OF_WALLS];
+      xArray = data["savedXArr"];
+
+      for(int i = 0; i < NUMBER_OF_WALLS; i++) 
+      { 
+          lenght  = data["savedWallArr"][i]["lenght"]
+          wallArray[i] = new Wall(0, lenght , 55, wallArray);
+      }
+
+      //  reset x values for walls
+      for ( int i = 0; i < NUMBER_OF_WALLS; i++ ) 
+        {
+          if(wallArray[i]!=null)
+          {
+          wallArray[i].release();
+          }
+          xArray[i] = wallArray[i].getNewX(i);
+        }
+
+      //  wires
+      for (int i = 0; i < MAX_NUMBER_OF_WIRES; i++) 
+      {
+         wireArray[i].__xArray = xArray;
+      }
 
   setDrawing = false;
 	}
@@ -203,9 +415,11 @@ getDrawing = false;
     //  update walls
     for (int i = 0; i < NUMBER_OF_WALLS-1; i++) 
     {
-      colorMode(HSB, 255);
-        stroke(200,0,150);
-        fill(i/parseFloat(NUMBER_OF_WALLS)*255,150,255);
+      //colorMode(HSB, 255);
+        //stroke(200,0,150);
+        fill(#ffffff);
+        
+        stroke(#666666);
         if(wallArray[i]!=null)
         {  
           wallArray[i].update();
@@ -345,7 +559,7 @@ class GUI
     introImage = loadImage("./images/intro.png");
     btn1 = loadImage("./images/oneset.svg");
     btn2 = loadImage("./images/secondset.svg");
-    btn3 = loadImage("./images/btn_1.png");
+    btn3 = loadImage("./images/info.png");
     btn6 = loadImage("./images/send.svg");
     btn5 = loadImage("./images/reset.svg");
     btn4 = loadImage("./images/record_btn.png");
@@ -452,7 +666,7 @@ class GUI
     
     image(btn3, width-40,height-height/2 -50, 60,60);
     if(instructionsPressed) {
-        toggleInstructionDialog();
+        openInstructionDialog();
       instructionsAlpha -= 15;
       noFill();
       stroke(255, instructionsAlpha);
@@ -741,6 +955,7 @@ class Wire
       stroke(#54CCF2);  
       for(int i=0; i<touchPosX.size()-1; i++) 
       {
+        strokeWeight(6);
         line((Integer)touchPosX.get(i), (Integer)touchPosY.get(i), (Integer)touchPosX.get(i+1), (Integer)touchPosY.get(i+1));
       }
     } 
@@ -766,15 +981,25 @@ class Wire
       
         noStroke();
         fill(#54CCF2);     
-        ellipse(_x, _y, 10, 10);
+        ellipse(_x, _y, 15, 15);
 
-        //int red = 255;
-        //int green = 255;
-        //int blue = 100 + 155/(touchPosX.size()-1)*index;
-        stroke(#54CCF2);
+  
+      // Manually converting hex to rgb 
+      start_red = 2*16+1;
+      start_green = 3*16+1;
+      start_blue =3*16+6;
+      final_red = 5*16 + 4;
+      final_green = 12*16+12;
+      final_blue = 15*16+2;
+      current_red = start_red + (final_red-start_red)/(touchPosX.size()-1)*index;
+      current_green = start_green + (final_green-start_green)/(touchPosX.size()-1)*index;
+      current_blue = start_blue + (final_blue-start_blue)/(touchPosX.size()-1)*index;
+      colorMode(RGB, 255, 255, 255, 255)
+      stroke(current_red, current_green, current_blue);
       
         for(int i=0; i<touchPosX.size()-1; i++) 
         {
+          strokeWeight(6);
           line((Integer)touchPosX.get(i), (Integer)touchPosY.get(i), (Integer)touchPosX.get(i+1), (Integer)touchPosY.get(i+1));
         }
         

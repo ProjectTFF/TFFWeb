@@ -55,28 +55,28 @@ exports.programme_info = function (req, res, next) {
         concerts.map(concert => {
         if(parseInt(concert.concertid,10)==1)
         {
-            concert.concertname_eng = 'TFF Kid';
-            concert.concertname_fin = 'TFF Kid';
+            concert.concertname_eng = 'TFF Kids';
+            concert.concertname_fin = 'TFF Lapset';
         }
         else if(parseInt(concert.concertid,10)==2)
         {
             concert.concertname_eng = 'TFF Youth Morning Pass';
-            concert.concertname_fin = 'TFF Youth Aamupassi';
+            concert.concertname_fin = 'TFF Nuoret Aamupassi';
         }
         else if(parseInt(concert.concertid,10)==3)
         {
             concert.concertname_eng = 'TFF Youth Lunch Pass';
-            concert.concertname_fin = 'TFF Youth Lounaspassi';
+            concert.concertname_fin = 'TFF Nuoret Lounaspassi';
         }
         else if(parseInt(concert.concertid,10)==4)
         {
-            concert.concertname_eng = 'TFF Jää/Ice Morning Pass';
-            concert.concertname_fin = 'TFF Jää/Ice Aamupassi';
+            concert.concertname_eng = 'Sunday Morning Pass';
+            concert.concertname_fin = 'Sunnuntai Aamupassi';
         }
         else if(parseInt(concert.concertid,10)==5)
         {
-            concert.concertname_eng = 'TFF Jää/Ice Lunch Pass';
-            concert.concertname_fin = 'TFF Jää/Ice Lounaspassi';
+            concert.concertname_eng = 'Sunday Evening Pass';
+            concert.concertname_fin = 'Sunnuntai Iltapassi';
         }
         
         })
@@ -97,6 +97,9 @@ exports.programme_info_by_id = function (req, res, next) {
     })
     .then(infos => {
         infos.map(performance => {
+            performance.performancestarttime = performance.performancestarttime.slice(0,-3);
+            performance.performanceendtime = performance.performanceendtime.slice(0,-3);
+
             if (parseInt(performance.performanceid,10)==4)
             {
                 performance.performancename_fin = 'Inside the French School - lämmittely';

@@ -4,7 +4,7 @@
 }
 
 .pass-title{
-    font: 2rem Poppins, Arial, Helvetica, sans-serif;
+    font: 1.75rem Poppins, Arial, Helvetica, sans-serif;
     text-transform: capitalize;
     margin-bottom: 1rem;
 }
@@ -28,8 +28,9 @@
     margin-bottom: 1rem;
 }
 
-.pass-infos span{
+.pass-venue{
     color: #00d1ff;
+    text-decoration: underline;
 }
 
 .pass-special{
@@ -50,45 +51,75 @@
     margin: 0;
     display: inline-block;
     width: 2rem;
+    font: 1.5rem Poppins, Arial, Helvetica, sans-serif;
 }
 
 .pass-right-timetable{
     display: inline-block;
     vertical-align: top;
-    margin-left: 15rem;
+    margin: 0 0 0 15rem;
 }
 
 .pass-right-timetable p {
     margin-bottom: 1rem;
 }
 
-.performance-artists {
-    display: inline-block;
-    vertical-align: top;
+.performance-artists il {
+    display: inline;
 }
 
 .performance-artist {
     color: #00d1ff;
+    text-decoration: underline;
 }
 
-@media screen and (min-width: 768px) {
+.btn-holder .btn-secondary {
+    font-size: 1.1rem;
+    line-height: 1;
+    min-width: 0;
+    padding: 0.6rem 1.9rem 0.6rem 1rem;
+}
 
-    .pass-time{
-        width: 5rem;
-    }
+.btn-holder .btn-secondary svg {
+    font-size: 1.8rem;
+    right: 0.3rem;
+}
 
+@media screen and (min-width: 608px) {
     .pass-title{
-        font-size: 3rem;
-    }
-
-    .performance-name{
         font-size: 2rem;
     }
 
-    @media screen and (min-width: 1024px) {
-        .programme-holder{
-            margin-left: 20rem;
-            margin-right: 20rem;
+    .performance-infos{
+        text-align: justify;
+    }
+
+    @media screen and (min-width: 768px) {
+
+        .pass-time{
+            width: 5rem;
+            font-size: 2rem;
+        }
+
+        .pass-title{
+            font-size: 2.5rem;
+        }
+
+        .performance-name{
+            font-size: 2rem;
+        }
+        
+        @media screen and (min-width: 816px) {
+            .pass-title{
+                font-size: 3rem;
+            }
+
+            @media screen and (min-width: 1024px) {
+                .programme-holder{
+                    margin-left: 20rem;
+                    margin-right: 20rem;
+                }
+            }
         }
     }
 }

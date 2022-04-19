@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Banner from '../Components/banner';
 import ArtistCompetition from '../Components/artistCompetition';
 import { CompetitionFinalist } from '../Helpers/competitionFinalist';
@@ -11,6 +12,11 @@ function ArtistCompetitionFinalist(props) {
   const {
     language, handleSetLanguage,
    } = props;
+
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   // Content of the page by language
   let content = {
