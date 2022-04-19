@@ -55,28 +55,28 @@ exports.programme_info = function (req, res, next) {
         concerts.map(concert => {
         if(parseInt(concert.concertid,10)==1)
         {
-            concert.concertname_eng = 'TFF Kid';
-            concert.concertname_fin = 'TFF Kid';
+            concert.concertname_eng = 'TFF Kids';
+            concert.concertname_fin = 'TFF Lapset';
         }
         else if(parseInt(concert.concertid,10)==2)
         {
             concert.concertname_eng = 'TFF Youth Morning Pass';
-            concert.concertname_fin = 'TFF Youth Aamupassi';
+            concert.concertname_fin = 'TFF Nuoret Aamupassi';
         }
         else if(parseInt(concert.concertid,10)==3)
         {
             concert.concertname_eng = 'TFF Youth Lunch Pass';
-            concert.concertname_fin = 'TFF Youth Lounaspassi';
+            concert.concertname_fin = 'TFF Nuoret Lounaspassi';
         }
         else if(parseInt(concert.concertid,10)==4)
         {
-            concert.concertname_eng = 'TFF Jää/Ice Morning Pass';
-            concert.concertname_fin = 'TFF Jää/Ice Aamupassi';
+            concert.concertname_eng = 'TFF Ice Morning Pass';
+            concert.concertname_fin = 'TFF Jää Aamupassi';
         }
         else if(parseInt(concert.concertid,10)==5)
         {
-            concert.concertname_eng = 'TFF Jää/Ice Lunch Pass';
-            concert.concertname_fin = 'TFF Jää/Ice Lounaspassi';
+            concert.concertname_eng = 'TFF Ice Lunch Pass';
+            concert.concertname_fin = 'TFF Jää Lounaspassi';
         }
         
         })
