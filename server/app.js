@@ -15,18 +15,7 @@ var soundbowRouter = require('./routes/soundbow');
 
 var app = express();
 
-// Setting cookie for client
-// app.use(function(req, res, next) {
-//   // Check if client sent cookie
-//   var cookie = req.cookies.session;
-//   if (cookie == undefined) {
-//     // no: Set a new cookie
-//     res.cookie('hasSentSound', false, {maxAge: 24 * 60 * 60 * 1000});
-//     console.log('Cookie created for new client.');
-//   }
-// });
-
-app.use(bodyParser.json({ type: 'application/*+json' }));
+app.use(bodyParser.json({ type: 'application/*+json', limit: '100kb' }));
 // If the user doesn't have a cookie ready, set it up.
 app.use(cookieParser());
 app.use(function(req, res, next) {
