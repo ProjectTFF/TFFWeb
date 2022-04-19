@@ -1,0 +1,94 @@
+.program-section {
+  padding-bottom: 1rem;
+}
+  
+.program-row {
+  display: flex;
+  margin: 0 -0.5rem 3.5rem;
+  overflow-x: auto;
+}
+
+.program-info-col {
+  padding: 0 0.5rem 1rem;
+}
+
+.program-info-col .program-info-block {
+  width: 10.5rem;
+  display: block;
+  text-align: center;
+}
+
+.program-info-col .img-wrap {
+  border-radius: 100%;
+  display: block;
+  height: 10rem;
+  width: 10rem;
+  padding: 0.2rem;
+  background: linear-gradient(90deg, #54ccf2 0%, #7d54f2 100%);
+  margin: 0 auto 2rem;
+}
+.program-info-col .img-wrap img {
+  border-radius: 100%;
+  width: 100%;
+}
+
+.program-info-block .program-name {
+  display: block;
+  font-size: 1.6rem;
+  line-height: 1.375;
+  color: #fff;
+  font-family: 'gogoia', Times New Roman, serif;
+}
+
+@media screen and (min-width: 490px) {
+
+  .program-row {
+    overflow: visible;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+  }
+
+  .program-info-col {
+    max-width: 15rem;
+    min-width: 15rem;
+    padding: 0 1.5rem 2rem;
+  }
+
+  .program-info-col .program-info-block {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .program-info-col {
+    max-width: 18rem;
+    min-width: 18rem;
+  }
+
+  .program-info-col .img-wrap {
+    width: 15rem;
+    height: 15rem;
+  }
+
+  .program-info-block .program-name {
+    font-size: 2.4rem;
+    line-height: 1.25;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .program-info-col {
+    max-width: none;
+    min-width: 0;
+    width: 20%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .program-info-col .img-wrap {
+    width: 20rem;
+    height: 20rem;
+  }
+}

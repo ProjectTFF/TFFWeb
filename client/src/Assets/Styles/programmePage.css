@@ -28,8 +28,9 @@
     margin-bottom: 1rem;
 }
 
-.pass-infos span{
+.pass-venue{
     color: #00d1ff;
+    text-decoration: underline;
 }
 
 .pass-special{
@@ -50,25 +51,26 @@
     margin: 0;
     display: inline-block;
     width: 2rem;
+    font: 1.5rem Poppins, Arial, Helvetica, sans-serif;
 }
 
 .pass-right-timetable{
     display: inline-block;
     vertical-align: top;
-    margin-left: 15rem;
+    margin: 0 0 0 15rem;
 }
 
 .pass-right-timetable p {
     margin-bottom: 1rem;
 }
 
-.performance-artists {
-    display: inline-block;
-    vertical-align: top;
+.performance-artists il {
+    display: inline;
 }
 
 .performance-artist {
     color: #00d1ff;
+    text-decoration: underline;
 }
 
 .btn-holder .btn-secondary {
@@ -87,6 +89,7 @@
 
     .pass-time{
         width: 5rem;
+        font-size: 2rem;
     }
 
     .pass-title{
