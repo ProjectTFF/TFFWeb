@@ -1,29 +1,32 @@
 import React, { useEffect } from 'react';
+import { useParams } from 'react-router';
 import { Link, useLocation } from 'react-router-dom';
 import '../Assets/Styles/programmePage.css';
 import Banner from '../Components/banner';
 import SecondaryButton from '../Components/secondaryButton';
+import { ProgramPictureMap } from '../Helpers/ProgramPictureMap';
 
 function Programme(props) {
   const {
-    language, handleSetLanguage, programmes, timetable, artists,
+    language, handleSetLanguage, programmes, timetable, artists, anchor,
    } = props;
 
-  const { pathname, hash, key } = useLocation();
+  const { pathname } = useLocation();
+  const { programSlug } = useParams();
 
   useEffect(() => {
-    if (hash === '') {
-      window.scrollTo(0, 0);
+    if (anchor) {
+      const element = document.getElementById(ProgramPictureMap[programSlug].programNameEN);
+      element.scrollIntoView();
+      if (window.innerWidth >= 1024) {
+        window.scrollBy(0, -70);
+      } else {
+        window.scrollBy(0, -5);
+      }
     } else {
-      setTimeout(() => {
-        const id = hash.replace('#', '');
-        const element = document.getElementById(id);
-        if (element) {
-          element.scrollIntoView();
-        }
-      }, 0);
+      window.scrollTo(0, 0);
     }
-  }, [pathname, hash, key]);
+  }, [pathname]);
 
   // Content of the page by language
   let content = {

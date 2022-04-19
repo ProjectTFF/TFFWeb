@@ -23,6 +23,11 @@ function ArtistPage(props) {
     const element = document.getElementById('src');
     if (element) {
       element.scrollIntoView();
+      if (window.innerWidth >= 1024) {
+        window.scrollBy(0, -70);
+      } else {
+        window.scrollBy(0, -5);
+      }
     } else {
       window.scrollTo(0, 0);
     }
