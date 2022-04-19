@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import Banner from '../Components/banner';
 import ArtistCollection from '../Components/artistDefault';
@@ -11,6 +12,11 @@ function Artists(props) {
   const {
     language, handleSetLanguage,
    } = props;
+
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   /**
    * Get information from backend (All artists)

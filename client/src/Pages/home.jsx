@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import PrimaryButton from '../Components/primaryButton';
 import SectionHeader from '../Components/sectionHeader';
@@ -21,6 +22,11 @@ function Home(props) {
   const {
     language, handleSetLanguage,
    } = props;
+
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   const [highestLength, setHighestLength] = useState(0);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);

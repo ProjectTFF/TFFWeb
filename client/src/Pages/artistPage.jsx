@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import PrimaryButton from '../Components/primaryButton';
 import ThumbnailCard from '../Components/thumbnailCard';
@@ -18,6 +18,11 @@ function ArtistPage(props) {
   const {
     language, handleSetLanguage,
    } = props;
+
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   const { artistSlug } = useParams();
 

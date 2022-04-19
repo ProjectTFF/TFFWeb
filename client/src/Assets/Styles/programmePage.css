@@ -4,7 +4,7 @@
 }
 
 .pass-title{
-    font: 2rem Poppins, Arial, Helvetica, sans-serif;
+    font: 1.75rem Poppins, Arial, Helvetica, sans-serif;
     text-transform: capitalize;
     margin-bottom: 1rem;
 }
@@ -85,26 +85,41 @@
     right: 0.3rem;
 }
 
-@media screen and (min-width: 768px) {
-
-    .pass-time{
-        width: 5rem;
-        font-size: 2rem;
-    }
-
+@media screen and (min-width: 608px) {
     .pass-title{
-        font-size: 3rem;
-    }
-
-    .performance-name{
         font-size: 2rem;
     }
 
-    @media screen and (min-width: 1024px) {
-        .programme-holder{
-            margin-left: 20rem;
-            margin-right: 20rem;
+    .performance-infos{
+        text-align: justify;
+    }
+
+    @media screen and (min-width: 768px) {
+
+        .pass-time{
+            width: 5rem;
+            font-size: 2rem;
+        }
+
+        .pass-title{
+            font-size: 2.5rem;
+        }
+
+        .performance-name{
+            font-size: 2rem;
+        }
+        
+        @media screen and (min-width: 816px) {
+            .pass-title{
+                font-size: 3rem;
+            }
+
+            @media screen and (min-width: 1024px) {
+                .programme-holder{
+                    margin-left: 20rem;
+                    margin-right: 20rem;
+                }
+            }
         }
     }
 }
-

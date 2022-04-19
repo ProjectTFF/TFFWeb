@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import '../Assets/Styles/programmePage.css';
 import Banner from '../Components/banner';
-import PrimaryButton from '../Components/primaryButton';
+import SecondaryButton from '../Components/secondaryButton';
 
 function Programme(props) {
   const {
@@ -163,7 +163,7 @@ function Programme(props) {
   // Content of the page by language
   let content = {
     english: {
-      programmeTitle: 'PROGRAMME',
+      programmeTitle: 'PROGRAM',
       location: 'Location : ',
       bannerTitle: 'Tampere Flute Fest',
       hall: 'Tampere Hall',
@@ -173,7 +173,7 @@ function Programme(props) {
       streamLink: 'https://www.lippu.fi/en/eventseries/tampere-flute-fest-2022-livestriimi-3116312/',
     },
     finnish: {
-      programmeTitle: 'PROGRAMME',
+      programmeTitle: 'PROGRAM',
       location: 'Location : ',
       bannerTitle: 'Tampere Flute Fest',
       hall: 'Tampere-Talo',
@@ -202,7 +202,7 @@ function Programme(props) {
                 {`${programme.concertdate} ${language === 'finnish' ? programme.concertname_fin : programme.concertname_eng}`}
                 <ul className="btn-near">
                   <li>
-                    <PrimaryButton
+                    <SecondaryButton
                       url={content.ticketLink}
                       buttonText={content.buyTickets}
                       showIcon
@@ -228,7 +228,7 @@ function Programme(props) {
                     </p>
                     <p className="pass-right-timetable">
                       <p className="performance-name">{language === 'finnish' ? performance.performancename_fin : performance.performancename_eng}</p>
-                      <p>{language === 'finnish' ? performance.performanceinfo_fin : performance.performanceinfo_eng}</p>
+                      <p className="performance-infos">{language === 'finnish' ? performance.performanceinfo_fin : performance.performanceinfo_eng}</p>
                       <ul className="performance-artists">
                         <il>
                           {artists[performance.performanceid - 1].length === 1 ? (artists[performance.performanceid - 1][0] == null ? '' : 'Artist: ') : 'Artists: '}
