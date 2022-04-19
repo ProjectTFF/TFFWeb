@@ -70,13 +70,13 @@ exports.programme_info = function (req, res, next) {
         }
         else if(parseInt(concert.concertid,10)==4)
         {
-            concert.concertname_eng = 'TFF Ice Morning Pass';
-            concert.concertname_fin = 'TFF Jää Aamupassi';
+            concert.concertname_eng = 'Sunday Morning Pass';
+            concert.concertname_fin = 'Sunnuntai Aamupassi';
         }
         else if(parseInt(concert.concertid,10)==5)
         {
-            concert.concertname_eng = 'TFF Ice Lunch Pass';
-            concert.concertname_fin = 'TFF Jää Lounaspassi';
+            concert.concertname_eng = 'Sunday Evening Pass';
+            concert.concertname_fin = 'Sunnuntai Iltapassi';
         }
         
         })
