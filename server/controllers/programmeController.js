@@ -75,8 +75,8 @@ exports.programme_info = function (req, res, next) {
         }
         else if(parseInt(concert.concertid,10)==5)
         {
-            concert.concertname_eng = 'TFF Ice Lunch Pass';
-            concert.concertname_fin = 'TFF Jää Lounaspassi';
+            concert.concertname_eng = 'TFF Ice Evening Pass';
+            concert.concertname_fin = 'TFF Jää Iltapassi';
         }
         
         })
