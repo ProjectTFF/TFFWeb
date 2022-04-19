@@ -97,6 +97,9 @@ exports.programme_info_by_id = function (req, res, next) {
     })
     .then(infos => {
         infos.map(performance => {
+            performance.performancestarttime = performance.performancestarttime.slice(0,-3);
+            performance.performanceendtime = performance.performanceendtime.slice(0,-3);
+
             if (parseInt(performance.performanceid,10)==4)
             {
                 performance.performancename_fin = 'Inside the French School - lämmittely';
