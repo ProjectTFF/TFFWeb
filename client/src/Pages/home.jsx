@@ -8,7 +8,7 @@ import ProgramCard from '../Components/programCard';
 import ArtistCollection from '../Components/artistDefault';
 import ProgramCollection from '../Components/programDefault';
 import SponsorDetail from '../Components/sponsorDetail';
-import { CardObject } from '../Helpers/NormalCardImageMap';
+// import { CardObject } from '../Helpers/NormalCardImageMap';
 import { ThumbnailCardObject } from '../Helpers/ThumbnailCardImageMap';
 import { ProgramCardObject } from '../Helpers/ProgramCardMap';
 import DefaultButton from '../Components/defaultButton';
@@ -199,16 +199,10 @@ function Home(props) {
               sectionTitle={content.events}
               showAll={false}
             />
-            <div className="card-row">
-              { CardObject.map((cardObj) => (
-                <NormalCard
-                  key={cardObj.id}
-                  cardTitle={cardObj.eventTitle}
-                  cardImage={cardObj.eventImage}
-                  cardLink={cardObj.eventUrl}
-                />
-           ))}
-            </div>
+            <NormalCard
+              language={language}
+              handleSetLanguage={handleSetLanguage}
+            />
           </div>
           <ul className="btn-groups">
             <li>
