@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import axios from 'axios';
 import { useParams } from 'react-router';
 import { NavLink, useLocation } from 'react-router-dom';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
@@ -15,32 +16,53 @@ import '../Assets/Styles/artistPage.css';
 
 function ArtistPage(props) {
   const {
-    language, handleSetLanguage, artists, allLinks,
+    language, handleSetLanguage,
    } = props;
 
   const { pathname } = useLocation();
   useEffect(() => {
-    const element = document.getElementById('src');
-    if (element) {
-      element.scrollIntoView();
-      if (window.innerWidth >= 1024) {
-        window.scrollBy(0, -70);
+    setTimeout(() => {
+      const element = document.getElementById('src');
+      if (element) {
+        element.scrollIntoView();
+        if (window.innerWidth >= 1024) {
+          window.scrollBy(0, -70);
+        } else {
+          window.scrollBy(0, -5);
+        }
       } else {
-        window.scrollBy(0, -5);
+        window.scrollTo(0, 0);
       }
-    } else {
-      window.scrollTo(0, 0);
-    }
+    }, 1000);
   }, [pathname]);
 
   const { artistSlug } = useParams();
-  const [artist, setArtist] = React.useState([]);
-  const [links, setLinks] = React.useState([]);
 
   useEffect(() => {
-    setArtist(artists[artistSlug - 1]);
-    setLinks(allLinks[artistSlug - 1]);
   }, [artistSlug]);
+
+  /**
+   * Get information from backend (This artist)
+   */
+  const [id, setId] = React.useState(artistSlug);
+
+  const [artist, setArtist] = React.useState([]);
+  const changeState = (prop) => { setArtist(prop); };
+  const [links, setLinks] = React.useState([]);
+  const changeLinks = (prop) => { setLinks(prop); };
+  if (artist.length === 0 || id !== artistSlug) {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/artist/${artistSlug}`).then((res) => { const val = res.data; changeState(val); setId(artistSlug); });
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/artist/links/${artistSlug}`).then((res) => { const val = res.data; changeLinks(val); });
+  }
+
+  /**
+   * Get information from backend (All artists)
+   */
+  const [artists, setArtists] = React.useState([]);
+  const changeState2 = (prop) => { setArtists(prop); };
+  if (artists.length === 0) {
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/artist`).then((res) => { const val = res.data; changeState2(val); });
+  }
 
   // Content of the page by language
   let content = {
@@ -91,7 +113,7 @@ function ArtistPage(props) {
             </NavLink>
             <div id="src" className="maininfos">
               <div className="box">
-                <img src={ArtistPictureMap[artistSlug - 1].programImage} alt={` ${artist.firstname} ${artist.lastname}`} />
+                <img src={ArtistPictureMap[id - 1].programImage} alt={` ${artist.firstname} ${artist.lastname}`} />
               </div>
               <div className="artist-intro">
                 <h1>
@@ -177,29 +199,22 @@ function ArtistPage(props) {
               pageLink="artists"
             />
             <div className="artist-row">
-              {artistSlug < artists.length - 5
-                ? artists.slice(artistSlug, parseInt(artistSlug, 10) + 5).map((artistObj) => (
+              {id < artists.length - 5
+                ? artists.slice(id, parseInt(id, 10) + 5).map((artistObj) => (
                   <ArtistCollection
                     artistId={artistObj.artistid}
-                    artists={artists}
                   />
-              )) : artists.slice(artistSlug, artists.length).map((artistObj) => (
+              )) : artists.slice(id, artists.length).map((artistObj) => (
                 <ArtistCollection
                   artistId={artistObj.artistid}
-                  artists={artists}
                 />
               ))}
-              {
-                artistSlug < artists.length - 5 ? null
-                : artists.slice(0, parseInt(artistSlug, 10) - artists.length + 5).map(
-                  (artistObj) => (
-                    <ArtistCollection
-                      artistId={artistObj.artistid}
-                      artists={artists}
-                    />
-                  ),
-                )
-              }
+              {id < artists.length - 5 ? null
+                : artists.slice(0, parseInt(id, 10) - artists.length + 5).map((artistObj) => (
+                  <ArtistCollection
+                    artistId={artistObj.artistid}
+                  />
+              ))}
             </div>
             <ul className="btn-groups">
               <li>
