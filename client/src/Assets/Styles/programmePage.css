@@ -50,14 +50,14 @@
 .pass-time{
     margin: 0;
     display: inline-block;
-    width: 2rem;
+    width: 5rem;
     font: 1.5rem Poppins, Arial, Helvetica, sans-serif;
 }
 
 .pass-right-timetable{
     display: inline-block;
     vertical-align: top;
-    margin: 0 0 0 15rem;
+    margin: 0 0 0 5rem;
 }
 
 .pass-right-timetable p {
@@ -97,7 +97,7 @@
     @media screen and (min-width: 768px) {
 
         .pass-time{
-            width: 5rem;
+            width: 10rem;
             font-size: 2rem;
         }
 

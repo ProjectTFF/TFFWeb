@@ -23,7 +23,7 @@ export const ProgramPictureMap = [
     {
         programNameEN: 'Recital: Young Talent -Fabian Egger',
         programNameFI: 'Resitaali: Young Talent -Fabian Egger',
-        programImage: require('../Assets/Images/Programs/recitalyoungtalent_egger.png'),
+        programImage: require('../Assets/Images/Artists/fabian_egger.png'),
     },
     {
         programNameEN: 'Recital: An American in Paris - Beatriz Macías and Alexis Roman',
