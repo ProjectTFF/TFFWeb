@@ -1,7 +1,7 @@
 
 let xhr_uploadSound = new XMLHttpRequest();
 
-const ERROR_MESSAGE_END = "You can try to send again with the 'TRY AGAIN', or return to drawing with 'BACK TO DRAWING'."
+const ERROR_MESSAGE_END = "You can try to send the sound file again with the 'TRY AGAIN', or return to drawing with 'BACK TO DRAWING'."
 
 xhr_uploadSound.onload = function () {
     closeRecaptchaDialog();
@@ -49,12 +49,12 @@ function openFailureDialog(message) {
 }
 
 function onRecaptchaError() {
-    const message = "Something went wrong with reCAPTCHA. " + ERROR_MESSAGE_END;
+    const message = "Something went wrong with reCAPTCHA. ";
     openFailureDialog(message);
 }
 
 function onRecaptchaResponseExpiry() {
-    const message = "ReCAPTCHA checkbox was open too long. " + ERROR_MESSAGE_END;
+    const message = "ReCAPTCHA checkbox was open too long. ";
     openFailureDialog(message);
 }
 
