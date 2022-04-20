@@ -151,13 +151,17 @@ function Programme(props) {
 
   useEffect(() => {
     if (anchor) {
-      const element = document.getElementById(ProgramPictureMap[programSlug].programNameEN);
-      element.scrollIntoView();
-      if (window.innerWidth >= 1024) {
-        window.scrollBy(0, -70);
-      } else {
-        window.scrollBy(0, -5);
-      }
+      setTimeout(() => {
+        const element = document.getElementById(ProgramPictureMap[programSlug].programNameEN);
+        if (element) {
+          element.scrollIntoView();
+          if (window.innerWidth >= 1024) {
+            window.scrollBy(0, -70);
+          } else {
+            window.scrollBy(0, -5);
+          }
+        }
+      }, 1000);
     } else {
       window.scrollTo(0, 0);
     }

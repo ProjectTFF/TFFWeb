@@ -35,7 +35,10 @@ function App() {
               <Route path="/" element={<Home language={language} handleSetLanguage={(l) => { setLanguage(l); }} />} />
               {/* <Route path="/contest" element={<Contest />} /> */}
               {/* <Route path="/contribute" element={<Contribute />} /> */}
-              <Route path="/programme" element={<Programme language={language} handleSetLanguage={(l) => { setLanguage(l); }} />} />
+              <Route path="/programme">
+                <Route path="" element={<Programme language={language} handleSetLanguage={(l) => { setLanguage(l); }} />} />
+                <Route path=":programSlug" element={<Programme language={language} handleSetLanguage={(l) => { setLanguage(l); }} anchor />} />
+              </Route>
               <Route path="/tickets_and_streaming" element={<Tickets language={language} handleSetLanguage={(l) => { setLanguage(l); }} />} />
               <Route path="/venue" element={<Venue language={language} />} handleSetLanguage={(l) => { setLanguage(l); }} />
               <Route path="/artistCompetitionFinalist" element={<ArtistCompetitionFinalist language={language} handleSetLanguage={(l) => { setLanguage(l); }} />} />

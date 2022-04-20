@@ -21,17 +21,19 @@ function ArtistPage(props) {
 
   const { pathname } = useLocation();
   useEffect(() => {
-    const element = document.getElementById('src');
-    if (element) {
-      element.scrollIntoView();
-      if (window.innerWidth >= 1024) {
-        window.scrollBy(0, -70);
+    setTimeout(() => {
+      const element = document.getElementById('src');
+      if (element) {
+        element.scrollIntoView();
+        if (window.innerWidth >= 1024) {
+          window.scrollBy(0, -70);
+        } else {
+          window.scrollBy(0, -5);
+        }
       } else {
-        window.scrollBy(0, -5);
+        window.scrollTo(0, 0);
       }
-    } else {
-      window.scrollTo(0, 0);
-    }
+    }, 1000);
   }, [pathname]);
 
   const { artistSlug } = useParams();
@@ -109,7 +111,7 @@ function ArtistPage(props) {
               &#8592;
               {content.exit}
             </NavLink>
-            <div className="maininfos">
+            <div id="src" className="maininfos">
               <div className="box">
                 <img src={ArtistPictureMap[id - 1].programImage} alt={` ${artist.firstname} ${artist.lastname}`} />
               </div>
