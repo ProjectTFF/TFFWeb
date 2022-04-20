@@ -10,7 +10,7 @@ function ProgramCollection(props) {
 
    return (
      <div className="program-info-col">
-       <Link className="program-info-block" to={`/programme#${ProgramPictureMap[programId].programNameEN}`}>
+       <Link className="program-info-block" to={`/programme/${programId}`}>
          <div className="img-wrap">
            <img src={ProgramPictureMap[programId].programImage} alt="s" />
          </div>

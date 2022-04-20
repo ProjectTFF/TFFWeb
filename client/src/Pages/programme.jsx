@@ -1,16 +1,19 @@
 import React, { useEffect } from 'react';
+import { useParams } from 'react-router';
 import { Link, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import '../Assets/Styles/programmePage.css';
 import Banner from '../Components/banner';
 import SecondaryButton from '../Components/secondaryButton';
+import { ProgramPictureMap } from '../Helpers/ProgramPictureMap';
 
 function Programme(props) {
   const {
-    language, handleSetLanguage,
+    language, handleSetLanguage, anchor,
    } = props;
 
-  const { pathname, hash, key } = useLocation();
+  const { pathname } = useLocation();
+  const { programSlug } = useParams();
 
   /**
    * Get information from backend (All programmes)
@@ -147,18 +150,22 @@ function Programme(props) {
   }
 
   useEffect(() => {
-    if (hash === '') {
-      window.scrollTo(0, 0);
-    } else {
+    if (anchor) {
       setTimeout(() => {
-        const id = hash.replace('#', '');
-        const element = document.getElementById(id);
+        const element = document.getElementById(ProgramPictureMap[programSlug].programNameEN);
         if (element) {
           element.scrollIntoView();
+          if (window.innerWidth >= 1024) {
+            window.scrollBy(0, -70);
+          } else {
+            window.scrollBy(0, -5);
+          }
         }
-      }, 0);
+      }, 1000);
+    } else {
+      window.scrollTo(0, 0);
     }
-  }, [pathname, hash, key]);
+  }, [pathname]);
 
   // Content of the page by language
   let content = {
