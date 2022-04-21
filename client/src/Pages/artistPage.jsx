@@ -33,7 +33,7 @@ function ArtistPage(props) {
       } else {
         window.scrollTo(0, 0);
       }
-    }, 1000);
+    }, 100);
   }, [pathname]);
 
   const { artistSlug } = useParams();

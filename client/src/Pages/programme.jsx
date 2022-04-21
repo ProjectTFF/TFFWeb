@@ -161,7 +161,7 @@ function Programme(props) {
             window.scrollBy(0, -5);
           }
         }
-      }, 1000);
+      }, 300);
     } else {
       window.scrollTo(0, 0);
     }
