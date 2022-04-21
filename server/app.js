@@ -13,6 +13,8 @@ var artistRouter = require('./routes/artist');
 var programmeRouter = require('./routes/programme');
 var soundbowRouter = require('./routes/soundbow');
 
+var visitorController = require('./controllers/visitorController');
+
 var app = express();
 
 app.use(bodyParser.json({ type: 'application/*+json', limit: '100kb' }));
@@ -23,13 +25,18 @@ app.use(function(req, res, next) {
   if (cookie == undefined) {
       // no: Set a new cookie
       res.cookie('hasSentSound', false, {maxAge: 24 * 60 * 60 * 1000});
-      console.log('Cookie created for new client. ');
   }
-  else {
-      console.log('cookie is: ' + req.cookies.hasSentSound);
-  }
+  // else {
+  //     console.log('cookie is: ' + req.cookies.hasSentSound);
+  // }
   next();
 });
+
+// Log request on database
+app.use(function(req, res, next) {
+  visitorController.log_visit();
+  next();
+})
 
 app.use(cors());
 app.use(fileupload());

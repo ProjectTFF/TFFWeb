@@ -86,6 +86,11 @@ CREATE TABLE IF NOT EXISTS programme (
     FOREIGN KEY (performanceid) REFERENCES performance
 );
 
+CREATE TABLE IF NOT EXISTS visitorlog (
+    visitorid SERIAL,
+    createdAt TIMESTAMP NOT NULL,
+    PRIMARY KEY (visitorid)
+);
 --artists data
 
 INSERT INTO ARTIST (artistid, firstname, lastname, biography_eng, biography_fin) 

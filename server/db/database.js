@@ -266,6 +266,19 @@ const Performsin = sequelize.define('performsin', {
 freezeTableName: true,}
 );
 
+const VisitorLog = sequelize.define('visitorlog', {
+    visitorid: {
+        type: Sequelize.INTEGER,
+        autoIncrement: true,
+        primaryKey: true
+    }
+},
+    {timestamps: true,
+    createdAt: true,
+    updatedAt: false,
+    freezeTableName: true,}
+);
+
 // Here we export the Artist model definition for use outside this file.
 module.exports = {
     sequelize: sequelize,
@@ -276,5 +289,6 @@ module.exports = {
     Venue: Venue,
     Concert: Concert,
     Programme: Programme,
-    Performsin: Performsin
+    Performsin: Performsin,
+    VisitorLog: VisitorLog
 };
