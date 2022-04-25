@@ -192,7 +192,7 @@ for (let i = 0; i < wireArray.length; i++){
    wireValue[i] = wireContainer
 }
 
-confirmSend({savedWireArr: wireValue, savedWallArr: wallValue, savedXArr: savedXArray, savBar: savedBar});
+confirmSend({savedWireArr: wireValue, savedWallArr: wallValue, savedXArr: savedXArray, savBar: savedBar, scale: parseInt(scaling)});
 getDrawing = false;
 	}
 	
